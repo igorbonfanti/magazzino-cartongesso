@@ -1,0 +1,67 @@
+{
+  "_fonte": "Incidenze dell'Excel storico come riportate nelle istruzioni (CLAUDE.md, par. 4.1), calcolate a mano: [quantita nella um, pezzi = ROUNDUP(quantita / confezione)]. DA SOSTITUIRE con i valori letti dal file Excel originale appena disponibile. Il caso reale viene da un preventivo vero.",
+  "excel_100mq": {
+    "_condizioni": { "mq": 100, "sfrido": 0, "interasse": 60, "modalita": "classica", "prestazione": "standard", "isolante": true },
+    "parete_singola": {
+      "LASTRA": [200, 84], "GUIDA": [67, 23], "MONTANTE": [200, 67], "ISOLANTE": [100, 139],
+      "TASSELLI": [170, 2], "VITI_25": [2500, 3], "VELOVETRO": [300, 4], "STUCCO": [70, 7]
+    },
+    "parete_doppia": {
+      "LASTRA": [400, 167], "GUIDA": [67, 23], "MONTANTE": [200, 67], "ISOLANTE": [100, 139],
+      "TASSELLI": [170, 2], "VITI_25": [4500, 5], "VELOVETRO": [300, 4], "STUCCO": [100, 10]
+    },
+    "parete_dorso": {
+      "LASTRA": [400, 167], "GUIDA": [67, 23], "MONTANTE": [400, 134], "ISOLANTE": [100, 139],
+      "TASSELLI": [170, 2], "VITI_25": [4500, 5], "VELOVETRO": [300, 4], "STUCCO": [100, 10]
+    },
+    "controparete_singola": {
+      "LASTRA": [100, 42], "GUIDA": [67, 23], "MONTANTE": [200, 67], "ISOLANTE": [100, 139],
+      "TASSELLI": [170, 2], "VITI_25": [1300, 2], "VELOVETRO": [150, 2], "STUCCO": [50, 5]
+    },
+    "controparete_doppia": {
+      "LASTRA": [200, 84], "GUIDA": [67, 23], "MONTANTE": [200, 67], "ISOLANTE": [100, 139],
+      "TASSELLI": [170, 2], "VITI_25": [2000, 2], "VELOVETRO": [150, 2], "STUCCO": [50, 5]
+    },
+    "controparete_cavaliere": {
+      "LASTRA": [100, 42], "GUIDA": [67, 23], "MONTANTE": [200, 67], "ISOLANTE": [100, 139],
+      "TASSELLI": [170, 2], "VITI_25": [1300, 2], "VELOVETRO": [150, 2], "STUCCO": [50, 5],
+      "CAVALIERE": [400, 400]
+    },
+    "controsoffitto_sospeso": {
+      "LASTRA": [100, 42], "GUIDA": [40, 14], "MONTANTE": [300, 100], "ISOLANTE": [100, 139],
+      "TASSELLI_FARFALLA": [84, 84], "PENDINI": [84, 42], "VITI_25": [1500, 2], "VELOVETRO": [120, 2],
+      "STUCCO": [40, 4], "GANCIO_ORTOGONALE": [140, 140], "GANCIO_MOLLA": [84, 84]
+    },
+    "controsoffitto_portaf": {
+      "LASTRA": [100, 42], "GUIDA": [40, 14], "MONTANTE": [210, 70], "PORTA_F": [90, 30], "ISOLANTE": [100, 139],
+      "TASSELLI_FARFALLA": [84, 84], "PENDINI": [84, 42], "VITI_25": [1500, 2], "VELOVETRO": [120, 2],
+      "STUCCO": [40, 4], "GANCIO_MOLLA": [84, 84]
+    },
+    "controsoffitto_aderenza": {
+      "LASTRA": [100, 42], "GUIDA": [40, 14], "MONTANTE": [200, 67], "ISOLANTE": [100, 139],
+      "TASSELLI": [200, 2], "VITI_25": [1500, 2], "VELOVETRO": [120, 2], "STUCCO": [40, 4],
+      "CAVALIERE": [200, 200]
+    }
+  },
+  "caso_reale": {
+    "_descrizione": "Controparete singola 75, campiture 30 x 2,50 + 30 x 4,32, interasse 60, sfrido lastre 10%",
+    "scelte": {
+      "sistemaId": "controparete_singola",
+      "prestazione": "standard",
+      "interasse": 60,
+      "profilo": 75,
+      "isolante": true,
+      "sfrido": { "lastre": 10, "isolante": 0 },
+      "modalita": "classica",
+      "campiture": [
+        { "modo": "LxH", "l": 30, "h": 2.5 },
+        { "modo": "LxH", "l": 30, "h": 4.32 }
+      ]
+    },
+    "mq_netti": 204.6,
+    "pezzi": {
+      "LASTRA": 95, "MONTANTE": 137, "GUIDA": 40, "ISOLANTE": 285,
+      "TASSELLI": 4, "VITI_25": 3, "VELOVETRO": 4, "STUCCO": 11
+    }
+  }
+}

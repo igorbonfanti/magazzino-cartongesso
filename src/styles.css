@@ -1,0 +1,270 @@
+/* Colori, misure, carattere e componenti arrivano da tema.css e base.css,
+   condivisi con le altre app del magazzino e importati in main.tsx prima di
+   questo file. Qui resta solo la disposizione propria di questa app: niente
+   :root, niente .btn (vedi DESIGN_SYSTEM.md). */
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  padding: 16px;
+}
+
+.nota {
+  margin: 10px 0 0;
+  color: var(--text2);
+  font-size: var(--fs-sm);
+}
+
+/* --- WIZARD ------------------------------------------------------------- */
+
+.wizard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wizard-testa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wizard-testa h2 {
+  margin: 0;
+  font-size: var(--fs-xl);
+}
+
+.passo-titolo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  font-size: var(--fs-lg);
+}
+.passo-numero {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--surface3);
+  color: var(--text2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+/* Le scelte grandi dei passi 1-3: bottoni-scheda da toccare col dito. */
+.scelte {
+  display: grid;
+  gap: 10px;
+}
+.scelte-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.scelte-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 768px) {
+  .scelte-3, .scelte-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .scelte-3, .scelte-4 { grid-template-columns: 1fr; }
+}
+
+.scelta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 64px;
+  padding: 14px 16px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.scelta:hover { border-color: var(--accent-border); background: var(--surface2); }
+.scelta span { color: var(--text2); font-size: var(--fs-sm); }
+.scelta-attiva,
+.scelta-attiva:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+/* Interruttori a bottoni affiancati: la voce accesa e' velata d'ambra,
+   non primaria (il primario e' uno solo per schermata). */
+.interruttore {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.interruttore .btn.attivo,
+.interruttore .btn.attivo:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.opzioni {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px 24px;
+}
+.opzione { display: flex; flex-direction: column; }
+.opzione-spunta {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  cursor: pointer;
+}
+.opzione-spunta input { width: 18px; height: 18px; accent-color: var(--accent); }
+.opzione-spunta em { color: var(--text2); font-style: normal; font-size: var(--fs-sm); }
+
+.campo-corto { width: 88px !important; }
+.campo-sbagliato,
+.campo-sbagliato:focus { border-color: var(--red) !important; box-shadow: 0 0 0 3px var(--red-bg) !important; }
+
+/* --- MISURE ------------------------------------------------------------- */
+
+.misure { display: flex; flex-direction: column; gap: 12px; }
+
+.campitura {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.campitura-testa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.campitura-togli { margin-left: auto; }
+
+.campitura-misure,
+.apertura {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+.campo-numero { display: flex; flex-direction: column; }
+.campo-numero .ag-campo { width: 120px; }
+.per,
+.apertura-segno {
+  padding-bottom: 10px;
+  color: var(--text3);
+  font-weight: 700;
+}
+.apertura-segno { color: var(--red); }
+.campitura-mq {
+  padding-bottom: 10px;
+  color: var(--text2);
+}
+
+.misure-piede {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.totali-mq {
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+.totali-mq div { text-align: right; }
+.totali-mq dt {
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.totali-mq dd { margin: 2px 0 0; font-size: var(--fs-base); }
+.totali-mq-netti dd { font-size: var(--fs-lg); font-weight: 700; }
+
+/* --- DISTINTA ----------------------------------------------------------- */
+
+.avvisi {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+.avviso {
+  padding: 9px 12px;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+}
+/* "altezza…", "lunghezza…": maiuscola anche quando davanti non c'e' la campitura */
+.avviso::first-letter { text-transform: uppercase; }
+.avviso-attenzione { background: var(--orange-bg); border-color: var(--orange-border); color: var(--orange); }
+.avviso-info       { background: var(--blue-bg);   border-color: var(--blue-border);   color: var(--blue); }
+.avviso-dicitura   { background: var(--surface2);  border-color: var(--border);        color: var(--text); }
+
+.tabella-distinta td { vertical-align: top; }
+.tabella-distinta td.r { white-space: nowrap; }
+.tabella-distinta tr.da-mappare td { background: var(--orange-bg); }
+.articolo-nome { font-weight: 600; }
+.articolo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: inherit;
+  gap: 6px;
+  margin-top: 3px;
+  color: var(--text3);
+  font-size: var(--fs-micro);
+}
+td.r .articolo-meta { justify-content: flex-end; }
+.da-ordinare { font-size: var(--fs-base); font-weight: 700; white-space: nowrap; }
+.um-conf { font-family: var(--font-ui); font-weight: 500; color: var(--text2); font-size: var(--fs-sm); }
+
+.solo-telefono { display: none; }
+@media (max-width: 560px) {
+  .nascondi-telefono { display: none; }
+  .solo-telefono { display: inline; }
+  /* ogni pixel serve a tenere "Da ordinare" dentro lo schermo */
+  main { padding: 10px; }
+  .passo { padding: 12px; }
+  .tabella-distinta th,
+  .tabella-distinta td { padding-left: 8px; padding-right: 8px; }
+  .tabella-distinta .ag-mono { word-break: break-all; }
+}
+
+/* --- COME SI CALCOLA ---------------------------------------------------- */
+
+.testo h2 { margin-top: 0; font-size: var(--fs-xl); }
+.testo h3 { margin: 26px 0 10px; font-size: var(--fs-lg); }
+.formule {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+.incidenze { margin-bottom: 12px; }
+.incidenze h4 { margin: 0 0 10px; font-size: var(--fs-base); }
+.incidenze .ag-pastiglia { margin-left: 6px; }
