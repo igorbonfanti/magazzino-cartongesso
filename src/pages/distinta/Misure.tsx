@@ -1,6 +1,5 @@
 import { aperturaVuota, campituraVuota, leggiNumero } from '../../lib/bozza';
 import type { AperturaBozza, CampituraBozza } from '../../lib/bozza';
-import type { Distinta } from '../../engine';
 import { formattaDecimale } from '../../money';
 
 /** Campiture sommabili: mq diretti oppure L×H, con le aperture da detrarre. */
@@ -11,7 +10,8 @@ export default function Misure({
 }: {
   campiture: CampituraBozza[];
   cambia: (c: CampituraBozza[]) => void;
-  distinta: Distinta | null;
+  /** i totali della distinta calcolata, se c'è */
+  distinta: { mqLordi: number; mqAperture: number; mqNetti: number } | null;
 }) {
   const aggiornaCampitura = (id: string, modifiche: Partial<CampituraBozza>) =>
     cambia(campiture.map((c) => (c.id === id ? { ...c, ...modifiche } : c)));

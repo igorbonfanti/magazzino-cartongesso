@@ -5,7 +5,10 @@ import {
   campituraPerMotore,
   campituraVuota,
   conAmbito,
+  conOpera,
+  leggiBozza,
   leggiNumero,
+  requisitiPerSelettore,
   sceltePerMotore,
 } from '../src/lib/bozza';
 import { calcolaDistinta } from '../src/engine';
@@ -83,5 +86,38 @@ describe('dalla bozza al motore', () => {
     expect(bozzaValida({ ...bozzaVuota(), sistemaId: 'inesistente' })).toBe(false);
     expect(bozzaValida(null)).toBe(false);
     expect(bozzaValida({ campiture: 'x' })).toBe(false);
+  });
+});
+
+describe('bozza con il selettore Siniat', () => {
+  it('cambiando opera si riparte dalla soluzione, i requisiti restano', () => {
+    const b = { ...conOpera(bozzaVuota(), 'parete'), soluzione: { tipo: 'sistema' as const, id: 'memento-p26-DX' } };
+    const conFuoco = { ...b, requisiti: { ...b.requisiti, fuoco: 60 } };
+    const soffitto = conOpera(conFuoco, 'controsoffitto');
+    expect(soffitto.soluzione).toBeNull();
+    expect(soffitto.ambito).toBe('controsoffitto');
+    expect(soffitto.requisiti.fuoco).toBe(60);
+    // il solaio non ha il calcolo classico
+    expect(conOpera(conFuoco, 'solaio').ambito).toBeNull();
+  });
+
+  it("l'altezza conta solo per le opere verticali", () => {
+    const b = { ...conOpera(bozzaVuota(), 'parete'), requisiti: { ...bozzaVuota().requisiti, altezza: '4,5' } };
+    expect(requisitiPerSelettore(b)!.altezza).toBe(4.5);
+    expect(requisitiPerSelettore(conOpera(b, 'controsoffitto'))!.altezza).toBe(0);
+    expect(requisitiPerSelettore(bozzaVuota())).toBeNull();
+  });
+
+  it('una bozza della versione precedente riparte dal calcolo classico', () => {
+    const { opera: _o, requisiti: _r, soluzione: _s, ...vecchia } = {
+      ...conAmbito(bozzaVuota(), 'controparete'),
+      sistemaId: 'controparete_singola' as const,
+    };
+    const b = leggiBozza(vecchia)!;
+    expect(b.opera).toBe('controparete');
+    expect(b.soluzione).toEqual({ tipo: 'classico' });
+    expect(b.requisiti.fuoco).toBe(0);
+    expect(leggiBozza({ ...bozzaVuota(), soluzione: { tipo: 'boh' } })).toBeNull();
+    expect(leggiBozza({ ...bozzaVuota(), opera: 'tetto' })).toBeNull();
   });
 });

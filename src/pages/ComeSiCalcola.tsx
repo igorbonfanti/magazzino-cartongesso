@@ -42,6 +42,28 @@ montanti = (L / interasse, per difetto) + 1 per campitura:
         dei montanti sono estrapolati (60/40) e vanno confermati.
       </p>
 
+      <h3>Soluzioni Siniat</h3>
+      <pre className="formule ag-mono">
+        {`lastre, isolante = incidenza Memento / 1,05 × mq netti     (il 5% di sfrido Siniat è già dentro)
+                   poi il vostro sfrido, pezzi come sopra
+altre voci       = incidenza Memento × mq netti            (il 5% resta)
+guide, montanti  = come sopra, con le misure L×H
+tasselli guide   = uno ogni 50 cm di guida                 (manuale del posatore)
+controsoffitti   = guide perimetrali e banda sul perimetro delle campiture`}
+      </pre>
+      <p className="nota">
+        Le incidenze sono quelle della scheda Memento per l'orditura scelta: la più economica che regge l'altezza,
+        oppure quella scelta nella scheda della soluzione. Per le configurazioni certificate senza una scheda con le
+        stesse lastre valgono le regole con cui il Memento costruisce le tabelle (lastre 1,05 m² per strato, guide
+        0,7 m per fila, montanti per interasse, viti per strato, stucco 0,35 kg e nastro 0,9 m per faccia): in distinta
+        sono marcate «stimata».
+      </p>
+      <p className="nota">
+        Classi al fuoco e Rw sono quelli dichiarati da Siniat nei rapporti di classificazione e nel Memento: l'app li
+        riporta con il riferimento, non li certifica. Per il fuoco vale la configurazione della guida antincendio 2026;
+        sul preventivo va la dicitura di rinvio al certificato del produttore.
+      </p>
+
       {(Object.keys(SISTEMI_PER_AMBITO) as Ambito[]).map((ambito) => (
         <section key={ambito}>
           <h3>{NOMI_AMBITI[ambito]}</h3>

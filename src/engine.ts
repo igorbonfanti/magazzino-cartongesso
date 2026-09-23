@@ -37,7 +37,7 @@ export function round6(x: number): number {
 }
 
 /** ceil senza sorprese: 0,7 × 100 / 10 fa 7,000000000000001 e non deve diventare 8. */
-function arrotondaSu(x: number): number {
+export function arrotondaSu(x: number): number {
   return Math.ceil(round6(x));
 }
 
@@ -47,7 +47,8 @@ function cm(m: number): number {
 }
 
 export interface RigaDistinta {
-  ruolo: Ruolo;
+  /** ruolo nel flusso generico (LASTRA, GUIDA…), categoria nel flusso Siniat */
+  ruolo: Ruolo | string;
   /** chiave dell'articolo generico per cgp_mapping (LASTRA_BA13_STD, GUIDA_75…) */
   chiave: string;
   descrizione: string;
@@ -64,12 +65,18 @@ export interface RigaDistinta {
   sfridoPct: number;
   /** da dove viene il numero di pezzi */
   metodo: 'incidenza' | 'geometrico';
+  /** da dove vengono le incidenze */
+  fonte?: 'excel' | 'fassa' | 'memento' | 'regola';
+  /** avvertenza sulla riga (es. passo dei tasselli) */
+  nota?: string;
   daVerificare?: string;
 }
 
 export interface Avviso {
   livello: 'info' | 'attenzione';
-  codice: 'ALTEZZA_75_I60' | 'GIUNTO_DILATAZIONE' | 'LANA_OBBLIGATORIA' | 'PROFILO_NON_AMMESSO' | 'MQ_NULLI';
+  codice:
+    | 'ALTEZZA_75_I60' | 'GIUNTO_DILATAZIONE' | 'LANA_OBBLIGATORIA' | 'PROFILO_NON_AMMESSO' | 'MQ_NULLI'
+    | 'ALTEZZA_OLTRE_HMAX' | 'STATICA_DA_VERIFICARE' | 'INCIDENZE_STIMATE' | 'VOCE_DA_CALCOLARE' | 'LASTRA_SOSTITUITA';
   testo: string;
 }
 
@@ -96,14 +103,14 @@ function incidenzaVoce(voce: Voce, modalita: Modalita, interasse: Interasse): nu
 }
 
 /** Una campitura in interi: superfici in cm², lati in cm. */
-interface Misura {
+export interface Misura {
   lorda: number;
   aperture: number;
   l?: number;
   h?: number;
 }
 
-function misura(c: Campitura): Misura {
+export function misura(c: Campitura): Misura {
   const aperture = (c.aperture ?? []).reduce((acc, a) => acc + cm(a.l) * cm(a.h) * (a.n ?? 1), 0);
   if (c.modo === 'mq') return { lorda: Math.round(c.mq * 10000), aperture };
   const l = cm(c.l);
@@ -111,7 +118,7 @@ function misura(c: Campitura): Misura {
   return { lorda: l * h, aperture, l, h };
 }
 
-function netta(m: Misura): number {
+export function netta(m: Misura): number {
   return m.lorda - Math.min(m.aperture, m.lorda);
 }
 
@@ -229,6 +236,7 @@ export function calcolaDistinta(scelte: Scelte): Distinta {
         pezzi,
         sfridoPct,
         metodo,
+        fonte: scelte.modalita === 'manuale' ? 'fassa' : 'excel',
         ...(art.daVerificare ? { daVerificare: art.daVerificare } : {}),
       });
     }
@@ -263,7 +271,7 @@ export function pezziConSfrido(qtaNetta: number, contenuto: number, sfridoPct: n
  * Guide: 2 × L (sopra e sotto) per ogni fila di orditura, in barre da 3 m.
  * Le campiture date a mq contribuiscono con l'incidenza. null se nessuna e' a L×H.
  */
-function guideGeometriche(misure: Misura[], inc: number, file: number): { ml: number; barre: number } | null {
+export function guideGeometriche(misure: Misura[], inc: number, file: number): { ml: number; barre: number } | null {
   if (!misure.some((m) => m.l !== undefined)) return null;
   let mlCm = 0;
   for (const m of misure) {
@@ -278,10 +286,12 @@ function guideGeometriche(misure: Misura[], inc: number, file: number): { ml: nu
  * h ≤ 3 m: una barra intera per montante. h > 3 m: ml = n × h arrotondati a
  * barre, perche' lo spezzone di giunzione si recupera dalle altre barre.
  */
-function montantiGeometrici(
+export function montantiGeometrici(
   misure: Misura[],
   inc: number,
-  interasse: Interasse,
+  /** interasse in cm (60, 40, 30) */
+  interasse: number,
+  /** montanti per posizione: file di orditura, x2 se accoppiati */
   file: number,
 ): { ml: number; barre: number } | null {
   if (!misure.some((m) => m.l !== undefined)) return null;
@@ -304,7 +314,7 @@ function descrizioneRiga(ruolo: Ruolo, ambito: Ambito, prestazione: Prestazione,
 }
 
 /** 432 cm → "4,32" */
-function metri(centimetri: number): string {
+export function metri(centimetri: number): string {
   const dec = String(centimetri % 100).padStart(2, '0').replace(/0+$/, '');
   return dec ? `${Math.floor(centimetri / 100)},${dec}` : String(centimetri / 100);
 }

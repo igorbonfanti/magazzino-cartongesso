@@ -31,11 +31,16 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
 |---|---|
 | `src/types.ts` | tipi di dominio (scelte del wizard, sistemi, voci) |
 | `src/data/sistemi.ts` | incidenze, classica + manuale Fassa, con la fonte |
-| `src/engine.ts` | motore puro: scelte + misure → distinta |
+| `src/engine.ts` | motore puro: scelte + misure → distinta (calcolo classico, Excel/Fassa) |
+| `src/selettore.ts` | selettore puro: requisiti → soluzioni Siniat compatibili, orditure possibili |
+| `src/engine-siniat.ts` | motore puro: soluzione Siniat + misure → distinta (tabelle Memento o regole) |
+| `src/data/siniat/catalogo.json` | GENERATO da `docs/studio-siniat/script/catalogo_app.py`: non si tocca a mano |
+| `src/data/siniat/articoli.ts` | voci Siniat → chiavi degli articoli per `cgp_mapping`, confezioni |
+| `src/lib/bozza.ts` | la bozza del wizard e la migrazione di quelle salvate |
 | `src/money.ts` | centesimi interi; prime funzioni identiche a scorte, poi la catena dei prezzi |
 | `src/lib/firebase.ts` | progetto condiviso `magazzino-edile-pos`, `COLL` con i nomi `cgp_*` |
 | `tema.css`, `base.css` | condivisi, identici agli altri repository: non si modificano qui |
-| `tests/` | `distinte_attese.json` congelato + test di motore e importi |
+| `tests/` | `distinte_attese.json` congelato + test di motore e importi; catalogo, selettore e motore Siniat |
 
 ## Decisioni prese (23/09/2026)
 
@@ -54,10 +59,33 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
 In `docs/studio-siniat/`: catalogo estratto dai manuali Siniat (guida antincendio
 luglio 2026, Memento 2024, manuale del posatore), con 96 configurazioni
 certificate al fuoco (rapporti e link), 53 schede sistema con varianti e
-incidenze, tabelle acciaio. Proposta: il **selettore di soluzioni** diventa il
-primo passo del wizard (non un'app separata), e la soluzione scelta alimenta
-distinta e preventivo con relazione tecnica. In attesa di decisione dell'utente.
-Per il fuoco fa fede la guida 2026; i dati si correggono negli script, non nei JSON.
+incidenze, tabelle acciaio. Deciso il **flusso integrato**: il selettore è
+l'inizio del wizard, non un'app separata. Per il fuoco fa fede la guida 2026; i
+dati si correggono negli script (refusi del Memento in `CORREZIONI_VOCI`), non
+nei JSON, e si rigenera con `python catalogo_app.py`.
+
+Il wizard: 1 cosa realizzi → 2 requisiti (fuoco, Rw, altezza, ambiente, urti,
+carichi, antieffrazione) → 3 soluzione (configurazioni certificate della guida,
+schede Memento, oppure il calcolo classico per parete/controparete/controsoffitto)
+→ 4 scheda della soluzione (stratigrafia, classi con i link ai rapporti, orditura
+scelta fra quelle che reggono l'altezza) → 5 misure → 6 distinta.
+
+Regole del selettore da non perdere:
+- altezza utile = minore fra Hmax al fuoco e Hmax statica; "Hmax > 4 m" (hmaxOltre)
+  non limita;
+- la configurazione certificata è la **minima**: montanti più grandi, accoppiati o
+  interassi più fitti sono ammessi e si dicono all'operatore;
+- le classi al fuoco del Memento rimandano sempre alla configurazione della guida;
+- ambiente umido = lastre di tipo H a vista (pregydro, ladura, solidtex, aquaboard);
+  nelle schede con lastre standard vale la nota della scheda (pregydro H2 al posto
+  delle pregyplac BA13), con avviso e sostituzione in distinta;
+- l'app riporta classi e Rw dichiarati da Siniat con il riferimento, non li certifica.
+
+Distinta Siniat: incidenze Memento per m² (sfrido Siniat 5% già dentro; su lastre
+e isolante si toglie e si mette il nostro), guide e montanti corretti con la
+geometria come nel classico, tasselli uno ogni 50 cm di guida (posatore). Per le
+certificate senza scheda con le stesse lastre: `incidenzeDaRegola`, verificata
+contro tutte le tabelle di pareti e setti (eccezioni documentate nel test).
 
 Le chiavi di `localStorage` vanno prefissate `cartongesso.`: tutte le app
 stanno su `igorbonfanti.github.io` e condividono la stessa origine. Unica

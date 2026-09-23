@@ -1,27 +1,35 @@
 import { useEffect, useMemo, useState } from 'react';
-import { PRESTAZIONI, PROFILI_PER_AMBITO, SISTEMI, SISTEMI_PER_AMBITO } from '../data/sistemi';
 import { calcolaDistinta } from '../engine';
-import { bozzaValida, bozzaVuota, conAmbito, sceltePerMotore } from '../lib/bozza';
-import type { Bozza } from '../lib/bozza';
-import type { Ambito, Interasse, Modalita, Prestazione, Profilo } from '../types';
+import { calcolaDistintaSiniat } from '../engine-siniat';
+import {
+  ambitoClassico,
+  bozzaVuota,
+  campiturePerMotore,
+  conOpera,
+  leggiBozza,
+  requisitiPerSelettore,
+  sceltePerMotore,
+  sfridoPerMotore,
+} from '../lib/bozza';
+import type { Bozza, RequisitiBozza, SoluzioneBozza } from '../lib/bozza';
+import { conOrditura, OPERE, operaInfo, orditurePossibili, selezionaSoluzioni } from '../selettore';
+import type { Candidato } from '../selettore';
+import type { SoluzioneScelta } from '../types';
+import Classico from './distinta/Classico';
+import { CampiSfrido, Passo } from './distinta/comuni';
 import Misure from './distinta/Misure';
+import Requisiti from './distinta/Requisiti';
+import SchedaSoluzione from './distinta/SchedaSoluzione';
+import Soluzioni from './distinta/Soluzioni';
 import TabellaDistinta from './distinta/TabellaDistinta';
 
 const CHIAVE_BOZZA = 'cartongesso.bozza';
 
-const AMBITI: { id: Ambito; nome: string; nota: string }[] = [
-  { id: 'parete', nome: 'Parete', nota: 'divisoria, lastre sui due lati' },
-  { id: 'controparete', nome: 'Controparete', nota: 'contro un muro esistente' },
-  { id: 'controsoffitto', nome: 'Controsoffitto', nota: 'sospeso, Porta F, in aderenza' },
-];
-
-const PRESTAZIONI_ORDINE: Prestazione[] = ['standard', 'antincendio', 'idro', 'acustica'];
-
 /** Rilegge la bozza lasciata a meta': al banco capita di essere interrotti. */
 function bozzaIniziale(): Bozza {
   try {
-    const salvata = JSON.parse(localStorage.getItem(CHIAVE_BOZZA) ?? 'null');
-    if (bozzaValida(salvata)) return salvata;
+    const salvata = leggiBozza(JSON.parse(localStorage.getItem(CHIAVE_BOZZA) ?? 'null'));
+    if (salvata) return salvata;
   } catch {
     /* bozza illeggibile: si riparte da capo */
   }
@@ -39,11 +47,56 @@ export default function Distinta() {
     }
   }, [bozza]);
 
-  const scelte = useMemo(() => sceltePerMotore(bozza), [bozza]);
-  const distinta = useMemo(() => (scelte ? calcolaDistinta(scelte) : null), [scelte]);
-
   const aggiorna = (modifiche: Partial<Bozza>) => setBozza((b) => ({ ...b, ...modifiche }));
-  const acustica = PRESTAZIONI[bozza.prestazione].lanaObbligatoria;
+  const aggiornaRequisiti = (r: Partial<RequisitiBozza>) => setBozza((b) => ({ ...b, requisiti: { ...b.requisiti, ...r } }));
+
+  // il selettore gira solo quando cambiano opera o requisiti, non a ogni misura digitata
+  const req = requisitiPerSelettore(bozza);
+  const chiaveReq = JSON.stringify(req);
+  const soluzioni = useMemo(() => (req ? selezionaSoluzioni(req) : null), [chiaveReq]);
+
+  const sol = bozza.soluzione;
+  const candidato: Candidato | null =
+    sol && sol.tipo !== 'classico' && soluzioni
+      ? [...soluzioni.certificate, ...soluzioni.sistemi].find((c) => c.tipo === sol.tipo && c.id === sol.id) ?? null
+      : null;
+  const orditure = useMemo(
+    () => (candidato && req ? orditurePossibili(candidato.tipo, candidato.id, req) : []),
+    [candidato?.tipo, candidato?.id, chiaveReq],
+  );
+  // l'orditura scelta a mano vale finché è fra quelle che reggono i requisiti
+  const manuale =
+    sol && sol.tipo !== 'classico' && sol.varianteId
+      ? orditure.find((o) => o.v.id === sol.varianteId && o.interasse === sol.interasse)
+      : undefined;
+  const effettivo = candidato && manuale ? conOrditura(candidato, manuale) : candidato;
+
+  const campiture = campiturePerMotore(bozza);
+  const scelta: SoluzioneScelta | null = effettivo
+    ? {
+        tipo: effettivo.tipo,
+        id: effettivo.id,
+        varianteId: effettivo.variante?.varianteId ?? null,
+        interasse: effettivo.variante?.interasse ?? null,
+        ...(effettivo.sostituzioni ? { sostituzioni: effettivo.sostituzioni } : {}),
+      }
+    : null;
+  const distintaSiniat =
+    scelta && effettivo?.distinta
+      ? calcolaDistintaSiniat(scelta, campiture, { sfrido: sfridoPerMotore(bozza), hmaxUtile: effettivo.hmaxUtile })
+      : null;
+  const siniatOk = distintaSiniat && !('errore' in distintaSiniat) ? distintaSiniat : null;
+
+  const scelte = sol?.tipo === 'classico' ? sceltePerMotore(bozza) : null;
+  const distintaClassica = scelte ? calcolaDistinta(scelte) : null;
+
+  const op = bozza.opera ? operaInfo(bozza.opera) : null;
+  const ambito = ambitoClassico(bozza.opera);
+  const sceltaSparita = sol && sol.tipo !== 'classico' && soluzioni && !candidato;
+
+  function scegli(s: SoluzioneBozza) {
+    aggiorna({ soluzione: s });
+  }
 
   function ricomincia() {
     if (window.confirm('Cancellare le scelte e le misure e ripartire da capo?')) setBozza(bozzaVuota());
@@ -58,170 +111,110 @@ export default function Distinta() {
         </button>
       </div>
 
-      <Passo n={1} titolo="Cosa preventiviamo">
+      <Passo n={1} titolo="Cosa realizzi">
         <div className="scelte scelte-3">
-          {AMBITI.map((a) => (
+          {OPERE.map((o) => (
             <button
-              key={a.id}
-              className={`scelta ${bozza.ambito === a.id ? 'scelta-attiva' : ''}`}
-              aria-pressed={bozza.ambito === a.id}
-              onClick={() => setBozza((b) => conAmbito(b, a.id))}
+              key={o.id}
+              className={`scelta ${bozza.opera === o.id ? 'scelta-attiva' : ''}`}
+              aria-pressed={bozza.opera === o.id}
+              onClick={() => setBozza((b) => conOpera(b, o.id))}
             >
-              <strong>{a.nome}</strong>
-              <span>{a.nota}</span>
+              <strong>{o.nome}</strong>
+              <span>{o.nota}</span>
             </button>
           ))}
         </div>
       </Passo>
 
-      {bozza.ambito && (
-        <Passo n={2} titolo="Sottotipo">
-          <div className="scelte scelte-3">
-            {SISTEMI_PER_AMBITO[bozza.ambito].map((id) => (
-              <button
-                key={id}
-                className={`scelta ${bozza.sistemaId === id ? 'scelta-attiva' : ''}`}
-                aria-pressed={bozza.sistemaId === id}
-                onClick={() => aggiorna({ sistemaId: id })}
-              >
-                <strong>{SISTEMI[id].nome}</strong>
-              </button>
-            ))}
-          </div>
-        </Passo>
-      )}
-
-      {bozza.sistemaId && bozza.ambito && (
+      {bozza.opera && op && soluzioni && (
         <>
-          <Passo n={3} titolo="Prestazione richiesta">
-            <div className="scelte scelte-4">
-              {PRESTAZIONI_ORDINE.map((p) => (
-                <button
-                  key={p}
-                  className={`scelta ${bozza.prestazione === p ? 'scelta-attiva' : ''}`}
-                  aria-pressed={bozza.prestazione === p}
-                  onClick={() => aggiorna({ prestazione: p })}
-                >
-                  <strong>{PRESTAZIONI[p].nome}</strong>
-                </button>
-              ))}
-            </div>
-            <p className="nota">La prestazione cambia solo la lastra cercata a magazzino, non le quantità.</p>
+          <Passo n={2} titolo="Requisiti">
+            <Requisiti opera={bozza.opera} requisiti={bozza.requisiti} cambia={aggiornaRequisiti} />
           </Passo>
 
-          <Passo n={4} titolo="Opzioni tecniche">
-            <div className="opzioni">
-              <Interruttore<Interasse>
-                etichetta="Interasse montanti"
-                valore={bozza.interasse}
-                voci={[
-                  [60, '60 cm'],
-                  [40, '40 cm'],
-                ]}
-                cambia={(v) => aggiorna({ interasse: v })}
-              />
-              <Interruttore<Profilo>
-                etichetta="Profilo"
-                valore={bozza.profilo}
-                voci={PROFILI_PER_AMBITO[bozza.ambito].map((p) => [p, String(p)] as [Profilo, string])}
-                cambia={(v) => aggiorna({ profilo: v })}
-              />
-              <Interruttore<Modalita>
-                etichetta="Incidenze"
-                valore={bozza.modalita}
-                voci={[
-                  ['classica', 'Excel storico'],
-                  ['manuale', 'Manuale Fassa'],
-                ]}
-                cambia={(v) => aggiorna({ modalita: v })}
-              />
-
-              <label className="opzione opzione-spunta">
-                <input
-                  type="checkbox"
-                  checked={bozza.isolante || acustica}
-                  disabled={acustica}
-                  onChange={(e) => aggiorna({ isolante: e.target.checked })}
-                />
-                <span>
-                  Lana di roccia
-                  {acustica && <em> — obbligatoria con prestazione acustica</em>}
-                </span>
-              </label>
-
-              <label className="opzione">
-                <span className="ag-etichetta">Sfrido lastre %</span>
-                <input
-                  className="ag-campo ag-dati campo-corto"
-                  inputMode="numeric"
-                  value={bozza.sfridoLastre}
-                  onChange={(e) => aggiorna({ sfridoLastre: e.target.value })}
-                />
-              </label>
-              <label className="opzione">
-                <span className="ag-etichetta">Sfrido isolante %</span>
-                <input
-                  className="ag-campo ag-dati campo-corto"
-                  inputMode="numeric"
-                  value={bozza.sfridoIsolante}
-                  onChange={(e) => aggiorna({ sfridoIsolante: e.target.value })}
-                />
-              </label>
-            </div>
-          </Passo>
-
-          <Passo n={5} titolo="Misure">
-            <Misure campiture={bozza.campiture} cambia={(campiture) => aggiorna({ campiture })} distinta={distinta} />
-          </Passo>
-
-          <Passo n={6} titolo="Distinta materiali">
-            {distinta && <TabellaDistinta distinta={distinta} />}
+          <Passo n={3} titolo="Soluzione">
+            {op.altezza && !req?.altezza && (
+              <p className="avviso avviso-info">
+                Senza l'altezza le soluzioni non sono filtrate per statica: inseriscila nei requisiti.
+              </p>
+            )}
+            {sceltaSparita && (
+              <p className="avviso avviso-attenzione">
+                La soluzione scelta prima non soddisfa più i requisiti: scegline un'altra.
+              </p>
+            )}
+            <Soluzioni
+              certificate={soluzioni.certificate}
+              sistemi={soluzioni.sistemi}
+              fuoco={bozza.requisiti.fuoco > 0}
+              scelta={sol}
+              classico={!!ambito}
+              scegli={scegli}
+            />
           </Passo>
         </>
       )}
-    </div>
-  );
-}
 
-function Passo({ n, titolo, children }: { n: number; titolo: string; children: React.ReactNode }) {
-  return (
-    <section className="ag-card passo">
-      <h3 className="passo-titolo">
-        <span className="passo-numero">{n}</span>
-        {titolo}
-      </h3>
-      {children}
-    </section>
-  );
-}
+      {sol?.tipo === 'classico' && ambito && (
+        <>
+          <Passo n={4} titolo="Calcolo classico">
+            <Classico ambito={ambito} bozza={bozza} aggiorna={aggiorna} />
+          </Passo>
+          {bozza.sistemaId && (
+            <>
+              <Passo n={5} titolo="Misure">
+                <Misure campiture={bozza.campiture} cambia={(c) => aggiorna({ campiture: c })} distinta={distintaClassica} />
+              </Passo>
+              <Passo n={6} titolo="Distinta materiali">
+                {distintaClassica && <TabellaDistinta distinta={distintaClassica} />}
+              </Passo>
+            </>
+          )}
+        </>
+      )}
 
-/** Scelta fra poche voci, a bottoni affiancati. */
-function Interruttore<T extends string | number>({
-  etichetta,
-  valore,
-  voci,
-  cambia,
-}: {
-  etichetta: string;
-  valore: T;
-  voci: [T, string][];
-  cambia: (v: T) => void;
-}) {
-  return (
-    <div className="opzione">
-      <span className="ag-etichetta">{etichetta}</span>
-      <div className="interruttore" role="group" aria-label={etichetta}>
-        {voci.map(([v, nome]) => (
-          <button
-            key={String(v)}
-            className={`btn btn-sm ${valore === v ? 'attivo' : ''}`}
-            aria-pressed={valore === v}
-            onClick={() => cambia(v)}
-          >
-            {nome}
-          </button>
-        ))}
-      </div>
+      {effettivo && (
+        <>
+          <Passo n={4} titolo="Scheda della soluzione">
+            <SchedaSoluzione
+              candidato={effettivo}
+              verticale={!!op?.altezza}
+              orditure={orditure}
+              orditura={effettivo.variante ? { varianteId: effettivo.variante.varianteId, interasse: effettivo.variante.interasse } : null}
+              cambiaOrditura={(o) => scegli({ tipo: effettivo.tipo, id: effettivo.id, varianteId: o.varianteId, interasse: o.interasse })}
+            />
+          </Passo>
+
+          {effettivo.distinta ? (
+            <>
+              <Passo n={5} titolo="Misure">
+                <Misure campiture={bozza.campiture} cambia={(c) => aggiorna({ campiture: c })} distinta={siniatOk} />
+              </Passo>
+              <Passo n={6} titolo="Distinta materiali">
+                <div className="opzioni distinta-opzioni">
+                  <CampiSfrido lastre={bozza.sfridoLastre} isolante={bozza.sfridoIsolante} cambia={aggiorna} />
+                  <p className="nota">
+                    Le incidenze Siniat comprendono uno sfrido del 5% su lastre e isolante: qui si sostituisce con il vostro.
+                  </p>
+                </div>
+                {distintaSiniat && 'errore' in distintaSiniat && <p className="avviso avviso-attenzione">{distintaSiniat.errore}</p>}
+                {siniatOk && <TabellaDistinta distinta={siniatOk} />}
+              </Passo>
+            </>
+          ) : (
+            <Passo n={5} titolo="Distinta materiali">
+              <div className="ag-vuoto">
+                <div className="ag-vuoto-icona">▭</div>
+                <div className="ag-vuoto-testo">
+                  Per questa soluzione la distinta automatica non c'è: i materiali si ricavano dal rapporto di
+                  classificazione e dalla documentazione del produttore.
+                </div>
+              </div>
+            </Passo>
+          )}
+        </>
+      )}
     </div>
   );
 }

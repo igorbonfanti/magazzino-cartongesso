@@ -1,6 +1,21 @@
 import { MAPPING_SEED } from '../../data/mapping_seed';
-import type { Distinta } from '../../engine';
+import type { Avviso, RigaDistinta } from '../../engine';
 import { formattaDecimale, formattaIntero } from '../../money';
+
+/** Quello che serve alla tabella: vale per la distinta classica e per quella Siniat. */
+export interface DistintaDaMostrare {
+  righe: RigaDistinta[];
+  avvisi: Avviso[];
+  hint: string[];
+  dicitura?: string;
+}
+
+const SINGOLARE: Record<string, string> = { lastre: 'lastra', barre: 'barra', sacchi: 'sacco', pannelli: 'pannello' };
+
+/** "1 sacco", "3 sacchi" */
+function confezioni(pezzi: number, umConf: string): string {
+  return pezzi === 1 ? SINGOLARE[umConf] ?? umConf : umConf;
+}
 
 /** 0,67 · 1,7 · 204,6 · 95: fino a 3 decimali, senza zeri inutili. */
 function numero(x: number): string {
@@ -8,7 +23,7 @@ function numero(x: number): string {
   return formattaDecimale(x, 3).replace(/0+$/, '');
 }
 
-export default function TabellaDistinta({ distinta }: { distinta: Distinta }) {
+export default function TabellaDistinta({ distinta }: { distinta: DistintaDaMostrare }) {
   const { righe, avvisi, hint, dicitura } = distinta;
   const nonMappate = righe.filter((r) => !MAPPING_SEED[r.chiave]).length;
 
@@ -50,10 +65,10 @@ export default function TabellaDistinta({ distinta }: { distinta: Distinta }) {
                 </tr>
               </thead>
               <tbody>
-                {righe.map((r) => {
+                {righe.map((r, i) => {
                   const mag = MAPPING_SEED[r.chiave];
                   return (
-                    <tr key={r.ruolo} className={mag ? '' : 'da-mappare'}>
+                    <tr key={`${r.chiave}-${i}`} className={mag ? '' : 'da-mappare'}>
                       <td>
                         <div className="articolo-nome">{r.descrizione}</div>
                         <div className="articolo-meta">
@@ -71,12 +86,19 @@ export default function TabellaDistinta({ distinta }: { distinta: Distinta }) {
                               geometrico
                             </span>
                           )}
+                          {r.fonte === 'regola' && (
+                            <span className="ag-pastiglia pastiglia-ambra" title="Incidenza ricavata con le regole delle tabelle Memento">
+                              stimata
+                            </span>
+                          )}
                           {r.daVerificare && (
                             <span className="ag-pastiglia pastiglia-arancio" title={r.daVerificare}>
-                              conf. da verificare
+                              da verificare
                             </span>
                           )}
                         </div>
+                        {r.nota && <div className="articolo-meta">{r.nota}</div>}
+                        {r.daVerificare && <div className="articolo-meta">{r.daVerificare}</div>}
                       </td>
                       <td className="nascondi-telefono">
                         {mag ? (
@@ -94,7 +116,7 @@ export default function TabellaDistinta({ distinta }: { distinta: Distinta }) {
                         {numero(r.contenuto)} {r.um}
                       </td>
                       <td className="r da-ordinare">
-                        {formattaIntero(r.pezzi)} <span className="um-conf">{r.umConf}</span>
+                        {formattaIntero(r.pezzi)} <span className="um-conf">{confezioni(r.pezzi, r.umConf)}</span>
                       </td>
                     </tr>
                   );

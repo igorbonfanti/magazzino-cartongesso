@@ -7,7 +7,10 @@
  */
 import { PRESTAZIONI, PROFILI_PER_AMBITO, SISTEMI, SISTEMI_PER_AMBITO } from '../data/sistemi';
 import { SFRIDO_DEFAULT } from '../engine';
-import type { Ambito, Campitura, Interasse, Modalita, Prestazione, Profilo, Scelte, SistemaId } from '../types';
+import { OPERE, operaInfo } from '../selettore';
+import type {
+  Ambiente, Ambito, Campitura, Interasse, InterasseSiniat, Modalita, Opera, Prestazione, Profilo, Requisiti, Scelte, SistemaId,
+} from '../types';
 
 export interface AperturaBozza {
   id: string;
@@ -25,7 +28,32 @@ export interface CampituraBozza {
   aperture: AperturaBozza[];
 }
 
+/** I requisiti come li compila l'operatore: l'altezza resta testo, come le misure. */
+export interface RequisitiBozza {
+  /** minuti, 0 = nessuna */
+  fuoco: number;
+  /** dB, 0 = nessuno */
+  rw: number;
+  altezza: string;
+  ambiente: Ambiente;
+  urti: boolean;
+  carichi: boolean;
+  antieffrazione: boolean;
+}
+
+/**
+ * La soluzione scelta: una del catalogo Siniat (con l'orditura scelta a mano,
+ * se l'operatore l'ha cambiata) oppure il calcolo classico Excel/Fassa.
+ */
+export type SoluzioneBozza =
+  | { tipo: 'certificata' | 'sistema'; id: string; varianteId?: string; interasse?: InterasseSiniat }
+  | { tipo: 'classico' };
+
 export interface Bozza {
+  opera: Opera | null;
+  requisiti: RequisitiBozza;
+  soluzione: SoluzioneBozza | null;
+  /** flusso classico: ambito e sottotipo delle nove distinte storiche */
   ambito: Ambito | null;
   sistemaId: SistemaId | null;
   prestazione: Prestazione;
@@ -54,8 +82,15 @@ export function aperturaVuota(): AperturaBozza {
   return { id: nuovoId(), l: '', h: '', n: '1' };
 }
 
+export function requisitiVuoti(): RequisitiBozza {
+  return { fuoco: 0, rw: 0, altezza: '', ambiente: 'normale', urti: false, carichi: false, antieffrazione: false };
+}
+
 export function bozzaVuota(): Bozza {
   return {
+    opera: null,
+    requisiti: requisitiVuoti(),
+    soluzione: null,
     ambito: null,
     sistemaId: null,
     prestazione: 'standard',
@@ -67,6 +102,33 @@ export function bozzaVuota(): Bozza {
     modalita: 'classica',
     campiture: [campituraVuota()],
   };
+}
+
+/** Le opere che hanno anche il calcolo classico (le nove distinte storiche). */
+const AMBITO_DA_OPERA: Partial<Record<Opera, Ambito>> = {
+  parete: 'parete',
+  controparete: 'controparete',
+  controsoffitto: 'controsoffitto',
+};
+
+export function ambitoClassico(opera: Opera | null): Ambito | null {
+  return (opera && AMBITO_DA_OPERA[opera]) ?? null;
+}
+
+/** Cambiando opera si riparte dalla scelta della soluzione; i requisiti restano. */
+export function conOpera(b: Bozza, opera: Opera): Bozza {
+  if (b.opera === opera) return b;
+  const ambito = ambitoClassico(opera);
+  const base = ambito ? conAmbito(b, ambito) : { ...b, ambito: null, sistemaId: null };
+  return { ...base, opera, soluzione: null };
+}
+
+/** I requisiti per il selettore; l'altezza conta solo per le opere verticali. */
+export function requisitiPerSelettore(b: Bozza): Requisiti | null {
+  if (!b.opera) return null;
+  const r = b.requisiti;
+  const altezza = operaInfo(b.opera).altezza ? leggiNumero(r.altezza) ?? 0 : 0;
+  return { opera: b.opera, fuoco: r.fuoco, rw: r.rw, altezza, ambiente: r.ambiente, urti: r.urti, carichi: r.carichi, antieffrazione: r.antieffrazione };
 }
 
 /** Cambiando ambito si riparte dal sottotipo, e il profilo torna quello tipico. */
@@ -119,6 +181,18 @@ function sfrido(testo: string): number {
   return n === null ? 0 : Math.min(100, Math.round(n));
 }
 
+export function sfridoPerMotore(b: Bozza): { lastre: number; isolante: number } {
+  return { lastre: sfrido(b.sfridoLastre), isolante: sfrido(b.sfridoIsolante) };
+}
+
+/** Le campiture complete, nel formato del motore. */
+export function campiturePerMotore(b: Bozza): Campitura[] {
+  return b.campiture.flatMap((c) => {
+    const m = campituraPerMotore(c);
+    return m ? [m] : [];
+  });
+}
+
 /** Le scelte per il motore, o null finche' manca il sistema. */
 export function sceltePerMotore(b: Bozza): Scelte | null {
   if (!b.sistemaId) return null;
@@ -130,30 +204,70 @@ export function sceltePerMotore(b: Bozza): Scelte | null {
     interasse: b.interasse,
     profilo: profili.includes(b.profilo) ? b.profilo : profili[0]!,
     isolante: b.isolante || PRESTAZIONI[b.prestazione].lanaObbligatoria,
-    sfrido: { lastre: sfrido(b.sfridoLastre), isolante: sfrido(b.sfridoIsolante) },
+    sfrido: sfridoPerMotore(b),
     modalita: b.modalita,
-    campiture: b.campiture.flatMap((c) => {
-      const m = campituraPerMotore(c);
-      return m ? [m] : [];
-    }),
+    campiture: campiturePerMotore(b),
   };
+}
+
+const AMBIENTI: Ambiente[] = ['normale', 'umido', 'bagnato', 'esterno'];
+
+function requisitiValidi(x: unknown): x is RequisitiBozza {
+  if (!x || typeof x !== 'object') return false;
+  const r = x as Partial<RequisitiBozza>;
+  return (
+    typeof r.fuoco === 'number' && typeof r.rw === 'number' && typeof r.altezza === 'string' &&
+    AMBIENTI.includes(r.ambiente as Ambiente) &&
+    typeof r.urti === 'boolean' && typeof r.carichi === 'boolean' && typeof r.antieffrazione === 'boolean'
+  );
+}
+
+function soluzioneValida(x: unknown): x is SoluzioneBozza | null {
+  if (x === null) return true;
+  if (!x || typeof x !== 'object') return false;
+  const s = x as { tipo?: unknown; id?: unknown };
+  return s.tipo === 'classico' || ((s.tipo === 'certificata' || s.tipo === 'sistema') && typeof s.id === 'string');
 }
 
 /**
  * Bozza riletta da localStorage: si tiene solo se ha la forma giusta, per non
- * rompere la pagina con un salvataggio di una versione precedente.
+ * rompere la pagina con un salvataggio di una versione precedente. Opera,
+ * requisiti e soluzione, se ci sono, devono essere validi anche loro.
  */
 export function bozzaValida(x: unknown): x is Bozza {
   if (!x || typeof x !== 'object') return false;
   const b = x as Partial<Bozza>;
   const ambitoOk = b.ambito === null || (typeof b.ambito === 'string' && b.ambito in SISTEMI_PER_AMBITO);
   const sistemaOk = b.sistemaId === null || (typeof b.sistemaId === 'string' && b.sistemaId in SISTEMI);
+  const operaOk = b.opera === undefined || b.opera === null || OPERE.some((o) => o.id === b.opera);
+  const requisitiOk = b.requisiti === undefined || requisitiValidi(b.requisiti);
+  const soluzioneOk = b.soluzione === undefined || soluzioneValida(b.soluzione);
   return (
     ambitoOk &&
     sistemaOk &&
+    operaOk &&
+    requisitiOk &&
+    soluzioneOk &&
     typeof b.prestazione === 'string' &&
     b.prestazione in PRESTAZIONI &&
     Array.isArray(b.campiture) &&
     b.campiture.every((c) => c && typeof c === 'object' && Array.isArray((c as CampituraBozza).aperture))
   );
+}
+
+/**
+ * Una bozza salvata, completata dove manca: quelle della versione senza
+ * selettore Siniat ripartono dal calcolo classico con l'ambito che avevano.
+ * null se non è una bozza.
+ */
+export function leggiBozza(x: unknown): Bozza | null {
+  if (!bozzaValida(x)) return null;
+  const b: Partial<Bozza> & Bozza = x;
+  if (b.opera !== undefined && b.requisiti !== undefined && b.soluzione !== undefined) return b;
+  return {
+    ...b,
+    opera: b.opera ?? b.ambito ?? null,
+    requisiti: b.requisiti ?? requisitiVuoti(),
+    soluzione: b.soluzione ?? (b.ambito ? { tipo: 'classico' } : null),
+  };
 }
