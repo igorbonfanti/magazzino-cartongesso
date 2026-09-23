@@ -63,11 +63,42 @@ describe('distinta dalle tabelle Memento', () => {
   it('sostituzione ammessa dalla scheda: pregydro H2 al posto delle pregyplac', () => {
     const d = distinta({
       tipo: 'sistema', id: 'memento-p26-DX', varianteId: 'memento-p26-DX#2', interasse: '600',
-      sostituzioni: [{ da: 'pregyplac BA13', a: 'pregydro H2 BA13', motivo: 'Per applicazione in ambienti umidi prevedere lastre pregydro H2 BA13' }],
+      sostituzioni: [{ da: 'pregyplac BA13', a: 'pregydro H2 BA13', fonte: 'memento', motivo: 'Per applicazione in ambienti umidi prevedere lastre pregydro H2 BA13' }],
     });
     expect(riga(d, 'LASTRA_PREGYDRO_H2_BA13').incidenza).toBe(2.1);
     expect(d.righe.some((r) => r.chiave === 'LASTRA_BA13_STD')).toBe(false);
     expect(d.avvisi.map((a) => a.codice)).toContain('LASTRA_SOSTITUITA');
+  });
+
+  it('AF-009 con le solidtex a magazzino: tabella della scheda Memento con quelle lastre (p32-SX), viti S-tex', () => {
+    const d = distinta({
+      tipo: 'certificata', id: 'AF-009', varianteId: 'memento-p33-SX#2', interasse: '600',
+      sostituzioni: [{ da: 'pregyflam BA13', a: 'solidtex indoor', fonte: 'guida', motivo: 'sostituibilità indicata dalla guida antincendio per AF-009' }],
+    });
+    expect(d.fonteIncidenze).toBe('memento');
+    expect(riga(d, 'LASTRA_SOLIDTEX_INDOOR')).toMatchObject({ incidenza: 4.2, quantita: 400 });
+    expect(riga(d, 'LASTRA_SOLIDTEX_INDOOR').nota).toBeUndefined();
+    expect(d.righe.map((r) => r.chiave).filter((k) => k.startsWith('VITI'))).toEqual(['VITI_S_TEX_32_MM', 'VITI_S_TEX_42_MM']);
+    expect(riga(d, 'LANA_MINERALE').descrizione).toBe('Isolante in lana minerale sp. 45 mm');
+    expect(d.avvisi.find((a) => a.codice === 'LASTRA_SOSTITUITA')?.testo).toBe(
+      'Lastre solidtex indoor al posto delle pregyflam BA13: sostituibilità indicata dalla guida antincendio per AF-009, per usare le lastre a magazzino.',
+    );
+  });
+
+  it('senza scheda Memento con le lastre sostitute valgono le regole, con le viti della lastra sostituta', () => {
+    // AF-003 4 PSplus → pregydro H2: il Memento non ha una parete di sole pregydro
+    const d = distinta({
+      tipo: 'certificata', id: 'AF-003',
+      sostituzioni: [{ da: 'pregyplac plus BA13', a: 'pregydro H2 BA13', fonte: 'guida', motivo: 'sostituibilità indicata dalla guida antincendio per AF-003' }],
+    });
+    expect(d.fonteIncidenze).toBe('regola');
+    expect(riga(d, 'LASTRA_PREGYDRO_H2_BA13').incidenza).toBe(4.2);
+    expect(d.righe.map((r) => r.chiave).filter((k) => k.startsWith('VITI'))).toEqual(['VITI_25', 'VITI_35']);
+  });
+
+  it('le lastre non a magazzino portano la nota dell\'ordine', () => {
+    const d = distinta({ tipo: 'certificata', id: 'AF-009', varianteId: 'memento-p33-SX#2', interasse: '600' });
+    expect(riga(d, 'LASTRA_PREGYFLAM_BA13').nota).toBe('su ordinazione da ATS Isolanti, 3–4 giorni');
   });
 
   it('niente distinta automatica per Promat e protezioni di solai', () => {

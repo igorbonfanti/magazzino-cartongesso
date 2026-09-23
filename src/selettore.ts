@@ -14,8 +14,11 @@
  * montanti più grandi e interassi più fitti. L'altezza utile è la minore fra
  * quella al fuoco e quella statica.
  */
-import { CATALOGO, misuraMontante, sistema as trovaSistema } from './data/siniat/catalogo';
+import {
+  CATALOGO, lastreConfigurazione, misuraMontante, sistema as trovaSistema, sostituisciStratigrafia, sostituzioniMagazzino,
+} from './data/siniat/catalogo';
 import { lastraDaTesto } from './data/siniat/articoli';
+import { aMagazzino } from './data/magazzino';
 import type {
   Ambiente, Classificazione, ConfigurazioneFuoco, FuocoVariante, InterasseSiniat, Opera, Requisiti, SistemaSiniat, Sostituzione,
   Stratigrafia, VarianteSistema,
@@ -81,8 +84,12 @@ export interface Candidato {
   distinta: boolean;
   /** schede Memento: le configurazioni certificate con le stesse lastre */
   certificate?: string[];
-  /** lastre da sostituire per l'ambiente, come prevede la scheda */
+  /** lastre sostituite come ammette il produttore: per l'ambiente (Memento) o per il magazzino (guida) */
   sostituzioni?: Sostituzione[];
+  /** tutte le lastre a magazzino (dopo le sostituzioni); null se le lastre non si ricavano dai dati */
+  aMagazzino: boolean | null;
+  /** le lastre da ordinare */
+  daOrdinare: string[];
   avvisi: string[];
 }
 
@@ -193,16 +200,25 @@ function lastreVista(st: Stratigrafia | null, lastre: string[]): string {
  */
 const LASTRE_H = /pregydro|ladura|solidtex|aquaboard/;
 
-function adattaAmbiente(c: ConfigurazioneFuoco, ambiente: Ambiente): boolean {
+function adattaAmbiente(c: ConfigurazioneFuoco, ambiente: Ambiente, sostituzioni: Sostituzione[]): boolean {
   if (ambiente === 'normale') return true;
-  const vista = lastreVista(c.stratigrafia, c.strati);
+  const st = c.stratigrafia ? sostituisciStratigrafia(c.stratigrafia, sostituzioni) : null;
+  const lastre = lastreConfigurazione(c).map((l) => sostituzioni.find((x) => x.da === l)?.a ?? l);
+  const vista = lastreVista(st, lastre);
   if (ambiente === 'umido') return LASTRE_H.test(vista);
   if (ambiente === 'bagnato') return /aquaboard/.test(vista);
   return c.sezione === 'esterne' || /aquaboard|outdoor/.test(vista);
 }
 
+/** Le lastre non a magazzino fra quelle date. */
+function mancanti(lastre: string[]): string[] {
+  return [...new Set(lastre)].filter((l) => !aMagazzino(l));
+}
+
 function candidatoCertificato(c: ConfigurazioneFuoco, req: Requisiti, op: OperaInfo): Candidato | null {
-  if (!adattaAmbiente(c, req.ambiente)) return null;
+  // con le sostituzioni della guida, se portano tutto su lastre a magazzino
+  const sostituzioni = sostituzioniMagazzino(c) ?? [];
+  if (!adattaAmbiente(c, req.ambiente, sostituzioni)) return null;
   let classe: Classificazione | undefined;
   if (req.fuoco) {
     const ok = c.classificazioni
@@ -241,6 +257,11 @@ function candidatoCertificato(c: ConfigurazioneFuoco, req: Requisiti, op: OperaI
     avvisi.push('Orditura e statica secondo il rapporto di classificazione: da verificare.');
   }
   if (c.promat) avvisi.push('Sistema Promat (gruppo Etex): certificato e posa secondo la documentazione Promat.');
+  for (const x of sostituzioni) {
+    avvisi.push(`Con le lastre a magazzino: ${x.a} al posto delle ${x.da}, sostituzione ammessa dalla guida antincendio per questa configurazione.`);
+  }
+  if (sostituzioni.length && c.rw != null) avvisi.push('Rw misurato con le lastre della prova.');
+  const lastre = lastreConfigurazione(c).map((l) => sostituzioni.find((x) => x.da === l)?.a ?? l);
   // "> 4,00 m": oltre quel valore vale il Fascicolo Tecnico, quindi non limita l'altezza
   const fuocoH = classe?.hmaxOltre ? null : (classe?.hmax ?? null);
   return {
@@ -248,6 +269,9 @@ function candidatoCertificato(c: ConfigurazioneFuoco, req: Requisiti, op: OperaI
     hmaxUtile: minimo(fuocoH, variante?.hmaxStatica), rw: c.rw ?? null, lastre: contaLastre(st), prezzo: null,
     distinta: (!!variante && !!m?.incidenze && !!c.varianteMemento) ||
       (!!st && !c.promat && (st.tipo === 'parete' || st.tipo === 'setto') && c.sezione !== 'esterne' && !/curva/i.test(c.codice)),
+    ...(sostituzioni.length ? { sostituzioni } : {}),
+    aMagazzino: lastre.length ? mancanti(lastre).length === 0 : null,
+    daOrdinare: mancanti(lastre),
     avvisi,
   };
 }
@@ -267,7 +291,7 @@ function candidatoSistema(s: SistemaSiniat, req: Requisiti, op: OperaInfo): Cand
       : s.lastre.map(lastraDaTesto);
     // la nota sostituisce la lastra standard dello stesso formato: non le flessibili o le speciali
     for (const da of new Set(lastre.filter((l) => /^pregyplac BA13$/.test(l)))) {
-      sostituzioni.push({ da, a: lastraDaTesto(lastra), motivo: nota });
+      sostituzioni.push({ da, a: lastraDaTesto(lastra), fonte: 'memento', motivo: nota });
     }
     if (!sostituzioni.length) return null;
   }
@@ -316,13 +340,26 @@ function candidatoSistema(s: SistemaSiniat, req: Requisiti, op: OperaInfo): Cand
     avvisi.push(`Ambiente umido: lastre ${x.a} al posto delle ${x.da}, come prevede la scheda.`);
     if (req.fuoco) avvisi.push('La classe al fuoco è provata con le lastre della scheda: con la sostituzione vale solo un certificato che la preveda.');
   }
+  // il Memento non ammette sostituzioni oltre alle sue note: si ordina quello che manca
+  const tutte = s.stratigrafia
+    ? [...s.stratigrafia.lato1, ...s.stratigrafia.lato2, ...s.stratigrafia.intermedia].map((x) => x.lastra)
+    : s.lastre.map(lastraDaTesto);
+  const lastre = tutte.map((l) => sostituzioni.find((x) => x.da === l)?.a ?? l);
   return {
     tipo: 'sistema', id: s.id, titolo: s.titolo, gruppo: s.gruppo, fuocoVariante: fuoco ?? undefined, variante, staticaVerificata,
     hmaxUtile, rw, lastre: contaLastre(s.stratigrafia),
     prezzo: s.valutazioni.prezzo?.[0] ?? null, distinta: !!(s.incidenze && col),
     certificate: CATALOGO.configurazioni.filter((c) => c.sistemaMemento === s.id).map((c) => c.id),
-    ...(sostituzioni.length ? { sostituzioni } : {}), avvisi,
+    ...(sostituzioni.length ? { sostituzioni } : {}),
+    aMagazzino: lastre.length ? mancanti(lastre).length === 0 : null,
+    daOrdinare: mancanti(lastre),
+    avvisi,
   };
+}
+
+/** Prima le soluzioni tutte a magazzino, poi quelle da ordinare, in fondo quelle senza lastre note. */
+function ordineMagazzino(c: Candidato): number {
+  return c.aMagazzino === true ? 0 : c.aMagazzino === false ? 1 : 2;
 }
 
 /** Le soluzioni compatibili con i requisiti, già ordinate. */
@@ -332,13 +369,15 @@ export function selezionaSoluzioni(req: Requisiti): { certificate: Candidato[]; 
     .filter((c) => op.sezioni.includes(c.sezione))
     .map((c) => candidatoCertificato(c, req, op))
     .filter((x): x is Candidato => !!x)
-    // prima quelle con la distinta, poi le più leggere, poi quelle con la statica verificata
-    .sort((a, b) => +b.distinta - +a.distinta || a.lastre - b.lastre || +b.staticaVerificata - +a.staticaVerificata || (b.rw ?? 0) - (a.rw ?? 0));
+    // prima quelle a magazzino, poi con la distinta, poi le più leggere, poi con la statica verificata
+    .sort((a, b) =>
+      ordineMagazzino(a) - ordineMagazzino(b) || +b.distinta - +a.distinta || a.lastre - b.lastre ||
+      +b.staticaVerificata - +a.staticaVerificata || (b.rw ?? 0) - (a.rw ?? 0));
   const sistemi = CATALOGO.sistemi
     .filter((s) => op.gruppi.includes(s.gruppo))
     .map((s) => candidatoSistema(s, req, op))
     .filter((x): x is Candidato => !!x)
-    .sort((a, b) => (a.prezzo ?? 9) - (b.prezzo ?? 9) || (b.rw ?? 0) - (a.rw ?? 0));
+    .sort((a, b) => ordineMagazzino(a) - ordineMagazzino(b) || (a.prezzo ?? 9) - (b.prezzo ?? 9) || (b.rw ?? 0) - (a.rw ?? 0));
   return { certificate, sistemi };
 }
 

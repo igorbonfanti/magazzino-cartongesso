@@ -17,11 +17,14 @@
  * motore generico; i tasselli delle guide sono uno ogni 50 cm (manuale del
  * posatore). Il Memento non li conta.
  */
-import { configurazione, sistema as trovaSistema, spessoreLastra, variante as trovaVariante } from './data/siniat/catalogo';
+import {
+  CATALOGO, configurazione, sistema as trovaSistema, sostituisciStratigrafia, spessoreLastra, variante as trovaVariante,
+} from './data/siniat/catalogo';
 import { articoloSiniat, lastraDaTesto } from './data/siniat/articoli';
+import { aMagazzino, testoOrdine } from './data/magazzino';
 import { arrotondaSu, guideGeometriche, metri, misura, montantiGeometrici, netta, pezziConSfrido } from './engine';
 import type { Avviso, RigaDistinta } from './engine';
-import type { Campitura, Classificazione, InterasseSiniat, SistemaSiniat, SoluzioneScelta, Stratigrafia } from './types';
+import type { Campitura, Classificazione, InterasseSiniat, SistemaSiniat, SoluzioneScelta, Strato, Stratigrafia } from './types';
 
 /** sfrido già compreso nelle incidenze Siniat */
 export const SFRIDO_SINIAT = 5;
@@ -156,6 +159,25 @@ function vociDaTabella(s: SistemaSiniat, colonna: string): VoceCalcolo[] {
   return (s.incidenze?.voci ?? []).map((v) => ({ prodotto: v.prodotto, unita: v.unita, valore: v.valori[colonna] ?? null }));
 }
 
+/** La stessa parete per il Memento: tipo, file e lastre per lato, senza guardare l'ordine dei lati. */
+function firma(st: Stratigrafia): string {
+  const lato = (l: Strato[]) => {
+    const t = new Map<string, number>();
+    for (const s of l) t.set(s.lastra, (t.get(s.lastra) ?? 0) + s.n);
+    return [...t].sort().map(([k, n]) => `${k}x${n}`).join('+');
+  };
+  const lati = [lato(st.lato1), lato(st.lato2)].sort();
+  return `${st.tipo}|${st.file}|${lati[0]}|${lati[1]}|${lato(st.intermedia)}`;
+}
+
+/** La scheda Memento con le stesse lastre, se c'è; a parità, quella con o senza isolante come la stratigrafia. */
+function schedaPer(st: Stratigrafia): SistemaSiniat | undefined {
+  const f = firma(st);
+  const uguali = CATALOGO.sistemi.filter((s) => s.stratigrafia && s.incidenze && firma(s.stratigrafia) === f);
+  const conLana = (s: SistemaSiniat) => (s.incidenze?.voci ?? []).some((v) => /isolante|lana/i.test(v.prodotto));
+  return uguali.find((s) => conLana(s) === !!st.isolante) ?? uguali[0];
+}
+
 function interasseDa(mm: number | undefined): InterasseSiniat {
   return !mm || mm >= 600 ? '600' : mm >= 400 ? '400' : '300';
 }
@@ -183,10 +205,26 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
 
   const c = configurazione(sol.id);
   if (!c) return 'Configurazione non trovata nel catalogo.';
-  const st = c.stratigrafia;
   const m = c.sistemaMemento ? trovaSistema(c.sistemaMemento) : undefined;
   const vv = trovaVariante(sol.varianteId ?? c.varianteMemento ?? '');
-  if (m?.incidenze && vv && vv.sistema.id === m.id && !c.promat) {
+  // lastre sostituite come ammette la guida: la parete che si monta è quella con le sostitute
+  const sostGuida = (sol.sostituzioni ?? []).filter((x) => x.fonte === 'guida');
+  const st = c.stratigrafia && sostGuida.length ? sostituisciStratigrafia(c.stratigrafia, sostGuida) : c.stratigrafia;
+  if (st && sostGuida.length && !c.promat && (st.tipo === 'parete' || st.tipo === 'setto')) {
+    const scheda = schedaPer(st);
+    const accoppiati = (vv?.variante.montanti ?? st.montanti) === 'accoppiato';
+    const interasse = sol.interasse ?? interasseDa(st.interasse);
+    const colonna = `${interasse}${accoppiati ? '][' : ']'}`;
+    if (scheda?.incidenze && scheda.incidenze.voci.some((v) => typeof v.valori[colonna] === 'number')) {
+      const v = vv?.variante;
+      return {
+        titolo: c.codice, codice: c.codice, tipo: st.tipo, file: st.file, accoppiati, interasse, montante: v?.montante ?? st.montante ?? null,
+        voci: vociDaTabella(scheda, colonna), fonte: 'memento',
+        variante: { nome: v?.nome ?? null, montante: v?.montante ?? st.montante ?? null, montanti: v?.montanti ?? st.montanti ?? null, interasse },
+        classificazioni: c.classificazioni, isolante: st.isolante ?? null,
+      };
+    }
+  } else if (m?.incidenze && vv && vv.sistema.id === m.id && !c.promat) {
     const v = vv.variante;
     const interasse = sol.interasse && v.colonne[sol.interasse] ? sol.interasse : (['600', '400', '300'] as InterasseSiniat[]).find((i) => v.colonne[i]) ?? null;
     const colonna = interasse ? v.colonne[interasse] : v.colonne.unica;
@@ -202,12 +240,15 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
   if (!st || c.promat || (st.tipo !== 'parete' && st.tipo !== 'setto') || c.sezione === 'esterne' || /curva/i.test(c.codice)) {
     return 'Per questa configurazione la distinta automatica non è ancora disponibile: si compone dal rapporto di classificazione.';
   }
+  // l'orditura scelta per l'altezza, se c'è, altrimenti quella certificata
+  const v = vv && m && vv.sistema.id === m.id ? vv.variante : undefined;
   const interasse = sol.interasse ?? interasseDa(st.interasse);
-  const accoppiati = st.montanti === 'accoppiato';
+  const accoppiati = (v?.montanti ?? st.montanti) === 'accoppiato';
+  const montante = v?.montante ?? st.montante ?? null;
   return {
-    titolo: c.codice, codice: c.codice, tipo: st.tipo, file: st.file, accoppiati, interasse, montante: st.montante ?? null,
+    titolo: c.codice, codice: c.codice, tipo: st.tipo, file: st.file, accoppiati, interasse, montante,
     voci: incidenzeDaRegola(st, interasse, accoppiati), fonte: 'regola',
-    variante: { nome: null, montante: st.montante ?? null, montanti: st.montanti ?? null, interasse },
+    variante: { nome: v?.nome ?? null, montante, montanti: v?.montanti ?? st.montanti ?? null, interasse },
     classificazioni: c.classificazioni, isolante: st.isolante ?? null,
   };
 }
@@ -250,7 +291,13 @@ export function calcolaDistintaSiniat(sol: SoluzioneScelta, campiture: Campitura
   let voci = b.voci;
   for (const x of sol.sostituzioni ?? []) {
     voci = voci.map((v) => (/^lastr/i.test(v.prodotto) && lastraDaTesto(v.prodotto) === x.da ? { ...v, prodotto: 'Lastre ' + x.a } : v));
-    avvisi.push({ livello: 'info', codice: 'LASTRA_SOSTITUITA', testo: `Lastre ${x.a} al posto delle ${x.da}. Nota della scheda Memento: «${x.motivo.replace(/\.$/, '')}».` });
+    avvisi.push({
+      livello: 'info',
+      codice: 'LASTRA_SOSTITUITA',
+      testo: x.fonte === 'guida'
+        ? `Lastre ${x.a} al posto delle ${x.da}: ${x.motivo}, per usare le lastre a magazzino.`
+        : `Lastre ${x.a} al posto delle ${x.da}. Nota della scheda Memento: «${x.motivo.replace(/\.$/, '')}».`,
+    });
   }
   if (b.isolante !== undefined) {
     voci = voci.filter((v) => !/isolante|lana/i.test(v.prodotto));
@@ -293,9 +340,11 @@ export function calcolaDistintaSiniat(sol: SoluzioneScelta, campiture: Campitura
         const geo = montantiGeometrici(misure, v.valore, +b.interasse / 10, montantiPerPosizione);
         if (geo && geo.barre > pezzi) { quantita = geo.ml; pezzi = geo.barre; metodo = 'geometrico'; }
       }
+      const ordine = art.categoria === 'LASTRA' && !aMagazzino(lastraDaTesto(v.prodotto.split(/\s*\/\s*/)[0]!));
       righe.push({
         ruolo: art.categoria, chiave: art.chiave, descrizione: art.descrizione, um: art.um, incidenza: v.valore,
         quantita: Math.round(quantita * 1000) / 1000, contenuto: art.contenuto, umConf: art.umConf, pezzi, sfridoPct, metodo, fonte: b.fonte,
+        ...(ordine ? { nota: testoOrdine() } : {}),
         ...(art.daVerificare ? { daVerificare: art.daVerificare } : {}),
       });
     }

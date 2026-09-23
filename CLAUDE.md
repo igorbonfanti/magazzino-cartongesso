@@ -53,6 +53,14 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   (colonna sconto di `listino.xlsx`), sconto 2 = sconto extra del venditore,
   a cascata. Il netto unitario non si arrotonda.
 - Wizard in pagina unica a sezioni numerate, distinta ricalcolata dal vivo.
+- **Lastre a magazzino** (`src/data/magazzino.ts`): normali 6, 10 e 13 mm
+  (pregyflex BA6, pregyplac BA10 e BA13), fuoco 15 mm (pregyflam BA15), idro
+  13 mm (pregydro H2 BA13), rinforzate solidtex (indoor). Le altre su
+  ordinazione da ATS Isolanti in 3–4 giorni. Il selettore mette prima le
+  soluzioni tutte a magazzino. Per le configurazioni certificate usa le
+  sostituzioni che la guida elenca per quella configurazione, con lastre dello
+  stesso spessore; per le schede Memento nessuna sostituzione oltre alle note
+  della scheda. Con la Fase 3 la disponibilità passerà al listino.
 
 ## Studio dei manuali Siniat (23/09/2026)
 

@@ -278,11 +278,16 @@ export interface Requisiti {
 }
 
 /** La soluzione scelta dall'operatore: una configurazione certificata o una scheda Memento. */
-/** Lastra sostituita come prevede la scheda (es. pregydro H2 negli ambienti umidi). */
+/**
+ * Lastra sostituita come ammette il produttore: la nota di una scheda Memento
+ * (pregydro H2 negli ambienti umidi) o la sostituibilità di una configurazione
+ * della guida antincendio (per usare le lastre a magazzino).
+ */
 export interface Sostituzione {
   da: string;
   a: string;
-  /** la nota della scheda che la ammette */
+  fonte: 'memento' | 'guida';
+  /** la nota o la regola che la ammette */
   motivo: string;
 }
 

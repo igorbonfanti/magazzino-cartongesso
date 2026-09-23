@@ -1,4 +1,5 @@
 import { CATALOGO, configurazione, sistema } from '../../data/siniat/catalogo';
+import { testoOrdine } from '../../data/magazzino';
 import { nomeOrditura } from '../../selettore';
 import type { Candidato, Orditura } from '../../selettore';
 import type { Classificazione, InterasseSiniat } from '../../types';
@@ -28,6 +29,7 @@ export default function SchedaSoluzione({
   const conf = candidato.tipo === 'certificata' ? configurazione(candidato.id) : undefined;
   const sis = candidato.tipo === 'sistema' ? sistema(candidato.id) : undefined;
   const scheda = conf?.sistemaMemento ? sistema(conf.sistemaMemento) : sis;
+  const sostituzioni = candidato.sostituzioni ?? [];
   const alternative = conf?.stratigrafia
     ? [...conf.stratigrafia.lato1, ...conf.stratigrafia.intermedia, ...conf.stratigrafia.lato2].filter((s) => s.alternative)
     : [];
@@ -56,6 +58,20 @@ export default function SchedaSoluzione({
               Lastra a scelta fra {s.alternative!.join(', ')}: in distinta la prima.
             </p>
           ))}
+          {sostituzioni.length > 0 && (
+            <p className="scheda-valore">
+              In opera: {sostituzioni.map((x) => `${x.a} al posto delle ${x.da}`).join('; ')}
+            </p>
+          )}
+          {sostituzioni.some((x) => x.fonte === 'guida') && (
+            <p className="nota">Sostituzione ammessa dalla guida antincendio per questa configurazione, per usare le lastre a magazzino.</p>
+          )}
+          {candidato.aMagazzino === true && <p className="nota">Lastre tutte a magazzino.</p>}
+          {candidato.aMagazzino === false && (
+            <p className="avviso avviso-attenzione">
+              Da ordinare ({testoOrdine()}): {candidato.daOrdinare.join(', ')}.
+            </p>
+          )}
         </div>
 
         <div>

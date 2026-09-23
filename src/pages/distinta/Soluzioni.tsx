@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { configurazione, sistema } from '../../data/siniat/catalogo';
+import { FORNITORE_ORDINI, testoOrdine } from '../../data/magazzino';
 import { nomeOrditura } from '../../selettore';
 import type { Candidato } from '../../selettore';
 import type { SoluzioneBozza } from '../../lib/bozza';
@@ -48,6 +49,10 @@ export default function Soluzioni({
 
   return (
     <div className="soluzioni">
+      <p className="nota">
+        Prima le soluzioni con le lastre a magazzino; le altre arrivano su ordinazione da {FORNITORE_ORDINI.nome} in{' '}
+        {FORNITORE_ORDINI.giorni} giorni.
+      </p>
       {certificate.length === 0 && sistemi.length === 0 && (
         <div className="ag-vuoto">
           <div className="ag-vuoto-icona">∅</div>
@@ -141,6 +146,12 @@ function SchedaCandidato({ c, attiva, scegli }: { c: Candidato; attiva: boolean;
         {f && (
           <span className="ag-pastiglia pastiglia-ambra" title="Classe dichiarata nel Memento: vale la configurazione certificata">
             {f.tipo} {f.minuti} Memento
+          </span>
+        )}
+        {c.aMagazzino === true && <span className="ag-pastiglia pastiglia-verde">a magazzino</span>}
+        {c.aMagazzino === false && (
+          <span className="ag-pastiglia pastiglia-arancio" title={testoOrdine()}>
+            da ordinare: {c.daOrdinare.join(', ')}
           </span>
         )}
         {c.rw != null && <span className="ag-pastiglia pastiglia-blu">Rw {c.rw} dB</span>}
