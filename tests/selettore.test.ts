@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { configurazione, sostituisciStratigrafia } from '../src/data/siniat/catalogo';
-import { conOrditura, orditurePossibili, selezionaSoluzioni } from '../src/selettore';
+import { conOrditura, orditurePossibili, perDisponibilita, selezionaSoluzioni } from '../src/selettore';
 import type { Candidato } from '../src/selettore';
 import type { Requisiti } from '../src/types';
 
@@ -181,5 +181,29 @@ describe('selettore — lastre a magazzino', () => {
   it('Promat e PROMASEAL: da ordinare o lastre non note', () => {
     const c = trova(selezionaSoluzioni(req({ fuoco: 120, altezza: 5 })).certificate, 'AF-040');
     expect(c).toMatchObject({ aMagazzino: false, daOrdinare: ['PROMATECT-100X 12'] });
+  });
+});
+
+describe('selettore — a magazzino o su ordinazione', () => {
+  it('le due liste si dividono tutte le soluzioni, senza doppioni', () => {
+    for (const r of [req({ fuoco: 120, altezza: 5 }), req({ rw: 56 }), req({ opera: 'solaio', fuoco: 120 })]) {
+      const { certificate, sistemi } = selezionaSoluzioni(r);
+      for (const lista of [certificate, sistemi]) {
+        const mag = perDisponibilita(lista, 'magazzino');
+        const ord = perDisponibilita(lista, 'ordine');
+        expect(mag.every((c) => c.aMagazzino === true)).toBe(true);
+        expect(ord.every((c) => c.aMagazzino !== true)).toBe(true);
+        expect(mag.length + ord.length).toBe(lista.length);
+        expect(perDisponibilita(lista, 'tutte')).toEqual(lista);
+      }
+    }
+  });
+
+  it('EI 120 a 5 m: AF-009 (con solidtex) fra quelle a magazzino, AF-051 e le Promat su ordinazione', () => {
+    const { certificate } = selezionaSoluzioni(req({ fuoco: 120, altezza: 5 }));
+    expect(perDisponibilita(certificate, 'magazzino').map((c) => c.id)).toContain('AF-009');
+    const ord = perDisponibilita(certificate, 'ordine').map((c) => c.id);
+    expect(ord).toEqual(expect.arrayContaining(['AF-051', 'AF-040', 'AF-041', 'AF-042']));
+    expect(ord).not.toContain('AF-009');
   });
 });

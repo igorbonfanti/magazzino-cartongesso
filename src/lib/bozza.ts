@@ -9,7 +9,8 @@ import { PRESTAZIONI, PROFILI_PER_AMBITO, SISTEMI, SISTEMI_PER_AMBITO } from '..
 import { SFRIDO_DEFAULT } from '../engine';
 import { OPERE, operaInfo } from '../selettore';
 import type {
-  Ambiente, Ambito, Campitura, Interasse, InterasseSiniat, Modalita, Opera, Prestazione, Profilo, Requisiti, Scelte, SistemaId,
+  Ambiente, Ambito, Campitura, Disponibilita, Interasse, InterasseSiniat, Modalita, Opera, Prestazione, Profilo, Requisiti, Scelte,
+  SistemaId,
 } from '../types';
 
 export interface AperturaBozza {
@@ -52,6 +53,8 @@ export type SoluzioneBozza =
 export interface Bozza {
   opera: Opera | null;
   requisiti: RequisitiBozza;
+  /** quali soluzioni mostrare: a magazzino (di partenza), su ordinazione o tutte */
+  disponibilita: Disponibilita;
   soluzione: SoluzioneBozza | null;
   /** flusso classico: ambito e sottotipo delle nove distinte storiche */
   ambito: Ambito | null;
@@ -90,6 +93,7 @@ export function bozzaVuota(): Bozza {
   return {
     opera: null,
     requisiti: requisitiVuoti(),
+    disponibilita: 'magazzino',
     soluzione: null,
     ambito: null,
     sistemaId: null,
@@ -242,12 +246,14 @@ export function bozzaValida(x: unknown): x is Bozza {
   const operaOk = b.opera === undefined || b.opera === null || OPERE.some((o) => o.id === b.opera);
   const requisitiOk = b.requisiti === undefined || requisitiValidi(b.requisiti);
   const soluzioneOk = b.soluzione === undefined || soluzioneValida(b.soluzione);
+  const disponibilitaOk = b.disponibilita === undefined || ['magazzino', 'ordine', 'tutte'].includes(b.disponibilita);
   return (
     ambitoOk &&
     sistemaOk &&
     operaOk &&
     requisitiOk &&
     soluzioneOk &&
+    disponibilitaOk &&
     typeof b.prestazione === 'string' &&
     b.prestazione in PRESTAZIONI &&
     Array.isArray(b.campiture) &&
@@ -263,11 +269,13 @@ export function bozzaValida(x: unknown): x is Bozza {
 export function leggiBozza(x: unknown): Bozza | null {
   if (!bozzaValida(x)) return null;
   const b: Partial<Bozza> & Bozza = x;
-  if (b.opera !== undefined && b.requisiti !== undefined && b.soluzione !== undefined) return b;
+  // senza selettore Siniat (prima versione) si riparte dal calcolo classico
+  const primaVersione = b.opera === undefined;
   return {
     ...b,
-    opera: b.opera ?? b.ambito ?? null,
+    opera: primaVersione ? b.ambito ?? null : b.opera,
     requisiti: b.requisiti ?? requisitiVuoti(),
-    soluzione: b.soluzione ?? (b.ambito ? { tipo: 'classico' } : null),
+    disponibilita: b.disponibilita ?? 'magazzino',
+    soluzione: b.soluzione !== undefined ? b.soluzione : b.ambito ? { tipo: 'classico' } : null,
   };
 }

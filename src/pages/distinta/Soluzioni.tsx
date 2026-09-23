@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import { configurazione, sistema } from '../../data/siniat/catalogo';
 import { FORNITORE_ORDINI, testoOrdine } from '../../data/magazzino';
-import { nomeOrditura } from '../../selettore';
+import { nomeOrditura, perDisponibilita } from '../../selettore';
 import type { Candidato } from '../../selettore';
 import type { SoluzioneBozza } from '../../lib/bozza';
-import { metriTesto } from './comuni';
+import type { Disponibilita } from '../../types';
+import { Interruttore, metriTesto } from './comuni';
+
+const NOTE: Record<Disponibilita, string> = {
+  magazzino: 'Solo soluzioni con tutte le lastre a magazzino, anche grazie alle sostituzioni ammesse dalla guida.',
+  ordine: `Soluzioni con almeno una lastra ${testoOrdine()}.`,
+  tutte: `Prima quelle a magazzino; le altre arrivano su ordinazione da ${FORNITORE_ORDINI.nome} in ${FORNITORE_ORDINI.giorni} giorni.`,
+};
+
+const NOMI: Record<Disponibilita, string> = { magazzino: 'a magazzino', ordine: 'su ordinazione', tutte: '' };
 
 const PRIME = 6;
 
@@ -13,6 +22,8 @@ export default function Soluzioni({
   certificate,
   sistemi,
   fuoco,
+  disponibilita,
+  cambiaDisponibilita,
   scelta,
   classico,
   scegli,
@@ -21,17 +32,32 @@ export default function Soluzioni({
   sistemi: Candidato[];
   /** con la resistenza al fuoco richiesta le certificate vengono prima */
   fuoco: boolean;
+  disponibilita: Disponibilita;
+  cambiaDisponibilita: (d: Disponibilita) => void;
   scelta: SoluzioneBozza | null;
   /** il calcolo classico è disponibile per questa opera */
   classico: boolean;
   scegli: (s: SoluzioneBozza) => void;
 }) {
+  const quante = (d: Disponibilita) => perDisponibilita(certificate, d).length + perDisponibilita(sistemi, d).length;
+  const eScelta = (c: Candidato) => scelta?.tipo === c.tipo && 'id' in scelta && scelta.id === c.id;
+  // la soluzione scelta resta in elenco anche se il filtro la escluderebbe
+  const filtra = (lista: Candidato[]) => {
+    const f = perDisponibilita(lista, disponibilita);
+    const s = lista.find(eScelta);
+    return s && !f.includes(s) ? [...f, s] : f;
+  };
+  const cert = filtra(certificate);
+  const sist = filtra(sistemi);
+  const altra: Disponibilita = disponibilita === 'magazzino' ? 'ordine' : 'magazzino';
+
   const elencoCertificate = (
     <Elenco
       key="c"
       titolo="Configurazioni certificate al fuoco"
       fonte="Guida antincendio Siniat, luglio 2026: classe, altezza e rapporto di classificazione"
-      candidati={certificate}
+      candidati={cert}
+      numero={perDisponibilita(certificate, disponibilita).length}
       scelta={scelta}
       scegli={scegli}
     />
@@ -41,7 +67,8 @@ export default function Soluzioni({
       key="s"
       titolo="Sistemi del Memento Siniat"
       fonte="Memento 2024: statica, acustica e quantità medie per m²"
-      candidati={sistemi}
+      candidati={sist}
+      numero={perDisponibilita(sistemi, disponibilita).length}
       scelta={scelta}
       scegli={scegli}
     />
@@ -49,16 +76,34 @@ export default function Soluzioni({
 
   return (
     <div className="soluzioni">
-      <p className="nota">
-        Prima le soluzioni con le lastre a magazzino; le altre arrivano su ordinazione da {FORNITORE_ORDINI.nome} in{' '}
-        {FORNITORE_ORDINI.giorni} giorni.
-      </p>
-      {certificate.length === 0 && sistemi.length === 0 && (
+      <div>
+        <Interruttore<Disponibilita>
+          etichetta="Soluzioni da proporre"
+          valore={disponibilita}
+          voci={[
+            ['magazzino', `A magazzino · ${quante('magazzino')}`],
+            ['ordine', `Su ordinazione · ${quante('ordine')}`],
+            ['tutte', `Tutte · ${quante('tutte')}`],
+          ]}
+          cambia={cambiaDisponibilita}
+        />
+        <p className="nota">{NOTE[disponibilita]}</p>
+      </div>
+      {cert.length === 0 && sist.length === 0 && (
         <div className="ag-vuoto">
           <div className="ag-vuoto-icona">∅</div>
-          <div className="ag-vuoto-testo">
-            Nessuna soluzione Siniat con questi requisiti: prova con un'altezza minore, una classe o un Rw più bassi.
-          </div>
+          {quante('tutte') > 0 ? (
+            <>
+              <div className="ag-vuoto-testo">Nessuna soluzione {NOMI[disponibilita]} con questi requisiti.</div>
+              <button className="btn btn-sm btn-secondary" onClick={() => cambiaDisponibilita(altra)}>
+                Vedi quelle {NOMI[altra]} ({quante(altra)})
+              </button>
+            </>
+          ) : (
+            <div className="ag-vuoto-testo">
+              Nessuna soluzione Siniat con questi requisiti: prova con un'altezza minore, una classe o un Rw più bassi.
+            </div>
+          )}
         </div>
       )}
       {fuoco ? [elencoCertificate, elencoSistemi] : [elencoSistemi, elencoCertificate]}
@@ -84,12 +129,15 @@ function Elenco({
   titolo,
   fonte,
   candidati,
+  numero,
   scelta,
   scegli,
 }: {
   titolo: string;
   fonte: string;
   candidati: Candidato[];
+  /** quante soluzioni passano il filtro (la scelta tenuta in vista non conta) */
+  numero: number;
   scelta: SoluzioneBozza | null;
   scegli: (s: SoluzioneBozza) => void;
 }) {
@@ -102,7 +150,7 @@ function Elenco({
   return (
     <div className="elenco-soluzioni">
       <h4>
-        {titolo} <span className="ag-pastiglia">{candidati.length}</span>
+        {titolo} <span className="ag-pastiglia">{numero}</span>
       </h4>
       <p className="nota">{fonte}</p>
       <div className="schede-soluzione">

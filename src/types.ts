@@ -263,6 +263,9 @@ export interface CatalogoSiniat {
 export type Opera = 'parete' | 'controparete' | 'cavedio' | 'controsoffitto' | 'solaio' | 'esterno';
 export type Ambiente = 'normale' | 'umido' | 'bagnato' | 'esterno';
 
+/** Quali soluzioni proporre: con tutte le lastre a magazzino, su ordinazione o tutte. */
+export type Disponibilita = 'magazzino' | 'ordine' | 'tutte';
+
 export interface Requisiti {
   opera: Opera;
   /** resistenza al fuoco in minuti, 0 = nessuna */

@@ -60,7 +60,9 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   soluzioni tutte a magazzino. Per le configurazioni certificate usa le
   sostituzioni che la guida elenca per quella configurazione, con lastre dello
   stesso spessore; per le schede Memento nessuna sostituzione oltre alle note
-  della scheda. Con la Fase 3 la disponibilità passerà al listino.
+  della scheda. Nel passo 3 l'interruttore *A magazzino / Su ordinazione /
+  Tutte* (si parte da A magazzino, la scelta resta nella bozza). Con la Fase 3
+  la disponibilità passerà al listino.
 
 ## Studio dei manuali Siniat (23/09/2026)
 

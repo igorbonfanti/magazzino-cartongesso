@@ -20,8 +20,8 @@ import {
 import { lastraDaTesto } from './data/siniat/articoli';
 import { aMagazzino } from './data/magazzino';
 import type {
-  Ambiente, Classificazione, ConfigurazioneFuoco, FuocoVariante, InterasseSiniat, Opera, Requisiti, SistemaSiniat, Sostituzione,
-  Stratigrafia, VarianteSistema,
+  Ambiente, Classificazione, ConfigurazioneFuoco, Disponibilita, FuocoVariante, InterasseSiniat, Opera, Requisiti, SistemaSiniat,
+  Sostituzione, Stratigrafia, VarianteSistema,
 } from './types';
 
 export interface OperaInfo {
@@ -420,4 +420,14 @@ export function conOrditura(c: Candidato, o: Orditura): Candidato {
   }
   const fuocoVariante = o.fuoco ?? c.fuocoVariante;
   return { ...c, variante, fuocoVariante, rw: o.v.rw ?? null, hmaxUtile: minimo(o.fuoco?.hmax, o.hmax), avvisi };
+}
+
+/**
+ * Le soluzioni da proporre secondo la disponibilità: "magazzino" quelle con
+ * tutte le lastre a scaffale (sostituzioni ammesse comprese), "ordine" le
+ * altre, lastre non note comprese.
+ */
+export function perDisponibilita(candidati: Candidato[], d: Disponibilita): Candidato[] {
+  if (d === 'tutte') return candidati;
+  return candidati.filter((c) => (c.aMagazzino === true) === (d === 'magazzino'));
 }

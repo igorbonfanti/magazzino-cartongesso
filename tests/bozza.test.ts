@@ -117,7 +117,31 @@ describe('bozza con il selettore Siniat', () => {
     expect(b.opera).toBe('controparete');
     expect(b.soluzione).toEqual({ tipo: 'classico' });
     expect(b.requisiti.fuoco).toBe(0);
+    expect(b.disponibilita).toBe('magazzino');
     expect(leggiBozza({ ...bozzaVuota(), soluzione: { tipo: 'boh' } })).toBeNull();
     expect(leggiBozza({ ...bozzaVuota(), opera: 'tetto' })).toBeNull();
+  });
+});
+
+describe('bozza — soluzioni a magazzino o su ordinazione', () => {
+  it('si parte da quelle a magazzino e la scelta si ricorda', () => {
+    expect(bozzaVuota().disponibilita).toBe('magazzino');
+    const salvata = { ...conOpera(bozzaVuota(), 'parete'), disponibilita: 'ordine' as const };
+    expect(leggiBozza(JSON.parse(JSON.stringify(salvata)))!.disponibilita).toBe('ordine');
+  });
+
+  it('una bozza senza la scelta (versione di ieri) parte da quelle a magazzino, senza perdere la soluzione', () => {
+    const { disponibilita: _d, ...ieri } = {
+      ...conOpera(bozzaVuota(), 'parete'),
+      soluzione: { tipo: 'certificata' as const, id: 'AF-009' },
+    };
+    const b = leggiBozza(ieri)!;
+    expect(b.disponibilita).toBe('magazzino');
+    expect(b.soluzione).toEqual({ tipo: 'certificata', id: 'AF-009' });
+    expect(b.opera).toBe('parete');
+  });
+
+  it('un valore sconosciuto non passa', () => {
+    expect(bozzaValida({ ...bozzaVuota(), disponibilita: 'boh' })).toBe(false);
   });
 });

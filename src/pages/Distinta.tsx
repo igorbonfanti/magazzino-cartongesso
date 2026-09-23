@@ -148,6 +148,8 @@ export default function Distinta() {
               certificate={soluzioni.certificate}
               sistemi={soluzioni.sistemi}
               fuoco={bozza.requisiti.fuoco > 0}
+              disponibilita={bozza.disponibilita}
+              cambiaDisponibilita={(disponibilita) => aggiorna({ disponibilita })}
               scelta={sol}
               classico={!!ambito}
               scegli={scegli}
