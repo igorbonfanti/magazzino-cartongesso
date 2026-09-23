@@ -161,3 +161,64 @@ export function totaliPreventivo(totaliRigaCent: readonly number[], aliquotaBp: 
   const iva = ivaCent(netto, aliquotaBp);
   return { nettoCent: netto, ivaCent: iva, totaleCent: netto + iva };
 }
+
+// ===========================================================================
+// PREZZI DI LISTINO
+// ===========================================================================
+// Il listino può avere prezzi unitari con più di due decimali (viti o ganci al
+// pezzo): si tengono in decimillesimi di euro interi, 0,0125 € = 125, cosi'
+// nessun prezzo si arrotonda prima del totale di riga.
+
+/**
+ * Un prezzo letto dal listino (numero dell'Excel o testo con la virgola) in
+ * decimillesimi di euro interi. Oltre il quarto decimale si arrotonda a meta'
+ * per eccesso. null se vuoto o non valido.
+ */
+export function euroADecimillesimi(valore: unknown): number | null {
+  let testo: string;
+  if (typeof valore === 'number') {
+    if (!Number.isFinite(valore)) return null;
+    // la rappresentazione piu' corta del numero: 0.855 e non 0.85499999…
+    testo = String(valore);
+    if (/e/i.test(testo)) testo = valore.toFixed(10);
+  } else if (typeof valore === 'string') {
+    testo = valore.trim().replace(/[€\s]/g, '');
+    // "1.234,50" → "1234.50"; "12,5" → "12.5"
+    testo = testo.includes(',') ? testo.replace(/\./g, '').replace(',', '.') : testo;
+  } else {
+    return null;
+  }
+  const m = /^(-?)(\d*)(?:\.(\d*))?$/.exec(testo);
+  if (!m || (m[2] === '' && !m[3])) return null;
+  const dec = (m[3] ?? '').padEnd(5, '0');
+  let dm = Number(m[2] || '0') * 10000 + Number(dec.slice(0, 4));
+  if (Number(dec[4]) >= 5) dm += 1;
+  return m[1] ? -dm : dm;
+}
+
+/** Il prezzo di listino da mostrare: almeno due decimali, fino a quattro. 125 → "0,0125" ; 125000 → "12,50" */
+export function formattaPrezzoListino(decimillesimi: number): string {
+  const n = Math.trunc(decimillesimi);
+  const abs = Math.abs(n);
+  const dec = String(abs % 10000).padStart(4, '0').replace(/0{1,2}$/, '');
+  return `${n < 0 ? '-' : ''}${formattaIntero(Math.floor(abs / 10000))},${dec}`;
+}
+
+/**
+ * Totale della riga da un prezzo di listino in decimillesimi: come
+ * totaleRigaCent, una sola divisione e un solo arrotondamento al centesimo.
+ */
+export function totaleRigaDaListino(prezzoDecimillesimi: number, scontiBp: readonly number[], quantitaMilli: number): number {
+  if (!Number.isInteger(prezzoDecimillesimi) || !Number.isInteger(quantitaMilli)) {
+    throw new Error('Prezzo e quantità vanno passati interi (decimillesimi e millesimi)');
+  }
+  const { num, den } = fattoreSconti(scontiBp);
+  // decimillesimi × millesimi = 10^-7 €, e il centesimo è 10^-2: si divide per 10^5
+  return Number(dividiArrotonda(BigInt(prezzoDecimillesimi) * num * BigInt(quantitaMilli), den * 100000n));
+}
+
+/** Netto unitario da un prezzo in decimillesimi, a quattro decimali per mostrarlo. */
+export function formattaNettoDaListino(prezzoDecimillesimi: number, scontiBp: readonly number[]): string {
+  const { num, den } = fattoreSconti(scontiBp);
+  return formattaPrezzoListino(Number(dividiArrotonda(BigInt(prezzoDecimillesimi) * num, den)));
+}

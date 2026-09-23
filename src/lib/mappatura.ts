@@ -1,0 +1,69 @@
+/**
+ * Mappatura: dall'articolo generico della distinta (LASTRA_BA13_STD,
+ * GUIDA_75, VITI_S_TEX_32_MM…) al codice del listino del magazzino.
+ *
+ * Sta in cgp_mapping, un documento per chiave. Dove non c'è, vale la
+ * mappatura di partenza di mapping_seed.ts (i codici già usati nei
+ * preventivi). Le chiavi senza né l'una né l'altra restano "da mappare": il
+ * codice non si inventa.
+ */
+import { MAPPING_SEED } from '../data/mapping_seed';
+
+export interface Mappatura {
+  chiave: string;
+  /** codice del listino */
+  codice: string;
+  /**
+   * A cosa si riferisce il prezzo di listino: alla confezione della distinta
+   * (lastra, barra, conf.) o all'unità di misura (m², ml, kg, pz). Una lastra
+   * a listino "al m²" si vende a lastre ma si paga 2,4 m² l'una.
+   */
+  prezzoPer: 'confezione' | 'um';
+  /** sconto extra di partenza del venditore, in punti base (sconto 2, Fase 4) */
+  scontoExtraBp?: number;
+  /** chi l'ha salvata e quando, per l'elenco */
+  aggiornatoDa?: string;
+  aggiornatoIl?: string;
+}
+
+export type OrigineMappatura = 'archivio' | 'partenza';
+
+export interface MappaturaRisolta extends Mappatura {
+  origine: OrigineMappatura;
+}
+
+/** La mappatura di una chiave: quella salvata, altrimenti quella di partenza; undefined se da mappare. */
+export function mappaturaPer(chiave: string, salvate: ReadonlyMap<string, Mappatura>): MappaturaRisolta | undefined {
+  const s = salvate.get(chiave);
+  if (s) return { ...s, origine: 'archivio' };
+  const p = MAPPING_SEED[chiave];
+  return p ? { chiave, codice: p.codice, prezzoPer: 'confezione', origine: 'partenza' } : undefined;
+}
+
+/** Un documento letto da cgp_mapping, controllato: null se non ha la forma giusta. */
+export function mappaturaValida(chiave: string, dati: unknown): Mappatura | null {
+  if (!dati || typeof dati !== 'object') return null;
+  const d = dati as Record<string, unknown>;
+  if (typeof d.codice !== 'string' || !d.codice.trim()) return null;
+  const prezzoPer = d.prezzoPer === 'um' ? 'um' : 'confezione';
+  const extra = typeof d.scontoExtraBp === 'number' && Number.isInteger(d.scontoExtraBp) && d.scontoExtraBp >= 0 && d.scontoExtraBp <= 10000
+    ? d.scontoExtraBp
+    : undefined;
+  return {
+    chiave,
+    codice: d.codice.trim(),
+    prezzoPer,
+    ...(extra !== undefined ? { scontoExtraBp: extra } : {}),
+    ...(typeof d.aggiornatoDa === 'string' ? { aggiornatoDa: d.aggiornatoDa } : {}),
+    ...(typeof d.aggiornatoIl === 'string' ? { aggiornatoIl: d.aggiornatoIl } : {}),
+  };
+}
+
+/**
+ * Le chiavi diventano ID di documenti: niente "/" (Firestore separa i
+ * segmenti) e niente altro che lettere, cifre e trattino basso, come le
+ * chiavi che l'app genera.
+ */
+export function chiaveValida(chiave: string): boolean {
+  return /^[A-Z0-9_]{1,120}$/.test(chiave);
+}

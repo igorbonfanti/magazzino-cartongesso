@@ -1,7 +1,5 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
 
 // Progetto Firebase condiviso con le altre app del magazzino.
 // Tutte le collection di questa app usano il prefisso cgp_ (vedi COLL sotto)
@@ -15,12 +13,11 @@ const firebaseConfig = {
   appId: '1:696561179056:web:fc6b1db62ed256fd3fde75',
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-export const db = getFirestore(app);
-/** Il listino arriva da qui: listino.xlsx, lo stesso file del gestionale. Solo lettura. */
-export const storage = getStorage(app);
+// Firestore e Storage stanno in firebaseDati.ts: si caricano solo dopo
+// l'accesso, cosi' chi usa soltanto la distinta non li scarica.
 
 /** Nomi delle collection Firestore. Unico punto di verita': non scrivere stringhe letterali altrove. */
 export const COLL = {

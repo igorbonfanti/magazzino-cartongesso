@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { calcolaDistinta } from '../engine';
 import { calcolaDistintaSiniat } from '../engine-siniat';
 import {
@@ -15,6 +16,11 @@ import type { Bozza, RequisitiBozza, SoluzioneBozza } from '../lib/bozza';
 import { conOrditura, OPERE, operaInfo, orditurePossibili, selezionaSoluzioni } from '../selettore';
 import type { Candidato } from '../selettore';
 import type { SoluzioneScelta } from '../types';
+import type { RigaDistinta } from '../engine';
+import { useAccesso } from '../lib/auth';
+import { useDati } from '../lib/dati';
+import { prezzaRiga } from '../prezzi';
+import { StatoListino } from './Mappatura';
 import Classico from './distinta/Classico';
 import { CampiSfrido, Passo } from './distinta/comuni';
 import Misure from './distinta/Misure';
@@ -38,6 +44,18 @@ function bozzaIniziale(): Bozza {
 
 export default function Distinta() {
   const [bozza, setBozza] = useState<Bozza>(bozzaIniziale);
+  const { utente, autorizzato } = useAccesso();
+  const dati = useDati();
+  /** i prezzi riga per riga, se c'è il listino */
+  const prezza = (righe: RigaDistinta[]) =>
+    autorizzato && dati.listino ? righe.map((r) => prezzaRiga(r, dati.mappature, dati.indice)) : null;
+  const statoPrezzi = !utente ? (
+    <p className="nota">
+      <Link to="/accesso">Accedi</Link> per vedere i prezzi del listino.
+    </p>
+  ) : autorizzato ? (
+    <StatoListino />
+  ) : null;
 
   useEffect(() => {
     try {
@@ -169,7 +187,10 @@ export default function Distinta() {
                 <Misure campiture={bozza.campiture} cambia={(c) => aggiorna({ campiture: c })} distinta={distintaClassica} />
               </Passo>
               <Passo n={6} titolo="Distinta materiali">
-                {distintaClassica && <TabellaDistinta distinta={distintaClassica} />}
+                {statoPrezzi}
+                {distintaClassica && (
+                  <TabellaDistinta distinta={distintaClassica} prezzi={prezza(distintaClassica.righe)} mappatura={autorizzato} />
+                )}
               </Passo>
             </>
           )}
@@ -200,8 +221,9 @@ export default function Distinta() {
                     Le incidenze Siniat comprendono uno sfrido del 5% su lastre e isolante: qui si sostituisce con il vostro.
                   </p>
                 </div>
+                {statoPrezzi}
                 {distintaSiniat && 'errore' in distintaSiniat && <p className="avviso avviso-attenzione">{distintaSiniat.errore}</p>}
-                {siniatOk && <TabellaDistinta distinta={siniatOk} />}
+                {siniatOk && <TabellaDistinta distinta={siniatOk} prezzi={prezza(siniatOk.righe)} mappatura={autorizzato} />}
               </Passo>
             </>
           ) : (

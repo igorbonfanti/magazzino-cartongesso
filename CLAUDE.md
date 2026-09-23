@@ -37,10 +37,15 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
 | `src/data/siniat/catalogo.json` | GENERATO da `docs/studio-siniat/script/catalogo_app.py`: non si tocca a mano |
 | `src/data/siniat/articoli.ts` | voci Siniat → chiavi degli articoli per `cgp_mapping`, confezioni |
 | `src/lib/bozza.ts` | la bozza del wizard e la migrazione di quelle salvate |
+| `src/lib/listino.ts` | lettura di `listino.xlsx` (pura, come il gestionale); `listinoRemoto.ts` lo scarica e lo tiene in IndexedDB |
+| `src/lib/mappatura.ts` | voce della distinta → codice di listino; `mappaturaRemota.ts` legge e scrive `cgp_mapping` |
+| `src/prezzi.ts` | prezzi delle righe: listino × (1 − sconto base) × quantità venduta |
+| `src/data/chiavi.ts` | tutte le voci che una distinta può contenere, per la pagina Mappatura |
+| `src/lib/auth.tsx`, `ruoli.ts` | accesso email/password; autorizzati = gli UID di `autorizzato()` nelle regole |
 | `src/money.ts` | centesimi interi; prime funzioni identiche a scorte, poi la catena dei prezzi |
 | `src/lib/firebase.ts` | progetto condiviso `magazzino-edile-pos`, `COLL` con i nomi `cgp_*` |
 | `tema.css`, `base.css` | condivisi, identici agli altri repository: non si modificano qui |
-| `tests/` | `distinte_attese.json` congelato + test di motore e importi; catalogo, selettore e motore Siniat |
+| `tests/` | `distinte_attese.json` congelato + test di motore e importi; catalogo, selettore e motore Siniat; listino, prezzi, voci della mappatura |
 
 ## Decisioni prese (23/09/2026)
 
@@ -63,6 +68,31 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   della scheda. Nel passo 3 l'interruttore *A magazzino / Su ordinazione /
   Tutte* (si parte da A magazzino, la scelta resta nella bozza). Con la Fase 3
   la disponibilità passerà al listino.
+- **Sfrido di partenza 10% su lastre e isolante** (confermato il 23/09/2026). Il
+  caso reale della specifica (285 pannelli) resta calcolato senza sfrido sulla
+  lana, come nella specifica: il test lo tiene così.
+
+## Fase 3 — listino, mappatura, prezzi (23/09/2026)
+
+- **Accesso** email e password come scorte, persistente. La distinta resta
+  aperta a tutti; listino, prezzi, mappatura (e poi i preventivi) solo agli UID
+  di `autorizzato()`, copiati in `src/lib/ruoli.ts`: vanno tenuti allineati.
+- **Listino**: `listino.xlsx` su Storage, letto con le regole del gestionale
+  (intestazione nelle prime 10 righe; sconto, fornitore e categoria nelle
+  colonne F, I, K). Si riscarica se cambia la data del file; la copia vale 24
+  ore e sta in **IndexedDB**, non in localStorage, perché l'origine
+  `igorbonfanti.github.io` è condivisa e il gestionale ne occupa già la quota.
+- **Prezzi in decimillesimi di euro** (0,0125 € = 125): il listino può avere
+  più di due decimali. Il totale di riga si arrotonda una volta sola, al
+  centesimo (`totaleRigaDaListino`), come `totaleRigaCent`.
+- **Mappatura** in `cgp_mapping/{chiave}`: codice di listino, prezzo riferito
+  alla confezione o all'unità di misura (lastre al m²), sconto extra di
+  partenza per la Fase 4. Dove non c'è vale `mapping_seed.ts`. Il codice si
+  sceglie dal listino, non si scrive.
+- **Regole `cgp_*`**: proposta in `docs/regole-firestore-cgp.md`, da aggiungere
+  a `magazzino-scorte/firestore.rules` e pubblicare. Finché non ci sono, la
+  mappatura salvata non funziona e l'app lo dice.
+- Firestore, Storage e SheetJS si caricano solo dopo l'accesso.
 
 ## Studio dei manuali Siniat (23/09/2026)
 

@@ -211,6 +211,53 @@ main {
 .distinta-opzioni { margin-bottom: 14px; }
 .distinta-opzioni .nota { flex-basis: 100%; margin: 0; }
 
+/* --- ACCESSO, LISTINO E MAPPATURA ---------------------------------------- */
+
+.accesso { display: flex; justify-content: center; padding: 24px 0; }
+.accesso-riquadro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 380px;
+}
+.accesso-riquadro h2 { margin: 0; font-size: var(--fs-xl); }
+.accesso-riquadro .nota { margin: 0; }
+/* almeno 16px o iPhone ingrandisce la pagina */
+.accesso-riquadro input { font-size: 16px; }
+
+.stato-listino {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 0 0 12px;
+  color: var(--text2);
+  font-size: var(--fs-sm);
+}
+.stato-listino .avviso { flex-basis: 100%; }
+
+.mappatura { display: flex; flex-direction: column; gap: 14px; }
+.mappatura > .nota { margin: 0; }
+.tabella-mappatura td { vertical-align: top; }
+.tabella-mappatura tr.da-mappare td { background: var(--orange-bg); }
+.tabella-mappatura tr.riga-scelta td { background: var(--accent-bg); }
+.scheda-mappatura { display: flex; flex-direction: column; gap: 12px; }
+.scheda-mappatura .nota { margin: 0; }
+.risultati-listino {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+.risultati-listino .scelta { width: 100%; min-height: 0; padding: 10px 12px; }
+.azioni-scheda { display: flex; flex-wrap: wrap; gap: 8px; }
+.tabella-distinta tfoot td { font-weight: 700; border-top: 2px solid var(--border-strong); }
+
 /* --- MISURE ------------------------------------------------------------- */
 
 .misure { display: flex; flex-direction: column; gap: 12px; }
