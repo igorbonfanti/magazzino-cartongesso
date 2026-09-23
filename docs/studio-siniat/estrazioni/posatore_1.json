@@ -1,0 +1,2849 @@
+{
+ "meta": {
+  "fonte": "Siniat - Manuale del posatore (edizione luglio 2025 secondo l'incarico)",
+  "file_pdf": "C:/Users/Administrator/Downloads/manuale-del-posatore_no-bv.pdf",
+  "file_testo": [
+   "posatore_raw.txt",
+   "manuale-del-posatore_no-bv.txt"
+  ],
+  "pagine_pdf_coperte": "1-44",
+  "convenzione_pagine": "pagina = numero di pagina del PDF; pagina_stampata = numero stampato (= PDF - 1 in tutto l'intervallo 1-44)",
+  "estrattore": "posatore_1",
+  "immagini_controllate": [
+   "img/pos1_p19.png",
+   "img/pos1_p20.png",
+   "img/pos1_p21_txt.png",
+   "img/pos1_p22_txt.png",
+   "img/pos1_p43.png",
+   "img/pos1_p43_tab.png",
+   "img/pos1_p44.png"
+  ],
+  "unita": "altezze in m, interassi in cm, pesi in kg/m2, Rw in dB, spessori in mm salvo diversa indicazione nel nome del campo"
+ },
+ "best_practice": [
+  {
+   "id": "BP01",
+   "argomento": "sicurezza",
+   "regola": "Indossare sempre casco, scarpe di sicurezza e occhiali; nel grande cantiere anche gilet ad alta visibilità; guanti con profili, taglierini e cesoie; imbracatura agganciata per i lavori in quota (grande cantiere).",
+   "perche": "Regole obbligatorie per tutelare sé e chi lavora vicino.",
+   "pagina": 7,
+   "pagina_stampata": 6
+  },
+  {
+   "id": "BP02",
+   "argomento": "sicurezza",
+   "regola": "Nei grandi cantieri concordare con il Direttore Lavori data, orario e documenti; registrarsi e portare il tesserino con nome, cognome e azienda; esibire il cartellino di cantiere se richiesto.",
+   "perche": "Obbligo di identificazione in cantiere (il manuale cita la 'legge n. 626').",
+   "pagina": 7,
+   "pagina_stampata": 6
+  },
+  {
+   "id": "BP03",
+   "argomento": "sicurezza",
+   "regola": "Fare attenzione a persone vicine e a carichi sospesi (non sostarvi sotto), a dislivelli, gradini instabili, cavi e parapetti provvisori; eliminare le situazioni di rischio e non agire di fretta.",
+   "perche": "Prevenire cadute e incidenti.",
+   "pagina": 8,
+   "pagina_stampata": 7
+  },
+  {
+   "id": "BP04",
+   "argomento": "sicurezza",
+   "regola": "Sollevare con il carico centrato tra i piedi, gambe piegate e schiena dritta; girarsi muovendo i piedi, mai ruotando la schiena (anche con i sacchi).",
+   "perche": "Evitare danni alla schiena nella movimentazione manuale.",
+   "pagina": 8,
+   "pagina_stampata": 7
+  },
+  {
+   "id": "BP05",
+   "argomento": "tracciamento",
+   "regola": "Tracciare l'asse della parete con filo tracciante o con il laser.",
+   "perche": "Riferimento per allineare guide e montanti.",
+   "pagina": 29,
+   "pagina_stampata": 28,
+   "altre_pagine": [
+    30,
+    35
+   ]
+  },
+  {
+   "id": "BP06",
+   "argomento": "guide",
+   "regola": "Prima di posare la guida a pavimento togliere il film protettivo e applicare la banda resiliente adesiva sul dorso della guida.",
+   "perche": "Desolidarizza la parete dal solaio; è obbligatoria quando c'è un requisito acustico.",
+   "pagina": 29,
+   "pagina_stampata": 28,
+   "altre_pagine": [
+    30
+   ]
+  },
+  {
+   "id": "BP07",
+   "argomento": "guide",
+   "regola": "Posare la guida a pavimento sulla traccia e fissarla con tasselli ogni 50 cm.",
+   "perche": "I sistemi sono autoportanti ma vanno ancorati alle strutture dell'edificio (p12).",
+   "pagina": 30,
+   "pagina_stampata": 29,
+   "altre_pagine": [
+    12
+   ]
+  },
+  {
+   "id": "BP08",
+   "argomento": "guide",
+   "regola": "Infilare le guide a soffitto sulla testa dei montanti terminali e verificarne il parallelismo con la guida a terra mettendo a piombo un montante pilota.",
+   "perche": "Parete verticale e guide allineate.",
+   "pagina": 31,
+   "pagina_stampata": 30,
+   "altre_pagine": [
+    30
+   ]
+  },
+  {
+   "id": "BP09",
+   "argomento": "guide",
+   "regola": "Fissare le guide a soffitto con 'stop' se si è sotto solaio, oppure avvitarle a un profilo della sottostruttura se si è sotto un controsoffitto.",
+   "perche": "Ancoraggio adatto al supporto superiore.",
+   "pagina": 31,
+   "pagina_stampata": 30
+  },
+  {
+   "id": "BP10",
+   "argomento": "raccordi con solai e pareti",
+   "regola": "Con requisito acustico applicare la banda resiliente (polietilene a celle chiuse) sul dorso delle guide a pavimento e a soffitto e dei montanti di testata o terminali.",
+   "perche": "Separa la parete da solai, pareti, travi e pilastri, limitando i ponti acustici.",
+   "pagina": 28,
+   "pagina_stampata": 27,
+   "altre_pagine": [
+    30
+   ]
+  },
+  {
+   "id": "BP11",
+   "argomento": "montanti",
+   "regola": "Accostare il montante di partenza alla parete esistente, metterlo a piombo con la livella magnetica e fissarlo ogni 40/50 cm con viti disposte a zig-zag.",
+   "perche": "Ancoraggio laterale e verticalità; il motivo dello zig-zag non è spiegato.",
+   "pagina": 30,
+   "pagina_stampata": 29
+  },
+  {
+   "id": "BP12",
+   "argomento": "montanti",
+   "regola": "Misurare l'interasse (60 o 40 cm nella tavola p43), inserire i montanti nelle guide e bloccarli in testa e al piede con la punzonatrice.",
+   "perche": "Posizione fissa dei montanti nelle guide.",
+   "pagina": 31,
+   "pagina_stampata": 30,
+   "altre_pagine": [
+    43
+   ]
+  },
+  {
+   "id": "BP13",
+   "argomento": "montanti",
+   "regola": "Tagliare i montanti 1–2 cm più corti della distanza misurata tra le guide.",
+   "perche": "Lasciano spazio alla dilatazione termica ed evitano contrasti con le guide (indicazione data nella parte sul fuoco).",
+   "pagina": 13,
+   "pagina_stampata": 12
+  },
+  {
+   "id": "BP14",
+   "argomento": "montanti accoppiati",
+   "regola": "Usare montanti doppi dorso-dorso quando serve più altezza (tavola p43), per tenere in verticale il materassino isolante (p31) e sempre nelle pareti SLA (p32).",
+   "perche": "Maggiore rigidezza e migliore tenuta dell'isolante.",
+   "pagina": 31,
+   "pagina_stampata": 30,
+   "altre_pagine": [
+    32,
+    43
+   ]
+  },
+  {
+   "id": "BP15",
+   "argomento": "collegamento orditure SL",
+   "regola": "Nella parete SL collegare le due orditure con lastrine di cartongesso, la prima a 30 cm da terra e le altre ogni 1,20 m; con requisito fuoco usare bande di lamiera 10/10 mm.",
+   "perche": "Solidarizzano le orditure per raggiungere grandi altezze.",
+   "pagina": 32,
+   "pagina_stampata": 31
+  },
+  {
+   "id": "BP16",
+   "argomento": "collegamento orditure SLA",
+   "regola": "Nella parete SLA usare i connettori PHONI SL fissati sul dorso dei montanti con almeno 2 viti per parte lungo i 45°.",
+   "perche": "L'ammortizzatore in gomma tra due squadre a L riduce la trasmissione sonora tra le orditure.",
+   "pagina": 32,
+   "pagina_stampata": 31
+  },
+  {
+   "id": "BP17",
+   "argomento": "isolante",
+   "regola": "Inserire i pannelli di lana minerale tra i montanti prima di avvitare le lastre di chiusura e bloccarli con montanti doppi o con spezzoni metallici fissati alle ali interne.",
+   "perche": "L'isolante non deve scivolare dopo la chiusura, altrimenti si perde prestazione acustica.",
+   "pagina": 31,
+   "pagina_stampata": 30,
+   "altre_pagine": [
+    28
+   ]
+  },
+  {
+   "id": "BP18",
+   "argomento": "isolante",
+   "regola": "Sostituire i pannelli isolanti rotti o sfibrati.",
+   "perche": "Per il fonoisolamento non è ammessa nessuna incuria.",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "BP19",
+   "argomento": "lastre",
+   "regola": "Tagliare le lastre con il cutter o con utensili dedicati.",
+   "perche": "Il manuale non indica un motivo.",
+   "pagina": 33,
+   "pagina_stampata": 32
+  },
+  {
+   "id": "BP20",
+   "argomento": "doppio paramento",
+   "regola": "Primo strato: partire con mezza lastra tagliata per il lungo in mezzeria, avvitata a passo 60 cm sui montanti, e chiudere tagliando l'eccedenza.",
+   "perche": "Predispone lo sfalsamento dei giunti con il secondo strato.",
+   "pagina": 33,
+   "pagina_stampata": 32
+  },
+  {
+   "id": "BP21",
+   "argomento": "sfalsamento giunti",
+   "regola": "Secondo strato: partire con lastra intera a tutta larghezza, così i giunti sono sfalsati rispetto al primo strato; passo viti max 25÷30 cm. Vale anche per la parete D con doppio paramento.",
+   "perche": "I giunti dei due strati non si sovrappongono (le fig. 29–31 mostrano anche il giunto orizzontale delle pareti alte).",
+   "pagina": 34,
+   "pagina_stampata": 33,
+   "altre_pagine": [
+    38
+   ]
+  },
+  {
+   "id": "BP22",
+   "argomento": "lastre",
+   "regola": "Accostare le lastre contigue in perfetta aderenza lungo i bordi longitudinali e sostituire ogni lastra rotta o bucata.",
+   "perche": "Ogni fessura o foro lascia passare il suono.",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "BP23",
+   "argomento": "giunti",
+   "regola": "Stuccare anche i giunti degli strati interni nelle facce con più lastre.",
+   "perche": "Tenuta acustica.",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "BP24",
+   "argomento": "viti - passo",
+   "regola": "Passo viti di 30 cm di norma e 25 cm nei sistemi resistenti al fuoco (per p13 max 25 cm, in alcuni casi 10 cm); con requisito acustico max 30 cm.",
+   "perche": "Poche viti causano lesioni capillari ai giunti; al fuoco le viti tengono ancorate le lastre; in acustica evitano distacchi che spostano la risonanza.",
+   "pagina": 23,
+   "pagina_stampata": 22,
+   "altre_pagine": [
+    13,
+    28
+   ]
+  },
+  {
+   "id": "BP25",
+   "argomento": "viti - distanza",
+   "regola": "Mettere le viti ad almeno 1 cm dai bordi longitudinali e mai nella mezzeria del giunto.",
+   "perche": "Evita lo 'schiantamento' del bordo.",
+   "pagina": 23,
+   "pagina_stampata": 22
+  },
+  {
+   "id": "BP26",
+   "argomento": "viti - lunghezza",
+   "regola": "Scegliere la lunghezza in modo che la vite entri nel metallo almeno 1 cm (lastra 12,5 mm → vite 25 mm; doppio strato → vite 35 mm).",
+   "perche": "Fissaggio efficace nel profilo.",
+   "pagina": 23,
+   "pagina_stampata": 22
+  },
+  {
+   "id": "BP27",
+   "argomento": "viti - tipo",
+   "regola": "Usare viti con punta a chiodo su profili da 6/10 fino a 10/10 mm e viti con punta a trapano su lamiera da 10/10 mm in su.",
+   "perche": "La vite deve riuscire a perforare lo spessore della lamiera.",
+   "pagina": 23,
+   "pagina_stampata": 22
+  },
+  {
+   "id": "BP28",
+   "argomento": "viti - tipo",
+   "regola": "Usare le viti TEKS (13 mm testa bombata; 9,5 mm testa a rondella) solo per unire profili tra loro; raramente su guide e montanti.",
+   "perche": "La testa sporgente spinge fuori la lastra e ne rovina la planarità.",
+   "pagina": 23,
+   "pagina_stampata": 22
+  },
+  {
+   "id": "BP29",
+   "argomento": "viti - metodo",
+   "regola": "Per un passo costante usare come dima la distanza tra l'impugnatura e la punta dell'avvitatore.",
+   "perche": "Metodo pratico per mantenere il passo corretto.",
+   "pagina": 34,
+   "pagina_stampata": 33
+  },
+  {
+   "id": "BP30",
+   "argomento": "raccordi con solai e pareti",
+   "regola": "Sigillare il perimetro della parete su entrambe le facce con silicone ad alto modulo elastico.",
+   "perche": "Il suono passa da qualsiasi foro, anche minimo.",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "BP31",
+   "argomento": "acustica",
+   "regola": "Per un isolamento definitivo trattare l'intero locale ('scatola nella scatola'), compresi i ponti acustici dovuti a strutture, porte e finestre.",
+   "perche": "Il solo divisorio non garantisce il fonoisolamento reale.",
+   "pagina": 29,
+   "pagina_stampata": 28
+  },
+  {
+   "id": "BP32",
+   "argomento": "termica",
+   "regola": "Nella parete S con requisito termico usare le stesse attenzioni di posa richieste per l'acustica.",
+   "perche": "Evitare i ponti termici.",
+   "pagina": 29,
+   "pagina_stampata": 28
+  },
+  {
+   "id": "BP33",
+   "argomento": "aperture/porte",
+   "regola": "Definire il vano porta sul tracciamento, tagliare a 'V' le ali della guida a terra in corrispondenza del vano e ripiegarla a 90°; il risvolto verticale di 15 o 20 cm si avvita sul dorso dei montanti di stipite.",
+   "perche": "Blocca al piede i montanti del vano porta.",
+   "pagina": 35,
+   "pagina_stampata": 34,
+   "altre_pagine": [
+    36
+   ]
+  },
+  {
+   "id": "BP34",
+   "argomento": "aperture/porte",
+   "regola": "Configurare 'a squadra' la guida d'architrave e fissarla ai montanti di stipite; posare spezzoni di montante sul dorso dei montanti di stipite.",
+   "perche": "Forma la struttura del sopraluce.",
+   "pagina": 37,
+   "pagina_stampata": 36
+  },
+  {
+   "id": "BP35",
+   "argomento": "aperture/porte",
+   "regola": "Nel sopraluce inserire un montante intermedio per fissare il ritaglio 'a bandiera' della lastra; non mettere mai giunti in corrispondenza degli stipiti.",
+   "perche": "Evita linee di debolezza sotto gli urti dinamici della porta.",
+   "pagina": 37,
+   "pagina_stampata": 36,
+   "altre_pagine": [
+    38
+   ]
+  },
+  {
+   "id": "BP36",
+   "argomento": "aperture/porte",
+   "regola": "Avvitare il telaio della porta direttamente ai montanti di stipite e alla guida d'architrave, senza controtelaio.",
+   "perche": "Il telaio si ancora direttamente alla struttura metallica.",
+   "pagina": 38,
+   "pagina_stampata": 37
+  },
+  {
+   "id": "BP37",
+   "argomento": "aperture/porte",
+   "regola": "Per porte pesanti rinforzare gli stipiti con due montanti inscatolati o con un regolo di legno.",
+   "perche": "Maggiore resistenza del vano.",
+   "pagina": 38,
+   "pagina_stampata": 37
+  },
+  {
+   "id": "BP38",
+   "argomento": "impianti",
+   "regola": "Far entrare gli impiantisti dopo il primo paramento di una faccia, per posare corrugati e canalizzazioni nell'intercapedine; all'applicatore spettano i fori per scatole elettriche, tubi di adduzione e perni dei carichi pesanti.",
+   "perche": "Gli impianti si posano con la parete ancora aperta su un lato.",
+   "pagina": 39,
+   "pagina_stampata": 38
+  },
+  {
+   "id": "BP39",
+   "argomento": "impianti",
+   "regola": "Scatole elettriche: tracciare assi e centri di fresatura, aprire i fori con fresa a tazza su avvitatore e rettificarli, inserire il corrugato e bloccare la scatola alle lastre con le sue viti.",
+   "perche": "La scatola deve essere solidale alla lastra.",
+   "pagina": 39,
+   "pagina_stampata": 38
+  },
+  {
+   "id": "BP40",
+   "argomento": "sanitari",
+   "regola": "Supporto per WC sospeso (stesso metodo per gli altri sanitari; seguire il foglio istruzioni): posizionare gomito e scatola, fissare il supporto in via provvisoria e bloccare il gomito con il collare; bloccare ai montanti le piastre della traversa di controventatura; fissare al massetto con tasselli metallici le piastre forate al piede.",
+   "perche": "Il carico del sanitario va su telaio, montanti e massetto, non sulla lastra.",
+   "pagina": 40,
+   "pagina_stampata": 39
+  },
+  {
+   "id": "BP41",
+   "argomento": "sanitari",
+   "regola": "Chiudere con la lastra idrofuga Pregydro: misurare perni e gomito, forare con fresa a tazza o seghetto, montare la lastra sui perni; fissare a livello le barre di sospensione del WC.",
+   "perche": "Chiusura corretta attorno agli attacchi, in ambiente umido.",
+   "pagina": 41,
+   "pagina_stampata": 40
+  },
+  {
+   "id": "BP42",
+   "argomento": "carichi appesi",
+   "regola": "Con ganci a X, tasselli in plastica a espansione e tasselli in nylon ad avvitatura diretta appendere meno di 10 kg per punto.",
+   "perche": "È il limite di portata dichiarato sulla lastra.",
+   "pagina": 42,
+   "pagina_stampata": 41
+  },
+  {
+   "id": "BP43",
+   "argomento": "carichi appesi",
+   "regola": "Con tasselli metallici a espansione (con occhiello o gancio, aperti con la pinza) appendere meno di 30 kg per punto, con punti ad almeno 40 cm tra loro.",
+   "perche": "Le 4 lamine si serrano a croce sul dorso della lastra e distribuiscono il carico.",
+   "pagina": 42,
+   "pagina_stampata": 41
+  },
+  {
+   "id": "BP44",
+   "argomento": "carichi appesi",
+   "regola": "Per carichi maggiori (pensili, sanitari, termosifoni) usare supporti per carichi pesanti solidarizzati ai montanti. Si montano anche a parete finita: si taglia la lastra, si fissa il supporto e si rimette il ritaglio forato per i perni.",
+   "perche": "La lastra da sola non regge carichi pesanti.",
+   "pagina": 42,
+   "pagina_stampata": 41,
+   "altre_pagine": [
+    12
+   ]
+  },
+  {
+   "id": "BP45",
+   "argomento": "bande",
+   "regola": "Preferire la banda in carta microforata: è la più resistente, adatta agli spigoli interni ed esterni e, secondo p23, l'unica per le lastre A1 e compatibile con tutti gli stucchi Siniat.",
+   "perche": "Massima resistenza meccanica dei giunti.",
+   "pagina": 23,
+   "pagina_stampata": 22,
+   "nota": "DA VERIFICARE: p24 dice che la banda in fibra di vetro può armare i giunti delle lastre A1."
+  },
+  {
+   "id": "BP46",
+   "argomento": "bande",
+   "regola": "Rete adesiva in fibra di vetro: poco adatta con gli stucchi a presa a base gesso. Banda in fibra di vetro: non per la finitura degli spigoli. Paraspigolo metallico: solo per urti lievi.",
+   "perche": "Limiti d'impiego dichiarati dal manuale.",
+   "pagina": 24,
+   "pagina_stampata": 23,
+   "altre_pagine": [
+    23
+   ]
+  },
+  {
+   "id": "BP47",
+   "argomento": "stucchi",
+   "regola": "Rispettare i tempi di presa ed essiccamento di ciascuno stucco (vedi componenti.stucchi) tenendo conto del clima del cantiere.",
+   "perche": "Il clima influisce su presa, essiccamento e resistenza meccanica del giunto.",
+   "pagina": 24,
+   "pagina_stampata": 23
+  },
+  {
+   "id": "BP48",
+   "argomento": "controsoffitti (statica)",
+   "regola": "Scegliere i pendini in base al solaio e caricarli solo fino al carico massimo di esercizio (Siniat: sicurezza 3:1 sulla rottura); tasselli a solaio con rottura pari a 5 volte l'esercizio, posati secondo il metodo del produttore.",
+   "perche": "Il controsoffitto è in posizione critica in caso di cedimento.",
+   "pagina": 12,
+   "pagina_stampata": 11
+  },
+  {
+   "id": "BP49",
+   "argomento": "statica",
+   "regola": "Ancorare i sistemi alle strutture portanti e scegliere i profili in base al sistema e ai carichi; per le pareti usare il Memento (anche oltre 12 m) e, nei casi complessi, la Divisione Tecnica Siniat.",
+   "perche": "Un'opera non verificata secondo le NTC può essere contestata o cedere.",
+   "pagina": 12,
+   "pagina_stampata": 11
+  },
+  {
+   "id": "BP50",
+   "argomento": "documenti",
+   "regola": "Prima di firmare l'appalto di un'opera con resistenza al fuoco verificare che sia nominato un tecnico 818 (Albo VVF); se il committente non lo sa, invitarlo a nominarlo prima dei lavori.",
+   "perche": "Tutela l'applicatore; il tecnico ratifica i sistemi e redige il CERT.REI.",
+   "pagina": 13,
+   "pagina_stampata": 12,
+   "altre_pagine": [
+    28
+   ]
+  },
+  {
+   "id": "BP51",
+   "argomento": "documenti",
+   "regola": "Eseguire il lavoro come richiesto e a regola d'arte, e rilasciare la dichiarazione di corretta posa in opera.",
+   "perche": "È un obbligo dell'applicatore.",
+   "pagina": 13,
+   "pagina_stampata": 12
+  },
+  {
+   "id": "BP52",
+   "argomento": "documenti",
+   "regola": "Controllare la classe di reazione al fuoco delle lastre sull'etichetta CE dei bancali o sulla marcatura sul dorso di ogni lastra.",
+   "perche": "Deve corrispondere al capitolato.",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "BP53",
+   "argomento": "documenti",
+   "regola": "Non presentare un certificato con Rw esattamente pari al valore richiesto in opera.",
+   "perche": "In opera si perdono 6–8 dB per ponti acustici e posa scorretta.",
+   "pagina": 14,
+   "pagina_stampata": 13
+  },
+  {
+   "id": "BP54",
+   "argomento": "fuoco",
+   "regola": "Rispettare tassativamente il contesto applicativo e i dettagli di installazione del rapporto di classificazione.",
+   "perche": "È la condizione di validità della classe EI/REI.",
+   "pagina": 13,
+   "pagina_stampata": 12
+  }
+ ],
+ "regole_selezione": [
+  {
+   "id": "R01",
+   "ambito": "altezza",
+   "condizione": "Sempre, come primo passo della scelta",
+   "conseguenza": "L'altezza d'interpiano è il punto di partenza: la struttura (montante, interasse, singolo o doppio) si sceglie in base all'altezza e al numero e tipo di lastre per faccia.",
+   "tipo_regola": "esplicita",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "R02",
+   "ambito": "altezza/statica",
+   "condizione": "Serve il dimensionamento statico della parete",
+   "conseguenza": "Prima scelta dalla documentazione 'Tramezzi' o dal Memento; per i casi complessi verifica della Divisione Tecnica Siniat. Le pareti possono superare i 12 m.",
+   "tipo_regola": "esplicita",
+   "pagina": 28,
+   "pagina_stampata": 27,
+   "altre_pagine": [
+    12
+   ],
+   "parametri": {
+    "altezza_pareti_oltre_m": 12
+   }
+  },
+  {
+   "id": "R03",
+   "ambito": "altezza",
+   "condizione": "Altezza richiesta H per una parete della tavola p43",
+   "conseguenza": "Scegliere montante, interasse e singolo/doppio con Hmax ≥ H. A parità di montante, interasse 40 cm e montanti doppi danno Hmax maggiore.",
+   "tipo_regola": "derivata",
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "id": "R04",
+   "ambito": "altezza",
+   "condizione": "H supera l'Hmax con montanti singoli",
+   "conseguenza": "Passare a montanti doppi (][), a un montante più largo o a interasse 40 cm; per grandi altezze usare le pareti SL/SLA.",
+   "tipo_regola": "derivata",
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "altre_pagine": [
+    32
+   ]
+  },
+  {
+   "id": "R05",
+   "ambito": "altezza",
+   "condizione": "Altezza d'interpiano da 7÷8 m in su (capannoni industriali e simili)",
+   "conseguenza": "Parete SL (doppia orditura legata), oppure SLA se serve anche alta prestazione acustica.",
+   "tipo_regola": "esplicita",
+   "pagina": 32,
+   "pagina_stampata": 31,
+   "parametri": {
+    "altezza_min_m": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "id": "R06",
+   "ambito": "fuoco",
+   "condizione": "Parete SL con requisito di resistenza al fuoco",
+   "conseguenza": "Collegare le orditure con bande di lamiera 10/10 mm invece delle lastrine di cartongesso.",
+   "tipo_regola": "esplicita",
+   "pagina": 32,
+   "pagina_stampata": 31
+  },
+  {
+   "id": "R07",
+   "ambito": "acustica",
+   "condizione": "Altissima prestazione acustica (cinema multisala, teatri, auditorium, sale di registrazione)",
+   "conseguenza": "Parete SLA con connettori PHONI SL e montanti sempre dorso-dorso.",
+   "tipo_regola": "esplicita",
+   "pagina": 32,
+   "pagina_stampata": 31
+  },
+  {
+   "id": "R08",
+   "ambito": "destinazione",
+   "condizione": "Separazione tra appartamenti, camere d'albergo o ambienti di diversa destinazione d'uso, con alta prestazione acustica",
+   "conseguenza": "Parete S (doppia orditura parallela desolidarizzata).",
+   "tipo_regola": "esplicita",
+   "pagina": 29,
+   "pagina_stampata": 28,
+   "altre_pagine": [
+    27
+   ]
+  },
+  {
+   "id": "R09",
+   "ambito": "destinazione",
+   "condizione": "Divisorio tra ambienti della stessa unità",
+   "conseguenza": "Parete D (orditura semplice), con o senza isolante, con 1 o 2 lastre per faccia.",
+   "tipo_regola": "esplicita",
+   "pagina": 35,
+   "pagina_stampata": 34,
+   "altre_pagine": [
+    27
+   ]
+  },
+  {
+   "id": "R10",
+   "ambito": "termica",
+   "condizione": "Requisito di resistenza termica R della parete ('furto di calore')",
+   "conseguenza": "Si richiede solo per pareti S tra alloggi o ambienti di diversa destinazione e proprietà, o tra vani caldi e freddi (es. alloggio e vano scala). R la fissa il termotecnico; la parete si sceglie dal Memento.",
+   "tipo_regola": "esplicita",
+   "pagina": 29,
+   "pagina_stampata": 28
+  },
+  {
+   "id": "R11",
+   "ambito": "impianti",
+   "condizione": "Molti impianti da far passare nell'intercapedine",
+   "conseguenza": "Si può scegliere un'intercapedine (montante) più larga di quella richiesta dalla statica.",
+   "tipo_regola": "esplicita",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "R12",
+   "ambito": "fuoco",
+   "condizione": "Requisito di resistenza al fuoco (EI/REI)",
+   "conseguenza": "Cercare il rapporto di classificazione Siniat che corrisponde al capitolato e rispettarne tassativamente contesto e dettagli di posa.",
+   "tipo_regola": "esplicita",
+   "pagina": 28,
+   "pagina_stampata": 27,
+   "altre_pagine": [
+    13
+   ]
+  },
+  {
+   "id": "R13",
+   "ambito": "fuoco",
+   "condizione": "Nessun rapporto di classificazione corrisponde all'opera",
+   "conseguenza": "Una valutazione a calcolo trova, nella maggior parte dei casi, una soluzione idonea.",
+   "tipo_regola": "esplicita",
+   "pagina": 28,
+   "pagina_stampata": 27
+  },
+  {
+   "id": "R14",
+   "ambito": "fuoco",
+   "condizione": "Qualsiasi opera con requisito di resistenza al fuoco",
+   "conseguenza": "Serve un tecnico iscritto all'Albo VVF (legge 818) che ratifichi la scelta e rediga il CERT.REI.; l'applicatore ne verifica la nomina prima della firma dell'appalto.",
+   "tipo_regola": "esplicita",
+   "pagina": 13,
+   "pagina_stampata": 12,
+   "altre_pagine": [
+    28
+   ]
+  },
+  {
+   "id": "R15",
+   "ambito": "fuoco",
+   "condizione": "Tavola p43: si richiede EI60",
+   "conseguenza": "Lastre PregyPlac, 2 BA13 per faccia: pareti D (con o senza lana di vetro), S170/50, S220/75, S270/100 (con lana di roccia), SLA (nota ³ non spiegata).",
+   "tipo_regola": "esplicita",
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "parametri": {
+    "EI": 60,
+    "lastra": "PregyPlac"
+   }
+  },
+  {
+   "id": "R16",
+   "ambito": "fuoco",
+   "condizione": "Tavola p43: si richiede EI120",
+   "conseguenza": "Lastre PregyFlam, 2 BA13 per faccia: D100/50, D125/75, D150/100 (con o senza lana di vetro), S125/50 e S200/100 (con lana di vetro).",
+   "tipo_regola": "esplicita",
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "parametri": {
+    "EI": 120,
+    "lastra": "PregyFlam"
+   }
+  },
+  {
+   "id": "R17",
+   "ambito": "reazione al fuoco",
+   "condizione": "Il capitolato richiede una classe di reazione al fuoco",
+   "conseguenza": "Verificare la classe della lastra (etichetta CE o dorso). Vecchia Classe 0 = A1; vecchia Classe 1 = A2-s1,d0 (alcuni risultati in Classe B corrispondono alla vecchia Classe 1).",
+   "tipo_regola": "esplicita",
+   "pagina": 28,
+   "pagina_stampata": 27,
+   "altre_pagine": [
+    13
+   ]
+  },
+  {
+   "id": "R18",
+   "ambito": "reazione al fuoco",
+   "condizione": "Vie di fuga (scale, corridoi) di edifici pubblici",
+   "conseguenza": "Il 50% delle superfici dell'ambiente deve essere in Classe A1.",
+   "tipo_regola": "esplicita",
+   "pagina": 13,
+   "pagina_stampata": 12,
+   "parametri": {
+    "quota_superfici_A1_percento": 50
+   }
+  },
+  {
+   "id": "R19",
+   "ambito": "acustica",
+   "condizione": "Requisito acustico di legge per le pareti (DPCM 5/12/1997)",
+   "conseguenza": "R'w in opera = 50 dB per le pareti di qualsiasi edificio e 55 dB per gli ospedali, da verificare con prove fonometriche.",
+   "tipo_regola": "esplicita",
+   "pagina": 14,
+   "pagina_stampata": 13,
+   "parametri": {
+    "Rw_opera_dB": 50,
+    "Rw_opera_ospedali_dB": 55
+   }
+  },
+  {
+   "id": "R20",
+   "ambito": "acustica",
+   "condizione": "Scelta di un sistema per un requisito acustico in opera",
+   "conseguenza": "Scegliere un Rw di laboratorio superiore al requisito in opera: la perdita tipica è di 6–8 dB (ponti acustici, posa). Mai proporre un certificato 'esatto'.",
+   "tipo_regola": "derivata",
+   "pagina": 14,
+   "pagina_stampata": 13,
+   "parametri": {
+    "perdita_tipica_in_opera_dB": [
+     6,
+     8
+    ]
+   },
+   "nota": "Il margine è derivato: il manuale dichiara la perdita di 6–8 dB ma non formula la regola del margine."
+  },
+  {
+   "id": "R21",
+   "ambito": "acustica",
+   "condizione": "Rumore aereo dal piano superiore",
+   "conseguenza": "Controsoffitto con materassino isolante nel plenum; i pendini acustici migliorano ulteriormente.",
+   "tipo_regola": "esplicita",
+   "pagina": 14,
+   "pagina_stampata": 13
+  },
+  {
+   "id": "R22",
+   "ambito": "acustica",
+   "condizione": "Rumore da impatto o calpestio (Ln,w)",
+   "conseguenza": "Non si risolve con il controsoffitto acustico: serve un pavimento galleggiante (intervento dall'alto).",
+   "tipo_regola": "esplicita",
+   "pagina": 14,
+   "pagina_stampata": 13,
+   "altre_pagine": [
+    15
+   ]
+  },
+  {
+   "id": "R23",
+   "ambito": "acustica",
+   "condizione": "Controllo del riverbero (sale, teatri, ristoranti)",
+   "conseguenza": "Lastre forate PregyBel a parete o soffitto, secondo il progetto del tecnico acustico. Riverbero ottimale: parola 0,7/1,2 s; musica 1÷2 s.",
+   "tipo_regola": "esplicita",
+   "pagina": 15,
+   "pagina_stampata": 14,
+   "parametri": {
+    "riverbero_parola_s": [
+     0.7,
+     1.2
+    ],
+    "riverbero_musica_s": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R24",
+   "ambito": "acustica",
+   "condizione": "Isolante in intercapedine (dati della tavola p43)",
+   "conseguenza": "Aumenta Rw di circa 6–7 dB nelle pareti D e di circa 18–19 dB nelle pareti S.",
+   "tipo_regola": "derivata",
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "parametri": {
+    "delta_Rw_D_dB": [
+     6,
+     7
+    ],
+    "delta_Rw_S_dB": [
+     18,
+     19
+    ]
+   }
+  },
+  {
+   "id": "R25",
+   "ambito": "termica",
+   "condizione": "Isolamento termico di una parete esterna o verso un vano freddo",
+   "conseguenza": "Controparete su struttura metallica con isolante, oppure accoppiati isolanti incollati: le lastre da sole non isolano.",
+   "tipo_regola": "esplicita",
+   "pagina": 16,
+   "pagina_stampata": 15
+  },
+  {
+   "id": "R26",
+   "ambito": "termica",
+   "condizione": "Rischio di condensa emerso dalla verifica di Glaser",
+   "conseguenza": "Prevedere una barriera al vapore (prodotti citati a p20: PregyVapor, LaDuraVapor).",
+   "tipo_regola": "esplicita",
+   "pagina": 16,
+   "pagina_stampata": 15,
+   "altre_pagine": [
+    20
+   ],
+   "nota": "La scelta del prodotto è derivata dall'elenco di p20."
+  },
+  {
+   "id": "R27",
+   "ambito": "umidità",
+   "condizione": "Ambiente umido (es. bagno con WC sospeso)",
+   "conseguenza": "Il manuale usa la lastra idrofuga Pregydro (EN 520 tipo H: H1 < 5%, H2 < 10%, H3 < 25% di ripresa d'acqua).",
+   "tipo_regola": "esplicita (esempio)",
+   "pagina": 41,
+   "pagina_stampata": 40,
+   "altre_pagine": [
+    19
+   ],
+   "parametri": {
+    "H1_max_percento": 5,
+    "H2_max_percento": 10,
+    "H3_max_percento": 25
+   },
+   "nota": "Nelle pp. 1-44 non c'è una regola di scelta esplicita per l'umidità."
+  },
+  {
+   "id": "R28",
+   "ambito": "urti",
+   "condizione": "Parete esposta a urti",
+   "conseguenza": "EN 520 tipo I = maggiore durezza superficiale (impatto di corpo duro). Il paraspigolo metallico regge solo urti lievi.",
+   "tipo_regola": "esplicita (definizioni)",
+   "pagina": 19,
+   "pagina_stampata": 18,
+   "altre_pagine": [
+    24
+   ],
+   "nota": "Nelle pp. 1-44 non c'è una regola di scelta esplicita per gli urti."
+  },
+  {
+   "id": "R29",
+   "ambito": "aperture",
+   "condizione": "Porta pesante",
+   "conseguenza": "Rinforzare gli stipiti con due montanti inscatolati o con un regolo di legno.",
+   "tipo_regola": "esplicita",
+   "pagina": 38,
+   "pagina_stampata": 37
+  },
+  {
+   "id": "R30",
+   "ambito": "carichi appesi",
+   "condizione": "Carico appeso inferiore a 10 kg per punto",
+   "conseguenza": "Ganci a X, tasselli in plastica a espansione o tasselli in nylon ad avvitatura diretta.",
+   "tipo_regola": "esplicita",
+   "pagina": 42,
+   "pagina_stampata": 41,
+   "parametri": {
+    "carico_max_kg_per_punto": 10
+   }
+  },
+  {
+   "id": "R31",
+   "ambito": "carichi appesi",
+   "condizione": "Carico appeso inferiore a 30 kg per punto",
+   "conseguenza": "Tasselli metallici a espansione, con punti di sospensione distanti almeno 40 cm.",
+   "tipo_regola": "esplicita",
+   "pagina": 42,
+   "pagina_stampata": 41,
+   "parametri": {
+    "carico_max_kg_per_punto": 30,
+    "distanza_min_tra_punti_cm": 40
+   }
+  },
+  {
+   "id": "R32",
+   "ambito": "carichi appesi",
+   "condizione": "Carico di 30 kg o più per punto, sanitari sospesi, termosifoni, pensili pesanti",
+   "conseguenza": "Supporto dedicato per carichi pesanti o telaio per sanitari, solidarizzato ai montanti (il telaio WC va anche al massetto).",
+   "tipo_regola": "esplicita",
+   "pagina": 42,
+   "pagina_stampata": 41,
+   "altre_pagine": [
+    40,
+    12
+   ]
+  },
+  {
+   "id": "R33",
+   "ambito": "giunti",
+   "condizione": "Lastre A1 (PregyPlac A1, LaDura A1, PregyFlam A1)",
+   "conseguenza": "Giunti con banda in carta microforata.",
+   "tipo_regola": "esplicita",
+   "pagina": 23,
+   "pagina_stampata": 22,
+   "nota": "DA VERIFICARE: p24 dice che la banda in fibra di vetro può armare i giunti delle lastre A1."
+  },
+  {
+   "id": "R34",
+   "ambito": "viti",
+   "condizione": "Spessore della lamiera del profilo",
+   "conseguenza": "Da 6/10 fino a 10/10 mm: viti autofilettanti con punta a chiodo (25–120 mm). Da 10/10 mm in su: viti autoperforanti con punta a trapano (25–45 mm).",
+   "tipo_regola": "esplicita",
+   "pagina": 23,
+   "pagina_stampata": 22
+  },
+  {
+   "id": "R35",
+   "ambito": "viti",
+   "condizione": "Scelta della lunghezza delle viti",
+   "conseguenza": "La vite deve entrare nel metallo almeno 10 mm: L ≥ spessore del rivestimento + 10 mm, con la misura commerciale superiore (12,5 → 25 mm; 2×12,5 → 35 mm).",
+   "tipo_regola": "esplicita (esempi) / derivata (formula)",
+   "pagina": 23,
+   "pagina_stampata": 22,
+   "parametri": {
+    "penetrazione_min_mm": 10
+   }
+  },
+  {
+   "id": "R36",
+   "ambito": "generale",
+   "condizione": "Scelta del sistema da confermare",
+   "conseguenza": "La scelta è più sicura se validata dalla Divisione Tecnica Siniat.",
+   "tipo_regola": "esplicita",
+   "pagina": 11,
+   "pagina_stampata": 10
+  }
+ ],
+ "concetti": {
+  "fuoco": [
+   {
+    "concetto": "Reazione al fuoco e resistenza al fuoco",
+    "sintesi": "La reazione riguarda la lastra (propagazione della fiamma in superficie); la resistenza riguarda il sistema (minuti in cui fa da barriera).",
+    "pagina": 13,
+    "pagina_stampata": 12
+   },
+   {
+    "concetto": "Classi di reazione europee",
+    "sintesi": "La EN 520 non usa più le classi 0 e 1. La Classe 0 diventa A1, la Classe 1 diventa A2-s1,d0; alcuni risultati in Classe B corrispondono alla vecchia Classe 1. Non serve omologazione ministeriale: la classe è autocertificata dal produttore rispettando il peso massimo del cartone previsto dalla EN 520.",
+    "dati": {
+     "ex_classe_0": "A1",
+     "ex_classe_1": "A2-s1,d0"
+    },
+    "pagina": 13,
+    "pagina_stampata": 12
+   },
+   {
+    "concetto": "Vie di fuga negli edifici pubblici",
+    "sintesi": "Scale e corridoi devono avere il 50% delle superfici in Classe A1.",
+    "dati": {
+     "quota_A1_percento": 50
+    },
+    "pagina": 13,
+    "pagina_stampata": 12
+   },
+   {
+    "concetto": "DoP",
+    "sintesi": "Dal 1° luglio 2013 (CPR 305/2011) le dichiarazioni di conformità sono sostituite dalle Dichiarazioni di Prestazione, scaricabili dal sito Siniat.",
+    "pagina": 13,
+    "pagina_stampata": 12
+   },
+   {
+    "concetto": "Rapporti di classificazione",
+    "sintesi": "Indicano la classe in minuti (EI, REI o R 30', 60', 90', 120', 180'); contesto applicativo e dettagli di installazione vanno rispettati tassativamente. Con il DM 16 marzo 2007 i rapporti secondo la Circ. 91/61 sono scaduti a settembre 2012 (validi solo per i progetti presentati ai VVF prima di quella data).",
+    "dati": {
+     "classi_minuti": [
+      30,
+      60,
+      90,
+      120,
+      180
+     ]
+    },
+    "pagina": 13,
+    "pagina_stampata": 12
+   },
+   {
+    "concetto": "Tecnico 818 e applicatore",
+    "sintesi": "Ogni opera con resistenza al fuoco richiede un tecnico iscritto all'Albo VVF (legge 818), che ratifica i sistemi e redige il CERT.REI.; l'applicatore esegue a regola d'arte e rilascia la dichiarazione di corretta posa, e invita il committente a nominare il tecnico se manca.",
+    "pagina": 13,
+    "pagina_stampata": 12,
+    "altre_pagine": [
+     28
+    ]
+   },
+   {
+    "concetto": "Posa per il fuoco",
+    "sintesi": "Passo viti max 25 cm (in alcuni casi 10 cm); montanti e profili 1–2 cm più corti della luce tra le guide, per la dilatazione termica.",
+    "dati": {
+     "passo_viti_max_cm": 25,
+     "passo_viti_casi_particolari_cm": 10,
+     "accorciamento_montanti_cm": [
+      1,
+      2
+     ]
+    },
+    "pagina": 13,
+    "pagina_stampata": 12
+   },
+   {
+    "concetto": "Perché il gesso resiste al fuoco",
+    "sintesi": "La difesa passiva del cartongesso sta nell'acqua cristallizzata contenuta nel gesso.",
+    "pagina": 11,
+    "pagina_stampata": 10
+   }
+  ],
+  "acustica": [
+   {
+    "concetto": "Fonoisolamento e fonoassorbimento",
+    "sintesi": "Il fonoisolamento riduce il rumore aereo che arriva da locali contigui o sovrastanti; il fonoassorbimento assorbe l'energia sonora sulle superfici e controlla il riverbero.",
+    "pagina": 14,
+    "pagina_stampata": 13
+   },
+   {
+    "concetto": "Rw, R'w, Ln,w",
+    "sintesi": "Rw = potere fonoisolante di laboratorio (rumore aereo); R'w = isolamento in opera; Ln,w = rumore residuo da impatto sotto un solaio (più è basso, meglio è).",
+    "pagina": 15,
+    "pagina_stampata": 14,
+    "altre_pagine": [
+     14
+    ]
+   },
+   {
+    "concetto": "Scala dei decibel",
+    "sintesi": "Radio a medio volume ≈ 45 dB; conversazione moderata 60–63 dB; traffico o voce alta in un locale chiuso ≈ 80 dB; 140 dB = rottura del timpano. Per il manuale 3 dB raddoppiano o dimezzano l'intensità percepita.",
+    "dati": {
+     "radio_dB": 45,
+     "conversazione_dB": [
+      60,
+      63
+     ],
+     "traffico_dB": 80,
+     "soglia_danno_dB": 140,
+     "delta_raddoppio_dB": 3
+    },
+    "pagina": 14,
+    "pagina_stampata": 13
+   },
+   {
+    "concetto": "Attendibilità dei certificati",
+    "sintesi": "Tra laboratori diversi si sono viste differenze fino a 6 dB sullo stesso sistema; in opera si perdono 6–8 dB rispetto al certificato per ponti acustici e cattiva posa. Le prove in opera e le simulazioni sono più affidabili; il software Siniat prevede il valore di laboratorio con ±1 dB.",
+    "dati": {
+     "scarto_tra_laboratori_dB": 6,
+     "perdita_in_opera_dB": [
+      6,
+      8
+     ],
+     "precisione_software_dB": 1
+    },
+    "pagina": 14,
+    "pagina_stampata": 13,
+    "altre_pagine": [
+     15
+    ]
+   },
+   {
+    "concetto": "Requisiti di legge",
+    "sintesi": "DPCM 5/12/1997: R'w = 50 dB per le pareti di qualsiasi edificio, 55 dB per gli ospedali, verificati in opera con prove fonometriche.",
+    "dati": {
+     "Rw_opera_dB": 50,
+     "Rw_opera_ospedali_dB": 55
+    },
+    "pagina": 14,
+    "pagina_stampata": 13
+   },
+   {
+    "concetto": "Rumore tra piani",
+    "sintesi": "Il rumore aereo dal piano sopra si controlla con controsoffitto e materassino nel plenum (meglio con pendini acustici); il rumore da impatto solo con un pavimento galleggiante, mai con il controsoffitto.",
+    "pagina": 14,
+    "pagina_stampata": 13,
+    "altre_pagine": [
+     15
+    ]
+   },
+   {
+    "concetto": "Ponti acustici, desolidarizzazione, 'scatola nella scatola'",
+    "sintesi": "La posa fa la differenza: banda resiliente su guide e montanti di testata, viti a max 30 cm, lastre accostate e integre, giunti interni stuccati, isolante bloccato, perimetro sigillato con silicone. Il fonoisolamento definitivo si ottiene solo trattando tutto il locale.",
+    "pagina": 28,
+    "pagina_stampata": 27,
+    "altre_pagine": [
+     29,
+     30
+    ],
+    "nota": "Nelle pp. 1-44 non compaiono le espressioni 'trasmissioni laterali' e 'massa-molla-massa'; 'molla' compare nel manuale solo per i pendini a molla dei controsoffitti (p66-67)."
+   },
+   {
+    "concetto": "Riverbero",
+    "sintesi": "Tempi ottimali: 0,7/1,2 s per la parola, 1÷2 s per la musica. Si usano le lastre forate PregyBel; l'applicatore segue il produttore e il tecnico acustico.",
+    "dati": {
+     "parola_s": [
+      0.7,
+      1.2
+     ],
+     "musica_s": [
+      1,
+      2
+     ]
+    },
+    "pagina": 15,
+    "pagina_stampata": 14
+   }
+  ],
+  "termica": [
+   {
+    "concetto": "Quadro normativo e parametri",
+    "sintesi": "Il DL 311 del 29/12/2006 fissa le regole. L'applicatore deve garantire la R o la U richiesta dal progettista termico: R migliore quanto è più alta, U migliore quanto è più bassa.",
+    "pagina": 16,
+    "pagina_stampata": 15
+   },
+   {
+    "concetto": "Ruolo della lastra",
+    "sintesi": "Il cartongesso contribuisce in modo quasi irrilevante all'isolamento termico: isola solo l'isolante. Configurazioni efficaci: controparete su struttura metallica con isolante, oppure accoppiati incollati sulla parete esistente.",
+    "pagina": 16,
+    "pagina_stampata": 15
+   },
+   {
+    "concetto": "Condensa e barriera al vapore",
+    "sintesi": "Bastano 3÷4 °C di differenza per avere condensa. La verifica con il diagramma di Glaser dice se serve una barriera al vapore, per evitare che l'isolante bagnato perda prestazioni.",
+    "dati": {
+     "delta_T_condensa_C": [
+      3,
+      4
+     ]
+    },
+    "pagina": 16,
+    "pagina_stampata": 15
+   },
+   {
+    "concetto": "Parete S e 'furto di calore'",
+    "sintesi": "Si chiede una R per le pareti S tra alloggi o proprietà diverse e tra vani caldi e freddi; valgono le stesse attenzioni di posa dell'acustica.",
+    "pagina": 29,
+    "pagina_stampata": 28
+   },
+   {
+    "concetto": "Isolanti degli accoppiati",
+    "sintesi": "Gli isolanti fibrosi sono termoacustici; quelli cellulari (EPS, XPS) solo termici.",
+    "pagina": 20,
+    "pagina_stampata": 19
+   }
+  ],
+  "statica": [
+   {
+    "concetto": "Autoportanza",
+    "sintesi": "I sistemi sono autoportanti grazie all'orditura metallica, ma vanno ancorati a pilastri, travi, murature e solai; profili scelti per tipo, dimensione e spessore in base al sistema e ai carichi.",
+    "pagina": 12,
+    "pagina_stampata": 11
+   },
+   {
+    "concetto": "Calcolo",
+    "sintesi": "Dimensionamento secondo le NTC (DM 14/01/2008) per peso proprio, spinte superficiali, vento e sisma. Pareti anche oltre 12 m: montanti e guide sul Memento; casi complessi verificati dalla Divisione Tecnica Siniat. Le contropareti seguono gli stessi principi.",
+    "dati": {
+     "altezza_pareti_oltre_m": 12
+    },
+    "pagina": 12,
+    "pagina_stampata": 11
+   },
+   {
+    "concetto": "Controsoffitti, pendini e tasselli",
+    "sintesi": "Nessuna soluzione improvvisata. Pendini scelti per il solaio e caricati al massimo al carico di esercizio (Siniat: sicurezza 3:1 sulla rottura); tasselli con rottura 5 volte l'esercizio, posati secondo il metodo del produttore.",
+    "dati": {
+     "sicurezza_pendini": "3:1",
+     "rottura_tasselli_su_esercizio": 5
+    },
+    "pagina": 12,
+    "pagina_stampata": 11
+   },
+   {
+    "concetto": "Carichi pesanti",
+    "sintesi": "Pensili, sanitari e termosifoni vanno su supporti idonei; sulle lastre si appende solo entro i limiti della documentazione Siniat.",
+    "pagina": 12,
+    "pagina_stampata": 11,
+    "altre_pagine": [
+     42
+    ]
+   }
+  ]
+ },
+ "componenti": {
+  "norme_riferimento": {
+   "lastre": "EN 520",
+   "lastra_GM_PregyFeu_A1": "EN 15283-1",
+   "prodotti_trasformazione": "EN 14190",
+   "accoppiati_isolanti": "EN 13950 (marcatura CE obbligatoria)",
+   "profili": "EN 14195 ed EN 13964 (profili Siniat marcati CE)",
+   "posa": "UNI 11424 (p2)",
+   "pagine": [
+    2,
+    19,
+    20,
+    21
+   ]
+  },
+  "lastre_tipi_EN520": [
+   {
+    "tipo": "A",
+    "descrizione": "standard"
+   },
+   {
+    "tipo": "D",
+    "descrizione": "densità (peso) maggiore, per impieghi particolari come l'isolamento acustico"
+   },
+   {
+    "tipo": "E",
+    "descrizione": "utilizzabile in sistemi parete per esterni"
+   },
+   {
+    "tipo": "F",
+    "descrizione": "per la resistenza al fuoco"
+   },
+   {
+    "tipo": "H",
+    "descrizione": "idrofuga",
+    "sottotipi_ripresa_acqua_max_percento": {
+     "H1": 5,
+     "H2": 10,
+     "H3": 25
+    }
+   },
+   {
+    "tipo": "I",
+    "descrizione": "durezza superficiale incrementata (impatto di corpo duro)"
+   },
+   {
+    "tipo": "P",
+    "descrizione": "perforata per intonaco a gesso (non impiegata in Italia)"
+   },
+   {
+    "tipo": "R",
+    "descrizione": "resistenza a flessione più elevata"
+   }
+  ],
+  "lastre_tipi_EN520_regole": "Con più caratteristiche le lettere compaiono in ordine alfabetico sull'etichetta CE del bancale; una lastra di tipo A non può avere altre lettere. Pagina 19 (stampata 18).",
+  "lastre": [
+   {
+    "nome": "PregyPlac",
+    "formati_citati": [
+     "BA10",
+     "BD10",
+     "BA13",
+     "BD13",
+     "BA15",
+     "BD15",
+     "BA18"
+    ],
+    "note_manuale": "Lastra base. Nella tavola p43 dà EI60 con 2 BA13 per faccia; la BA10 è la base di PregyBoard. BA18 porta la dicitura 'livello 3 di AoC'.",
+    "pagine": [
+     19,
+     20,
+     43
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregyPlac Plus",
+    "formati_citati": [
+     "BA10",
+     "BD10",
+     "BA13",
+     "BD13"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "SyniaPlac",
+    "formati_citati": [
+     "4BA13"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": false
+    }
+   },
+   {
+    "nome": "PregyFlex",
+    "formati_citati": [
+     "BA6",
+     "BD6"
+    ],
+    "note_manuale": "solo elenco; dicitura 'livello 3 di AoC'",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregyDur I",
+    "formati_citati": [
+     "BA13",
+     "BD13"
+    ],
+    "note_manuale": "solo elenco (dal nome, tipo I: DA VERIFICARE)",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregyDurWhite",
+    "formati_citati": [
+     "BA13"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregySoundBoard",
+    "formati_citati": [
+     "BA13"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "Pregydro",
+    "formati_citati": [
+     "BA13",
+     "BD13",
+     "BA15",
+     "BD15"
+    ],
+    "note_manuale": "Lastra idrofuga, usata nel montaggio del WC sospeso (p41).",
+    "pagine": [
+     19,
+     41
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "WhiteydroAir",
+    "formati_citati": [
+     "BA13"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregyFlam",
+    "formati_citati": [
+     "BA13",
+     "BA15"
+    ],
+    "note_manuale": "Nella tavola p43 dà EI120 con 2 BA13 per faccia.",
+    "pagine": [
+     19,
+     43
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregydroFlam",
+    "formati_citati": [
+     "BA13",
+     "BD13",
+     "BA15",
+     "BD15"
+    ],
+    "note_manuale": "solo elenco; stampato 'BA/BD13, BABD15' (BABD15 = refuso per BA/BD15)",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregyPlac A1",
+    "formati_citati": [
+     "A1 BA13",
+     "A1 BA18"
+    ],
+    "note_manuale": "Giunti con banda in carta microforata (p23).",
+    "pagine": [
+     19,
+     23
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "WhiteAir",
+    "formati_citati": [
+     "BA13"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregyFlam A1",
+    "formati_citati": [
+     "A1 BA13",
+     "A1 BA15"
+    ],
+    "note_manuale": "Giunti con banda in carta microforata (p23; nell'elenco il nome è ripetuto due volte).",
+    "pagine": [
+     19,
+     23
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "LaDura A1",
+    "formati_citati": [
+     "BA13",
+     "BA15"
+    ],
+    "note_manuale": "Giunti con banda in carta microforata (p23).",
+    "pagine": [
+     19,
+     23
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "LaDura Plus",
+    "formati_citati": [
+     "BA13",
+     "BA15",
+     "SB20"
+    ],
+    "note_manuale": "solo elenco (è anche la pubblicità di p4)",
+    "pagine": [
+     19,
+     4
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "AquaBoard",
+    "formati_citati": [
+     "BA13"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": true,
+     "antincendio_2026": true
+    }
+   },
+   {
+    "nome": "PregyTwin",
+    "formati_citati": [
+     "BA18S"
+    ],
+    "note_manuale": "solo elenco",
+    "pagine": [
+     19
+    ],
+    "presenza_altre_fonti": {
+     "memento_2024": false,
+     "antincendio_2026": false
+    }
+   }
+  ],
+  "lastre_nota": "I tipi EN 520 dei singoli prodotti non sono indicati nelle pp. 1-44. Le sigle BA/BD/4BA/SB/BA18S non sono definite (nell'uso comune BA = bordo assottigliato, BD = bordo diritto: DA VERIFICARE); il numero è lo spessore nominale (13 = 12,5 mm, esempio delle viti a p23). presenza_altre_fonti = ricerca testuale indicativa nei file del Memento 2024 e del manuale antincendio 2026. Nelle pp. 1-44 non sono citate solidtex ed easy 13, che invece compaiono nel Memento e nel manuale antincendio.",
+  "lastre_fuori_EN520": [
+   {
+    "nome": "PregyFeu A1",
+    "norma": "EN 15283-1 (in vigore da fine 2009)",
+    "identificazione": "GM",
+    "altre_caratteristiche_possibili": [
+     "H1",
+     "H2",
+     "I",
+     "R"
+    ],
+    "pagina": 20,
+    "pagina_stampata": 19,
+    "equivalenza": "Nome storico: PregyFeu è la vecchia denominazione della gamma PregyFlam (secondo il brief); probabilmente corrisponde a PregyFlam A1.",
+    "nota": "DA VERIFICARE: non compare nell'elenco di p19, nel Memento né nel manuale antincendio; il paragrafo sembra un residuo di una vecchia edizione."
+   }
+  ],
+  "prodotti_trasformazione_EN14190": [
+   {
+    "nome": "PregyVapor",
+    "descrizione": "lastra con foglio di alluminio incollato sul dorso, come barriera al vapore",
+    "pagina": 20
+   },
+   {
+    "nome": "LaDuraVapor",
+    "descrizione": "lastra con cuore in gesso fibrorinforzato con fibra di legno naturale, rivestita, accoppiata a una lamina di alluminio",
+    "lamina_alluminio_um": 15,
+    "permeabilita_vapore_mu": 850000,
+    "pagina": 20
+   },
+   {
+    "nome": "Pregy-RX",
+    "descrizione": "lastra con foglio di piombo (vari spessori) incollato sul dorso, contro i raggi X",
+    "pagina": 20
+   },
+   {
+    "nome": "PregyBel",
+    "descrizione": "lastra forata per l'assorbimento acustico, con diversi disegni e distribuzioni dei fori",
+    "pagina": 20,
+    "altre_pagine": [
+     15
+    ]
+   },
+   {
+    "nome": "PregyBoard",
+    "descrizione": "pannello da controsoffitto ispezionabile (a vista o ribassato), ricavato da PregyPlac BA10 con la faccia vista verniciata",
+    "pagina": 20
+   },
+   {
+    "nome": "PregyBoard Vinilico",
+    "descrizione": "come PregyBoard, con la faccia verniciata rivestita da uno strato di PVC",
+    "pagina": 20
+   }
+  ],
+  "accoppiati_isolanti_EN13950": [
+   {
+    "nome": "PregyStyrene",
+    "isolante": "polistirolo espanso (EPS)",
+    "prestazione": "solo termica",
+    "pagina": 20
+   },
+   {
+    "nome": "PregyFoam",
+    "isolante": "polistirolo estruso (XPS)",
+    "prestazione": "solo termica",
+    "pagina": 20
+   },
+   {
+    "nome": "PregyVer",
+    "isolante": "lana di vetro",
+    "prestazione": "termoacustica",
+    "pagina": 20
+   },
+   {
+    "nome": "PregyRoche",
+    "isolante": "lana di roccia",
+    "prestazione": "termoacustica",
+    "pagina": 20
+   }
+  ],
+  "accoppiati_nota": "Disponibili in diversi spessori, non elencati. Nessuno di questi nomi compare nel Memento 2024 o nel manuale antincendio 2026.",
+  "profili": [
+   {
+    "profilo": "Guida a U per pareti",
+    "uso": "blocca piede e testa dei montanti, a pavimento e a soffitto",
+    "anima_mm": [
+     50,
+     75,
+     100,
+     150
+    ],
+    "ali_mm": [
+     35,
+     40,
+     80
+    ],
+    "spessore_lamiera_mm": [
+     0.6,
+     1.0,
+     1.5
+    ],
+    "nota": "Anime indicate come 'le più correnti'. Gli spessori servono per le diverse spinte orizzontali di progetto. L'ala da 80 mm è insolita: DA VERIFICARE sul catalogo.",
+    "pagina": 21,
+    "pagina_stampata": 20
+   },
+   {
+    "profilo": "Montante a C per pareti",
+    "uso": "struttura verticale delle pareti",
+    "anima_mm": [
+     50,
+     75,
+     100,
+     150
+    ],
+    "ali_mm": [
+     40,
+     50
+    ],
+    "spessore_lamiera_mm": [
+     0.6,
+     1.0
+    ],
+    "pagina": 21,
+    "pagina_stampata": 20
+   },
+   {
+    "profilo": "Guida perimetrale a U per controsoffitti",
+    "uso": "perimetro del locale: definisce il plenum e sostiene le teste dei profili",
+    "anima_mm": [
+     17,
+     29
+    ],
+    "ali_mm": [
+     28,
+     29
+    ],
+    "spessore_lamiera_mm": [
+     0.6
+    ],
+    "pagina": 22,
+    "pagina_stampata": 21
+   },
+   {
+    "profilo": "Guida Clip",
+    "uso": "profilo primario a scatto per controsoffitto, per i profili clip S4915 e S4927 con bordi arrotondati",
+    "dimensioni_mm": "41-28-41",
+    "spessore_lamiera_mm": [
+     0.7
+    ],
+    "pagina": 22,
+    "pagina_stampata": 21
+   },
+   {
+    "profilo": "Profilo a C per controsoffitti",
+    "uso": "orditura dei controsoffitti continui",
+    "anima_mm": [
+     49,
+     60
+    ],
+    "ali_mm": [
+     15,
+     27
+    ],
+    "spessore_lamiera_mm": null,
+    "nota": "Spessore non indicato. Le sigle S4915 e S4927 compaiono nella voce Guida Clip.",
+    "pagina": 22,
+    "pagina_stampata": 21
+   },
+   {
+    "profilo": "Profili per contropareti",
+    "uso": "si usano sia i profili per pareti sia quelli per controsoffitti",
+    "pagina": 22,
+    "pagina_stampata": 21
+   },
+   {
+    "profilo": "Profili Flex",
+    "uso": "superfici curve orizzontali (cupole, volte, onde) e verticali (pareti curve, a S, concave o convesse); la curva si blocca punzonando lamine scorrevoli",
+    "pagina": 22,
+    "pagina_stampata": 21
+   }
+  ],
+  "profili_nota": "Nella tavola p43 i montanti sono indicati come '50-40', '50-50', '75-40', '75-50', '100-50' (anima-ala in mm, coerente con p21). Il Memento 2024 usa invece C50/50, C75/50, C100/50 e guide U50/40 (40-50-40); le varianti con ala 40 non vi compaiono.",
+  "viti_SNT": [
+   {
+    "tipo": "autofilettante SNT",
+    "punta": "a chiodo",
+    "testa": "svasata",
+    "filettatura": null,
+    "uso": "lastre su profili da 6/10 fino a max 10/10 mm",
+    "spessore_lamiera_mm": [
+     0.6,
+     1.0
+    ],
+    "lunghezza_mm": {
+     "min": 25,
+     "max": 120
+    },
+    "pagina": 23
+   },
+   {
+    "tipo": "autoperforante SNT",
+    "punta": "a trapano",
+    "testa": "svasata",
+    "filettatura": null,
+    "uso": "lastre su lamiera da 10/10 mm o più",
+    "spessore_lamiera_min_mm": 1.0,
+    "lunghezza_mm": {
+     "min": 25,
+     "max": 45
+    },
+    "pagina": 23
+   },
+   {
+    "tipo": "TEKS SNT",
+    "punta": "a trapano",
+    "testa": "bombata",
+    "filettatura": "a ferro",
+    "uso": "unione dei profili tra loro (sottostrutture interne, profili dorso-dorso, profili sagomati); raramente su guide e montanti",
+    "lunghezza_mm": 13,
+    "pagina": 23
+   },
+   {
+    "tipo": "autoperforante a testa a rondella",
+    "punta": "a trapano",
+    "testa": "a rondella",
+    "filettatura": "a ferro",
+    "uso": "come la TEKS (metallo-metallo)",
+    "lunghezza_mm": 9.5,
+    "pagina": 23
+   }
+  ],
+  "regole_viti": {
+   "passo_cm": {
+    "standard": 30,
+    "sistemi_fuoco": 25,
+    "fuoco_max_p13": 25,
+    "fuoco_casi_particolari_p13": 10,
+    "acustica_max": 30,
+    "primo_strato_doppio_paramento": 60,
+    "secondo_strato": [
+     25,
+     30
+    ]
+   },
+   "distanza_min_bordo_longitudinale_cm": 1,
+   "mai_in_mezzeria_giunto": true,
+   "penetrazione_min_nel_metallo_mm": 10,
+   "esempi_lunghezza": [
+    {
+     "rivestimento": "1 lastra 12,5 mm",
+     "vite_mm": 25
+    },
+    {
+     "rivestimento": "2 lastre (doppio strato)",
+     "vite_mm": 35
+    }
+   ],
+   "pagine": [
+    13,
+    23,
+    28,
+    33,
+    34
+   ]
+  },
+  "bande_armatura_giunti": [
+   {
+    "tipo": "banda in carta microforata",
+    "impiego": "Massima resistenza meccanica dei giunti e finitura degli spigoli interni ed esterni (parete-parete, parete-controsoffitto). Secondo p23 è l'unica per le lastre PregyPlac A1, LaDura A1 e PregyFlam A1 ed è compatibile con qualsiasi stucco Siniat.",
+    "limiti": null,
+    "pagina": 23,
+    "nota": "Nell'elenco 'PregyFlam A1' è ripetuto due volte. In contrasto con p24 sulla banda in fibra di vetro per le lastre A1."
+   },
+   {
+    "tipo": "rete adesiva in fibra di vetro",
+    "impiego": "la più usata dal mercato",
+    "limiti": "'non proprio idonea' con gli stucchi a presa a base gesso",
+    "pagina": 23,
+    "altre_pagine": [
+     24
+    ]
+   },
+   {
+    "tipo": "banda in fibra di vetro",
+    "impiego": "con gli stucchi a presa; secondo p24 può armare i giunti delle lastre A1",
+    "limiti": "non per la finitura degli spigoli",
+    "pagina": 24
+   },
+   {
+    "tipo": "banda paraspigoli",
+    "impiego": "banda armata con 2 lamine metalliche per gli spigoli esterni; ambienti poco frequentati e scalettature dei controsoffitti",
+    "limiti": "efficace solo contro colpi lievi",
+    "pagina": 24
+   }
+  ],
+  "stucchi": [
+   {
+    "nome": "P25",
+    "tipo": "a presa (gesso + additivi)",
+    "tempo_presa": "circa 1 h",
+    "pagina": 24
+   },
+   {
+    "nome": "P25 Extra Finish",
+    "tipo": "a presa",
+    "tempo_presa": "1 h",
+    "note": "finitura migliore",
+    "pagina": 24
+   },
+   {
+    "nome": "P35",
+    "tipo": "a presa",
+    "tempo_presa": "circa 2 h 30 min",
+    "pagina": 24
+   },
+   {
+    "nome": "P45",
+    "tipo": "a presa",
+    "tempo_presa": "12÷24 h",
+    "pagina": 24
+   },
+   {
+    "nome": "P95",
+    "tipo": "a presa",
+    "tempo_presa": "30 min÷2 h",
+    "note": "alta resistenza meccanica",
+    "pagina": 24
+   },
+   {
+    "nome": "Pregy S",
+    "tipo": "a essiccamento (calcare, ritentori d'acqua, additivi), in pasta pronto all'uso, a lunga conservazione",
+    "tempo_asciugatura": "8 h",
+    "mani_successive": "dopo 24 h",
+    "pagina": 24
+   }
+  ],
+  "stucchi_nota": "Gli stucchi a presa induriscono per cristallizzazione, quelli a essiccamento per evaporazione. Il manuale rimanda al Manuale Stucchi Siniat.",
+  "accessori": [
+   {
+    "nome": "banda resiliente adesiva (polietilene a celle chiuse)",
+    "uso": "sul dorso delle guide a pavimento e soffitto e dei montanti di testata o terminali, per desolidarizzare (obbligatoria con requisito acustico)",
+    "pagine": [
+     28,
+     29,
+     30
+    ]
+   },
+   {
+    "nome": "silicone ad alto modulo elastico",
+    "uso": "sigillatura del perimetro della parete su entrambe le facce",
+    "pagine": [
+     28
+    ]
+   },
+   {
+    "nome": "tasselli per la guida a pavimento",
+    "uso": "fissaggio della guida a pavimento",
+    "interasse_cm": 50,
+    "pagine": [
+     30
+    ]
+   },
+   {
+    "nome": "'stop'",
+    "uso": "fissaggio delle guide a soffitto sotto solaio",
+    "pagine": [
+     31
+    ]
+   },
+   {
+    "nome": "lastrine di cartongesso",
+    "uso": "collegamento delle due orditure della SL",
+    "prima_da_terra_cm": 30,
+    "interasse_m": 1.2,
+    "pagine": [
+     32
+    ]
+   },
+   {
+    "nome": "bande di lamiera 10/10 mm",
+    "uso": "collegamento delle orditure SL quando serve resistenza al fuoco",
+    "spessore_mm": 1.0,
+    "pagine": [
+     32
+    ]
+   },
+   {
+    "nome": "connettore PHONI SL",
+    "uso": "collegamento acustico delle orditure SLA: ammortizzatore in gomma tra due squadre a L; almeno 2 viti per parte lungo i 45°",
+    "viti_min_per_parte": 2,
+    "pagine": [
+     32
+    ]
+   },
+   {
+    "nome": "spezzoni metallici",
+    "uso": "trattengono il materassino isolante, fissati alle ali interne dei montanti",
+    "pagine": [
+     31
+    ]
+   },
+   {
+    "nome": "regolo di legno",
+    "uso": "rinforzo degli stipiti di porte pesanti (in alternativa a due montanti inscatolati)",
+    "pagine": [
+     38
+    ]
+   },
+   {
+    "nome": "scatole elettriche per cartongesso",
+    "uso": "bloccate alle lastre con le loro viti; fori con fresa a tazza",
+    "pagine": [
+     39
+    ]
+   },
+   {
+    "nome": "supporto per WC sospeso (kit)",
+    "uso": "telaio con traversa di controventatura sui montanti, piastre forate al piede fissate al massetto con tasselli metallici, barre di sospensione, forcelle per la cassetta; stesso metodo per gli altri sanitari sospesi",
+    "pagine": [
+     40,
+     41
+    ]
+   },
+   {
+    "nome": "supporti per carichi pesanti (gamma Siniat)",
+    "uso": "solidarizzati ai montanti, per carichi oltre i limiti dei tasselli",
+    "pagine": [
+     42
+    ]
+   }
+  ],
+  "ganci_tasselli": [
+   {
+    "tipo": "gancio a X",
+    "portata_max_kg_per_punto": 10,
+    "condizione": "carico < 10 kg per punto",
+    "pagina": 42
+   },
+   {
+    "tipo": "tassello in plastica a espansione",
+    "portata_max_kg_per_punto": 10,
+    "condizione": "carico < 10 kg per punto",
+    "pagina": 42
+   },
+   {
+    "tipo": "tassello in nylon ad avvitatura diretta",
+    "portata_max_kg_per_punto": 10,
+    "condizione": "stessi limiti dei precedenti",
+    "pagina": 42
+   },
+   {
+    "tipo": "tassello metallico a espansione (a vite, con occhiello o gancio)",
+    "portata_max_kg_per_punto": 30,
+    "condizione": "carico < 30 kg per punto",
+    "distanza_min_tra_punti_cm": 40,
+    "funzionamento": "si apre con la pinza apposita; le 4 lamine si serrano a croce sul dorso della lastra",
+    "pagina": 42,
+    "nota": "La distanza di 40 cm è scritta subito dopo i tasselli metallici: non è chiaro se valga per tutti i tipi."
+   },
+   {
+    "tipo": "supporto per carichi pesanti",
+    "portata_max_kg_per_punto": null,
+    "condizione": "carichi maggiori; solidarizzato ai montanti, anche a parete finita",
+    "pagina": 42
+   }
+  ],
+  "pendini_tasselli_solaio": {
+   "sicurezza_pendini_su_rottura": "3:1",
+   "rottura_tasselli_su_esercizio": 5,
+   "pagina": 12,
+   "pagina_stampata": 11
+  }
+ },
+ "tavola_prestazionale_pareti": [
+  {
+   "sistema": "D100/50",
+   "tipologia": "D",
+   "spessore_parete_mm": 100,
+   "montante_sigla": "50-40",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 40,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 2.6,
+   "altezza_max_m_montanti_doppi": null,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 43,
+   "Rw_dB_con_isolante": 50,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "DA VERIFICARE: altezza con montanti doppi stampata '43,2' (refuso evidente, confermato sull'immagine; per analogia dovrebbe stare tra 3,2 e 3,5 m)."
+  },
+  {
+   "sistema": "D100/50",
+   "tipologia": "D",
+   "spessore_parete_mm": 100,
+   "montante_sigla": "50-40",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 40,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 3.0,
+   "altezza_max_m_montanti_doppi": 4.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 43,
+   "Rw_dB_con_isolante": 49,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D100/50",
+   "tipologia": "D",
+   "spessore_parete_mm": 100,
+   "montante_sigla": "50-50",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 2.8,
+   "altezza_max_m_montanti_doppi": 3.5,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 43,
+   "Rw_dB_con_isolante": 50,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D100/50",
+   "tipologia": "D",
+   "spessore_parete_mm": 100,
+   "montante_sigla": "50-50",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 3.2,
+   "altezza_max_m_montanti_doppi": 4.2,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 43,
+   "Rw_dB_con_isolante": 49,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D125/75",
+   "tipologia": "D",
+   "spessore_parete_mm": 125,
+   "montante_sigla": "75-40",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 40,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 4.8,
+   "altezza_max_m_montanti_doppi": 5.5,
+   "marcatore_pallino_su_altezze": true,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 45,
+   "Rw_dB_con_isolante": 52,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D125/75",
+   "tipologia": "D",
+   "spessore_parete_mm": 125,
+   "montante_sigla": "75-40",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 40,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 5.2,
+   "altezza_max_m_montanti_doppi": 6.0,
+   "marcatore_pallino_su_altezze": true,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 45,
+   "Rw_dB_con_isolante": 51,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D125/75",
+   "tipologia": "D",
+   "spessore_parete_mm": 125,
+   "montante_sigla": "75-50",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 5.0,
+   "altezza_max_m_montanti_doppi": 5.8,
+   "marcatore_pallino_su_altezze": true,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 45,
+   "Rw_dB_con_isolante": 52,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D125/75",
+   "tipologia": "D",
+   "spessore_parete_mm": 125,
+   "montante_sigla": "75-50",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 5.4,
+   "altezza_max_m_montanti_doppi": 6.2,
+   "marcatore_pallino_su_altezze": true,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 45,
+   "Rw_dB_con_isolante": 51,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D150/100",
+   "tipologia": "D",
+   "spessore_parete_mm": 150,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 5.7,
+   "altezza_max_m_montanti_doppi": 7.0,
+   "marcatore_pallino_su_altezze": true,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 46,
+   "Rw_dB_con_isolante": 53,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "D150/100",
+   "tipologia": "D",
+   "spessore_parete_mm": 150,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 6.2,
+   "altezza_max_m_montanti_doppi": 7.5,
+   "marcatore_pallino_su_altezze": true,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 44,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con o senza lana di vetro (1)",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con o senza lana di vetro (2)",
+   "Rw_dB_senza_isolante": 46,
+   "Rw_dB_con_isolante": 52,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac",
+    "(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "S170/50",
+   "tipologia": "S",
+   "spessore_parete_mm": 170,
+   "montante_sigla": "50-50",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 2.0,
+   "altezza_max_m_montanti_doppi": 3.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 40,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con lana di roccia (1)",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": 44,
+   "Rw_dB_con_isolante": 63,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "S170/50",
+   "tipologia": "S",
+   "spessore_parete_mm": 170,
+   "montante_sigla": "50-50",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 2.3,
+   "altezza_max_m_montanti_doppi": 3.5,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 40,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con lana di roccia (1)",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": 44,
+   "Rw_dB_con_isolante": 63,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "S220/75",
+   "tipologia": "S",
+   "spessore_parete_mm": 220,
+   "montante_sigla": "75-50",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 3.0,
+   "altezza_max_m_montanti_doppi": 4.3,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 40,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con lana di roccia (1)",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": 46,
+   "Rw_dB_con_isolante": 64,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "S220/75",
+   "tipologia": "S",
+   "spessore_parete_mm": 220,
+   "montante_sigla": "75-50",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 3.6,
+   "altezza_max_m_montanti_doppi": 5.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 40,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con lana di roccia (1)",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": 46,
+   "Rw_dB_con_isolante": 64,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "S270/100",
+   "tipologia": "S",
+   "spessore_parete_mm": 270,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 4.6,
+   "altezza_max_m_montanti_doppi": 5.7,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 40,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con lana di roccia (1)",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": 46,
+   "Rw_dB_con_isolante": 65,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "S270/100",
+   "tipologia": "S",
+   "spessore_parete_mm": 270,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 5.3,
+   "altezza_max_m_montanti_doppi": 6.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13",
+   "peso_parete_kg_m2": 40,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "con lana di roccia (1)",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": 46,
+   "Rw_dB_con_isolante": 65,
+   "rimandi_note": [
+    "(*) su Rw senza e con isolante",
+    "(1) su EI PregyPlac"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42
+  },
+  {
+   "sistema": "S125/50",
+   "tipologia": "S",
+   "spessore_parete_mm": 125,
+   "montante_sigla": "50-50",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 2.0,
+   "altezza_max_m_montanti_doppi": 3.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13 (*)",
+   "peso_parete_kg_m2": 36,
+   "EI_con_lastre_pregyplac": null,
+   "EI_pregyplac_condizione": "cella stampata '-'",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con lana di vetro (1)(2)",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": null,
+   "rimandi_note": [
+    "(*) su lastre per faccia '2 BA13 (*)'",
+    "(1)(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "Rw stampato '--' (non indicato). DA VERIFICARE: la nota (*) su '2 BA13 (*)' non è stampata; lo spessore del sistema non torna con 2 BA13 per faccia su doppia orditura."
+  },
+  {
+   "sistema": "S125/50",
+   "tipologia": "S",
+   "spessore_parete_mm": 125,
+   "montante_sigla": "50-50",
+   "montante_anima_mm": 50,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 2.2,
+   "altezza_max_m_montanti_doppi": 3.5,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13 (*)",
+   "peso_parete_kg_m2": 36,
+   "EI_con_lastre_pregyplac": null,
+   "EI_pregyplac_condizione": "cella stampata '-'",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con lana di vetro (1)(2)",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": null,
+   "rimandi_note": [
+    "(*) su lastre per faccia '2 BA13 (*)'",
+    "(1)(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "Rw stampato '--' (non indicato). DA VERIFICARE: la nota (*) su '2 BA13 (*)' non è stampata; lo spessore del sistema non torna con 2 BA13 per faccia su doppia orditura."
+  },
+  {
+   "sistema": "S200/100",
+   "tipologia": "S",
+   "spessore_parete_mm": 200,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 4.4,
+   "altezza_max_m_montanti_doppi": 5.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13 (*)",
+   "peso_parete_kg_m2": 36,
+   "EI_con_lastre_pregyplac": null,
+   "EI_pregyplac_condizione": "cella stampata '-'",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con lana di vetro (1)(2)",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": null,
+   "rimandi_note": [
+    "(*) su lastre per faccia '2 BA13 (*)'",
+    "(1)(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "Rw stampato '--' (non indicato). DA VERIFICARE: la nota (*) su '2 BA13 (*)' non è stampata; lo spessore del sistema non torna con 2 BA13 per faccia su doppia orditura."
+  },
+  {
+   "sistema": "S200/100",
+   "tipologia": "S",
+   "spessore_parete_mm": 200,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 4.7,
+   "altezza_max_m_montanti_doppi": 5.3,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "2 BA13 (*)",
+   "peso_parete_kg_m2": 36,
+   "EI_con_lastre_pregyplac": null,
+   "EI_pregyplac_condizione": "cella stampata '-'",
+   "EI_con_lastre_pregyflam": "EI120",
+   "EI_pregyflam_condizione": "con lana di vetro (1)(2)",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": null,
+   "rimandi_note": [
+    "(*) su lastre per faccia '2 BA13 (*)'",
+    "(1)(2) su EI PregyFlam"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "Rw stampato '--' (non indicato). DA VERIFICARE: la nota (*) su '2 BA13 (*)' non è stampata; lo spessore del sistema non torna con 2 BA13 per faccia su doppia orditura."
+  },
+  {
+   "sistema": "SLA 260/75",
+   "tipologia": "SLA",
+   "spessore_parete_mm": 260,
+   "montante_sigla": "75-50",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 6.5,
+   "altezza_max_m_montanti_doppi": 9.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "1 BA13+1 BA18 (2 BA13+1 BA18)",
+   "lastre_per_faccia_interpretazione": "1 BA13 + 1 BA18 per faccia (DA VERIFICARE)",
+   "peso_parete_kg_m2": 60,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "(³) nota non stampata",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": 71,
+   "rimandi_note": [
+    "(1) sul nome del sistema",
+    "(³) su EI60",
+    "(*) e (**) su Rw con isolante"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "La tavola SLA ha solo la colonna Rw con isolante."
+  },
+  {
+   "sistema": "SLA 260/75",
+   "tipologia": "SLA",
+   "spessore_parete_mm": 260,
+   "montante_sigla": "75-50",
+   "montante_anima_mm": 75,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 7.4,
+   "altezza_max_m_montanti_doppi": 10.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "1 BA13+1 BA18 (2 BA13+1 BA18)",
+   "lastre_per_faccia_interpretazione": "1 BA13 + 1 BA18 per faccia (DA VERIFICARE)",
+   "peso_parete_kg_m2": 60,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "(³) nota non stampata",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": 71,
+   "rimandi_note": [
+    "(1) sul nome del sistema",
+    "(³) su EI60",
+    "(*) e (**) su Rw con isolante"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "La tavola SLA ha solo la colonna Rw con isolante."
+  },
+  {
+   "sistema": "SLA 440/100",
+   "tipologia": "SLA",
+   "spessore_parete_mm": 440,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 60,
+   "altezza_max_m_montanti_semplici": 7.0,
+   "altezza_max_m_montanti_doppi": 10.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "1 BA13+1 BA18 (2 BA13+1 BA18)",
+   "lastre_per_faccia_interpretazione": "2 BA13 + 1 BA18 per faccia (DA VERIFICARE)",
+   "peso_parete_kg_m2": 71,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "(³) nota non stampata",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": 81,
+   "rimandi_note": [
+    "(2) sul nome del sistema",
+    "(³) su EI60",
+    "(*) e (***) su Rw con isolante"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "La tavola SLA ha solo la colonna Rw con isolante."
+  },
+  {
+   "sistema": "SLA 440/100",
+   "tipologia": "SLA",
+   "spessore_parete_mm": 440,
+   "montante_sigla": "100-50",
+   "montante_anima_mm": 100,
+   "montante_ala_mm": 50,
+   "interasse_montanti_cm": 40,
+   "altezza_max_m_montanti_semplici": 7.5,
+   "altezza_max_m_montanti_doppi": 13.0,
+   "marcatore_pallino_su_altezze": false,
+   "lastre_per_faccia": "1 BA13+1 BA18 (2 BA13+1 BA18)",
+   "lastre_per_faccia_interpretazione": "2 BA13 + 1 BA18 per faccia (DA VERIFICARE)",
+   "peso_parete_kg_m2": 71,
+   "EI_con_lastre_pregyplac": "EI60",
+   "EI_pregyplac_condizione": "(³) nota non stampata",
+   "EI_con_lastre_pregyflam": null,
+   "EI_pregyflam_condizione": "cella stampata '-'",
+   "Rw_dB_senza_isolante": null,
+   "Rw_dB_con_isolante": 81,
+   "rimandi_note": [
+    "(2) sul nome del sistema",
+    "(³) su EI60",
+    "(*) e (***) su Rw con isolante"
+   ],
+   "pagina": 43,
+   "pagina_stampata": 42,
+   "nota": "La tavola SLA ha solo la colonna Rw con isolante."
+  }
+ ],
+ "tavola_prestazionale_note": {
+  "pagina": 43,
+  "pagina_stampata": 42,
+  "descrizione": "Alcune pareti di uso corrente, con altezza massima per diverse configurazioni di montanti e interassi, Rw ed EI. Il catalogo completo è il Memento Siniat.",
+  "isolante_di_riferimento": {
+   "materiale": "lana di roccia",
+   "densita_kg_m3": 40,
+   "spessore_mm": 40
+  },
+  "nota_1": "per maggiori dettagli ed eventuali limitazioni fare riferimento al catalogo soluzioni antincendio Siniat",
+  "note_non_stampate": [
+   "(2)",
+   "(³)",
+   "(*)",
+   "(**)",
+   "(***)",
+   "significato del pallino '•' su alcune altezze"
+  ],
+  "pagina_44": "solo una fotografia: non contiene le note mancanti",
+  "valori_null": "null nelle colonne EI o Rw = cella stampata '-' o '--' (prestazione non indicata); nella riga D100/50 50-40 interasse 60, altezza con montanti doppi = refuso '43,2'",
+  "montante_sigla": "anima-ala in mm (interpretazione coerente con p21)",
+  "rimando_quantita": "La tavola rimanda all''Appendice a pag. 98'; l'Appendice 1 (quantitativi medi pareti) occupa le pagine PDF 96-100.",
+  "fonte_verifica": "immagine della pagina renderizzata (img/pos1_p43.png, img/pos1_p43_tab.png)"
+ },
+ "tipologie_parete": [
+  {
+   "sigla": "D",
+   "nome": "Distributivo",
+   "definizione": "Parete a orditura semplice per i divisori tra ambienti.",
+   "orditura": "una sola orditura (montanti a C in guide a U)",
+   "collegamento_orditure": null,
+   "lastre": "singolo o doppio paramento per faccia, anche con tipi di lastra diversi combinati",
+   "isolante": "facoltativo (lana minerale in intercapedine)",
+   "impieghi": [
+    "divisori tra ambienti",
+    "è la parete tipo, adatta a qualsiasi esigenza di progetto"
+   ],
+   "sistemi_tavola_p43": [
+    "D100/50",
+    "D125/75",
+    "D150/100"
+   ],
+   "prestazioni_tavola_p43": "2 BA13 per faccia, 44 kg/m²; EI60 con PregyPlac, EI120 con PregyFlam; Rw 43–46 dB senza isolante e 49–53 dB con isolante; Hmax 2,6–7,5 m.",
+   "pagine": [
+    27,
+    35,
+    38,
+    43
+   ]
+  },
+  {
+   "sigla": "S",
+   "nome": "Separativo",
+   "definizione": "Doppia orditura parallela desolidarizzata, ad alta prestazione; montanti delle due orditure corrispondenti o sfalsati.",
+   "orditura": "due orditure indipendenti",
+   "collegamento_orditure": "nessuno (desolidarizzate); banda resiliente su guide e montanti di testata",
+   "lastre": "sulle due facce esterne (nella tavola 2 BA13 per faccia)",
+   "isolante": "lana minerale tra i montanti, bloccata con montanti doppi o spezzoni metallici",
+   "impieghi": [
+    "tra appartamenti",
+    "tra camere d'albergo",
+    "tra ambienti di diversa destinazione d'uso con alta prestazione acustica",
+    "pareti con requisito di resistenza termica ('furto di calore', alloggio e vano scala)"
+   ],
+   "sistemi_tavola_p43": [
+    "S170/50",
+    "S220/75",
+    "S270/100",
+    "S125/50",
+    "S200/100"
+   ],
+   "prestazioni_tavola_p43": "S170–S270: 40 kg/m², EI60 con PregyPlac e lana di roccia, Rw 44–46 dB senza isolante e 63–65 dB con isolante. S125/50 e S200/100: '2 BA13 (*)', 36 kg/m², EI120 con PregyFlam e lana di vetro, Rw non indicato. Hmax 2,0–6,0 m.",
+   "pagine": [
+    27,
+    29,
+    30,
+    31,
+    43
+   ]
+  },
+  {
+   "sigla": "SL",
+   "nome": "Separativo legato",
+   "definizione": "Doppia orditura parallela legata, per grandi altezze.",
+   "orditura": "due orditure parallele collegate",
+   "collegamento_orditure": "p27: 'piastre metalliche'; p32: lastrine di cartongesso (la prima a 30 cm da terra, poi ogni 1,20 m) oppure bande di lamiera 10/10 mm se c'è requisito fuoco",
+   "lastre": "non specificate nelle pp. 1-44",
+   "isolante": "tra i montanti",
+   "impieghi": [
+    "altezze d'interpiano da 7÷8 m in su",
+    "capannoni industriali"
+   ],
+   "sistemi_tavola_p43": [],
+   "prestazioni_tavola_p43": null,
+   "nota": "DA VERIFICARE: p27 e p32 descrivono in modo diverso il collegamento delle orditure.",
+   "pagine": [
+    27,
+    32
+   ]
+  },
+  {
+   "sigla": "SLA",
+   "nome": "Separativo legato acustico (a p27 è stampato 'ACUSTIVO')",
+   "definizione": "Come la SL, ma con le orditure legate da connettori acustici per altissime prestazioni fonoisolanti.",
+   "orditura": "due orditure con montanti sempre dorso-dorso",
+   "collegamento_orditure": "connettori PHONI SL (ammortizzatore in gomma tra due squadre a L), almeno 2 viti per parte lungo i 45°",
+   "lastre": "nella tavola: '1 BA13+1 BA18 (2 BA13+1 BA18)' per faccia",
+   "isolante": "tra i montanti (bloccaggio facilitato dai montanti dorso-dorso)",
+   "impieghi": [
+    "cinema multisala",
+    "teatri",
+    "auditorium",
+    "sale di registrazione",
+    "grandi altezze"
+   ],
+   "sistemi_tavola_p43": [
+    "SLA 260/75",
+    "SLA 440/100"
+   ],
+   "prestazioni_tavola_p43": "60 e 71 kg/m²; EI60 con PregyPlac (nota ³); Rw con isolante 71 dB (**) e 81 dB (***); Hmax 6,5–13,0 m.",
+   "pagine": [
+    27,
+    32,
+    43
+   ]
+  }
+ ],
+ "tipologie_parete_nota": "Le quattro tipologie hanno guide a U e montanti a C di varie dimensioni e spessori; possono avere forme curve, inclinate o spezzate. Nelle sigle (es. D100/50) il primo numero è lo spessore totale in mm e il secondo la larghezza del montante in mm (D100/50 = montante 50 + 2×2 BA13). Pagine 27 e 43.",
+ "da_verificare": [
+  {
+   "pagina": 43,
+   "voce": "D100/50, montante 50-40, interasse 60, altezza con montanti doppi stampata '43,2' (refuso; nel JSON è null)."
+  },
+  {
+   "pagina": 43,
+   "voce": "Significato del pallino '•' sulle altezze di D125/75 e D150/100: non spiegato."
+  },
+  {
+   "pagina": 43,
+   "voce": "Note (2), (³), (*), (**), (***) non stampate (p44 contiene solo una foto)."
+  },
+  {
+   "pagina": 43,
+   "voce": "S125/50 e S200/100 ('2 BA13 (*)', 36 kg/m²): lo spessore non torna con 2 BA13 per faccia su doppia orditura; manca la nota (*)."
+  },
+  {
+   "pagina": 43,
+   "voce": "SLA: lastre per faccia in un'unica cella '1 BA13+1 BA18 (2 BA13+1 BA18)'; la corrispondenza con i due sistemi è un'interpretazione. La composizione degli spessori 260 e 440 mm non è descritta."
+  },
+  {
+   "pagina": 43,
+   "voce": "Le sigle dei montanti con ala 40 (50-40, 75-40) non compaiono nel Memento 2024 (C50/50, C75/50, C100/50); per il selettore va privilegiato il Memento."
+  },
+  {
+   "pagina": 23,
+   "voce": "Contraddizione tra p23 (carta microforata unica per le lastre A1) e p24 (la banda in fibra di vetro può armare i giunti A1); 'PregyFlam A1' ripetuto nell'elenco."
+  },
+  {
+   "pagina": 20,
+   "voce": "PregyFeu A1: nome storico, equivalente attuale non indicato (probabilmente PregyFlam A1); da verificare anche il riferimento EN 15283-1 'GM'."
+  },
+  {
+   "pagina": 19,
+   "voce": "Sigle BA/BD, 4BA13, SB20, BA18S e la dicitura 'livello 3 di AoC' non sono spiegate."
+  },
+  {
+   "pagina": 19,
+   "voce": "I tipi EN 520 dei singoli prodotti non sono indicati nelle pp. 1-44."
+  },
+  {
+   "pagina": 27,
+   "voce": "Collegamento delle orditure SL: 'piastre metalliche' (p27) contro lastrine di cartongesso o bande di lamiera 10/10 (p32)."
+  },
+  {
+   "pagina": 21,
+   "voce": "Guide a U con ali '35, 40 o 80 mm': l'ala da 80 mm è insolita (il testo è confermato dall'immagine)."
+  },
+  {
+   "pagina": 33,
+   "voce": "Passo viti di 60 cm sul primo strato del doppio paramento, contro la regola generale di 30 cm (25 cm al fuoco): nei sistemi EI vale il rapporto di classificazione."
+  },
+  {
+   "pagina": 42,
+   "voce": "Non è chiaro se la distanza minima di 40 cm tra i punti di sospensione valga solo per i tasselli metallici o per tutti i tipi."
+  },
+  {
+   "pagina": 7,
+   "voce": "Riferimenti normativi datati (osservazione dell'estrattore, non del manuale): legge 626 (oggi D.Lgs. 81/2008), NTC DM 14/01/2008 (oggi NTC 2018), DL 311/2006 (poi aggiornato)."
+  },
+  {
+   "pagina": 43,
+   "voce": "Rimando 'Appendice a pag. 98': l'Appendice 1 sui quantitativi medi pareti occupa le pagine PDF 96-100."
+  }
+ ]
+}

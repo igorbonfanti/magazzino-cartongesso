@@ -49,6 +49,16 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   a cascata. Il netto unitario non si arrotonda.
 - Wizard in pagina unica a sezioni numerate, distinta ricalcolata dal vivo.
 
+## Studio dei manuali Siniat (23/09/2026)
+
+In `docs/studio-siniat/`: catalogo estratto dai manuali Siniat (guida antincendio
+luglio 2026, Memento 2024, manuale del posatore), con 96 configurazioni
+certificate al fuoco (rapporti e link), 53 schede sistema con varianti e
+incidenze, tabelle acciaio. Proposta: il **selettore di soluzioni** diventa il
+primo passo del wizard (non un'app separata), e la soluzione scelta alimenta
+distinta e preventivo con relazione tecnica. In attesa di decisione dell'utente.
+Per il fuoco fa fede la guida 2026; i dati si correggono negli script, non nei JSON.
+
 Le chiavi di `localStorage` vanno prefissate `cartongesso.`: tutte le app
 stanno su `igorbonfanti.github.io` e condividono la stessa origine. Unica
 eccezione voluta: `magazzino.tema`, che è comune a tutte.

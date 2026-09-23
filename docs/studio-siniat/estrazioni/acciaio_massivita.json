@@ -1,0 +1,1625 @@
+{
+"fonte": "Siniat Guida antincendio 2026, p.30: fattori di massivita (m-1) per profili esposti su 3 o 4 lati",
+"profili": [
+{
+"profilo": "IPE A 80",
+"esposto_3_lati_m-1": 317,
+"esposto_4_lati_m-1": 389
+},
+{
+"profilo": "HE 100 AA",
+"esposto_3_lati_m-1": 181,
+"esposto_4_lati_m-1": 245
+},
+{
+"profilo": "HE 700 M",
+"esposto_3_lati_m-1": 45,
+"esposto_4_lati_m-1": 53
+},
+{
+"profilo": "HD 260x54,1",
+"esposto_3_lati_m-1": 108,
+"esposto_4_lati_m-1": 146
+},
+{
+"profilo": "IPE 80",
+"esposto_3_lati_m-1": 270,
+"esposto_4_lati_m-1": 330
+},
+{
+"profilo": "HE 100 A",
+"esposto_3_lati_m-1": 138,
+"esposto_4_lati_m-1": 185
+},
+{
+"profilo": "HE 700x352",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 46
+},
+{
+"profilo": "HD 260x68,2",
+"esposto_3_lati_m-1": 88,
+"esposto_4_lati_m-1": 117
+},
+{
+"profilo": "IPE A 100",
+"esposto_3_lati_m-1": 286,
+"esposto_4_lati_m-1": 349
+},
+{
+"profilo": "HE 100 B",
+"esposto_3_lati_m-1": 115,
+"esposto_4_lati_m-1": 154
+},
+{
+"profilo": "HE 700x418",
+"esposto_3_lati_m-1": 34,
+"esposto_4_lati_m-1": 40
+},
+{
+"profilo": "HD 260x93,0",
+"esposto_3_lati_m-1": 66,
+"esposto_4_lati_m-1": 88
+},
+{
+"profilo": "IPE 100",
+"esposto_3_lati_m-1": 247,
+"esposto_4_lati_m-1": 300
+},
+{
+"profilo": "HE 100 M",
+"esposto_3_lati_m-1": 65,
+"esposto_4_lati_m-1": 85
+},
+{
+"profilo": "HE 800 AA",
+"esposto_3_lati_m-1": 84,
+"esposto_4_lati_m-1": 98
+},
+{
+"profilo": "HD 260x114",
+"esposto_3_lati_m-1": 55,
+"esposto_4_lati_m-1": 73
+},
+{
+"profilo": "IPE A 120",
+"esposto_3_lati_m-1": 271,
+"esposto_4_lati_m-1": 329
+},
+{
+"profilo": "HE 120 AA",
+"esposto_3_lati_m-1": 182,
+"esposto_4_lati_m-1": 247
+},
+{
+"profilo": "HE 800 A",
+"esposto_3_lati_m-1": 66,
+"esposto_4_lati_m-1": 76
+},
+{
+"profilo": "HD 260x142",
+"esposto_3_lati_m-1": 46,
+"esposto_4_lati_m-1": 60
+},
+{
+"profilo": "IPE 120",
+"esposto_3_lati_m-1": 230,
+"esposto_4_lati_m-1": 279
+},
+{
+"profilo": "HE 120 A",
+"esposto_3_lati_m-1": 137,
+"esposto_4_lati_m-1": 185
+},
+{
+"profilo": "HE 800 B",
+"esposto_3_lati_m-1": 57,
+"esposto_4_lati_m-1": 66
+},
+{
+"profilo": "HD 260x172",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 51
+},
+{
+"profilo": "IPE A 140",
+"esposto_3_lati_m-1": 260,
+"esposto_4_lati_m-1": 314
+},
+{
+"profilo": "HE 120 B",
+"esposto_3_lati_m-1": 106,
+"esposto_4_lati_m-1": 141
+},
+{
+"profilo": "HE 800 M",
+"esposto_3_lati_m-1": 48,
+"esposto_4_lati_m-1": 55
+},
+{
+"profilo": "HD 320x74,2",
+"esposto_3_lati_m-1": 95,
+"esposto_4_lati_m-1": 127
+},
+{
+"profilo": "IPE 140",
+"esposto_3_lati_m-1": 215,
+"esposto_4_lati_m-1": 259
+},
+{
+"profilo": "HE 120 M",
+"esposto_3_lati_m-1": 61,
+"esposto_4_lati_m-1": 80
+},
+{
+"profilo": "HE 800x373",
+"esposto_3_lati_m-1": 41,
+"esposto_4_lati_m-1": 48
+},
+{
+"profilo": "HD 320x97,6",
+"esposto_3_lati_m-1": 74,
+"esposto_4_lati_m-1": 98
+},
+{
+"profilo": "IPE A 160",
+"esposto_3_lati_m-1": 245,
+"esposto_4_lati_m-1": 295
+},
+{
+"profilo": "HE 140 AA",
+"esposto_3_lati_m-1": 172,
+"esposto_4_lati_m-1": 233
+},
+{
+"profilo": "HE 800x444",
+"esposto_3_lati_m-1": 35,
+"esposto_4_lati_m-1": 41
+},
+{
+"profilo": "HD 320x127",
+"esposto_3_lati_m-1": 58,
+"esposto_4_lati_m-1": 77
+},
+{
+"profilo": "IPE 160",
+"esposto_3_lati_m-1": 200,
+"esposto_4_lati_m-1": 241
+},
+{
+"profilo": "HE 140 A",
+"esposto_3_lati_m-1": 129,
+"esposto_4_lati_m-1": 174
+},
+{
+"profilo": "HE 900 AA",
+"esposto_3_lati_m-1": 81,
+"esposto_4_lati_m-1": 93
+},
+{
+"profilo": "HD 320x158",
+"esposto_3_lati_m-1": 48,
+"esposto_4_lati_m-1": 63
+},
+{
+"profilo": "IPE A 180",
+"esposto_3_lati_m-1": 227,
+"esposto_4_lati_m-1": 274
+},
+{
+"profilo": "HE 140 B",
+"esposto_3_lati_m-1": 98,
+"esposto_4_lati_m-1": 130
+},
+{
+"profilo": "HE 900 A",
+"esposto_3_lati_m-1": 65,
+"esposto_4_lati_m-1": 74
+},
+{
+"profilo": "HD 320x198",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 51
+},
+{
+"profilo": "IPE 180",
+"esposto_3_lati_m-1": 188,
+"esposto_4_lati_m-1": 226
+},
+{
+"profilo": "HE 140 M",
+"esposto_3_lati_m-1": 58,
+"esposto_4_lati_m-1": 76
+},
+{
+"profilo": "HE 900 B",
+"esposto_3_lati_m-1": 57,
+"esposto_4_lati_m-1": 65
+},
+{
+"profilo": "HD 320x245",
+"esposto_3_lati_m-1": 33,
+"esposto_4_lati_m-1": 43
+},
+{
+"profilo": "IPE O 180",
+"esposto_3_lati_m-1": 168,
+"esposto_4_lati_m-1": 202
+},
+{
+"profilo": "HE 160 AA",
+"esposto_3_lati_m-1": 150,
+"esposto_4_lati_m-1": 203
+},
+{
+"profilo": "HE 900 M",
+"esposto_3_lati_m-1": 50,
+"esposto_4_lati_m-1": 57
+},
+{
+"profilo": "HD 320x300",
+"esposto_3_lati_m-1": 28,
+"esposto_4_lati_m-1": 36
+},
+{
+"profilo": "IPE A 200",
+"esposto_3_lati_m-1": 210,
+"esposto_4_lati_m-1": 253
+},
+{
+"profilo": "HE 160 A",
+"esposto_3_lati_m-1": 120,
+"esposto_4_lati_m-1": 161
+},
+{
+"profilo": "HE 900x391",
+"esposto_3_lati_m-1": 43,
+"esposto_4_lati_m-1": 49
+},
+{
+"profilo": "HD 360x134",
+"esposto_3_lati_m-1": 63,
+"esposto_4_lati_m-1": 85
+},
+{
+"profilo": "IPE 200",
+"esposto_3_lati_m-1": 176,
+"esposto_4_lati_m-1": 211
+},
+{
+"profilo": "HE 160 B",
+"esposto_3_lati_m-1": 88,
+"esposto_4_lati_m-1": 118
+},
+{
+"profilo": "HE 900x466",
+"esposto_3_lati_m-1": 37,
+"esposto_4_lati_m-1": 42
+},
+{
+"profilo": "HD 360x147",
+"esposto_3_lati_m-1": 58,
+"esposto_4_lati_m-1": 78
+},
+{
+"profilo": "IPE O 200",
+"esposto_3_lati_m-1": 158,
+"esposto_4_lati_m-1": 190
+},
+{
+"profilo": "HE 160 M",
+"esposto_3_lati_m-1": 54,
+"esposto_4_lati_m-1": 71
+},
+{
+"profilo": "HE 1000 AA",
+"esposto_3_lati_m-1": 79,
+"esposto_4_lati_m-1": 90
+},
+{
+"profilo": "HD 360x162",
+"esposto_3_lati_m-1": 53,
+"esposto_4_lati_m-1": 71
+},
+{
+"profilo": "IPE A 220",
+"esposto_3_lati_m-1": 193,
+"esposto_4_lati_m-1": 231
+},
+{
+"profilo": "HE 180 AA",
+"esposto_3_lati_m-1": 141,
+"esposto_4_lati_m-1": 190
+},
+{
+"profilo": "HE 1000x249",
+"esposto_3_lati_m-1": 71,
+"esposto_4_lati_m-1": 81
+},
+{
+"profilo": "HD 360x179",
+"esposto_3_lati_m-1": 49,
+"esposto_4_lati_m-1": 65
+},
+{
+"profilo": "IPE 220",
+"esposto_3_lati_m-1": 165,
+"esposto_4_lati_m-1": 198
+},
+{
+"profilo": "HE 180 A",
+"esposto_3_lati_m-1": 115,
+"esposto_4_lati_m-1": 155
+},
+{
+"profilo": "HE 1000 A",
+"esposto_3_lati_m-1": 66,
+"esposto_4_lati_m-1": 74
+},
+{
+"profilo": "HD 360x196",
+"esposto_3_lati_m-1": 45,
+"esposto_4_lati_m-1": 60
+},
+{
+"profilo": "IPE O 220",
+"esposto_3_lati_m-1": 149,
+"esposto_4_lati_m-1": 179
+},
+{
+"profilo": "HE 180 B",
+"esposto_3_lati_m-1": 83,
+"esposto_4_lati_m-1": 110
+},
+{
+"profilo": "HE 1000 B",
+"esposto_3_lati_m-1": 57,
+"esposto_4_lati_m-1": 65
+},
+{
+"profilo": "HD 400x187",
+"esposto_3_lati_m-1": 47,
+"esposto_4_lati_m-1": 64
+},
+{
+"profilo": "IPE A 240",
+"esposto_3_lati_m-1": 178,
+"esposto_4_lati_m-1": 214
+},
+{
+"profilo": "HE 180 M",
+"esposto_3_lati_m-1": 52,
+"esposto_4_lati_m-1": 68
+},
+{
+"profilo": "HE 1000 M",
+"esposto_3_lati_m-1": 52,
+"esposto_4_lati_m-1": 59
+},
+{
+"profilo": "HD 400x216",
+"esposto_3_lati_m-1": 42,
+"esposto_4_lati_m-1": 56
+},
+{
+"profilo": "IPE 240",
+"esposto_3_lati_m-1": 153,
+"esposto_4_lati_m-1": 184
+},
+{
+"profilo": "HE 200 AA",
+"esposto_3_lati_m-1": 130,
+"esposto_4_lati_m-1": 175
+},
+{
+"profilo": "HE 1000x393",
+"esposto_3_lati_m-1": 47,
+"esposto_4_lati_m-1": 53
+},
+{
+"profilo": "HD 400x237",
+"esposto_3_lati_m-1": 38,
+"esposto_4_lati_m-1": 52
+},
+{
+"profilo": "IPE O 240",
+"esposto_3_lati_m-1": 139,
+"esposto_4_lati_m-1": 167
+},
+{
+"profilo": "HE 200 A",
+"esposto_3_lati_m-1": 108,
+"esposto_4_lati_m-1": 145
+},
+{
+"profilo": "HE 1000x415",
+"esposto_3_lati_m-1": 44,
+"esposto_4_lati_m-1": 50
+},
+{
+"profilo": "HD 400x262",
+"esposto_3_lati_m-1": 35,
+"esposto_4_lati_m-1": 47
+},
+{
+"profilo": "IPE A 270",
+"esposto_3_lati_m-1": 171,
+"esposto_4_lati_m-1": 205
+},
+{
+"profilo": "HE 200 B",
+"esposto_3_lati_m-1": 77,
+"esposto_4_lati_m-1": 102
+},
+{
+"profilo": "HE 1000x438",
+"esposto_3_lati_m-1": 42,
+"esposto_4_lati_m-1": 48
+},
+{
+"profilo": "HD 400x287",
+"esposto_3_lati_m-1": 32,
+"esposto_4_lati_m-1": 43
+},
+{
+"profilo": "IPE 270",
+"esposto_3_lati_m-1": 147,
+"esposto_4_lati_m-1": 176
+},
+{
+"profilo": "HE 200 M",
+"esposto_3_lati_m-1": 49,
+"esposto_4_lati_m-1": 65
+},
+{
+"profilo": "HE 1000x494",
+"esposto_3_lati_m-1": 38,
+"esposto_4_lati_m-1": 43
+},
+{
+"profilo": "HD 400x314",
+"esposto_3_lati_m-1": 30,
+"esposto_4_lati_m-1": 40
+},
+{
+"profilo": "IPE O 270",
+"esposto_3_lati_m-1": 127,
+"esposto_4_lati_m-1": 152
+},
+{
+"profilo": "HE 220 AA",
+"esposto_3_lati_m-1": 122,
+"esposto_4_lati_m-1": 165
+},
+{
+"profilo": "HE 1000x584",
+"esposto_3_lati_m-1": 33,
+"esposto_4_lati_m-1": 37
+},
+{
+"profilo": "HD 400x347",
+"esposto_3_lati_m-1": 28,
+"esposto_4_lati_m-1": 37
+},
+{
+"profilo": "IPE A 300",
+"esposto_3_lati_m-1": 160,
+"esposto_4_lati_m-1": 192
+},
+{
+"profilo": "HE 220 A",
+"esposto_3_lati_m-1": 99,
+"esposto_4_lati_m-1": 134
+},
+{
+"profilo": "HL 920x345",
+"esposto_3_lati_m-1": 52,
+"esposto_4_lati_m-1": 62
+},
+{
+"profilo": "HD 400x382",
+"esposto_3_lati_m-1": 25,
+"esposto_4_lati_m-1": 34
+},
+{
+"profilo": "IPE 300",
+"esposto_3_lati_m-1": 139,
+"esposto_4_lati_m-1": 167
+},
+{
+"profilo": "HE 220 B",
+"esposto_3_lati_m-1": 72,
+"esposto_4_lati_m-1": 97
+},
+{
+"profilo": "HL 920x368",
+"esposto_3_lati_m-1": 49,
+"esposto_4_lati_m-1": 58
+},
+{
+"profilo": "HD 400x421",
+"esposto_3_lati_m-1": 23,
+"esposto_4_lati_m-1": 31
+},
+{
+"profilo": "IPE O 300",
+"esposto_3_lati_m-1": 121,
+"esposto_4_lati_m-1": 145
+},
+{
+"profilo": "HE 220 M",
+"esposto_3_lati_m-1": 47,
+"esposto_4_lati_m-1": 62
+},
+{
+"profilo": "HL 920x390",
+"esposto_3_lati_m-1": 46,
+"esposto_4_lati_m-1": 55
+},
+{
+"profilo": "HD 400x463",
+"esposto_3_lati_m-1": 22,
+"esposto_4_lati_m-1": 29
+},
+{
+"profilo": "IPE A 330",
+"esposto_3_lati_m-1": 149,
+"esposto_4_lati_m-1": 178
+},
+{
+"profilo": "HE 240 AA",
+"esposto_3_lati_m-1": 114,
+"esposto_4_lati_m-1": 154
+},
+{
+"profilo": "HL 920x420",
+"esposto_3_lati_m-1": 43,
+"esposto_4_lati_m-1": 51
+},
+{
+"profilo": "HD 400x509",
+"esposto_3_lati_m-1": 20,
+"esposto_4_lati_m-1": 27
+},
+{
+"profilo": "IPE 330",
+"esposto_3_lati_m-1": 131,
+"esposto_4_lati_m-1": 157
+},
+{
+"profilo": "HE 240 A",
+"esposto_3_lati_m-1": 91,
+"esposto_4_lati_m-1": 122
+},
+{
+"profilo": "HL 920x449",
+"esposto_3_lati_m-1": 41,
+"esposto_4_lati_m-1": 48
+},
+{
+"profilo": "HD 400x551",
+"esposto_3_lati_m-1": 19,
+"esposto_4_lati_m-1": 25
+},
+{
+"profilo": "IPE O 330",
+"esposto_3_lati_m-1": 114,
+"esposto_4_lati_m-1": 137
+},
+{
+"profilo": "HE 240 B",
+"esposto_3_lati_m-1": 68,
+"esposto_4_lati_m-1": 91
+},
+{
+"profilo": "HL 920x491",
+"esposto_3_lati_m-1": 37,
+"esposto_4_lati_m-1": 44
+},
+{
+"profilo": "HD 400x592",
+"esposto_3_lati_m-1": 18,
+"esposto_4_lati_m-1": 23
+},
+{
+"profilo": "IPE A 360",
+"esposto_3_lati_m-1": 138,
+"esposto_4_lati_m-1": 165
+},
+{
+"profilo": "HE 240 M",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 52
+},
+{
+"profilo": "HL 920x537",
+"esposto_3_lati_m-1": 35,
+"esposto_4_lati_m-1": 41
+},
+{
+"profilo": "HD 400x634",
+"esposto_3_lati_m-1": 17,
+"esposto_4_lati_m-1": 22
+},
+{
+"profilo": "IPE 360",
+"esposto_3_lati_m-1": 122,
+"esposto_4_lati_m-1": 146
+},
+{
+"profilo": "HE 260 AA",
+"esposto_3_lati_m-1": 108,
+"esposto_4_lati_m-1": 146
+},
+{
+"profilo": "HL 920x588",
+"esposto_3_lati_m-1": 32,
+"esposto_4_lati_m-1": 37
+},
+{
+"profilo": "HD 400x677",
+"esposto_3_lati_m-1": 16,
+"esposto_4_lati_m-1": 21
+},
+{
+"profilo": "IPE O 360",
+"esposto_3_lati_m-1": 107,
+"esposto_4_lati_m-1": 127
+},
+{
+"profilo": "HE 260 A",
+"esposto_3_lati_m-1": 88,
+"esposto_4_lati_m-1": 117
+},
+{
+"profilo": "HL 920x656",
+"esposto_3_lati_m-1": 29,
+"esposto_4_lati_m-1": 34
+},
+{
+"profilo": "HD 400x744",
+"esposto_3_lati_m-1": 15,
+"esposto_4_lati_m-1": 20
+},
+{
+"profilo": "IPE A 400",
+"esposto_3_lati_m-1": 133,
+"esposto_4_lati_m-1": 158
+},
+{
+"profilo": "HE 260 B",
+"esposto_3_lati_m-1": 66,
+"esposto_4_lati_m-1": 88
+},
+{
+"profilo": "HL 920x725",
+"esposto_3_lati_m-1": 26,
+"esposto_4_lati_m-1": 31
+},
+{
+"profilo": "HD 400x818",
+"esposto_3_lati_m-1": 14,
+"esposto_4_lati_m-1": 18
+},
+{
+"profilo": "IPE 400",
+"esposto_3_lati_m-1": 116,
+"esposto_4_lati_m-1": 137
+},
+{
+"profilo": "HE 260 M",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 51
+},
+{
+"profilo": "HL 920x787",
+"esposto_3_lati_m-1": 25,
+"esposto_4_lati_m-1": 29
+},
+{
+"profilo": "HD 400x900",
+"esposto_3_lati_m-1": 13,
+"esposto_4_lati_m-1": 17
+},
+{
+"profilo": "IPE O 400",
+"esposto_3_lati_m-1": 103,
+"esposto_4_lati_m-1": 122
+},
+{
+"profilo": "HE 280 AA",
+"esposto_3_lati_m-1": 104,
+"esposto_4_lati_m-1": 139
+},
+{
+"profilo": "HL 920x970",
+"esposto_3_lati_m-1": 20,
+"esposto_4_lati_m-1": 24
+},
+{
+"profilo": "HD 400x990",
+"esposto_3_lati_m-1": 12,
+"esposto_4_lati_m-1": 16
+},
+{
+"profilo": "IPE A 450",
+"esposto_3_lati_m-1": 127,
+"esposto_4_lati_m-1": 149
+},
+{
+"profilo": "HE 280 A",
+"esposto_3_lati_m-1": 84,
+"esposto_4_lati_m-1": 113
+},
+{
+"profilo": "HL 1000 AA",
+"esposto_3_lati_m-1": 63,
+"esposto_4_lati_m-1": 73
+},
+{
+"profilo": "HD 400x1086",
+"esposto_3_lati_m-1": 11,
+"esposto_4_lati_m-1": 15
+},
+{
+"profilo": "IPE 450",
+"esposto_3_lati_m-1": 110,
+"esposto_4_lati_m-1": 130
+},
+{
+"profilo": "HE 280 B",
+"esposto_3_lati_m-1": 64,
+"esposto_4_lati_m-1": 85
+},
+{
+"profilo": "HL 1000 A",
+"esposto_3_lati_m-1": 58,
+"esposto_4_lati_m-1": 68
+},
+{
+"profilo": "IPE O 450",
+"esposto_3_lati_m-1": 94,
+"esposto_4_lati_m-1": 110
+},
+{
+"profilo": "HE 280 M",
+"esposto_3_lati_m-1": 38,
+"esposto_4_lati_m-1": 50
+},
+{
+"profilo": "HL 1000 B",
+"esposto_3_lati_m-1": 51,
+"esposto_4_lati_m-1": 59
+},
+{
+"profilo": "IPE A 500",
+"esposto_3_lati_m-1": 118,
+"esposto_4_lati_m-1": 138
+},
+{
+"profilo": "HE 300 AA",
+"esposto_3_lati_m-1": 97,
+"esposto_4_lati_m-1": 131
+},
+{
+"profilo": "HL 1000 M",
+"esposto_3_lati_m-1": 46,
+"esposto_4_lati_m-1": 54
+},
+{
+"profilo": "IPE 500",
+"esposto_3_lati_m-1": 104,
+"esposto_4_lati_m-1": 121
+},
+{
+"profilo": "HE 300 A",
+"esposto_3_lati_m-1": 78,
+"esposto_4_lati_m-1": 105
+},
+{
+"profilo": "HL 1000x443",
+"esposto_3_lati_m-1": 43,
+"esposto_4_lati_m-1": 50
+},
+{
+"profilo": "IPE O 500",
+"esposto_3_lati_m-1": 89,
+"esposto_4_lati_m-1": 104
+},
+{
+"profilo": "HE 300 B",
+"esposto_3_lati_m-1": 60,
+"esposto_4_lati_m-1": 80
+},
+{
+"profilo": "HL 1000x483",
+"esposto_3_lati_m-1": 40,
+"esposto_4_lati_m-1": 46
+},
+{
+"profilo": "IPE A 550",
+"esposto_3_lati_m-1": 111,
+"esposto_4_lati_m-1": 129
+},
+{
+"profilo": "HE 300 M",
+"esposto_3_lati_m-1": 33,
+"esposto_4_lati_m-1": 43
+},
+{
+"profilo": "HL 1000x539",
+"esposto_3_lati_m-1": 36,
+"esposto_4_lati_m-1": 42
+},
+{
+"profilo": "UPE 80",
+"esposto_3_lati_m-1": 209,
+"esposto_4_lati_m-1": 258
+},
+{
+"profilo": "IPE 550",
+"esposto_3_lati_m-1": 97,
+"esposto_4_lati_m-1": 113
+},
+{
+"profilo": "HE 320 AA",
+"esposto_3_lati_m-1": 95,
+"esposto_4_lati_m-1": 127
+},
+{
+"profilo": "HL 1000x554",
+"esposto_3_lati_m-1": 35,
+"esposto_4_lati_m-1": 41
+},
+{
+"profilo": "IPE O 550",
+"esposto_3_lati_m-1": 85,
+"esposto_4_lati_m-1": 98
+},
+{
+"profilo": "HE 320 A",
+"esposto_3_lati_m-1": 74,
+"esposto_4_lati_m-1": 98
+},
+{
+"profilo": "HL 1000x591",
+"esposto_3_lati_m-1": 33,
+"esposto_4_lati_m-1": 39
+},
+{
+"profilo": "UPE 100",
+"esposto_3_lati_m-1": 204,
+"esposto_4_lati_m-1": 248
+},
+{
+"profilo": "UPE 120",
+"esposto_3_lati_m-1": 195,
+"esposto_4_lati_m-1": 233
+},
+{
+"profilo": "IPE A 600",
+"esposto_3_lati_m-1": 103,
+"esposto_4_lati_m-1": 119
+},
+{
+"profilo": "HE 320 B",
+"esposto_3_lati_m-1": 58,
+"esposto_4_lati_m-1": 77
+},
+{
+"profilo": "HL 1000x642",
+"esposto_3_lati_m-1": 31,
+"esposto_4_lati_m-1": 36
+},
+{
+"profilo": "UPE 140",
+"esposto_3_lati_m-1": 187,
+"esposto_4_lati_m-1": 223
+},
+{
+"profilo": "IPE 600",
+"esposto_3_lati_m-1": 91,
+"esposto_4_lati_m-1": 105
+},
+{
+"profilo": "HE 320 M",
+"esposto_3_lati_m-1": 33,
+"esposto_4_lati_m-1": 43
+},
+{
+"profilo": "HL 1000x748",
+"esposto_3_lati_m-1": 27,
+"esposto_4_lati_m-1": 31
+},
+{
+"profilo": "UPE 160",
+"esposto_3_lati_m-1": 180,
+"esposto_4_lati_m-1": 212
+},
+{
+"profilo": "IPE O 600",
+"esposto_3_lati_m-1": 73,
+"esposto_4_lati_m-1": 85
+},
+{
+"profilo": "HE 340 AA",
+"esposto_3_lati_m-1": 94,
+"esposto_4_lati_m-1": 123
+},
+{
+"profilo": "HL 1000x883",
+"esposto_3_lati_m-1": 23,
+"esposto_4_lati_m-1": 27
+},
+{
+"profilo": "UPE 180",
+"esposto_3_lati_m-1": 173,
+"esposto_4_lati_m-1": 203
+},
+{
+"profilo": "IPE 750 x 137",
+"esposto_3_lati_m-1": 101,
+"esposto_4_lati_m-1": 116
+},
+{
+"profilo": "HE 340 A",
+"esposto_3_lati_m-1": 72,
+"esposto_4_lati_m-1": 94
+},
+{
+"profilo": "HL 1100 A",
+"esposto_3_lati_m-1": 59,
+"esposto_4_lati_m-1": 68
+},
+{
+"profilo": "IPE 750 x 147",
+"esposto_3_lati_m-1": 94,
+"esposto_4_lati_m-1": 109
+},
+{
+"profilo": "HE 340 B",
+"esposto_3_lati_m-1": 57,
+"esposto_4_lati_m-1": 75
+},
+{
+"profilo": "HL 1100 B",
+"esposto_3_lati_m-1": 52,
+"esposto_4_lati_m-1": 60
+},
+{
+"profilo": "UPE 200",
+"esposto_3_lati_m-1": 165,
+"esposto_4_lati_m-1": 193
+},
+{
+"profilo": "UPE 220",
+"esposto_3_lati_m-1": 155,
+"esposto_4_lati_m-1": 180
+},
+{
+"profilo": "IPE 750 x 173",
+"esposto_3_lati_m-1": 81,
+"esposto_4_lati_m-1": 93
+},
+{
+"profilo": "HE 340 M",
+"esposto_3_lati_m-1": 34,
+"esposto_4_lati_m-1": 43
+},
+{
+"profilo": "HL 1100 M",
+"esposto_3_lati_m-1": 47,
+"esposto_4_lati_m-1": 55
+},
+{
+"profilo": "UPE 240",
+"esposto_3_lati_m-1": 148,
+"esposto_4_lati_m-1": 171
+},
+{
+"profilo": "IPE 750 x 196",
+"esposto_3_lati_m-1": 72,
+"esposto_4_lati_m-1": 83
+},
+{
+"profilo": "HE 360 AA",
+"esposto_3_lati_m-1": 92,
+"esposto_4_lati_m-1": 120
+},
+{
+"profilo": "HL 1100 R",
+"esposto_3_lati_m-1": 42,
+"esposto_4_lati_m-1": 48
+},
+{
+"profilo": "UPE 270",
+"esposto_3_lati_m-1": 142,
+"esposto_4_lati_m-1": 163
+},
+{
+"profilo": "HE 360 A",
+"esposto_3_lati_m-1": 70,
+"esposto_4_lati_m-1": 91
+},
+{
+"profilo": "UPE 300",
+"esposto_3_lati_m-1": 124,
+"esposto_4_lati_m-1": 141
+},
+{
+"profilo": "HE 360 B",
+"esposto_3_lati_m-1": 56,
+"esposto_4_lati_m-1": 73
+},
+{
+"profilo": "HE 360 M",
+"esposto_3_lati_m-1": 34,
+"esposto_4_lati_m-1": 44
+},
+{
+"profilo": "UPE 330",
+"esposto_3_lati_m-1": 113,
+"esposto_4_lati_m-1": 128
+},
+{
+"profilo": "HP 200x43",
+"esposto_3_lati_m-1": 112,
+"esposto_4_lati_m-1": 150
+},
+{
+"profilo": "UC 152x152x23",
+"esposto_3_lati_m-1": 156,
+"esposto_4_lati_m-1": 208
+},
+{
+"profilo": "UPE 360",
+"esposto_3_lati_m-1": 107,
+"esposto_4_lati_m-1": 121
+},
+{
+"profilo": "HE 400 AA",
+"esposto_3_lati_m-1": 90,
+"esposto_4_lati_m-1": 115
+},
+{
+"profilo": "UPE 400",
+"esposto_3_lati_m-1": 100,
+"esposto_4_lati_m-1": 112
+},
+{
+"profilo": "HP 200x53",
+"esposto_3_lati_m-1": 90,
+"esposto_4_lati_m-1": 121
+},
+{
+"profilo": "HE 400 A",
+"esposto_3_lati_m-1": 68,
+"esposto_4_lati_m-1": 87
+},
+{
+"profilo": "UC 152x152x30",
+"esposto_3_lati_m-1": 122,
+"esposto_4_lati_m-1": 162
+},
+{
+"profilo": "HP 220x57",
+"esposto_3_lati_m-1": 88,
+"esposto_4_lati_m-1": 119
+},
+{
+"profilo": "HE 400 B",
+"esposto_3_lati_m-1": 56,
+"esposto_4_lati_m-1": 71
+},
+{
+"profilo": "UC 152x152x37",
+"esposto_3_lati_m-1": 101,
+"esposto_4_lati_m-1": 134
+},
+{
+"profilo": "HP 260x75",
+"esposto_3_lati_m-1": 80,
+"esposto_4_lati_m-1": 108
+},
+{
+"profilo": "HE 400 M",
+"esposto_3_lati_m-1": 36,
+"esposto_4_lati_m-1": 45
+},
+{
+"profilo": "UC 203x203x46",
+"esposto_3_lati_m-1": 104,
+"esposto_4_lati_m-1": 139
+},
+{
+"profilo": "HP 260x87",
+"esposto_3_lati_m-1": 70,
+"esposto_4_lati_m-1": 94
+},
+{
+"profilo": "HE 450 AA",
+"esposto_3_lati_m-1": 91,
+"esposto_4_lati_m-1": 114
+},
+{
+"profilo": "UC 203x203x52",
+"esposto_3_lati_m-1": 93,
+"esposto_4_lati_m-1": 124
+},
+{
+"profilo": "HP 305x79",
+"esposto_3_lati_m-1": 91,
+"esposto_4_lati_m-1": 121
+},
+{
+"profilo": "UC 203x203x60",
+"esposto_3_lati_m-1": 82,
+"esposto_4_lati_m-1": 109
+},
+{
+"profilo": "HE 450 A",
+"esposto_3_lati_m-1": 66,
+"esposto_4_lati_m-1": 83
+},
+{
+"profilo": "UPN 80",
+"esposto_3_lati_m-1": 186,
+"esposto_4_lati_m-1": 227
+},
+{
+"profilo": "HP 305x88",
+"esposto_3_lati_m-1": 81,
+"esposto_4_lati_m-1": 109
+},
+{
+"profilo": "HE 450 B",
+"esposto_3_lati_m-1": 55,
+"esposto_4_lati_m-1": 69
+},
+{
+"profilo": "UC 203x203x71",
+"esposto_3_lati_m-1": 71,
+"esposto_4_lati_m-1": 93
+},
+{
+"profilo": "UPN 100",
+"esposto_3_lati_m-1": 185,
+"esposto_4_lati_m-1": 222
+},
+{
+"profilo": "HP 305x95",
+"esposto_3_lati_m-1": 76,
+"esposto_4_lati_m-1": 101
+},
+{
+"profilo": "HE 450 M",
+"esposto_3_lati_m-1": 38,
+"esposto_4_lati_m-1": 47
+},
+{
+"profilo": "UC 203x203x86",
+"esposto_3_lati_m-1": 60,
+"esposto_4_lati_m-1": 79
+},
+{
+"profilo": "UPN 120",
+"esposto_3_lati_m-1": 174,
+"esposto_4_lati_m-1": 206
+},
+{
+"profilo": "HP 305x110",
+"esposto_3_lati_m-1": 66,
+"esposto_4_lati_m-1": 88
+},
+{
+"profilo": "HE 500 AA",
+"esposto_3_lati_m-1": 91,
+"esposto_4_lati_m-1": 113
+},
+{
+"profilo": "UC 254x254x73",
+"esposto_3_lati_m-1": 82,
+"esposto_4_lati_m-1": 109
+},
+{
+"profilo": "UPN 140",
+"esposto_3_lati_m-1": 167,
+"esposto_4_lati_m-1": 196
+},
+{
+"profilo": "HP 305x126",
+"esposto_3_lati_m-1": 58,
+"esposto_4_lati_m-1": 78
+},
+{
+"profilo": "HE 500 A",
+"esposto_3_lati_m-1": 65,
+"esposto_4_lati_m-1": 80
+},
+{
+"profilo": "UC 254x254x89",
+"esposto_3_lati_m-1": 69,
+"esposto_4_lati_m-1": 91
+},
+{
+"profilo": "UPN 160",
+"esposto_3_lati_m-1": 160,
+"esposto_4_lati_m-1": 188
+},
+{
+"profilo": "HP 305x149",
+"esposto_3_lati_m-1": 50,
+"esposto_4_lati_m-1": 67
+},
+{
+"profilo": "UC 254x254x107",
+"esposto_3_lati_m-1": 58,
+"esposto_4_lati_m-1": 77
+},
+{
+"profilo": "HE 500 B",
+"esposto_3_lati_m-1": 54,
+"esposto_4_lati_m-1": 67
+},
+{
+"profilo": "UPN 180",
+"esposto_3_lati_m-1": 154,
+"esposto_4_lati_m-1": 179
+},
+{
+"profilo": "HP 305x180",
+"esposto_3_lati_m-1": 42,
+"esposto_4_lati_m-1": 56
+},
+{
+"profilo": "HE 500 M",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 48
+},
+{
+"profilo": "UC 254x254x132",
+"esposto_3_lati_m-1": 48,
+"esposto_4_lati_m-1": 64
+},
+{
+"profilo": "UPN 200",
+"esposto_3_lati_m-1": 148,
+"esposto_4_lati_m-1": 171
+},
+{
+"profilo": "HP 305x186",
+"esposto_3_lati_m-1": 41,
+"esposto_4_lati_m-1": 55
+},
+{
+"profilo": "HE 550 AA",
+"esposto_3_lati_m-1": 88,
+"esposto_4_lati_m-1": 108
+},
+{
+"profilo": "UC 254x254x167",
+"esposto_3_lati_m-1": 40,
+"esposto_4_lati_m-1": 52
+},
+{
+"profilo": "UPN 220",
+"esposto_3_lati_m-1": 139,
+"esposto_4_lati_m-1": 160
+},
+{
+"profilo": "HP 305x223",
+"esposto_3_lati_m-1": 35,
+"esposto_4_lati_m-1": 47
+},
+{
+"profilo": "HE 550 A",
+"esposto_3_lati_m-1": 65,
+"esposto_4_lati_m-1": 79
+},
+{
+"profilo": "UC 305x305x97",
+"esposto_3_lati_m-1": 75,
+"esposto_4_lati_m-1": 99
+},
+{
+"profilo": "UPN 240",
+"esposto_3_lati_m-1": 134,
+"esposto_4_lati_m-1": 154
+},
+{
+"profilo": "HP 320x88",
+"esposto_3_lati_m-1": 81,
+"esposto_4_lati_m-1": 108
+},
+{
+"profilo": "HE 550 B",
+"esposto_3_lati_m-1": 55,
+"esposto_4_lati_m-1": 67
+},
+{
+"profilo": "UC 305x305x118",
+"esposto_3_lati_m-1": 62,
+"esposto_4_lati_m-1": 83
+},
+{
+"profilo": "UPN 260",
+"esposto_3_lati_m-1": 126,
+"esposto_4_lati_m-1": 145
+},
+{
+"profilo": "HP 320x103",
+"esposto_3_lati_m-1": 70,
+"esposto_4_lati_m-1": 94
+},
+{
+"profilo": "UC 305x305x137",
+"esposto_3_lati_m-1": 54,
+"esposto_4_lati_m-1": 72
+},
+{
+"profilo": "HE 550 M",
+"esposto_3_lati_m-1": 41,
+"esposto_4_lati_m-1": 50
+},
+{
+"profilo": "UPN 280",
+"esposto_3_lati_m-1": 123,
+"esposto_4_lati_m-1": 141
+},
+{
+"profilo": "HP 320x117",
+"esposto_3_lati_m-1": 62,
+"esposto_4_lati_m-1": 83
+},
+{
+"profilo": "HE 600 AA",
+"esposto_3_lati_m-1": 88,
+"esposto_4_lati_m-1": 106
+},
+{
+"profilo": "UC 305x305x158",
+"esposto_3_lati_m-1": 48,
+"esposto_4_lati_m-1": 63
+},
+{
+"profilo": "UPN 300",
+"esposto_3_lati_m-1": 119,
+"esposto_4_lati_m-1": 136
+},
+{
+"profilo": "HP 320x147",
+"esposto_3_lati_m-1": 51,
+"esposto_4_lati_m-1": 68
+},
+{
+"profilo": "HE 600 A",
+"esposto_3_lati_m-1": 65,
+"esposto_4_lati_m-1": 79
+},
+{
+"profilo": "UC 305x305x198",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 52
+},
+{
+"profilo": "UPN 320",
+"esposto_3_lati_m-1": 98,
+"esposto_4_lati_m-1": 111
+},
+{
+"profilo": "HP 320x184",
+"esposto_3_lati_m-1": 42,
+"esposto_4_lati_m-1": 55
+},
+{
+"profilo": "HE 600 B",
+"esposto_3_lati_m-1": 56,
+"esposto_4_lati_m-1": 67
+},
+{
+"profilo": "UC 305x305x240",
+"esposto_3_lati_m-1": 33,
+"esposto_4_lati_m-1": 44
+},
+{
+"profilo": "UPN 350",
+"esposto_3_lati_m-1": 103,
+"esposto_4_lati_m-1": 116
+},
+{
+"profilo": "HP 360x84",
+"esposto_3_lati_m-1": 98,
+"esposto_4_lati_m-1": 132
+},
+{
+"profilo": "HE 600 M",
+"esposto_3_lati_m-1": 42,
+"esposto_4_lati_m-1": 51
+},
+{
+"profilo": "UC 305x305x283",
+"esposto_3_lati_m-1": 29,
+"esposto_4_lati_m-1": 38
+},
+{
+"profilo": "UPN 380",
+"esposto_3_lati_m-1": 107,
+"esposto_4_lati_m-1": 120
+},
+{
+"profilo": "HP 360x109",
+"esposto_3_lati_m-1": 77,
+"esposto_4_lati_m-1": 103
+},
+{
+"profilo": "UC 356x368x129",
+"esposto_3_lati_m-1": 66,
+"esposto_4_lati_m-1": 88
+},
+{
+"profilo": "HE 600 x337",
+"esposto_3_lati_m-1": 37,
+"esposto_4_lati_m-1": 44
+},
+{
+"profilo": "UPN 400",
+"esposto_3_lati_m-1": 99,
+"esposto_4_lati_m-1": 111
+},
+{
+"profilo": "HP 360x133",
+"esposto_3_lati_m-1": 64,
+"esposto_4_lati_m-1": 86
+},
+{
+"profilo": "HE 600 x339",
+"esposto_3_lati_m-1": 32,
+"esposto_4_lati_m-1": 38
+},
+{
+"profilo": "UC 356x368x153",
+"esposto_3_lati_m-1": 56,
+"esposto_4_lati_m-1": 75
+},
+{
+"profilo": "HP 360x152",
+"esposto_3_lati_m-1": 56,
+"esposto_4_lati_m-1": 76
+},
+{
+"profilo": "HE 650 AA",
+"esposto_3_lati_m-1": 88,
+"esposto_4_lati_m-1": 105
+},
+{
+"profilo": "UC 356x368x177",
+"esposto_3_lati_m-1": 49,
+"esposto_4_lati_m-1": 66
+},
+{
+"profilo": "HP 360x174",
+"esposto_3_lati_m-1": 50,
+"esposto_4_lati_m-1": 67
+},
+{
+"profilo": "HE 650 A",
+"esposto_3_lati_m-1": 65,
+"esposto_4_lati_m-1": 78
+},
+{
+"profilo": "UC 356x368x202",
+"esposto_3_lati_m-1": 44,
+"esposto_4_lati_m-1": 58
+},
+{
+"profilo": "HP 360x180",
+"esposto_3_lati_m-1": 48,
+"esposto_4_lati_m-1": 65
+},
+{
+"profilo": "HE 650 B",
+"esposto_3_lati_m-1": 56,
+"esposto_4_lati_m-1": 66
+},
+{
+"profilo": "UC 356x406x235",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 52
+},
+{
+"profilo": "HP 400x122",
+"esposto_3_lati_m-1": 70,
+"esposto_4_lati_m-1": 95
+},
+{
+"profilo": "UC 356x406x287",
+"esposto_3_lati_m-1": 32,
+"esposto_4_lati_m-1": 43
+},
+{
+"profilo": "HE 650 M",
+"esposto_3_lati_m-1": 44,
+"esposto_4_lati_m-1": 52
+},
+{
+"profilo": "HP 400x140",
+"esposto_3_lati_m-1": 61,
+"esposto_4_lati_m-1": 83
+},
+{
+"profilo": "HE 650 x343",
+"esposto_3_lati_m-1": 38,
+"esposto_4_lati_m-1": 45
+},
+{
+"profilo": "UC 356x406x340",
+"esposto_3_lati_m-1": 28,
+"esposto_4_lati_m-1": 37
+},
+{
+"profilo": "HP 400x158",
+"esposto_3_lati_m-1": 55,
+"esposto_4_lati_m-1": 74
+},
+{
+"profilo": "HE 650 x407",
+"esposto_3_lati_m-1": 33,
+"esposto_4_lati_m-1": 39
+},
+{
+"profilo": "UC 356x406x393",
+"esposto_3_lati_m-1": 25,
+"esposto_4_lati_m-1": 33
+},
+{
+"profilo": "HP 400x176",
+"esposto_3_lati_m-1": 50,
+"esposto_4_lati_m-1": 67
+},
+{
+"profilo": "HE 700 AA",
+"esposto_3_lati_m-1": 86,
+"esposto_4_lati_m-1": 102
+},
+{
+"profilo": "UC 356x406x467",
+"esposto_3_lati_m-1": 22,
+"esposto_4_lati_m-1": 29
+},
+{
+"profilo": "HP 400x194",
+"esposto_3_lati_m-1": 46,
+"esposto_4_lati_m-1": 62
+},
+{
+"profilo": "HE 700 A",
+"esposto_3_lati_m-1": 64,
+"esposto_4_lati_m-1": 76
+},
+{
+"profilo": "UC 356x406x551",
+"esposto_3_lati_m-1": 19,
+"esposto_4_lati_m-1": 25
+},
+{
+"profilo": "HP 400x213",
+"esposto_3_lati_m-1": 42,
+"esposto_4_lati_m-1": 57
+},
+{
+"profilo": "UC 356x406x634",
+"esposto_3_lati_m-1": 17,
+"esposto_4_lati_m-1": 22
+},
+{
+"profilo": "HE 700 B",
+"esposto_3_lati_m-1": 55,
+"esposto_4_lati_m-1": 65
+},
+{
+"profilo": "HP 400x231",
+"esposto_3_lati_m-1": 39,
+"esposto_4_lati_m-1": 53
+}
+]
+}

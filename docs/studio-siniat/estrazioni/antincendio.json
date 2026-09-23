@@ -1,0 +1,5505 @@
+{
+ "fonte": "Siniat - Guida pratica alle soluzioni antincendio, versione Luglio 2026 (Etex Building Performance S.p.A.)",
+ "avvertenze": [
+  "Hmax (#) riferita alla sola prestazione antincendio: l'orditura va dimensionata per altezza di progetto e azioni secondo NTC 17/01/2018.",
+  "Per progettazione e posa consultare Rapporti di Classificazione, Rapporti di Valutazione (EXAP) e Fascicoli Tecnici; certificati scaricabili da www.siniat.it (link riportati).",
+  "Sostituibilita': dove indicato le lastre si possono sostituire anche parzialmente con quelle elencate, di spessore almeno pari a quello testato.",
+  "Le prestazioni valgono solo per sistemi realizzati con prodotti Siniat (lastre, orditure, stucchi, accessori).",
+  "PROMATECT-100X e PROMASEAL sono prodotti Promat (gruppo Etex): certificati su MyPromat."
+ ],
+ "righe_manuale": 114,
+ "configurazioni": [
+  {
+   "id": "AF-001",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D75/M50 - 2 PS",
+   "supporto": null,
+   "strati": [
+    "1 pregyplac BA13",
+    "Orditura C50/50 dorso-dorso int. 600 mm",
+    "1 pregyplac BA13"
+   ],
+   "rw_db": 32,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 05-V-151 Indice A",
+       "url": "https://www.siniat.it/-/dam/efectis-05-v-151_ei-30---plac.pdf/pi48159/original/efectis-05-v-151_ei-30---plac.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 6
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac BA13": [
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    6
+   ]
+  },
+  {
+   "id": "AF-002",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D75/M50 - 2 PS - LM",
+   "supporto": null,
+   "strati": [
+    "1 pregyplac BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro min. 13,5 kg/m3 sp. 40 mm",
+    "1 pregyplac BA13"
+   ],
+   "rw_db": 43,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRG 17757B",
+       "url": "https://www.siniat.it/-/dam/ei-30_d75.m50.2ps.lv_wfrg_17757b/pi326758/original/ei-30_d75.m50.2ps.lv_wfrg_17757b.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 6
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac BA13": [
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    6
+   ]
+  },
+  {
+   "id": "AF-003",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 4 PSplus",
+   "supporto": null,
+   "strati": [
+    "2 pregyplac plus BA13",
+    "Orditura C75/50 int. 600 mm",
+    "2 pregyplac plus BA13"
+   ],
+   "rw_db": 43,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 338285-3822FR",
+       "url": "https://www.siniat.it/-/dam/ig-338285-3822fr_ei-90---plac-plus.pdf/pi48200/original/ig-338285-3822fr_ei-90---plac-plus.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 6
+    },
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 338285-3822FR",
+       "url": "https://www.siniat.it/-/dam/ig-338285-3822fr_ei-90---plac-plus.pdf/pi48200/original/ig-338285-3822fr_ei-90---plac-plus.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 7
+    },
+    {
+     "classe": "EI 90",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 338285-3822FR",
+       "url": "https://www.siniat.it/-/dam/ig-338285-3822fr_ei-90---plac-plus.pdf/pi48200/original/ig-338285-3822fr_ei-90---plac-plus.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 10
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac plus BA13": [
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    6,
+    7,
+    10
+   ]
+  },
+  {
+   "id": "AF-004",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 4 PSplus - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyplac plus BA13",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 40 mm",
+    "2 pregyplac plus BA13"
+   ],
+   "rw_db": 55,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 390158-4189FR",
+       "url": "https://www.siniat.it/-/dam/ei-90_d125.m75.4psplus.lv_ig-390158/pi497891/original/ei-90_d125.m75.4psplus.lv_ig-390158.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 6
+    },
+    {
+     "classe": "EI 90",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 390158-4189FR",
+       "url": "https://www.siniat.it/-/dam/ei-90_d125.m75.4psplus.lv_ig-390158/pi497891/original/ei-90_d125.m75.4psplus.lv_ig-390158.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 10
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac plus BA13": [
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    6,
+    10
+   ]
+  },
+  {
+   "id": "AF-005",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 4 easy - LM",
+   "supporto": null,
+   "strati": [
+    "2 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "2 easy 13"
+   ],
+   "rw_db": 51,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 412557-4367FR",
+       "url": "https://media.siniat.it/pi737538/original/-42861754/ei60_d100.m50.4easy13.lm_ig-412557-4367fr.pdf"
+      },
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 6
+    },
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 412557-4367FR",
+       "url": "https://media.siniat.it/pi737538/original/-42861754/ei60_d100.m50.4easy13.lm_ig-412557-4367fr.pdf"
+      },
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 9
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    6,
+    9
+   ]
+  },
+  {
+   "id": "AF-006",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 2 PSplus + 2 LaDura - LM",
+   "supporto": null,
+   "strati": [
+    "1 ladura plus BA13",
+    "1 pregyplac plus BA13",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 60 mm",
+    "1 pregyplac plus BA13",
+    "1 ladura plus BA13"
+   ],
+   "rw_db": 59,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 399811-4274FR",
+       "url": "https://www.siniat.it/-/dam/ei-90_2placplus2ladura.lv_ig-399811.pdf/pi659099/original/ei-90_2placplus2ladura.lv_ig-399811.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP I.G. 412201",
+       "url": null
+      }
+     ],
+     "pagina": 6
+    },
+    {
+     "classe": "EI 90",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 399811-4274FR",
+       "url": "https://www.siniat.it/-/dam/ei-90_2placplus2ladura.lv_ig-399811.pdf/pi659099/original/ei-90_2placplus2ladura.lv_ig-399811.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP I.G. 412201",
+       "url": null
+      }
+     ],
+     "pagina": 11
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    6,
+    11
+   ]
+  },
+  {
+   "id": "AF-007",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Parete EI30 a grande altezza con isolante 1x20",
+   "supporto": null,
+   "strati": [
+    "1 x 20 mm PROMATECT-100X",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia min. 15 kg/m3 sp. 60 mm",
+    "1 x 20 mm PROMATECT-100X"
+   ],
+   "rw_db": 49,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Applus 22/32307429",
+       "url": null
+      },
+      {
+       "testo": "Rapporto EXAP 23-32301545",
+       "url": null
+      }
+     ],
+     "pagina": 6
+    },
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Applus 22/32307429",
+       "url": null
+      },
+      {
+       "testo": "Rapporto EXAP 23-32301544",
+       "url": null
+      }
+     ],
+     "pagina": 13
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Lastre PROMATECT-100X in classe A1 di reazione al fuoco",
+    "Certificato scaricabile da MyPromat",
+    "Stessa stratigrafia della EI 30 a grande altezza (12 m): EI 120 fino a 5 m",
+    "Lastre PROMATECT-100X in classe A1",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    6,
+    13
+   ]
+  },
+  {
+   "id": "AF-008",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 4 PF 13",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA13",
+    "Orditura C75/50 int. 600 mm",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": 45,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 45",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381597-4112FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf_ig-381597-4112fr/pi326766/original/ei-120_d125.m75.4pf_ig-381597-4112fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 7
+    },
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381597-4112FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf_ig-381597-4112fr/pi326766/original/ei-120_d125.m75.4pf_ig-381597-4112fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 12
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    7,
+    12
+   ]
+  },
+  {
+   "id": "AF-009",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 4 PF 13 - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA13",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 45 mm",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": 56,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 45",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381599-4114FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf.lv_ig-381599-4114fr/pi326765/original/ei-120_d125.m75.4pf.lv_ig-381599-4114fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 7
+    },
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381599-4114FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf.lv_ig-381599-4114fr/pi326765/original/ei-120_d125.m75.4pf.lv_ig-381599-4114fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 12
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [
+    "A p.7 (EI 45) la lana e' indicata sp. 45 mm, a p.12 (EI 120) sp. 40 mm: DA VERIFICARE sul rapporto"
+   ],
+   "pagine": [
+    7,
+    12
+   ]
+  },
+  {
+   "id": "AF-010",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 4 PS",
+   "supporto": null,
+   "strati": [
+    "2 pregyplac BA13",
+    "Orditura C50/50 int. 600 mm",
+    "2 pregyplac BA13"
+   ],
+   "rw_db": 42,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "SP P805090",
+       "url": "https://www.siniat.it/-/dam/ei-60_d100.m50.4ps_sp-p805090/pi497894/original/ei-60_d100.m50.4ps_sp-p805090.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 7
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac BA13": [
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    7
+   ]
+  },
+  {
+   "id": "AF-011",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 4 PS - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyplac BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 40 mm",
+    "2 pregyplac BA13"
+   ],
+   "rw_db": 52,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 6.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis R001815",
+       "url": "https://www.siniat.it/-/dam/ei-60_d100.m50.4ps.lv_efectis-r001815/pi497890/original/ei-60_d100.m50.4ps.lv_efectis-r001815.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 7
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac BA13": [
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    7
+   ]
+  },
+  {
+   "id": "AF-012",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D150/M75 - 6 PSplus",
+   "supporto": null,
+   "strati": [
+    "3 pregyplac plus BA13",
+    "Orditura C75/50 int. 600 mm",
+    "3 pregyplac plus BA13"
+   ],
+   "rw_db": 49,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 6.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 338285-3822FR",
+       "url": "https://www.siniat.it/-/dam/ig-338285-3822fr_ei-90---plac-plus.pdf/pi48200/original/ig-338285-3822fr_ei-90---plac-plus.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 7
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac plus BA13": [
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    7
+   ]
+  },
+  {
+   "id": "AF-013",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D125/M50 - 6 PS - LM",
+   "supporto": null,
+   "strati": [
+    "3 pregyplac BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 40 mm",
+    "3 pregyplac BA13"
+   ],
+   "rw_db": 56,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 7.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis R001815",
+       "url": "https://www.siniat.it/-/dam/ei-60_d100.m50.4ps.lv_efectis-r001815/pi497890/original/ei-60_d100.m50.4ps.lv_efectis-r001815.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 7
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac BA13": [
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    7
+   ]
+  },
+  {
+   "id": "AF-014",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "singola",
+   "codice": "Pregy D147/M75 - 4 PS BA18 - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyplac BA18",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia (min. 15 kg/m3 sp. 45 mm)",
+    "2 pregyplac BA18"
+   ],
+   "rw_db": 59,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "LAPI 279-C-22-385FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d147.m75.4ps18.lv_lapi-279-c-22-385/pi497893/original/ei-120_d147.m75.4ps18.lv_lapi-279-c-22-385.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP LAPI 074-C-22-AR1-22",
+       "url": null
+      }
+     ],
+     "pagina": 8
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Il file del certificato e' intitolato EI 120: possibile classe superiore ad altezze minori, DA VERIFICARE sul rapporto"
+   ],
+   "pagine": [
+    8
+   ]
+  },
+  {
+   "id": "AF-015",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D105/M75 - 2 PF 15",
+   "supporto": null,
+   "strati": [
+    "1 pregyflam BA15",
+    "Orditura C75/50 int. 600 mm",
+    "1 pregyflam BA15"
+   ],
+   "rw_db": 37,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381598-4113FR",
+       "url": "https://www.siniat.it/-/dam/ei-60_d105.m75.2pf15_ig-381598-4113fr/pi326762/original/ei-60_d105.m75.2pf15_ig-381598-4113fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 8
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    8
+   ]
+  },
+  {
+   "id": "AF-016",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D105/M75 - 2 PF 15 - LR",
+   "supporto": null,
+   "strati": [
+    "1 pregyflam BA15",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di roccia 60 kg/m3 sp. 50 mm",
+    "1 pregyflam BA15"
+   ],
+   "rw_db": 50,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 295257-3419FR",
+       "url": "https://www.siniat.it/-/dam/ig-295257-3419fr_ei-90---flam-15_rdc.pdf/pi48191/original/ig-295257-3419fr_ei-90---flam-15_rdc.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 8
+    },
+    {
+     "classe": "EI 90",
+     "hmax_m": 3.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 295257-3419FR",
+       "url": "https://www.siniat.it/-/dam/ig-295257-3419fr_ei-90---flam-15_rdc.pdf/pi48191/original/ig-295257-3419fr_ei-90---flam-15_rdc.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 10
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    8,
+    10
+   ]
+  },
+  {
+   "id": "AF-017",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D130/M75 - 2 PF 15 + 2 PF 13",
+   "supporto": null,
+   "strati": [
+    "1 pregyflam BA13",
+    "1 pregyflam BA15",
+    "Orditura C75/50 int. 600 mm",
+    "1 pregyflam BA15",
+    "1 pregyflam BA13"
+   ],
+   "rw_db": 47,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 6.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381598-4113FR",
+       "url": "https://www.siniat.it/-/dam/ei-60_d105.m75.2pf15_ig-381598-4113fr/pi326762/original/ei-60_d105.m75.2pf15_ig-381598-4113fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 8
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor"
+    ],
+    "pregyflam BA15": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    8
+   ]
+  },
+  {
+   "id": "AF-018",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 4 PF 13 - LR",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": 54,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 6.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351340-3917FR",
+       "url": "https://www.siniat.it/-/dam/ig-351340-3917fr_ei-60---solidtex.pdf/pi48204/original/ig-351340-3917fr_ei-60---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 8
+    },
+    {
+     "classe": "EI 90",
+     "hmax_m": 6.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRG 19056B",
+       "url": "https://www.siniat.it/-/dam/ei-120_d100.m50.4pf.lr_wfrg_19056b/pi326763/original/ei-120_d100.m50.4pf.lr_wfrg_19056b.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 10
+    },
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRG 19056B",
+       "url": "https://www.siniat.it/-/dam/ei-120_d100.m50.4pf.lr_wfrg_19056b/pi326763/original/ei-120_d100.m50.4pf.lr_wfrg_19056b.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 12
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    8,
+    10,
+    12
+   ]
+  },
+  {
+   "id": "AF-019",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D135/M75 - 4 PF 15",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA15",
+    "Orditura C75/50 int. 600 mm",
+    "2 pregyflam BA15"
+   ],
+   "rw_db": 48,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381600-4115FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d135.m75.4pf15_ig-381600-4115fr/pi326767/original/ei-120_d135.m75.4pf15_ig-381600-4115fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 8
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Nel manuale il codice e' stampato \"2 PF 15\" ma la stratigrafia e' 2+2 pregyflam BA15 (e il certificato e' intitolato D135 4PF15): refuso del manuale",
+    "Il Memento indica anche EI 120 con Hmax 6,9 m per 2+2 PF15: DA VERIFICARE sul rapporto"
+   ],
+   "pagine": [
+    8
+   ]
+  },
+  {
+   "id": "AF-020",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D135/M75 - 4 PF 15 - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA15",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 40 mm",
+    "2 pregyflam BA15"
+   ],
+   "rw_db": 57,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 401066-4286FR",
+       "url": "https://media.siniat.it/pi737541/original/-874305794/ei120_d135.m75.4pf15.lm_ig-401066-4286fr.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP 412204",
+       "url": null
+      }
+     ],
+     "pagina": 8
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Accessori: scatole elettriche protette con PROMASEAL-PLSK 503 Wall",
+    "Il file del certificato e' intitolato EI 120: DA VERIFICARE sul rapporto"
+   ],
+   "pagine": [
+    8
+   ]
+  },
+  {
+   "id": "AF-021",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 4 easy",
+   "supporto": null,
+   "strati": [
+    "2 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "2 easy 13"
+   ],
+   "rw_db": 41,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 9
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    9
+   ]
+  },
+  {
+   "id": "AF-022",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D75/M50 - 2 LD - LR",
+   "supporto": null,
+   "strati": [
+    "1 ladura plus BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "1 ladura plus BA13"
+   ],
+   "rw_db": 48,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351340-3917FR",
+       "url": "https://www.siniat.it/-/dam/ig-351340-3917fr_ei-60---solidtex.pdf/pi48204/original/ig-351340-3917fr_ei-60---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 9
+    }
+   ],
+   "sostituibilita": {
+    "ladura plus BA13": [
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    9
+   ]
+  },
+  {
+   "id": "AF-023",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D75/M50 - 2 S-tex - LR",
+   "supporto": null,
+   "strati": [
+    "1 solidtex indoor",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "1 solidtex indoor"
+   ],
+   "rw_db": 50,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351340-3917FR",
+       "url": "https://www.siniat.it/-/dam/ig-351340-3917fr_ei-60---solidtex.pdf/pi48204/original/ig-351340-3917fr_ei-60---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 9
+    }
+   ],
+   "sostituibilita": {
+    "solidtex indoor": [
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    9
+   ]
+  },
+  {
+   "id": "AF-024",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 4 LD - LR",
+   "supporto": null,
+   "strati": [
+    "2 ladura plus BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "2 ladura plus BA13"
+   ],
+   "rw_db": 59,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 6.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351340-3917FR",
+       "url": "https://www.siniat.it/-/dam/ig-351340-3917fr_ei-60---solidtex.pdf/pi48204/original/ig-351340-3917fr_ei-60---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 9
+    },
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRG 19056B",
+       "url": "https://www.siniat.it/-/dam/ei-120_d100.m50.4pf.lr_wfrg_19056b/pi326763/original/ei-120_d100.m50.4pf.lr_wfrg_19056b.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 14
+    }
+   ],
+   "sostituibilita": {
+    "ladura plus BA13": [
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    9,
+    14
+   ]
+  },
+  {
+   "id": "AF-025",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 4 S-tex - LR",
+   "supporto": null,
+   "strati": [
+    "2 solidtex indoor",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "2 solidtex indoor"
+   ],
+   "rw_db": 61,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 6.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351340-3917FR",
+       "url": "https://www.siniat.it/-/dam/ig-351340-3917fr_ei-60---solidtex.pdf/pi48204/original/ig-351340-3917fr_ei-60---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 9
+    }
+   ],
+   "sostituibilita": {
+    "solidtex indoor": [
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    9
+   ]
+  },
+  {
+   "id": "AF-026",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Parete curva",
+   "orditura": "singola",
+   "codice": "Pregy D-Curva 89/M50 - 6 Flex - LR (Efectis 06-E-130)",
+   "supporto": null,
+   "strati": [
+    "3 pregyflex BA6",
+    "Orditura C50/50 int. 195 mm",
+    "Lana di roccia 40 kg/m3 sp. 45 mm",
+    "3 pregyflex BA6"
+   ],
+   "rw_db": 49,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 06-E-130",
+       "url": "https://www.siniat.it/-/dam/efectis-06-e-130-rdc-completo.pdf/pi48163/original/efectis-06-e-130-rdc-completo.pdf"
+      }
+     ],
+     "pagina": 9
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Classificata anche E 90",
+    "Raggio di curvatura >= 300 mm"
+   ],
+   "pagine": [
+    9
+   ]
+  },
+  {
+   "id": "AF-027",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D125/M50 - 6 PF 13 - LR",
+   "supporto": null,
+   "strati": [
+    "3 pregyflam BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "3 pregyflam BA13"
+   ],
+   "rw_db": 60,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 7.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRG 19056B",
+       "url": "https://www.siniat.it/-/dam/ei-120_d100.m50.4pf.lr_wfrg_19056b/pi326763/original/ei-120_d100.m50.4pf.lr_wfrg_19056b.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 10
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    10
+   ]
+  },
+  {
+   "id": "AF-028",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D150/M75 - 6 PF13 - LM",
+   "supporto": null,
+   "strati": [
+    "3 pregyflam BA13",
+    "Orditura C75/50 int. 600 mm",
+    "3 pregyflam BA13"
+   ],
+   "rw_db": 53,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 407264-4339FR",
+       "url": "https://media.siniat.it/pi737543/original/-809229480/ei90_d150.m75.6pf13_ig-407264-4339fr.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP 412200",
+       "url": null
+      }
+     ],
+     "pagina": 10
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Il codice riporta \"LM\" ma la configurazione stampata non elenca l'isolante (e Rw 53 e' coerente con parete senza isolante): DA VERIFICARE sul rapporto"
+   ],
+   "pagine": [
+    10
+   ]
+  },
+  {
+   "id": "AF-029",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 2 easy + 2 easy pro",
+   "supporto": null,
+   "strati": [
+    "1 easy pro 13",
+    "1 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "1 easy 13",
+    "1 easy pro 13"
+   ],
+   "rw_db": 46,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 11
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ],
+    "easy pro 13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    11
+   ]
+  },
+  {
+   "id": "AF-030",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "singola",
+   "codice": "Pregy D100/M50 - 2 easy + 2 easy pro - LM",
+   "supporto": null,
+   "strati": [
+    "1 easy pro 13",
+    "1 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "1 easy 13",
+    "1 easy pro 13"
+   ],
+   "rw_db": 54,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 11
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ],
+    "easy pro 13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    11
+   ]
+  },
+  {
+   "id": "AF-031",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 2 PSplus + 2 S-tex - LR",
+   "supporto": null,
+   "strati": [
+    "1 pregyplac plus BA13",
+    "1 solidtex indoor",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 60 mm",
+    "1 solidtex indoor",
+    "1 pregyplac plus BA13"
+   ],
+   "rw_db": 61,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 5.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351103-3915FR",
+       "url": "https://etexassets.azureedge.net/-/dam/ig-351103-3915fr_ei-120---solidtex.pdf/pi48203/original/ig-351103-3915fr_ei-120---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 11
+    },
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351103-3915FR",
+       "url": "https://etexassets.azureedge.net/-/dam/ig-351103-3915fr_ei-120---solidtex.pdf/pi48203/original/ig-351103-3915fr_ei-120---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 14
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac plus BA13": [
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ],
+    "solidtex indoor": [
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    11,
+    14
+   ]
+  },
+  {
+   "id": "AF-032",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Parete curva",
+   "orditura": "singola",
+   "codice": "Pregy D-Curva 89/M50 - 6 Flex - LR (Efectis 06-E-115)",
+   "supporto": null,
+   "strati": [
+    "3 pregyflex BA6",
+    "Orditura C50/50 int. 195 mm",
+    "Lana di roccia 40 kg/m3 sp. 45 mm",
+    "3 pregyflex BA6"
+   ],
+   "rw_db": 49,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 06-E-115",
+       "url": "https://www.siniat.it/-/dam/efectis-06-e-115-rdc-completo.pdf/pi48161/original/efectis-06-e-115-rdc-completo.pdf"
+      }
+     ],
+     "pagina": 11
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Raggio di curvatura >= 300 mm",
+    "Lunghezza semi-conchiglia <= 1200 mm"
+   ],
+   "pagine": [
+    11
+   ]
+  },
+  {
+   "id": "AF-033",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D150/M75 - 6 PF 13",
+   "supporto": null,
+   "strati": [
+    "3 pregyflam BA13",
+    "Orditura C75/50 int. 600 mm",
+    "3 pregyflam BA13"
+   ],
+   "rw_db": 51,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 6.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381597-4112FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf_ig-381597-4112fr/pi326766/original/ei-120_d125.m75.4pf_ig-381597-4112fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 12
+    },
+    {
+     "classe": "EI 180",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 383047-4129FR",
+       "url": "https://www.siniat.it/-/dam/ig-383047-4129fr_rdc/pi352002/original/ig-383047-4129fr_rdc.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 15
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    12,
+    15
+   ]
+  },
+  {
+   "id": "AF-034",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D150/M75 - 6 PF 13 - LM",
+   "supporto": null,
+   "strati": [
+    "3 pregyflam BA13",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 40 mm",
+    "3 pregyflam BA13"
+   ],
+   "rw_db": 61,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 6.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381599-4114FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf.lv_ig-381599-4114fr/pi326765/original/ei-120_d125.m75.4pf.lv_ig-381599-4114fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 12
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    12
+   ]
+  },
+  {
+   "id": "AF-035",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D160/M100 - 4 PF 15",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA15",
+    "Orditura C100/50 int. 600 mm",
+    "2 pregyflam BA15"
+   ],
+   "rw_db": 48,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 8.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-020-10-2024",
+       "url": null
+      }
+     ],
+     "pagina": 12
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "pregyflam A1 BA15",
+     "ladura plus BA15",
+     "ladura A1 BA15"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    12
+   ]
+  },
+  {
+   "id": "AF-036",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D160/M100 - 4 PF15 - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA15",
+    "Orditura C100/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "2 pregyflam BA15"
+   ],
+   "rw_db": 58,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 8.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-020-10-2024",
+       "url": null
+      },
+      {
+       "testo": "CSTB DSSF24-31994/A",
+       "url": null
+      }
+     ],
+     "pagina": 12
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "pregyflam A1 BA15",
+     "ladura plus BA15",
+     "ladura A1 BA15"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    12
+   ]
+  },
+  {
+   "id": "AF-037",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D165/M75 - 6 PF 15",
+   "supporto": null,
+   "strati": [
+    "3 pregyflam BA15",
+    "Orditura C75/50 int. 600 mm",
+    "3 pregyflam BA15"
+   ],
+   "rw_db": 53,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 344892-3869FR",
+       "url": "https://www.siniat.it/-/dam/ei-180_d165.m75.6pf15_ig-344892-3869fr/pi326768/original/ei-180_d165.m75.6pf15_ig-344892-3869fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 13
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Il Memento indica anche EI 180 con Hmax 5,0 m e il file del certificato e' intitolato EI 180: la guida 2026 non la elenca fra le EI 180, DA VERIFICARE sul rapporto"
+   ],
+   "pagine": [
+    13
+   ]
+  },
+  {
+   "id": "AF-038",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D175/M75 - 8 PF 13",
+   "supporto": null,
+   "strati": [
+    "4 pregyflam BA13",
+    "Orditura C75/50 int. 600 mm",
+    "4 pregyflam BA13"
+   ],
+   "rw_db": 55,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 344892-3869FR",
+       "url": "https://www.siniat.it/-/dam/ei-180_d165.m75.6pf15_ig-344892-3869fr/pi326768/original/ei-180_d165.m75.6pf15_ig-344892-3869fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 13
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    13
+   ]
+  },
+  {
+   "id": "AF-039",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D175/M75 - 8 PF 13 - LM",
+   "supporto": null,
+   "strati": [
+    "4 pregyflam BA13",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia (min. 15 kg/m3 sp. 45 mm)",
+    "4 pregyflam BA13"
+   ],
+   "rw_db": 64,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "LAPI 284-C-22-388FR",
+       "url": "https://www.siniat.it/-/dam/lapi_284-c-22-388fr/pi656772/original/lapi_284-c-22-388fr.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP LAPI 075-C-22-AR1-22",
+       "url": null
+      }
+     ],
+     "pagina": 13
+    },
+    {
+     "classe": "EI 180",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "LAPI 284-C-22-388FR",
+       "url": "https://www.siniat.it/-/dam/lapi_284-c-22-388fr/pi656772/original/lapi_284-c-22-388fr.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP LAPI 075-C-22-AR1-22",
+       "url": null
+      }
+     ],
+     "pagina": 15
+    },
+    {
+     "classe": "EI 240",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "LAPI 284-C-22-388FR",
+       "url": "https://www.siniat.it/-/dam/lapi_284-c-22-388fr/pi656772/original/lapi_284-c-22-388fr.pdf"
+      },
+      {
+       "testo": "Rapporto EXAP LAPI 075-C-22-AR1-22",
+       "url": null
+      }
+     ],
+     "pagina": 15
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    13,
+    15
+   ]
+  },
+  {
+   "id": "AF-040",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Parete EI120 a singola lastra per lato 1x12",
+   "supporto": null,
+   "strati": [
+    "1 x 12 mm PROMATECT-100X",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di roccia min. 70 kg/m3 sp. 60 mm",
+    "1 x 12 mm PROMATECT-100X"
+   ],
+   "rw_db": 45,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 415821-4381FR",
+       "url": null
+      },
+      {
+       "testo": "Rapporto EXAP IG 423022",
+       "url": null
+      }
+     ],
+     "pagina": 13
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Lastre PROMATECT-100X in classe A1",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    13
+   ]
+  },
+  {
+   "id": "AF-041",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Parete EI 120 a grande altezza C100 dorso-dorso 2x12",
+   "supporto": null,
+   "strati": [
+    "2 x 12 mm PROMATECT-100X",
+    "Orditura C100/50 dorso-dorso int. 600 mm con giunto telescopico in sommita",
+    "Lana di vetro o di roccia (min. 24 kg/m3 sp. 100 mm)",
+    "2 x 12 mm PROMATECT-100X"
+   ],
+   "rw_db": 57,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 9.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT PR-026/11/2021",
+       "url": null
+      }
+     ],
+     "pagina": 13
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Lastre PROMATECT-100X in classe A1",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    13
+   ]
+  },
+  {
+   "id": "AF-042",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Parete EI 120 a grande altezza C150 dorso-dorso 2x12",
+   "supporto": null,
+   "strati": [
+    "2 x 12 mm PROMATECT-100X",
+    "Orditura C150/50 dorso-dorso int. 600 mm con giunto telescopico in sommita",
+    "Lana di vetro o di roccia (min. 15 kg/m3 sp. 70+70 mm)",
+    "2 x 12 mm PROMATECT-100X"
+   ],
+   "rw_db": 58,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 11.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "CSTB RS22-011",
+       "url": null
+      },
+      {
+       "testo": "Rapporto EXAP CSTB DSSF22-11503",
+       "url": null
+      }
+     ],
+     "pagina": 13
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Hmax 12 m con 3 x 12 mm PROMATECT-100X per lato",
+    "Lastre PROMATECT-100X in classe A1",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    13
+   ]
+  },
+  {
+   "id": "AF-043",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 4 LD - LM",
+   "supporto": null,
+   "strati": [
+    "2 ladura plus BA13",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 60 mm",
+    "2 ladura plus BA13"
+   ],
+   "rw_db": 62,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381599-4114FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf.lv_ig-381599-4114fr/pi326765/original/ei-120_d125.m75.4pf.lv_ig-381599-4114fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 14
+    }
+   ],
+   "sostituibilita": {
+    "ladura plus BA13": [
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    14
+   ]
+  },
+  {
+   "id": "AF-044",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "singola",
+   "codice": "Pregy D125/M75 - 4 S-tex - LM",
+   "supporto": null,
+   "strati": [
+    "2 solidtex indoor",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o di roccia sp. 60 mm",
+    "2 solidtex indoor"
+   ],
+   "rw_db": 63,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 381599-4114FR",
+       "url": "https://www.siniat.it/-/dam/ei-120_d125.m75.4pf.lv_ig-381599-4114fr/pi326765/original/ei-120_d125.m75.4pf.lv_ig-381599-4114fr.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 14
+    }
+   ],
+   "sostituibilita": {
+    "solidtex indoor": [
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    14
+   ]
+  },
+  {
+   "id": "AF-045",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "singola",
+   "codice": "Pregy D190/M75 - 6 PF 15 + 2 PF 13",
+   "supporto": null,
+   "strati": [
+    "1 pregyflam BA13 (o BA15)",
+    "3 pregyflam BA15",
+    "Orditura C75/50 int. 600 mm",
+    "3 pregyflam BA15",
+    "1 pregyflam BA13 (o BA15)"
+   ],
+   "rw_db": 55,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 180",
+     "hmax_m": 6.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 383047-4129FR",
+       "url": "https://www.siniat.it/-/dam/ig-383047-4129fr_rdc/pi352002/original/ig-383047-4129fr_rdc.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 15
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "ladura plus",
+     "ladura A1",
+     "ladura vapor",
+     "solidtex indoor"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    15
+   ]
+  },
+  {
+   "id": "AF-046",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "doppia",
+   "codice": "Pregy S150/2M50 - 4 easy - LM",
+   "supporto": null,
+   "strati": [
+    "2 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "Intercapedine d'aria",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "2 easy 13"
+   ],
+   "rw_db": 60,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 16
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    16
+   ]
+  },
+  {
+   "id": "AF-047",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre speciali",
+   "orditura": "doppia",
+   "codice": "Pregy S140/2M50 - 3 S-tex - LR",
+   "supporto": null,
+   "strati": [
+    "1 solidtex indoor",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "1 solidtex indoor",
+    "Intercapedine d'aria",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "1 solidtex indoor"
+   ],
+   "rw_db": 66,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351340-3917FR",
+       "url": "https://www.siniat.it/-/dam/ig-351340-3917fr_ei-60---solidtex.pdf/pi48204/original/ig-351340-3917fr_ei-60---solidtex.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 16
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    16
+   ]
+  },
+  {
+   "id": "AF-048",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Parete per cinema",
+   "orditura": "doppia",
+   "codice": "Pregy SLA260/2M100 - 2 PS + 2 PS 18 - LM",
+   "supporto": null,
+   "strati": [
+    "1 pregyplac BA18",
+    "1 pregyplac BA13",
+    "Doppia orditura metallica legata con connettori acustici PHONI SL int. 2,0 m",
+    "C50/50 dorso-dorso per h <= 11,05 m; C100/50 dorso-dorso per h <= 13,45 m (sp. 500 mm)",
+    "Doppio isolamento in lana di vetro",
+    "1 pregyplac BA13",
+    "1 pregyplac BA18"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 13.45,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 07-A-011",
+       "url": "https://www.siniat.it/-/dam/efectis-07-a-011_ei-60---plac.pdf/pi48164/original/efectis-07-a-011_ei-60---plac.pdf"
+      }
+     ],
+     "pagina": 16
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Rw > 73 dB"
+   ],
+   "pagine": [
+    16
+   ]
+  },
+  {
+   "id": "AF-049",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre standard",
+   "orditura": "doppia",
+   "codice": "Pregy S150/2M50 - 4 PS Plus - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyplac plus BA13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "Intercapedine d'aria",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "2 pregyplac plus BA13"
+   ],
+   "rw_db": 61,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 415849-4382FR",
+       "url": "https://media.siniat.it/pi737539/original/2115216281/ei90_s155.2m50.4psplus-ba13.lm_ig-415849-4382fr.pdf"
+      },
+      {
+       "testo": "FT SI-019/04/2024",
+       "url": null
+      }
+     ],
+     "pagina": 16
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac plus BA13": [
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    16
+   ]
+  },
+  {
+   "id": "AF-050",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "doppia",
+   "codice": "Pregy S163/2M50 - 5 easy - LM",
+   "supporto": null,
+   "strati": [
+    "2 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "1 easy 13",
+    "Intercapedine d'aria",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "2 easy 13"
+   ],
+   "rw_db": 61,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 90",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 16
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    16
+   ]
+  },
+  {
+   "id": "AF-051",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre antincendio",
+   "orditura": "doppia",
+   "codice": "Pregy S125-200/2M50-100 - 4 PF - LM",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA13",
+    "Doppia orditura metallica int. 400/600 mm: C50/50 singoli/doppi hmax 3,7-4,2 m; C100/50 singoli/doppi hmax 4,4-5,3 m",
+    "Doppio isolamento in lana di vetro",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": 64,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 5.3,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 09-E-533",
+       "url": "https://www.siniat.it/-/dam/efectis-09-e-533_ei-120---flam.pdf/pi48169/original/efectis-09-e-533_ei-120---flam.pdf"
+      }
+     ],
+     "pagina": 17
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    17
+   ]
+  },
+  {
+   "id": "AF-052",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "doppia",
+   "codice": "Pregy S163/2M50 - 2 easy + 3 easy pro - LM",
+   "supporto": null,
+   "strati": [
+    "1 easy pro 13",
+    "1 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "1 easy pro 13",
+    "Intercapedine d'aria",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "1 easy 13",
+    "1 easy pro 13"
+   ],
+   "rw_db": 65,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 17
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ],
+    "easy pro 13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    17
+   ]
+  },
+  {
+   "id": "AF-053",
+   "sezione": "pareti",
+   "sezione_nome": "Pareti leggere",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Lastre easy",
+   "orditura": "doppia",
+   "codice": "Pregy S163/2M50 - 4 easy + 1 PF13 - LM",
+   "supporto": null,
+   "strati": [
+    "2 easy 13",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "1 pregyflam / ladura plus / solidtex indoor",
+    "Intercapedine d'aria",
+    "Orditura C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm",
+    "2 easy 13"
+   ],
+   "rw_db": 62,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 415850-4383FR",
+       "url": "https://media.siniat.it/pi737540/original/2025524052/ei120_s168.2m50.4-easy131pf13.lm_ig-415850-4383fr.pdf"
+      },
+      {
+       "testo": "FT SI-019/04/2024-01",
+       "url": null
+      }
+     ],
+     "pagina": 17
+    }
+   ],
+   "sostituibilita": {
+    "easy 13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "ladura vapor",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    17
+   ]
+  },
+  {
+   "id": "AF-054",
+   "sezione": "esterne",
+   "sezione_nome": "Pareti esterne",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Pareti esterne",
+   "orditura": "singola",
+   "codice": "Parete esterna aquaboard pro - EI 60",
+   "supporto": null,
+   "strati": [
+    "1 aquaboard pro + rasatura XT",
+    "Orditura C100/50 int. 600 mm",
+    "Lana di vetro o roccia sp. min. 70 mm",
+    "1 ladura plus BA13"
+   ],
+   "rw_db": 50,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 399848-4276FR",
+       "url": "https://media.siniat.it/cert_168815_it/original/-668018593/ig-399848_ei-60_ab130.m100.1ab1ld.lm_rdc.pdf"
+      },
+      {
+       "testo": "FT SI-022-06-2025",
+       "url": null
+      }
+     ],
+     "pagina": 18
+    }
+   ],
+   "sostituibilita": {
+    "aquaboard pro": [
+     "solidtex outdoor XT"
+    ],
+    "ladura plus BA13": [
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Consentita l'aggiunta su un lato di 1 lastra di gesso rivestito Siniat (es. pregyvapor BA13), in qualunque posizione"
+   ],
+   "pagine": [
+    18
+   ]
+  },
+  {
+   "id": "AF-055",
+   "sezione": "esterne",
+   "sezione_nome": "Pareti esterne",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Pareti esterne",
+   "orditura": "doppia",
+   "codice": "Parete esterna aquaboard pro - EI 120",
+   "supporto": null,
+   "strati": [
+    "1 aquaboard pro + rasatura XT",
+    "Orditura C100/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 80 mm",
+    "1 ladura plus BA13",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 60 mm",
+    "1 pregyvapor BA13",
+    "1 ladura plus BA13"
+   ],
+   "rw_db": 64,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 386318-4160FR",
+       "url": "https://media.siniat.it/cert_168826_it/original/614944026/ei120_xt240.m100.m75-1xt.2stex.1pv.lr_ig-386318-4160.pdf"
+      },
+      {
+       "testo": "FT SI-022-06-2025",
+       "url": null
+      }
+     ],
+     "pagina": 18
+    }
+   ],
+   "sostituibilita": {
+    "aquaboard pro": [
+     "solidtex outdoor XT"
+    ],
+    "ladura plus BA13": [
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ],
+    "pregyvapor BA13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    18
+   ]
+  },
+  {
+   "id": "AF-056",
+   "sezione": "esterne",
+   "sezione_nome": "Pareti esterne",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Pareti esterne",
+   "orditura": "doppia",
+   "codice": "Parete esterna Solidtex Wall System - EI 120",
+   "supporto": null,
+   "strati": [
+    "1 solidtex outdoor XT + rasatura XT",
+    "Orditura C100/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 80 mm",
+    "1 solidtex indoor",
+    "Orditura C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 60 mm",
+    "1 pregyvapor BA13",
+    "1 solidtex indoor"
+   ],
+   "rw_db": 74,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.2,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 386318-4160FR",
+       "url": "https://media.siniat.it/cert_168826_it/original/614944026/ei120_xt240.m100.m75-1xt.2stex.1pv.lr_ig-386318-4160.pdf"
+      },
+      {
+       "testo": "FT SI-022-06-2025",
+       "url": null
+      }
+     ],
+     "pagina": 18
+    }
+   ],
+   "sostituibilita": {
+    "solidtex outdoor XT": [
+     "aquaboard pro"
+    ],
+    "solidtex indoor": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex outdoor XT",
+     "pregyflam",
+     "pregyflam A1"
+    ],
+    "pregyvapor BA13": [
+     "pregyplac",
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Possibile rivestimento incollato come da specifiche Siniat"
+   ],
+   "pagine": [
+    18
+   ]
+  },
+  {
+   "id": "AF-057",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW75/M50 - 2 PS13 - LM (opzionale) (fuoco bidirezionale)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 dorso-dorso int. 600 mm o C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "2 pregyplac BA13"
+   ],
+   "rw_db": 31,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": 3.3,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 07-A-030",
+       "url": "https://media.siniat.it/cert_168750_it/original/718094185/efectis-07-a-030_ei-30---plac.pdf"
+      },
+      {
+       "testo": "Est. 09/3",
+       "url": null
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 19
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac BA13": [
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 33 dB con isolante"
+   ],
+   "pagine": [
+    19
+   ]
+  },
+  {
+   "id": "AF-058",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW75/M50 - 2 PS13 - LM (opzionale) (fuoco lato lastre)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "2 pregyplac BA13"
+   ],
+   "rw_db": 31,
+   "esposizione": "lato lastre",
+   "classificazioni": [
+    {
+     "classe": "EI 30",
+     "hmax_m": "> 3,30",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 07-A-030",
+       "url": "https://media.siniat.it/cert_168750_it/original/718094185/efectis-07-a-030_ei-30---plac.pdf"
+      },
+      {
+       "testo": "Est. 09/3",
+       "url": null
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 19
+    }
+   ],
+   "sostituibilita": {
+    "pregyplac BA13": [
+     "pregyplac plus",
+     "pregyplac A1",
+     "pregyvapor",
+     "pregydro",
+     "white air",
+     "ydro white air",
+     "pregydur I",
+     "pregydur white",
+     "pregysoundboard",
+     "easy pro 13",
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "aquaboard pro",
+     "pregyflam",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 33 dB con isolante",
+    "Hmax oltre il valore della variante bidirezionale: vedi Fascicolo Tecnico"
+   ],
+   "pagine": [
+    19
+   ]
+  },
+  {
+   "id": "AF-059",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW75/M50 - 2 PF13 - LM (opzionale) (fuoco bidirezionale)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 dorso-dorso int. 600 mm o C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": 33,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 45",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRGENT n.17656B",
+       "url": "https://media.siniat.it/doc_314064_it/original/801748053/ei-45---wfrgent-n.17656b.pdf"
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 19
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 35 dB con isolante"
+   ],
+   "pagine": [
+    19
+   ]
+  },
+  {
+   "id": "AF-060",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW75/M50 - 2 PF13 - LM (opzionale) (fuoco lato lastre)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": 33,
+   "esposizione": "lato lastre",
+   "classificazioni": [
+    {
+     "classe": "EI 45",
+     "hmax_m": "> 4,00",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRGENT n.17656B",
+       "url": "https://media.siniat.it/doc_314064_it/original/801748053/ei-45---wfrgent-n.17656b.pdf"
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 19
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 35 dB con isolante",
+    "Hmax oltre il valore della variante bidirezionale: vedi Fascicolo Tecnico"
+   ],
+   "pagine": [
+    19
+   ]
+  },
+  {
+   "id": "AF-061",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW86/M50 - 2 PS 18 - LM",
+   "supporto": null,
+   "strati": [
+    "Orditura min. C50/50 dorso-dorso int. 600 mm (vedi documento di riferimento)",
+    "Lana di vetro sp. min. 45 mm",
+    "2 pregyplac BA18"
+   ],
+   "rw_db": 36,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 10.15,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 06-V-384",
+       "url": "https://www.siniat.it/-/dam/ei-60_efectis-06v384---plac-18---flam-15.pdf/pi48167/original/ei-60_efectis-06v384---plac-18---flam-15.pdf"
+      },
+      {
+       "testo": "Est. 07/2",
+       "url": null
+      }
+     ],
+     "pagina": 20
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    20
+   ]
+  },
+  {
+   "id": "AF-062",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW80/M50 - 2 PF15 - LM (opzionale) (fuoco bidirezionale)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 dorso-dorso int. 600 mm o C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "2 pregyflam BA15"
+   ],
+   "rw_db": 33,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRGENT n.17658B",
+       "url": "https://media.siniat.it/doc_314065_it/original/801748053/ei-60---wfrgent-n.17658b.pdf"
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 20
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "ladura plus",
+     "ladura A1",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 36 dB con isolante"
+   ],
+   "pagine": [
+    20
+   ]
+  },
+  {
+   "id": "AF-063",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW80/M50 - 2 PF15 - LM (opzionale) (fuoco lato lastre)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "2 pregyflam BA15"
+   ],
+   "rw_db": 33,
+   "esposizione": "lato lastre",
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": "> 4,00",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "WFRGENT n.17658B",
+       "url": "https://media.siniat.it/doc_314065_it/original/801748053/ei-60---wfrgent-n.17658b.pdf"
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 20
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "ladura plus",
+     "ladura A1",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 36 dB con isolante",
+    "Hmax oltre il valore della variante bidirezionale: vedi Fascicolo Tecnico"
+   ],
+   "pagine": [
+    20
+   ]
+  },
+  {
+   "id": "AF-064",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW88/M50 - 3 PF13 - LM (opzionale) (fuoco bidirezionale)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 dorso-dorso int. 600 mm o C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "3 pregyflam BA13"
+   ],
+   "rw_db": 36,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 20
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 39 dB con isolante"
+   ],
+   "pagine": [
+    20
+   ]
+  },
+  {
+   "id": "AF-065",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW88/M50 - 3 PF13 - LM (opzionale) (fuoco lato lastre)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "3 pregyflam BA13"
+   ],
+   "rw_db": 36,
+   "esposizione": "lato lastre",
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": "> 4,00",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 20
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 39 dB con isolante",
+    "Hmax oltre il valore della variante bidirezionale: vedi Fascicolo Tecnico"
+   ],
+   "pagine": [
+    20
+   ]
+  },
+  {
+   "id": "AF-066",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW95/M50 - 3 PF15 - LM (opzionale) (fuoco bidirezionale)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 dorso-dorso int. 600 mm o C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "3 pregyflam BA15"
+   ],
+   "rw_db": 36,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "CSTB RS12-076",
+       "url": "https://media.siniat.it/cert_168744_it/original/-1172625333/cstb-rs12-076_ei-120---plac-18---flam-15.pdf"
+      },
+      {
+       "testo": "Est. 13/2",
+       "url": null
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 21
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "ladura plus",
+     "ladura A1",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 40 dB con isolante"
+   ],
+   "pagine": [
+    21
+   ]
+  },
+  {
+   "id": "AF-067",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW95/M50 - 3 PF15 - LM (opzionale) (fuoco lato lastre)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "3 pregyflam BA15"
+   ],
+   "rw_db": 36,
+   "esposizione": "lato lastre",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": "> 4,00",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "CSTB RS12-076",
+       "url": "https://media.siniat.it/cert_168744_it/original/-1172625333/cstb-rs12-076_ei-120---plac-18---flam-15.pdf"
+      },
+      {
+       "testo": "Est. 13/2",
+       "url": null
+      },
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 21
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "ladura plus",
+     "ladura A1",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 40 dB con isolante",
+    "Hmax oltre il valore della variante bidirezionale: vedi Fascicolo Tecnico"
+   ],
+   "pagine": [
+    21
+   ]
+  },
+  {
+   "id": "AF-068",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW100/M50 - 4 PF13 - LM (opzionale) (fuoco bidirezionale)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 dorso-dorso int. 600 mm o C75/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "4 pregyflam BA13"
+   ],
+   "rw_db": 38,
+   "esposizione": "bidirezionale",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 21
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 41 dB con isolante"
+   ],
+   "pagine": [
+    21
+   ]
+  },
+  {
+   "id": "AF-069",
+   "sezione": "cavedi",
+   "sezione_nome": "Setti indipendenti / cavedi tecnici",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Setti / cavedi",
+   "orditura": "singola",
+   "codice": "Pregy CW100/M50 - 4 PF13 - LM (opzionale) (fuoco lato lastre)",
+   "supporto": null,
+   "strati": [
+    "Orditura minima: C50/50 int. 600 mm",
+    "Lana di vetro o roccia sp. 40 mm (opzionale, rimozione consentita)",
+    "4 pregyflam BA13"
+   ],
+   "rw_db": 38,
+   "esposizione": "lato lastre",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": "> 4,00",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT SI-012/03/2025",
+       "url": null
+      }
+     ],
+     "pagina": 21
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "ladura plus",
+     "ladura A1",
+     "ladura air",
+     "solidtex indoor",
+     "solidtex outdoor XT",
+     "pregydroflam",
+     "pregyflam A1"
+    ]
+   },
+   "note": [
+    "Rw 41 dB con isolante",
+    "Hmax oltre il valore della variante bidirezionale: vedi Fascicolo Tecnico"
+   ],
+   "pagine": [
+    21
+   ]
+  },
+  {
+   "id": "AF-070",
+   "sezione": "prot_non_portanti",
+   "sezione_nome": "Protezione di pareti non portanti",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Muratura in laterizio forato",
+   "orditura": "singola",
+   "codice": "Placcaggio Pregy CW Incollata - 1 PF 15",
+   "supporto": "Blocchi forati di laterizio sp. min. 80 mm NON intonacati",
+   "strati": [
+    "1 pregyflam BA15 incollata con plotte di colla P120 ogni 30x30 cm + tasselli metallici (n. 3/m2)"
+   ],
+   "rw_db": null,
+   "esposizione": "placcaggio sul lato esposto",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "LAPI 115/C/13-177FR",
+       "url": "https://www.siniat.it/-/dam/lapi-115-c-13-177fr_ei-120---flam-15-forati.pdf/pi48227/original/lapi-115-c-13-177fr_ei-120---flam-15-forati.pdf"
+      }
+     ],
+     "pagina": 22
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Nel manuale i tasselli sono indicati \"n. 3/m3\": inteso per m2"
+   ],
+   "pagine": [
+    22
+   ]
+  },
+  {
+   "id": "AF-071",
+   "sezione": "prot_non_portanti",
+   "sezione_nome": "Protezione di pareti non portanti",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Muratura in laterizio forato",
+   "orditura": "singola",
+   "codice": "Placcaggio Pregy CW Incollata - 1 PF 13",
+   "supporto": "Blocchi forati di laterizio sp. min. 80 mm (fino H = 4 m) con 10 mm di intonaco sul lato non esposto",
+   "strati": [
+    "1 pregyflam BA13 incollata con plotte di colla P120 ogni 30x30 cm + tasselli metallici (n. 3/m2)"
+   ],
+   "rw_db": null,
+   "esposizione": "placcaggio sul lato esposto",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": "8,00 *",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "LAPI 157/C/14-229FR",
+       "url": "https://www.siniat.it/-/dam/lapi-157-c-14-229-fr_ei-120---flam-forati.pdf/pi48230/original/lapi-157-c-14-229-fr_ei-120---flam-forati.pdf"
+      },
+      {
+       "testo": "FT SI-011-04-2025",
+       "url": null
+      }
+     ],
+     "pagina": 22
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "pregydroflam",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor"
+    ]
+   },
+   "note": [
+    "* Oltre 4 m in funzione dello spessore del supporto: consultare il Fascicolo Tecnico"
+   ],
+   "pagine": [
+    22
+   ]
+  },
+  {
+   "id": "AF-072",
+   "sezione": "prot_non_portanti",
+   "sezione_nome": "Protezione di pareti non portanti",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Muratura in laterizio forato",
+   "orditura": "singola",
+   "codice": "Controparete Pregy CW 40/S4927 - 1 PF",
+   "supporto": "Blocchi forati di laterizio sp. min. 80 mm (fino H = 4 m) con 10 mm di intonaco su entrambi i lati",
+   "strati": [
+    "Orditura S4927 int. 600 mm vincolata con gancio distanziatore S4915/27 int. 1000 mm",
+    "1 pregyflam BA13"
+   ],
+   "rw_db": null,
+   "esposizione": "controparete sul lato esposto",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": "8,00 *",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 305030-3540FR",
+       "url": "https://www.siniat.it/-/dam/ig-305030-3540-fr_ei-120---flam-forati.pdf/pi48196/original/ig-305030-3540-fr_ei-120---flam-forati.pdf"
+      },
+      {
+       "testo": "FT SI-011-04-2025",
+       "url": null
+      }
+     ],
+     "pagina": 22
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "pregydroflam",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor"
+    ]
+   },
+   "note": [
+    "* Oltre 4 m in funzione dello spessore del supporto: consultare il Fascicolo Tecnico"
+   ],
+   "pagine": [
+    22
+   ]
+  },
+  {
+   "id": "AF-073",
+   "sezione": "prot_non_portanti",
+   "sezione_nome": "Protezione di pareti non portanti",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Muratura in laterizio forato",
+   "orditura": "singola",
+   "codice": "Controparete Pregy CW 65/M50 - 1 PF 15 - LR",
+   "supporto": "Blocchi forati di laterizio sp. min. 80 mm (fino H = 4 m) con 10 mm di intonaco sul lato non esposto",
+   "strati": [
+    "Orditura C50/50 int. 600 mm",
+    "Lana di roccia 40 kg/m3 sp. 50 mm",
+    "1 pregyflam BA15"
+   ],
+   "rw_db": null,
+   "esposizione": "controparete sul lato esposto",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": "8,00 *",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 297101-3447FR",
+       "url": "https://www.siniat.it/-/dam/siniat-controparete-cartongesso-fuoco-ei120-297101-3447fr.pdf/pi48339/original/siniat-controparete-cartongesso-fuoco-ei120-297101-3447fr.pdf"
+      },
+      {
+       "testo": "FT SI-011-04-2025",
+       "url": null
+      }
+     ],
+     "pagina": 22
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "pregyflam A1 BA15",
+     "pregydroflam BA15",
+     "ladura plus BA15",
+     "ladura A1 BA15"
+    ]
+   },
+   "note": [
+    "* Oltre 4 m in funzione dello spessore del supporto: consultare il Fascicolo Tecnico"
+   ],
+   "pagine": [
+    22
+   ]
+  },
+  {
+   "id": "AF-074",
+   "sezione": "prot_non_portanti",
+   "sezione_nome": "Protezione di pareti non portanti",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Muratura in blocchi di calcestruzzo",
+   "orditura": "singola",
+   "codice": "Controparete Pregy CW 28/S4915 - 1 PF",
+   "supporto": "Blocchi di calcestruzzo pieni, monocamera o multicamera, sp. min. 80 mm (fino H = 4 m)",
+   "strati": [
+    "Orditura S4915 int. 600 mm vincolata con gancio distanziatore S4915/27 int. 1000 mm",
+    "1 pregyflam BA13"
+   ],
+   "rw_db": null,
+   "esposizione": "controparete sul lato esposto",
+   "classificazioni": [
+    {
+     "classe": "EI 120",
+     "hmax_m": "8,00 *",
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 351087-3914FR",
+       "url": "https://www.siniat.it/-/dam/ig-351087-3914fr_ei-120---flam---blocchi-cls.pdf/pi48202/original/ig-351087-3914fr_ei-120---flam---blocchi-cls.pdf"
+      },
+      {
+       "testo": "FT SI-011-04-2025",
+       "url": null
+      }
+     ],
+     "pagina": 23
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA13": [
+     "pregyflam A1",
+     "pregydroflam",
+     "ladura plus",
+     "ladura A1",
+     "solidtex indoor"
+    ]
+   },
+   "note": [
+    "* Oltre 4 m in funzione dello spessore del supporto: consultare il Fascicolo Tecnico"
+   ],
+   "pagine": [
+    23
+   ]
+  },
+  {
+   "id": "AF-075",
+   "sezione": "prot_non_portanti",
+   "sezione_nome": "Protezione di pareti non portanti",
+   "norma_prova": "EN 1364-1",
+   "gruppo": "Parete in cartongesso esistente",
+   "orditura": "singola",
+   "codice": "Riqualifica cartongesso esistente + 2 PF13",
+   "supporto": "Parete in cartongesso sp. min. 75 mm: orditura minimo C50/50 int. 600 mm e almeno 1 lastra tipo A (EN 520) sp. 12,5 mm per lato",
+   "strati": [
+    "Lastre aggiuntive: 2 pregyflam BA13 avvitate sul lato esposto"
+   ],
+   "rw_db": null,
+   "esposizione": "fuoco lato lastre aggiuntive",
+   "classificazioni": [
+    {
+     "classe": "EI 60",
+     "hmax_m": 12.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 342212-3849FR",
+       "url": "https://www.siniat.it/-/dam/ig-342212-3849fr_ei-120-flam-riqualifica-ctg.pdf/pi48201/original/ig-342212-3849fr_ei-120-flam-riqualifica-ctg.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 23
+    },
+    {
+     "classe": "EI 90",
+     "hmax_m": 5.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 342212-3849FR",
+       "url": "https://www.siniat.it/-/dam/ig-342212-3849fr_ei-120-flam-riqualifica-ctg.pdf/pi48201/original/ig-342212-3849fr_ei-120-flam-riqualifica-ctg.pdf"
+      },
+      {
+       "testo": "FT SI-017/06/2022",
+       "url": null
+      }
+     ],
+     "pagina": 23
+    },
+    {
+     "classe": "EI 120",
+     "hmax_m": 4.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 342212-3849FR",
+       "url": "https://www.siniat.it/-/dam/ig-342212-3849fr_ei-120-flam-riqualifica-ctg.pdf/pi48201/original/ig-342212-3849fr_ei-120-flam-riqualifica-ctg.pdf"
+      }
+     ],
+     "pagina": 23
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    23
+   ]
+  },
+  {
+   "id": "AF-076",
+   "sezione": "prot_portanti",
+   "sezione_nome": "Protezione di pareti portanti",
+   "norma_prova": "EN 1365-1",
+   "gruppo": "Parete portante CLT/XLAM",
+   "orditura": "singola",
+   "codice": "Placcaggio in aderenza 1 PF13 su CLT",
+   "supporto": "Parete portante in legno lamellare incrociato (CLT) sp. 100 mm",
+   "strati": [
+    "1 pregyflam BA13 avvitata al supporto con viti SNT/45 int. 250 x 600 mm"
+   ],
+   "rw_db": 35,
+   "esposizione": "rivestimento sul lato esposto",
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": 3.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "CSI 2299FR",
+       "url": "https://www.siniat.it/-/dam/rdc_csi2299fr_controfodera-flam-su-parete-xlam_rei-120/pi351981/original/rdc_csi2299fr_controfodera-flam-su-parete-xlam_rei-120.pdf"
+      }
+     ],
+     "pagina": 24
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Carico applicato 42 kN/m"
+   ],
+   "pagine": [
+    24
+   ]
+  },
+  {
+   "id": "AF-077",
+   "sezione": "prot_portanti",
+   "sezione_nome": "Protezione di pareti portanti",
+   "norma_prova": "EN 1365-1",
+   "gruppo": "Parete portante CLT/XLAM",
+   "orditura": "singola",
+   "codice": "Controparete CW 63/M50 - 1 LD - LR su CLT",
+   "supporto": "Parete portante in legno lamellare incrociato (CLT) sp. 100 mm",
+   "strati": [
+    "Orditura C50/50 int. 600 mm vincolata",
+    "Lana di roccia 40 kg/m3 sp. 40 mm",
+    "1 ladura plus BA13"
+   ],
+   "rw_db": 54,
+   "esposizione": "controparete sul lato esposto",
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": 3.0,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "CSI 2297FR",
+       "url": "https://www.siniat.it/-/dam/rdc_csi2297fr_controparete-ladura-su-xlam_rei-120/pi351980/original/rdc_csi2297fr_controparete-ladura-su-xlam_rei-120.pdf"
+      }
+     ],
+     "pagina": 24
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Carico applicato 42 kN/m",
+    "Accessori: scatole elettriche protette con PROMASEAL-PLSK (503)"
+   ],
+   "pagine": [
+    24
+   ]
+  },
+  {
+   "id": "AF-078",
+   "sezione": "membrana",
+   "sezione_nome": "Controsoffitti a membrana / indipendenti",
+   "norma_prova": "EN 1364-2",
+   "gruppo": "Controsoffitto a membrana sospeso",
+   "orditura": "singola",
+   "codice": "Pregy CDO S4927/90/40/120 - 2 PF 15",
+   "supporto": null,
+   "strati": [
+    "Doppia orditura S4927: primari int. 90 cm, secondari int. 40 cm",
+    "Pendinatura int. 120 cm con gancio con molla per S4915/27 + pendino ad occhiello diam. 3,9 mm",
+    "2 pregyflam BA15"
+   ],
+   "rw_db": 33,
+   "esposizione": "dal basso (a<-b)",
+   "classificazioni": [
+    {
+     "classe": "EI 60 (a<-b)",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 288062-3350FR",
+       "url": "https://www.siniat.it/-/dam/ig-288062-3350-fr_ei-60---flam-15.pdf/pi48190/original/ig-288062-3350-fr_ei-60---flam-15.pdf"
+      },
+      {
+       "testo": "FT CDOM 001/2013",
+       "url": null
+      }
+     ],
+     "pagina": 25
+    }
+   ],
+   "sostituibilita": {
+    "pregyflam BA15": [
+     "pregyflam A1 BA15",
+     "pregydroflam BA15",
+     "ladura plus BA15",
+     "ladura A1 BA15"
+    ]
+   },
+   "note": [],
+   "pagine": [
+    25
+   ]
+  },
+  {
+   "id": "AF-079",
+   "sezione": "membrana",
+   "sezione_nome": "Controsoffitti a membrana / indipendenti",
+   "norma_prova": "EN 1364-2",
+   "gruppo": "Controsoffitto a membrana sospeso",
+   "orditura": "singola",
+   "codice": "Pregy CDO S4927/75/40/60 - 3 PF 15",
+   "supporto": null,
+   "strati": [
+    "Doppia orditura S4927: primari int. 75 cm, secondari int. 40 cm",
+    "Pendinatura int. 60 cm con gancio con molla per S4915/27 + pendino ad occhiello diam. 3,9 mm",
+    "3 pregyflam BA15"
+   ],
+   "rw_db": 36,
+   "esposizione": "dal basso (a<-b)",
+   "classificazioni": [
+    {
+     "classe": "EI 90 (a<-b)",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 322721-3711FR",
+       "url": "https://www.siniat.it/-/dam/ig-322721-3711-fr_ei-90---flam-15.pdf/pi48198/original/ig-322721-3711-fr_ei-90---flam-15.pdf"
+      }
+     ],
+     "pagina": 25
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    25
+   ]
+  },
+  {
+   "id": "AF-080",
+   "sezione": "membrana",
+   "sezione_nome": "Controsoffitti a membrana / indipendenti",
+   "norma_prova": "EN 1364-2",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Controsoffitto a membrana EI 120 2x20",
+   "supporto": null,
+   "strati": [
+    "Doppia orditura S4927: primari int. 75 cm, secondari int. 50 cm",
+    "Pendinatura int. 80 cm con gancio con molla per S4915/27 + pendino ad occhiello diam. 3,9 mm",
+    "2 x 20 mm PROMATECT-100X"
+   ],
+   "rw_db": 33,
+   "esposizione": "dal basso (a<-b)",
+   "classificazioni": [
+    {
+     "classe": "EI 120 (a<-b)",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 353244-3930FR",
+       "url": null
+      }
+     ],
+     "pagina": 25
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Accessori: botole d'ispezione, faretti, attraversamenti impiantistici",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    25
+   ]
+  },
+  {
+   "id": "AF-081",
+   "sezione": "membrana",
+   "sezione_nome": "Controsoffitti a membrana / indipendenti",
+   "norma_prova": "EN 1364-2",
+   "gruppo": "Controsoffitto autoportante",
+   "orditura": "singola",
+   "codice": "Pregy C-AUTO125/M75 - 4 PF",
+   "supporto": null,
+   "strati": [
+    "2 pregyflam BA13",
+    "Orditura C75/50 dorso-dorso int. 400 mm",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": 45,
+   "esposizione": "bidirezionale (a<->b)",
+   "classificazioni": [
+    {
+     "classe": "EI 120 (a<->b)",
+     "hmax_m": null,
+     "luce_max_m": 3.0,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 383049-4131FR",
+       "url": "https://www.siniat.it/-/dam/ig-383049-4131fr_rdc/pi352003/original/ig-383049-4131fr_rdc.pdf"
+      },
+      {
+       "testo": "FT SI-016/01/2022",
+       "url": null
+      }
+     ],
+     "pagina": 26
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Larghezza illimitata"
+   ],
+   "pagine": [
+    26
+   ]
+  },
+  {
+   "id": "AF-082",
+   "sezione": "membrana",
+   "sezione_nome": "Controsoffitti a membrana / indipendenti",
+   "norma_prova": "EN 1364-2",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Controsoffitto autoportante 1x12 + lana di roccia",
+   "supporto": null,
+   "strati": [
+    "1 x 12 mm PROMATECT-100X",
+    "Orditura C100/50 x 1 mm dorso-dorso int. 500 mm",
+    "Lana di roccia 80 kg/m3 sp. 40+40 mm",
+    "1 x 12 mm PROMATECT-100X"
+   ],
+   "rw_db": 43,
+   "esposizione": "bidirezionale (a<->b)",
+   "classificazioni": [
+    {
+     "classe": "EI 120 (a<->b)",
+     "hmax_m": null,
+     "luce_max_m": 4.4,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 379558-4086FR",
+       "url": null
+      },
+      {
+       "testo": "FT 023/04/2021",
+       "url": null
+      }
+     ],
+     "pagina": 26
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Larghezza illimitata",
+    "Accessori: botole, faretti, attraversamenti impiantistici, elementi sospesi",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    26
+   ]
+  },
+  {
+   "id": "AF-083",
+   "sezione": "membrana",
+   "sezione_nome": "Controsoffitti a membrana / indipendenti",
+   "norma_prova": "EN 1364-2",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Controsoffitto autoportante 2x20",
+   "supporto": null,
+   "strati": [
+    "Orditura C100/50 dorso-dorso int. 400 mm",
+    "2 x 20 mm PROMATECT-100X"
+   ],
+   "rw_db": 31,
+   "esposizione": "dal basso (a<-b)",
+   "classificazioni": [
+    {
+     "classe": "EI 120 (a<-b)",
+     "hmax_m": null,
+     "luce_max_m": 4.0,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 417324-4388FR",
+       "url": null
+      }
+     ],
+     "pagina": 26
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Larghezza illimitata",
+    "Lastre in classe A1",
+    "Accessori: botole, faretti, elementi sospesi",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    26
+   ]
+  },
+  {
+   "id": "AF-084",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "Solaio in laterocemento",
+   "orditura": "singola",
+   "codice": "Pregy CSO S4927/50/75 - 1 PF 15",
+   "supporto": "Solaio in laterocemento 16+4 cm non intonacato",
+   "strati": [
+    "Singola orditura in semi-aderenza: profili S4927 int. 50 cm",
+    "Pendinatura int. 75 cm con gancio distanziatore per S4915/27",
+    "1 pregyflam BA15"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 298753-3469FR",
+       "url": "https://www.siniat.it/-/dam/ig_298753-3469fr_rei-120---flam-15.pdf/pi48218/original/ig_298753-3469fr_rei-120---flam-15.pdf"
+      }
+     ],
+     "pagina": 27
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    27
+   ]
+  },
+  {
+   "id": "AF-085",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "Solaio in laterocemento",
+   "orditura": "singola",
+   "codice": "Pregy CDO S4927/75/40/100 - 1 PF",
+   "supporto": "Solaio in laterocemento 16+4 cm non intonacato",
+   "strati": [
+    "Doppia orditura S4927: primari int. 75 cm, secondari int. 40 cm",
+    "Pendinatura int. 100 cm con gancio con molla per S4915/27 + pendino ad occhiello diam. 3,9 mm",
+    "1 pregyflam BA13",
+    "Plenum >= 15 cm"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 305005-3539FR",
+       "url": "https://www.siniat.it/-/dam/ig-305005-3539-fr_rei-120---flam.pdf/pi48207/original/ig-305005-3539-fr_rei-120---flam.pdf"
+      }
+     ],
+     "pagina": 27
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    27
+   ]
+  },
+  {
+   "id": "AF-086",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "PROMATECT-100X (Promat)",
+   "orditura": "singola",
+   "codice": "Promat - Controsoffitto ispezionabile PROMATECT-100X 12 mm su PregyGrid",
+   "supporto": "Solaio in laterocemento 16+4 cm non intonacato (applicabile anche a solai in C.A. piani, alveolari/alleggeriti in C.A. e C.A.P., predalles, nervati, lamiera grecata, carpenteria metallica)",
+   "strati": [
+    "Orditura PregyGrid: principale e secondaria a T 38x24x0,4 mm int. 600 mm",
+    "Pendinatura int. 800 mm con pendini ad occhiello diam. 3,9 mm",
+    "1 x 12 mm PROMATECT-100X (moduli 595x595 mm)"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "FT 028-10-2022",
+       "url": null
+      }
+     ],
+     "pagina": 27
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Lastre in classe A1",
+    "Certificato su MyPromat"
+   ],
+   "pagine": [
+    27
+   ]
+  },
+  {
+   "id": "AF-087",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "Solaio predalles",
+   "orditura": "singola",
+   "codice": "Pregy CSO S4927/50/60 - 2 PF 13",
+   "supporto": "Solaio predalles sp. 20 cm (4+12+4)",
+   "strati": [
+    "Singola orditura in semi-aderenza: profili S4927 int. 50 cm",
+    "Pendinatura int. 60 cm con gancio distanziatore per S4915/27",
+    "2 pregyflam BA13"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 275957-3242FR",
+       "url": "https://www.siniat.it/-/dam/ig-275957-3242-fr_rei-120---flam.pdf/pi48188/original/ig-275957-3242-fr_rei-120---flam.pdf"
+      }
+     ],
+     "pagina": 27
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    27
+   ]
+  },
+  {
+   "id": "AF-088",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "Solaio tipo PLASTBAU",
+   "orditura": "singola",
+   "codice": "Pregy CSO S4915/50/60 - 1 PF 15",
+   "supporto": "Solaio in C.A. con pannelli cassero in EPS tipo PLASTBAU sp. 29 cm (20/4 + 5)",
+   "strati": [
+    "Singola orditura in semi-aderenza: profili S4915 int. 50 cm",
+    "Pendinatura int. 60 cm con gancio distanziatore per S4915/27",
+    "1 pregyflam BA15"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 180",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "CSI 2323FR",
+       "url": "https://www.siniat.it/-/dam/csi2323fr_rei-180-plastbau-flam-15_rdc/pi351979/original/csi2323fr_rei-180-plastbau-flam-15_rdc.pdf"
+      }
+     ],
+     "pagina": 28
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    28
+   ]
+  },
+  {
+   "id": "AF-089",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "Solaio in lamiera grecata collaborante",
+   "orditura": "singola",
+   "codice": "Pregy CDO S4927/90/40/75 - 2 PF 15",
+   "supporto": "Lamiera grecata collaborante con soletta in C.A. spessore totale circa 14 cm, travi in acciaio HEB 100",
+   "strati": [
+    "Doppia orditura S4927: primari int. 90 cm, secondari int. 40 cm",
+    "Pendinatura int. 75 cm con gancio distanziatore per S4915/27 + barra filettata M6 con dado e controdado",
+    "2 pregyflam BA15",
+    "Plenum >= 15 cm",
+    "Distanza minima lastre - intradosso travi = 5 cm"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 269134-3195FR",
+       "url": "https://www.siniat.it/-/dam/ig-269134-3195-fr_rei-120---flam-15.pdf/pi48187/original/ig-269134-3195-fr_rei-120---flam-15.pdf"
+      }
+     ],
+     "pagina": 28
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    28
+   ]
+  },
+  {
+   "id": "AF-090",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "Solaio in CLT/XLAM",
+   "orditura": "singola",
+   "codice": "Placcaggio in aderenza 2 PF13 su solaio CLT",
+   "supporto": "Solaio in legno lamellare incrociato (CLT) sp. 137 mm",
+   "strati": [
+    "2 pregyflam BA13 fissate con viti SNT/55 e SNT/70"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "CSI 2300FR",
+       "url": "https://www.siniat.it/-/dam/rdc_csi2300fr_placcaggio-flam-su-solaio-xlam_rei-120/pi351982/original/rdc_csi2300fr_placcaggio-flam-su-solaio-xlam_rei-120.pdf"
+      }
+     ],
+     "pagina": 28
+    }
+   ],
+   "sostituibilita": {},
+   "note": [],
+   "pagine": [
+    28
+   ]
+  },
+  {
+   "id": "AF-091",
+   "sezione": "solai",
+   "sezione_nome": "Protezione di solai",
+   "norma_prova": "EN 1365-2",
+   "gruppo": "Solaio misto cls e acciaio",
+   "orditura": "singola",
+   "codice": "Pregy CDO S6027/80/40/100 - 1 AB + LM",
+   "supporto": "Solaio misto con soletta in C.A. e travi in carpenteria metallica",
+   "strati": [
+    "Doppia orditura PregyMetal XT S6027: primari int. 800 mm, secondari int. 400 mm",
+    "Pendinatura int. 1000 mm con pendini Nonius",
+    "Lana minerale sp. 45 mm",
+    "1 aquaboard pro"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "REI 60",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 421850-4411FR",
+       "url": "https://media.siniat.it/doc_242424_it/original/-154819165/ig_421850-4411fr_rdc_ab-riqualifica-pendinata-solaio-misto_lm_rei-60.pdf"
+      }
+     ],
+     "pagina": 28
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Soluzione conforme a RTV 13",
+    "Lastre aquaboard pro in classe A1"
+   ],
+   "pagine": [
+    28
+   ]
+  },
+  {
+   "id": "AF-092",
+   "sezione": "acciaio",
+   "sezione_nome": "Protezione di strutture in acciaio",
+   "norma_prova": "EN 13381-4",
+   "gruppo": "Strutture in acciaio",
+   "orditura": "singola",
+   "codice": "Inscatolamento pregyflam BA13/BA15 su guide U28/28 con Clip CB",
+   "supporto": "Elementi strutturali in acciaio con sezione a I o H, massivita < 360 m-1",
+   "strati": [
+    "1, 2 o 3 strati di pregyflam BA13 e/o BA15 avvitati su guide U28/28",
+    "Guide vincolate alle ali di travi o pilastri mediante Clip CB"
+   ],
+   "rw_db": null,
+   "esposizione": null,
+   "classificazioni": [
+    {
+     "classe": "R 30 / R 60 / R 90 / R 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Efectis 10-U-519 A",
+       "url": "https://www.siniat.it/-/dam/efectis-10-u-519-a_flam-protezione-strutturale-acciaio.pdf/pi48172/original/efectis-10-u-519-a_flam-protezione-strutturale-acciaio.pdf"
+      }
+     ],
+     "pagina": 29
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Spessore di protezione in funzione di massivita, temperatura critica e classe R: vedi tabella acciaio"
+   ],
+   "pagine": [
+    29
+   ]
+  },
+  {
+   "id": "AF-093",
+   "sezione": "scatole",
+   "sezione_nome": "Protezione scatole elettriche",
+   "norma_prova": "EN 1366-3",
+   "gruppo": "Scatole elettriche",
+   "orditura": "singola",
+   "codice": "PROMASEAL-PLSK in scatole su lana di roccia",
+   "supporto": "Parete a secco sp. >= 125 mm, almeno 2 x 12,5 mm di lastre per lato, lana di roccia >= 60 mm",
+   "strati": [
+    "Guarnizione intumescente PROMASEAL-PLSK 503/504/506 Wall nella scatola; per le derivazioni 2 x PROMASEAL-PLSK 2,5 mm"
+   ],
+   "rw_db": null,
+   "esposizione": "scatole sul lato esposto e/o non esposto",
+   "classificazioni": [
+    {
+     "classe": "fino a EI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 400581-4282FR",
+       "url": null
+      }
+     ],
+     "pagina": 31
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Classi per elemento: 503: EI 120, 504: EI 120, 506: EI 120, derivazione 152x196x75: EI 120, derivazione 152x392x75: EI 120"
+   ],
+   "pagine": [
+    31
+   ]
+  },
+  {
+   "id": "AF-094",
+   "sezione": "scatole",
+   "sezione_nome": "Protezione scatole elettriche",
+   "norma_prova": "EN 1366-3",
+   "gruppo": "Scatole elettriche",
+   "orditura": "singola",
+   "codice": "PROMASEAL-PLSK in scatole su lana di vetro",
+   "supporto": "Parete a secco sp. >= 125 mm, almeno 2 x 12,5 mm di lastre per lato, lana di vetro di qualsiasi spessore",
+   "strati": [
+    "Guarnizione intumescente PROMASEAL-PLSK 503/504/506 Wall nella scatola; per le derivazioni 2 x PROMASEAL-PLSK 2,5 mm"
+   ],
+   "rw_db": null,
+   "esposizione": "scatole sul lato esposto e/o non esposto",
+   "classificazioni": [
+    {
+     "classe": "fino a EI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 400581-4282FR",
+       "url": null
+      }
+     ],
+     "pagina": 31
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Classi per elemento: 503: EI 120, 504: EI 90*, 506: EI 90*, derivazione 152x196x75: non classificata, derivazione 152x392x75: non classificata",
+    "* Fino a EI 120 per 504, 506 e derivazioni con pannello locale in lana di roccia sp. min. 60 mm (consultare Ufficio Tecnico)"
+   ],
+   "pagine": [
+    31
+   ]
+  },
+  {
+   "id": "AF-095",
+   "sezione": "scatole",
+   "sezione_nome": "Protezione scatole elettriche",
+   "norma_prova": "EN 1366-3",
+   "gruppo": "Scatole elettriche",
+   "orditura": "singola",
+   "codice": "PROMASEAL-PLSK in scatole su nessuno",
+   "supporto": "Parete a secco sp. >= 125 mm, almeno 2 x 12,5 mm di lastre per lato, non isolata",
+   "strati": [
+    "Guarnizione intumescente PROMASEAL-PLSK 503/504/506 Wall nella scatola; per le derivazioni 2 x PROMASEAL-PLSK 2,5 mm"
+   ],
+   "rw_db": null,
+   "esposizione": "scatole sul lato esposto e/o non esposto",
+   "classificazioni": [
+    {
+     "classe": "fino a EI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 400581-4282FR",
+       "url": null
+      }
+     ],
+     "pagina": 31
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Classi per elemento: 503: EI 120, 504: EI 90*, 506: EI 90*, derivazione 152x196x75: non classificata, derivazione 152x392x75: non classificata",
+    "* Fino a EI 120 per 504, 506 e derivazioni con pannello locale in lana di roccia sp. min. 60 mm (consultare Ufficio Tecnico)"
+   ],
+   "pagine": [
+    31
+   ]
+  },
+  {
+   "id": "AF-096",
+   "sezione": "scatole",
+   "sezione_nome": "Protezione scatole elettriche",
+   "norma_prova": "EN 1366-3",
+   "gruppo": "Scatole elettriche",
+   "orditura": "singola",
+   "codice": "PROMASEAL-PLSK in scatole su muratura",
+   "supporto": "Parete in muratura sp. >= 125 mm",
+   "strati": [
+    "Guarnizione intumescente PROMASEAL-PLSK 503/504/506 Wall nella scatola; per le derivazioni 2 x PROMASEAL-PLSK 2,5 mm"
+   ],
+   "rw_db": null,
+   "esposizione": "scatole sul lato esposto e/o non esposto",
+   "classificazioni": [
+    {
+     "classe": "fino a EI 120",
+     "hmax_m": null,
+     "luce_max_m": null,
+     "riferimenti": [
+      {
+       "testo": "Ist. Giordano 400581-4282FR",
+       "url": null
+      }
+     ],
+     "pagina": 32
+    }
+   ],
+   "sostituibilita": {},
+   "note": [
+    "Classi per elemento: 503: EI 120, 504: EI 120, 506: EI 120, derivazione 152x196x75: EI 120, derivazione 152x392x75: EI 120"
+   ],
+   "pagine": [
+    32
+   ]
+  }
+ ],
+ "acciaio": {
+  "riferimento": "Efectis 10-U-519 A",
+  "norma": "EN 13381-4",
+  "massivita_max_m-1": 360,
+  "nota": "Valori letti dalla tabella a pagina 29 (fasce di massivita in m-1, passo 10). Flam13 = pregyflam BA13, Flam15 = pregyflam BA15.",
+  "Tcr_350": {
+   "R15": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 360,
+     "protezione": "1 Flam13"
+    }
+   ],
+   "R30": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 220,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 230,
+     "massivita_a": 350,
+     "protezione": "2 Flam15"
+    },
+    {
+     "massivita_da": 360,
+     "massivita_a": 360,
+     "protezione": "2 Flam13"
+    }
+   ],
+   "R60": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 70,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 80,
+     "massivita_a": 90,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 100,
+     "massivita_a": 220,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 230,
+     "massivita_a": 340,
+     "protezione": "1 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 350,
+     "massivita_a": 360,
+     "protezione": "2 Flam15"
+    }
+   ],
+   "R90": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 40,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 50,
+     "massivita_a": 80,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 90,
+     "massivita_a": 100,
+     "protezione": "1 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 110,
+     "massivita_a": 130,
+     "protezione": "2 Flam15"
+    },
+    {
+     "massivita_da": 140,
+     "massivita_a": 360,
+     "protezione": "3 Flam13"
+    }
+   ],
+   "R120": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 40,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 50,
+     "massivita_a": 50,
+     "protezione": "1 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 60,
+     "massivita_a": 60,
+     "protezione": "2 Flam15"
+    },
+    {
+     "massivita_da": 70,
+     "massivita_a": 100,
+     "protezione": "3 Flam13"
+    },
+    {
+     "massivita_da": 110,
+     "massivita_a": 120,
+     "protezione": "2 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 130,
+     "massivita_a": 140,
+     "protezione": "1 Flam13 + 2 Flam15"
+    },
+    {
+     "massivita_da": 150,
+     "massivita_a": 360,
+     "protezione": "3 Flam15"
+    }
+   ]
+  },
+  "Tcr_450": {
+   "R15": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 360,
+     "protezione": "1 Flam13"
+    }
+   ],
+   "R30": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 330,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 340,
+     "massivita_a": 360,
+     "protezione": "1 Flam15"
+    }
+   ],
+   "R60": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 90,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 100,
+     "massivita_a": 130,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 140,
+     "massivita_a": 300,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 310,
+     "massivita_a": 360,
+     "protezione": "1 Flam13 + 1 Flam15"
+    }
+   ],
+   "R90": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 50,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 60,
+     "massivita_a": 70,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 80,
+     "massivita_a": 100,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 110,
+     "massivita_a": 120,
+     "protezione": "1 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 130,
+     "massivita_a": 160,
+     "protezione": "2 Flam15"
+    },
+    {
+     "massivita_da": 170,
+     "massivita_a": 360,
+     "protezione": "3 Flam13"
+    }
+   ],
+   "R120": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 40,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 50,
+     "massivita_a": 50,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 60,
+     "massivita_a": 60,
+     "protezione": "1 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 70,
+     "massivita_a": 80,
+     "protezione": "2 Flam15"
+    },
+    {
+     "massivita_da": 90,
+     "massivita_a": 120,
+     "protezione": "3 Flam13"
+    },
+    {
+     "massivita_da": 130,
+     "massivita_a": 160,
+     "protezione": "2 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 170,
+     "massivita_a": 220,
+     "protezione": "1 Flam13 + 2 Flam15"
+    },
+    {
+     "massivita_da": 230,
+     "massivita_a": 360,
+     "protezione": "3 Flam15"
+    }
+   ]
+  },
+  "Tcr_550": {
+   "R15": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 360,
+     "protezione": "1 Flam13"
+    }
+   ],
+   "R30": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 360,
+     "protezione": "1 Flam13"
+    }
+   ],
+   "R60": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 140,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 150,
+     "massivita_a": 200,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 210,
+     "massivita_a": 360,
+     "protezione": "2 Flam13"
+    }
+   ],
+   "R90": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 70,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 80,
+     "massivita_a": 90,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 100,
+     "massivita_a": 110,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 120,
+     "massivita_a": 140,
+     "protezione": "1 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 150,
+     "massivita_a": 190,
+     "protezione": "2 Flam15"
+    },
+    {
+     "massivita_da": 200,
+     "massivita_a": 360,
+     "protezione": "3 Flam13"
+    }
+   ],
+   "R120": [
+    {
+     "massivita_da": 40,
+     "massivita_a": 40,
+     "protezione": "1 Flam13"
+    },
+    {
+     "massivita_da": 50,
+     "massivita_a": 50,
+     "protezione": "1 Flam15"
+    },
+    {
+     "massivita_da": 60,
+     "massivita_a": 60,
+     "protezione": "2 Flam13"
+    },
+    {
+     "massivita_da": 70,
+     "massivita_a": 70,
+     "protezione": "1 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 80,
+     "massivita_a": 90,
+     "protezione": "2 Flam15"
+    },
+    {
+     "massivita_da": 100,
+     "massivita_a": 130,
+     "protezione": "3 Flam13"
+    },
+    {
+     "massivita_da": 140,
+     "massivita_a": 170,
+     "protezione": "2 Flam13 + 1 Flam15"
+    },
+    {
+     "massivita_da": 180,
+     "massivita_a": 240,
+     "protezione": "1 Flam13 + 2 Flam15"
+    },
+    {
+     "massivita_da": 250,
+     "massivita_a": 360,
+     "protezione": "3 Flam15"
+    }
+   ]
+  },
+  "anomalie": [
+   "Tcr 350 R30: a 360 m-1 la tabella riporta 2 Flam13 dopo 2 Flam15 (230-350): DA VERIFICARE sul rapporto"
+  ]
+ },
+ "sostituibilita_note": {
+  "PS@p6": [
+   "pregyplac plus",
+   "pregyplac A1",
+   "pregyvapor",
+   "pregydro",
+   "ladura plus",
+   "ladura A1",
+   "solidtex indoor",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "PSplus@p7": [
+   "pregyplac A1",
+   "pregyvapor",
+   "pregydro",
+   "ladura plus",
+   "ladura A1",
+   "solidtex indoor",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "PF@p8": [
+   "pregyflam A1",
+   "ladura plus",
+   "ladura A1",
+   "solidtex indoor"
+  ],
+  "LD@p9": [
+   "ladura A1",
+   "ladura vapor",
+   "solidtex indoor",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "STEX@p9": [
+   "ladura plus",
+   "ladura A1",
+   "ladura vapor",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "EASY@p9": [
+   "pregyplac",
+   "pregyplac plus",
+   "pregyplac A1",
+   "pregyvapor",
+   "pregydro",
+   "white air",
+   "ydro white air",
+   "pregydur I",
+   "pregydur white",
+   "pregysoundboard",
+   "easy pro 13",
+   "ladura plus",
+   "ladura A1",
+   "ladura air",
+   "ladura vapor",
+   "solidtex indoor",
+   "solidtex outdoor XT",
+   "aquaboard pro",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "PF@p10": [
+   "pregyflam A1",
+   "ladura plus",
+   "ladura A1",
+   "ladura vapor",
+   "solidtex indoor"
+  ],
+  "EASYPRO@p11": [
+   "ladura plus",
+   "ladura A1",
+   "ladura air",
+   "solidtex indoor",
+   "solidtex outdoor XT",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "PF15@p12": [
+   "pregyflam A1 BA15",
+   "ladura plus BA15",
+   "ladura A1 BA15"
+  ],
+  "PSplus@p16": [
+   "pregyplac A1",
+   "pregyvapor",
+   "pregydro",
+   "white air",
+   "ydro white air",
+   "pregydur I",
+   "pregydur white",
+   "pregysoundboard",
+   "easy pro 13",
+   "ladura plus",
+   "ladura A1",
+   "ladura air",
+   "ladura vapor",
+   "solidtex indoor",
+   "solidtex outdoor XT",
+   "aquaboard pro",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "AB@p18": [
+   "solidtex outdoor XT"
+  ],
+  "LD@p18": [
+   "ladura A1",
+   "ladura air",
+   "solidtex indoor",
+   "solidtex outdoor XT",
+   "aquaboard pro",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "PV@p18": [
+   "pregyplac",
+   "pregyplac plus",
+   "pregyplac A1",
+   "pregydro",
+   "white air",
+   "ydro white air",
+   "pregydur I",
+   "pregydur white",
+   "pregysoundboard",
+   "easy pro 13",
+   "ladura plus",
+   "ladura A1",
+   "ladura air",
+   "solidtex indoor",
+   "solidtex outdoor XT",
+   "aquaboard pro",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "XT@p18": [
+   "aquaboard pro"
+  ],
+  "STEX@p18": [
+   "ladura plus",
+   "ladura A1",
+   "ladura air",
+   "solidtex outdoor XT",
+   "pregyflam",
+   "pregyflam A1"
+  ],
+  "PS@p19": [
+   "pregyplac plus",
+   "pregyplac A1",
+   "pregyvapor",
+   "pregydro",
+   "white air",
+   "ydro white air",
+   "pregydur I",
+   "pregydur white",
+   "pregysoundboard",
+   "easy pro 13",
+   "ladura plus",
+   "ladura A1",
+   "ladura air",
+   "solidtex indoor",
+   "solidtex outdoor XT",
+   "aquaboard pro",
+   "pregyflam",
+   "pregydroflam",
+   "pregyflam A1"
+  ],
+  "PF13@p19": [
+   "ladura plus",
+   "ladura A1",
+   "ladura air",
+   "solidtex indoor",
+   "solidtex outdoor XT",
+   "pregydroflam",
+   "pregyflam A1"
+  ],
+  "PF15@p20": [
+   "ladura plus",
+   "ladura A1",
+   "pregydroflam",
+   "pregyflam A1"
+  ],
+  "PF13@p22": [
+   "pregyflam A1",
+   "pregydroflam",
+   "ladura plus",
+   "ladura A1",
+   "solidtex indoor"
+  ],
+  "PF15@p22": [
+   "pregyflam A1 BA15",
+   "pregydroflam BA15",
+   "ladura plus BA15",
+   "ladura A1 BA15"
+  ]
+ }
+}

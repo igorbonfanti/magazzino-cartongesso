@@ -1,0 +1,4226 @@
+{
+ "meta": {
+  "fonte": "Siniat – Manuale del posatore (quarta di copertina: 'Luglio 2025', Etex Building Performance S.p.A., Assago MI) – pagine PDF 45-106",
+  "file_sorgente": [
+   "posatore_raw.txt",
+   "manuale-del-posatore_no-bv.txt",
+   "C:/Users/Administrator/Downloads/manuale-del-posatore_no-bv.pdf"
+  ],
+  "convenzioni": {
+   "pagina": "lista dei numeri di pagina del PDF",
+   "pagina_stampata": "numero stampato = pagina PDF - 1 (da PDF 46 in poi); le pagine di apertura sezione non hanno numero",
+   "decimali": "punto decimale; testo_originale conserva la stringa esatta del manuale",
+   "unita": "U = unità/pezzi; quantità per m² (di parete, controparete o controsoffitto) con sfrido 5% salvo diversa indicazione",
+   "quantita_null": "null quando il valore non è un numero fisso (es. 'secondo necessità'), vedi testo_originale/note"
+  },
+  "verifica": "Tavole p58/p76, documentazione p92-94 e appendici p97-104 verificate su immagini renderizzate (img/pos2_pNN.png) e con estrazione delle parole con coordinate (pdfplumber).",
+  "avvertenza": "Contenuti in parte datati (nomi Pregy, D.Lgs. 311/2006, contatti Siniat Milano, Memento 2013, Expo 2015)."
+ },
+ "best_practice": [
+  {
+   "ambito": "controparete",
+   "argomento": "Struttura con montanti per parete – ancoraggio",
+   "regola": "Orditura identica a una parete a semplice orditura (guide + montanti), accostata al muro alla distanza di progetto; se il montante non basta contro le spinte orizzontali, ancorarlo al muro con squadre o staffe metalliche a interasse calcolato.",
+   "perche": "Contrastare le spinte orizzontali previste.",
+   "pagina": [
+    48
+   ],
+   "pagina_stampata": [
+    47
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Struttura con profili per controsoffitto",
+   "regola": "Profili da controsoffitto bloccati al piede e in testa nelle guide perimetrali a U e su attacchi distanziatori a distanza opportuna; lana minerale inseribile fino a 30 o 40 mm di spessore.",
+   "perche": "Minimo ingombro della controparete; gli attacchi evitano le inflessioni da spinta orizzontale.",
+   "pagina": [
+    48
+   ],
+   "pagina_stampata": [
+    47
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Tracciamento",
+   "regola": "Tracciare a pavimento e a soffitto la posizione della controparete prima della posa, correggendo fuori piombo e fuori squadro della parete esistente.",
+   "perche": "Rettificare pareti esistenti non a piombo o fuori squadro.",
+   "pagina": [
+    50
+   ],
+   "pagina_stampata": [
+    49
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Guide e montanti",
+   "regola": "Posare le guide a pavimento e soffitto, poi i montanti verticali; scegliere la larghezza del montante in funzione dello spessore dell'isolante così da lasciare una lama d'aria.",
+   "perche": "La lama d'aria ospita le canalizzazioni impiantistiche.",
+   "pagina": [
+    50
+   ],
+   "pagina_stampata": [
+    49
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Fissaggio montanti-guide",
+   "regola": "Fissare i montanti alle guide per punzonatura.",
+   "perche": null,
+   "pagina": [
+    51
+   ],
+   "pagina_stampata": [
+    50
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Isolante tra i montanti",
+   "regola": "Inserire il pannello in lana di roccia tra i montanti prima di avvitare le lastre.",
+   "perche": "La lana minerale dà insieme isolamento termico e acustico.",
+   "pagina": [
+    50,
+    51
+   ],
+   "pagina_stampata": [
+    49,
+    50
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Barriera al vapore",
+   "regola": "Se la verifica igrometrica indica rischio di condensa superficiale, usare lastre PregyVapor (lamina di alluminio sul dorso).",
+   "perche": "Evitare condense superficiali.",
+   "pagina": [
+    50,
+    51
+   ],
+   "pagina_stampata": [
+    49,
+    50
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Isolante incollato al muro + struttura in aderenza",
+   "regola": "Incollare EPS o XPS direttamente sulla parete esistente, poi posare davanti profili per controsoffitto su attacchi distanziatori o staffe regolabili a interasse 1,20 m (S4915) o 1,50 m (S4927) e avvitare le lastre (con o senza barriera al vapore).",
+   "perche": "Elimina i ponti termici dovuti alla struttura metallica; la lastra resta alla temperatura dell'ambiente, evitando condense e muffe tipiche delle pareti fredde non isolate.",
+   "pagina": [
+    52
+   ],
+   "pagina_stampata": [
+    51
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Incollaggio pannelli XPS",
+   "regola": "Verifiche dimensionali prima dell'incollaggio; collante steso sul pannello; pannelli incollati fino alla quota di staffe o attacchi; i pannelli superiori si tagliano col seghetto per calzarli nelle lame della staffa.",
+   "perche": null,
+   "pagina": [
+    52,
+    53
+   ],
+   "pagina_stampata": [
+    51,
+    52
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Staffa regolabile / attacco distanziatore",
+   "regola": "Staffa regolabile: fissata al muro e ala richiusa; consente un distacco maggiore dei profili dall'isolante. Attacco distanziatore: vite registrabile con un piccolo gioco di regolazione.",
+   "perche": "Staffa: passaggio impianti e forti fuori piombo; attacco: compensa solo lievi fuori piombo.",
+   "pagina": [
+    52,
+    53
+   ],
+   "pagina_stampata": [
+    51,
+    52
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Guida al piede e umidità di risalita",
+   "regola": "Fissare la guida perimetrale al piede interponendo un foglio di plastica se c'è acqua di risalita dal pavimento.",
+   "perche": "Proteggere la controparete dall'umidità del pavimento.",
+   "pagina": [
+    53
+   ],
+   "pagina_stampata": [
+    52
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Lame delle staffe regolabili",
+   "regola": "Avvitare le ali dei profili sulle due lame della staffa, poi ripiegare o tagliare le lame.",
+   "perche": "Non creare ingombro all'avvitatura delle lastre.",
+   "pagina": [
+    53
+   ],
+   "pagina_stampata": [
+    52
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Aggancio profilo-attacco distanziatore",
+   "regola": "Avvicinare il profilo, agganciare un'ala all'intaccatura dell'attacco, ruotare e premere fino all'incastro.",
+   "perche": null,
+   "pagina": [
+    54
+   ],
+   "pagina_stampata": [
+    53
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Ambienti umidi",
+   "regola": "Usare lastre Pregydro.",
+   "perche": "Resistenza all'umidità.",
+   "pagina": [
+    54
+   ],
+   "pagina_stampata": [
+    53
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Viti vicino alle guide",
+   "regola": "Vite di bloccaggio della lastra vicino alle guide ad almeno 1 cm dal bordo; non avvitare mai insieme lastra, montante e guida.",
+   "perche": "Lasciare libere le dilatazioni termiche.",
+   "pagina": [
+    54
+   ],
+   "pagina_stampata": [
+    53
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – supporto",
+   "regola": "Non incollare accoppiati su superfici ammalorate, sporche o grasse senza una preventiva bonifica; verificare ingombro del pannello e planarità della parete.",
+   "perche": "Garantire l'adesione e la planarità.",
+   "pagina": [
+    55,
+    56
+   ],
+   "pagina_stampata": [
+    54,
+    55
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – impianti",
+   "regola": "Non far passare impianti dietro gli accoppiati.",
+   "perche": "Si creerebbero ponti termoacustici che annullano la prestazione.",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – collante",
+   "regola": "Incollare con PregyColle P120, miscelato sempre con miscelatore elettrico.",
+   "perche": null,
+   "pagina": [
+    55,
+    56
+   ],
+   "pagina_stampata": [
+    54,
+    55
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – imbarcamento",
+   "regola": "Se il pannello tende a imbarcarsi, eseguire un taglio trasversale dell'isolante (capita a volte con isolante oltre 3 cm).",
+   "perche": "Scaricare le tensioni d'imbarcamento.",
+   "pagina": [
+    56
+   ],
+   "pagina_stampata": [
+    55
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – plotte su fibra minerale",
+   "regola": "Su pannelli in fibra minerale stendere prima fasce di collante liquido nei punti delle plotte; su EPS le plotte si applicano direttamente.",
+   "perche": "Irrigidire le fibre dove appoggia la plotta.",
+   "pagina": [
+    56,
+    57
+   ],
+   "pagina_stampata": [
+    55,
+    56
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – passo delle plotte",
+   "regola": "Spaziatura delle plotte circa 30 cm in senso trasversale e 40 cm in senso longitudinale.",
+   "perche": "Corretta distribuzione del collante; evita tensioni differenziate e quindi lesioni dei giunti.",
+   "pagina": [
+    57
+   ],
+   "pagina_stampata": [
+    56
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – piede",
+   "regola": "Mettere uno spezzone di lastra al piede per staccare il pannello dal pavimento.",
+   "perche": "Protezione dall'acqua di lavaggio del pavimento.",
+   "pagina": [
+    57
+   ],
+   "pagina_stampata": [
+    56
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – battitura e allineamento",
+   "regola": "Posizionare il pannello, 1ª battitura a mano, 2ª battitura con regolo in alluminio o legno allineando alle tracce a pavimento e soffitto; pannelli contigui complanari.",
+   "perche": null,
+   "pagina": [
+    57
+   ],
+   "pagina_stampata": [
+    56
+   ]
+  },
+  {
+   "ambito": "controparete",
+   "argomento": "Accoppiati – fessure dei giunti",
+   "regola": "Su grandi superfici e opere nuove i giunti possono lesionarsi (dilatazione diversa parete/accoppiato, assestamenti delle murature); di norma si rifà il giunto.",
+   "perche": null,
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Tasselli – coefficiente di sicurezza",
+   "regola": "Scegliere tasselli con carico di rottura almeno 5 volte il carico massimo di esercizio del pendino, testati su un solaio analogo (es. carico puntuale su pendino 20 kg → tassello che si distacca a 100 kg).",
+   "perche": "La maggior parte dei cedimenti dei controsoffitti è dovuta a tasselli non idonei o sovraccaricati; il cedimento di uno ridistribuisce il carico sugli adiacenti.",
+   "pagina": [
+    62,
+    66
+   ],
+   "pagina_stampata": [
+    61,
+    65
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Pendini – marcatura",
+   "regola": "Usare pendini con marcatura CE (EN 13964) e carico di sicurezza puntuale ammissibile indicato sulla confezione; la Divisione Tecnica Siniat verifica a calcolo ogni configurazione.",
+   "perche": "Statica del controsoffitto.",
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Interasse pendini",
+   "regola": "L'interasse dei pendini (CSO e CDO) dipende da numero e tipo di lastre e dai carichi appesi a lastre e profili; in capannoni industriali può servire una sottostruttura di aggancio.",
+   "perche": null,
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Avvitatura lastre a soffitto",
+   "regola": "Passo delle viti ridotto, al massimo 30 cm di interasse.",
+   "perche": "Le lastre a soffitto lavorano a gravità.",
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Impianti nel plenum",
+   "regola": "Progettare prima il percorso delle canalizzazioni nel plenum in modo che non pregiudichi il fissaggio dei pendini al solaio.",
+   "perche": null,
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Carichi pesanti",
+   "regola": "Nessun carico pesante (canali dell'aria condizionata, tubazioni termoidrauliche) deve appoggiare sui profili del controsoffitto: va sempre appeso autonomamente al solaio.",
+   "perche": null,
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Isolante acustico sopra il controsoffitto",
+   "regola": "Materassino di lana di vetro a bassa densità (20÷30 kg/m³) di spessore 6÷8 cm appoggiato sull'orditura; migliorabile con pendini acustici.",
+   "perche": "Il controsoffitto migliora solo l'isolamento dal rumore aereo.",
+   "pagina": [
+    63
+   ],
+   "pagina_stampata": [
+    62
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Isolante termico sopra/sotto il solaio",
+   "regola": "Soluzione 1: pannelli EPS/XPS tassellati al soffitto + controsoffitto sotto. Soluzione 2: lana minerale ad alta densità appoggiata su CSO (anche in aderenza), ricavando lo spazio con la vite dell'attacco distanziatore o con barre filettate. Evitare lana minerale a bassa densità e pannelli rigidi su CDO.",
+   "perche": "La bassa densità isola poco; su CDO i pannelli rigidi non stanno piani, si inclinano e creano ponti termici.",
+   "pagina": [
+    63
+   ],
+   "pagina_stampata": [
+    62
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Quota e tracciamento",
+   "regola": "Definire la quota delle guide perimetrali tenendo conto dello spessore della lastra e della quota finita del controsoffitto; tracciarla con il filo tracciante.",
+   "perche": null,
+   "pagina": [
+    64
+   ],
+   "pagina_stampata": [
+    63
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Guida perimetrale",
+   "regola": "Fissare la guida perimetrale con viti a passo 50 cm; attorno ai pilastri tagliare e fissare spezzoni di guida.",
+   "perche": null,
+   "pagina": [
+    64
+   ],
+   "pagina_stampata": [
+    63
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Tracciamento primari e fori",
+   "regola": "Tracciare i punti di interasse e la posizione dei profili primari; forare per i tasselli dei pendini all'interasse di progetto. Si può lasciare un plenum o fissare la struttura direttamente al soffitto (aderenza).",
+   "perche": null,
+   "pagina": [
+    65
+   ],
+   "pagina_stampata": [
+    64
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Tasselli in base al solaio",
+   "regola": "Solaio in laterocemento: tassello ad ancora inserito nel foro per agganciarsi alle pignatte, vite a occhiello serrata con punta a gancio sull'avvitatore. Tassello metallico a espansione (tipo di solaio non specificato) serrato con l'apposita pinza, con barra liscia a occhiello piegato a 90° già applicata per un bloccaggio diretto.",
+   "perche": "Il tassello va scelto per tipo di solaio.",
+   "pagina": [
+    66
+   ],
+   "pagina_stampata": [
+    65
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Pendini a molla",
+   "regola": "Agganciare il primario ai pendini a molla e regolare la quota in modo provvisorio schiacciando la molla; tagliare prima la barra liscia in eccesso.",
+   "perche": "Se troppo lunga, durante la regolazione la barra va a bloccarsi contro l'anima del profilo.",
+   "pagina": [
+    66,
+    67
+   ],
+   "pagina_stampata": [
+    65,
+    66
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Primari – dilatazione",
+   "regola": "I primari appoggiano sull'ala superiore della guida perimetrale e vanno tagliati almeno 1 cm più corti.",
+   "perche": "Consentire la dilatazione termica.",
+   "pagina": [
+    67
+   ],
+   "pagina_stampata": [
+    66
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Giunzione dei profili",
+   "regola": "Prolungare i profili con elemento a baionetta; sfalsare i giunti dei profili tra loro.",
+   "perche": "Non creare linee di debolezza.",
+   "pagina": [
+    67
+   ],
+   "pagina_stampata": [
+    66
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Secondari – dilatazione",
+   "regola": "Inserire i secondari nelle guide perimetrali tagliandoli almeno 1 cm più corti su entrambe le estremità.",
+   "perche": "Consentire la dilatazione termica.",
+   "pagina": [
+    67
+   ],
+   "pagina_stampata": [
+    66
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Unione primario-secondario",
+   "regola": "Controllare e assestare l'interasse dei secondari, poi bloccarli con i pendini (ganci) d'unione: dentature sui risvolti delle ali del secondario, bandella piegata e serrata contro l'ala del primario, su entrambe le ali.",
+   "perche": null,
+   "pagina": [
+    68
+   ],
+   "pagina_stampata": [
+    67
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Planarità",
+   "regola": "Controllare la planarità dell'orditura con livella magnetica o laser e regolare i pendini dei primari prima di posare le lastre.",
+   "perche": null,
+   "pagina": [
+    68
+   ],
+   "pagina_stampata": [
+    67
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Posa lastre",
+   "regola": "Lastre ortogonali alla struttura secondaria, sollevate con l'alzalastre e fissate provvisoriamente con alcune viti distribuite; riportare sulla lastra la risega dei pilastri.",
+   "perche": null,
+   "pagina": [
+    69
+   ],
+   "pagina_stampata": [
+    68
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Avvitatura del bordo trasversale",
+   "regola": "Prima vite un po' arretrata rispetto alla guida perimetrale; fissaggio sulla guida con viti a 45° rispetto a quella sul profilo (a V); poi angolo opposto e vite intermedia: 5 viti totali sul bordo trasversale; con lastre Synia (bordi trasversali assottigliati) 7 viti.",
+   "perche": "Non bloccare la guida con il profilo; con Synia garantire la continuità dell'assottigliamento.",
+   "pagina": [
+    70
+   ],
+   "pagina_stampata": [
+    69
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Sfalsamento lastre",
+   "regola": "Posare la seconda fila di lastre sfalsata rispetto alla fila adiacente.",
+   "perche": null,
+   "pagina": [
+    70
+   ],
+   "pagina_stampata": [
+    69
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Distanza viti dal bordo",
+   "regola": "Viti ad almeno 1 cm dal bordo della lastra.",
+   "perche": "Viti troppo vicine spaccano il bordo e fanno fessurare il giunto.",
+   "pagina": [
+    70
+   ],
+   "pagina_stampata": [
+    69
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Banda di chiusura perimetrale",
+   "regola": "Misurare la larghezza della banda di chiusura e tagliarla circa 2 mm più stretta.",
+   "perche": "Evitare tensioni superficiali dovute alle dilatazioni termiche dei profili.",
+   "pagina": [
+    71
+   ],
+   "pagina_stampata": [
+    70
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "CDO con guida clip",
+   "regola": "Stessa sequenza della CDO standard; primario = guida clip; secondari inseriti a scatto; pendinaggio con barra filettata avvitata nel tassello e bullonata sui fori della guida clip, oppure con pendino clip a molla agganciato alle asole.",
+   "perche": "Velocizza la posa dei secondari.",
+   "pagina": [
+    72
+   ],
+   "pagina_stampata": [
+    71
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "CSO – attacchi e interassi",
+   "regola": "Tracciare pendini e linee d'interasse dei profili; fissare gli attacchi distanziatori al passo di progetto (vite centrale per la messa a livello); interasse tra gli attacchi 100 cm; profili infilati nella guida perimetrale.",
+   "perche": null,
+   "pagina": [
+    73,
+    74
+   ],
+   "pagina_stampata": [
+    72,
+    73
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "CSO – interassi maggiori",
+   "regola": "L'interasse pendini di 100 cm è quello pratico e più che cautelativo; interassi maggiori solo con verifica statica della Divisione Tecnica Siniat.",
+   "perche": null,
+   "pagina": [
+    74
+   ],
+   "pagina_stampata": [
+    73
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Ispezionabili – ancoraggio pendini",
+   "regola": "È vietato ancorare i pendini ai supporti delle canalizzazioni o alle canalizzazioni stesse; progettare insieme controsoffitto e impianti.",
+   "perche": "Evitare di perdere l'aggancio dei pendini al corretto interasse.",
+   "pagina": [
+    75
+   ],
+   "pagina_stampata": [
+    74
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Ispezionabili – posa",
+   "regola": "Struttura PregyGrid: profili portanti e trasversali (trasversali affrontati incastrati nell'asola del portante), pendini a molla a doppia regolazione; posa dei pannelli, taglio dei pannelli perimetrali di chiusura, prosecuzione della posa.",
+   "perche": null,
+   "pagina": [
+    75
+   ],
+   "pagina_stampata": [
+    74
+   ]
+  },
+  {
+   "ambito": "controsoffitto",
+   "argomento": "Carico sui pendini",
+   "regola": "Ricalcolare il carico sui pendini quando cambiano tipo e numero di lastre o gli interassi imposti dalle certificazioni al fuoco.",
+   "perche": null,
+   "pagina": [
+    76
+   ],
+   "pagina_stampata": [
+    75
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Principi",
+   "regola": "Il bordo assottigliato contiene al massimo circa 1 mm di stucco; il nastro rinforza solo contro piccoli movimenti; la base di una buona finitura è la corretta posa di orditura e lastre.",
+   "perche": "Lo stucco non può opporsi a forti sollecitazioni, assestamenti strutturali o errori di posa/avvitatura.",
+   "pagina": [
+    79,
+    83
+   ],
+   "pagina_stampata": [
+    78,
+    82
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Preparazione – fase di riempimento",
+   "regola": "In un secchio d'acqua pulita spolverare la polvere fino a ricoprire la superficie dell'acqua.",
+   "perche": "Impasto corposo con minor ritiro ad asciugatura.",
+   "pagina": [
+    79
+   ],
+   "pagina_stampata": [
+    78
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Preparazione – imburraggio e finitura",
+   "regola": "Fermare la polvere appena sotto la superficie dell'acqua.",
+   "perche": "Maggiore scorrevolezza e capacità coprente.",
+   "pagina": [
+    79
+   ],
+   "pagina_stampata": [
+    78
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Riposo e miscelazione",
+   "regola": "Lasciar riposare qualche minuto per idratare la polvere; mescolare a mano con spatola fino a impasto omogeneo, cremoso, senza grumi.",
+   "perche": null,
+   "pagina": [
+    79,
+    80
+   ],
+   "pagina_stampata": [
+    78,
+    79
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Prova dell'impasto",
+   "regola": "Applicato sull'americana tenuta verticale, l'impasto per il riempimento non deve staccarsi né deformarsi.",
+   "perche": null,
+   "pagina": [
+    80
+   ],
+   "pagina_stampata": [
+    79
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Miscelatore meccanico",
+   "regola": "Frusta meccanica sconsigliata per gli stucchi a presa; se usata, non superare 800 giri/min.",
+   "perche": null,
+   "pagina": [
+    80
+   ],
+   "pagina_stampata": [
+    79
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Giunti verticali – rete adesiva",
+   "regola": "1) pulire i giunti dalla polvere; 2) applicare la rete adesiva (metodo più rapido); 3) mano di riempimento con l'americana; 4) rasatura a perfetta asciugatura del riempimento.",
+   "perche": null,
+   "pagina": [
+    81
+   ],
+   "pagina_stampata": [
+    80
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Giunti verticali – carta microforata",
+   "regola": "1) imburraggio continuo; 2) applicazione e serraggio del nastro con spatola; 3) attesa della perfetta asciugatura; 4) riempimento; 5) seconda mano; 6) finitura (rasatura).",
+   "perche": "Indispensabile con gli stucchi a presa (P25, P25 Extra, P35…); unica soluzione che garantisce una buona risposta alle normali sollecitazioni meccaniche in esercizio.",
+   "pagina": [
+    81,
+    82
+   ],
+   "pagina_stampata": [
+    80,
+    81
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Lastre A1",
+   "regola": "I giunti di tutte le lastre A1 Siniat richiedono la carta microforata.",
+   "perche": null,
+   "pagina": [
+    82
+   ],
+   "pagina_stampata": [
+    81
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Tempi tra le mani",
+   "regola": "Attendere l'asciugatura completa di ogni mano prima della successiva (nessun tempo in ore indicato).",
+   "perche": "Lo stucco ancora umido continua ad asciugare lentamente e ritira anche a lavoro finito.",
+   "pagina": [
+    82
+   ],
+   "pagina_stampata": [
+    81
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Giunti su controsoffitti",
+   "regola": "Stessa procedura dei giunti verticali; con Synia trattare anche i bordi trasversali assottigliati (imburraggio, nastro, serraggio togliendo le sbavature).",
+   "perche": "Planarità perfetta del controsoffitto.",
+   "pagina": [
+    83
+   ],
+   "pagina_stampata": [
+    82
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Angoli esterni – banda armata",
+   "regola": "Misurare, imburrare lo spigolo, piegare e applicare la banda armata con le lamine metalliche verso l'interno pressandola, serrare con l'americana, rasare dopo l'asciugatura. Solo in ambienti a basso rischio d'urto o su velette/volumi decorativi sopra l'altezza della spalla.",
+   "perche": "Il paraspigolo metallico è nettamente più efficace.",
+   "pagina": [
+    84
+   ],
+   "pagina_stampata": [
+    83
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Angoli esterni – paraspigolo metallico",
+   "regola": "Fissare il paraspigolo per avvitatura oppure per imburraggio + applicazione a pressione; riempire i due lati; rasare dopo l'asciugatura del riempimento.",
+   "perche": null,
+   "pagina": [
+    85
+   ],
+   "pagina_stampata": [
+    84
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Angoli interni",
+   "regola": "Carta microforata piegata lungo la mezzeria: misurare, imburrare l'angolo, applicare a pressione il nastro piegato, serrarlo sui due lati, rasare dopo l'asciugatura (vale anche per parete–controsoffitto).",
+   "perche": null,
+   "pagina": [
+    85,
+    86
+   ],
+   "pagina_stampata": [
+    84,
+    85
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Incontro con murature o soffitti intonacati",
+   "regola": "Il nastro negli angoli interni si usa solo se entrambe le superfici sono in cartongesso; contro murature o intonaci usare silicone acrilico o cornici coprifilo.",
+   "perche": "Evitare microfessure visibili.",
+   "pagina": [
+    85
+   ],
+   "pagina_stampata": [
+    84
+   ]
+  },
+  {
+   "ambito": "stuccatura",
+   "argomento": "Livelli di finitura",
+   "regola": "Livelli Q1–Q4 non citati nelle pagine 45–106 (solo un generico 'livello di finitura'); riferimento: Manuale della stuccatura Siniat.",
+   "perche": null,
+   "pagina": [
+    79
+   ],
+   "pagina_stampata": [
+    78
+   ]
+  }
+ ],
+ "regole_selezione": [
+  {
+   "id": "CP1",
+   "ambito": "controparete",
+   "condizione": "Correggere fuori piombo o riallineare pareti; tratti curvi, spezzati, nicchie",
+   "conseguenza": "Controparete su struttura metallica",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    47
+   ],
+   "pagina_stampata": [
+    46
+   ]
+  },
+  {
+   "id": "CP2",
+   "ambito": "controparete",
+   "condizione": "Nessuna prescrizione (fuoco, termica, acustica) e ingombro minimo",
+   "conseguenza": "Profili per controsoffitto S4915 (ala minima) bloccati su attacchi distanziatori",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    49
+   ],
+   "pagina_stampata": [
+    48
+   ]
+  },
+  {
+   "id": "CP3",
+   "ambito": "controparete",
+   "condizione": "Nessuna prescrizione ma passaggio di canalizzazioni",
+   "conseguenza": "Montanti da parete",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    49
+   ],
+   "pagina_stampata": [
+    48
+   ]
+  },
+  {
+   "id": "CP4",
+   "ambito": "controparete",
+   "condizione": "Prescrizioni anche miste (resistenza al fuoco + isolamento termico e/o acustico + impianti)",
+   "conseguenza": "Montanti da parete con lana minerale tra i montanti in spessore e densità idonei; per prescrizioni miste consultare la Divisione Tecnica Siniat",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    49,
+    50
+   ],
+   "pagina_stampata": [
+    48,
+    49
+   ]
+  },
+  {
+   "id": "CP5",
+   "ambito": "controparete",
+   "condizione": "Resistenza al fuoco richiesta su parete esistente in forati da 8 cm intonacata su una o entrambe le facce",
+   "conseguenza": "Sistemi certificati REI 120: in aderenza con profili S4927 oppure con montanti M 50-50-50 + lana di roccia; per altre murature estensione con tecnico antincendio e Divisione Tecnica Siniat",
+   "tipo_regola": "certificazione",
+   "pagina": [
+    49
+   ],
+   "pagina_stampata": [
+    48
+   ],
+   "note": "DA VERIFICARE: il manuale non indica numero di rapporto né stratigrafia delle lastre; cercare nel Memento / catalogo antincendio."
+  },
+  {
+   "id": "CP6",
+   "ambito": "controparete",
+   "condizione": "Resistenza al fuoco richiesta (EI/REI)",
+   "conseguenza": "Escludere gli accoppiati isolanti: nessuna certificazione di resistenza al fuoco disponibile",
+   "tipo_regola": "esclusione",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "id": "CP7",
+   "ambito": "controparete",
+   "condizione": "Reazione al fuoco",
+   "conseguenza": "Accoppiati: tutti in classe 'A2-s1, d0 o B2-s1, d0' (= vecchia classe 1). Lastre su struttura: verificare la classe sull'etichetta CE (bancale) o sulla marcatura sul dorso",
+   "tipo_regola": "verifica",
+   "pagina": [
+    55,
+    49
+   ],
+   "pagina_stampata": [
+    54,
+    48
+   ],
+   "note": "DA VERIFICARE: 'B2-s1, d0' non è un'euroclasse EN 13501-1 (probabile refuso per B-s1,d0)."
+  },
+  {
+   "id": "CP8",
+   "ambito": "controparete",
+   "condizione": "Isolamento acustico richiesto con accoppiati",
+   "conseguenza": "Solo accoppiati in lana minerale (PregyVer lana di vetro, PregyRoche lana di roccia); EPS/XPS non danno abbattimento acustico",
+   "tipo_regola": "esclusione",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ],
+   "note": "DA VERIFICARE: p55 rimanda a valori indicativi 'in fondo al capitolo' che nella tavola p58 non ci sono (solo R termica)."
+  },
+  {
+   "id": "CP9",
+   "ambito": "controparete",
+   "condizione": "Isolamento acustico con controparete su struttura metallica",
+   "conseguenza": "Nessun valore tabellare: calcolo del potere fonoisolante con simulatore acustico dei tecnici Siniat / consulenza Divisione Tecnica",
+   "tipo_regola": "rinvio_consulenza",
+   "pagina": [
+    49,
+    58
+   ],
+   "pagina_stampata": [
+    48,
+    57
+   ]
+  },
+  {
+   "id": "CP10",
+   "ambito": "controparete",
+   "condizione": "Isolamento termico con minimi ponti termici e impianti nell'intercapedine",
+   "conseguenza": "Isolante applicato sulla parete esistente + orditura metallica accostata (spessore complessivo maggiore)",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    49
+   ],
+   "pagina_stampata": [
+    48
+   ]
+  },
+  {
+   "id": "CP11",
+   "ambito": "controparete",
+   "condizione": "Isolamento termico con spessore ridotto su struttura metallica",
+   "conseguenza": "Isolante tra i montanti (solo lane minerali)",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    49
+   ],
+   "pagina_stampata": [
+    48
+   ]
+  },
+  {
+   "id": "CP12",
+   "ambito": "controparete",
+   "condizione": "Isolamento termico con ingombro minimo (accoppiati)",
+   "conseguenza": "Preferire XPS (PregyFoam) a EPS: miglior resistenza termica a parità di spessore",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "id": "CP13",
+   "ambito": "controparete",
+   "condizione": "Rischio di condensa superficiale (verifica termoigrometrica)",
+   "conseguenza": "Lastre con barriera al vapore PregyVapor (lamina di alluminio sul dorso)",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    50,
+    51
+   ],
+   "pagina_stampata": [
+    49,
+    50
+   ]
+  },
+  {
+   "id": "CP14",
+   "ambito": "controparete",
+   "condizione": "Ambiente umido",
+   "conseguenza": "Lastra Pregydro",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    54
+   ],
+   "pagina_stampata": [
+    53
+   ]
+  },
+  {
+   "id": "CP15",
+   "ambito": "controparete",
+   "condizione": "Supporto ammalorato, sporco o grasso",
+   "conseguenza": "Accoppiati solo dopo bonifica preventiva; altrimenti controparete su struttura metallica",
+   "tipo_regola": "vincolo",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "id": "CP16",
+   "ambito": "controparete",
+   "condizione": "Impianti da incassare nella controparete",
+   "conseguenza": "Non usare accoppiati (ponti termoacustici)",
+   "tipo_regola": "esclusione",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "id": "CP17",
+   "ambito": "controparete",
+   "condizione": "Sollecitazioni meccaniche",
+   "conseguenza": "Accoppiati consigliati in locali con moderata presenza di pubblico; sollecitazioni ordinarie senza problemi",
+   "tipo_regola": "limite_impiego",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "id": "CP18",
+   "ambito": "controparete",
+   "condizione": "Richiesto fonoassorbimento",
+   "conseguenza": "La lastra è riflettente (assorbe circa il 10% dell'energia incidente): servono materiali assorbenti applicati in superficie",
+   "tipo_regola": "limite_impiego",
+   "pagina": [
+    55
+   ],
+   "pagina_stampata": [
+    54
+   ]
+  },
+  {
+   "id": "CP19",
+   "ambito": "controparete",
+   "condizione": "Forti fuori piombo o impianti dietro i profili (con isolante incollato)",
+   "conseguenza": "Staffa regolabile (maggior distacco); per lievi fuori piombo basta l'attacco distanziatore a vite registrabile",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    53
+   ],
+   "pagina_stampata": [
+    52
+   ]
+  },
+  {
+   "id": "CP20",
+   "ambito": "controparete",
+   "condizione": "Controparete con profili per controsoffitto",
+   "conseguenza": "Attacchi distanziatori / staffe a interasse 1,20 m per S4915 e 1,50 m per S4927; lana minerale tra i profili max 30 o 40 mm",
+   "tipo_regola": "parametro",
+   "pagina": [
+    52,
+    48
+   ],
+   "pagina_stampata": [
+    51,
+    47
+   ]
+  },
+  {
+   "id": "CP21",
+   "ambito": "controparete",
+   "condizione": "Sigle di capitolato",
+   "conseguenza": "CV = controparete a struttura verticale; M + dimensioni per montanti (es. CV M 50-75-50, montanti da 75); S + dimensioni per profili da controsoffitto (es. CV S 4927, ala da 27)",
+   "tipo_regola": "nomenclatura",
+   "pagina": [
+    48
+   ],
+   "pagina_stampata": [
+    47
+   ]
+  },
+  {
+   "id": "CP22",
+   "ambito": "controparete",
+   "condizione": "Accoppiati – isolanti disponibili",
+   "conseguenza": "EPS (PregyStyrene) 15 kg/m³; XPS (PregyFoam) 33 kg/m³; lana di vetro/roccia (PregyVer/PregyRoche) 80÷85 kg/m³ per resistere alle spinte orizzontali; lastre da 10 (9,5) e 12,5 mm",
+   "tipo_regola": "parametro",
+   "pagina": [
+    55,
+    58
+   ],
+   "pagina_stampata": [
+    54,
+    57
+   ]
+  },
+  {
+   "id": "CS1",
+   "ambito": "controsoffitto",
+   "condizione": "Sempre",
+   "conseguenza": "Partire dal tipo di solaio esistente per l'ancoraggio dei pendini; interasse dei pendini in funzione di numero/tipo di lastre e carichi appesi",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "id": "CS2",
+   "ambito": "controsoffitto",
+   "condizione": "Possibilità o necessità di ribassare rispetto al soffitto esistente",
+   "conseguenza": "CDO con plenum oppure CSO con plenum",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    102,
+    103
+   ],
+   "pagina_stampata": [
+    101,
+    102
+   ]
+  },
+  {
+   "id": "CS3",
+   "ambito": "controsoffitto",
+   "condizione": "Impossibile ribassare (altezze minime igienico-sanitarie, arredo, piccoli ambienti)",
+   "conseguenza": "CSO in aderenza",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    73,
+    103
+   ],
+   "pagina_stampata": [
+    72,
+    102
+   ]
+  },
+  {
+   "id": "CS4",
+   "ambito": "controsoffitto",
+   "condizione": "Grandi superfici",
+   "conseguenza": "CDO (opportuna anche per velocità di posa); la CSO con lastre ortogonali resta comunque stabile",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    63
+   ],
+   "pagina_stampata": [
+    62
+   ]
+  },
+  {
+   "id": "CS5",
+   "ambito": "controsoffitto",
+   "condizione": "Ribassamenti notevoli (anche oltre 2 m)",
+   "conseguenza": "CDO con barre lisce o filettate di lunghezza adeguata",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    61
+   ],
+   "pagina_stampata": [
+    60
+   ]
+  },
+  {
+   "id": "CS6",
+   "ambito": "controsoffitto",
+   "condizione": "Posa rapida dei secondari a qualunque interasse",
+   "conseguenza": "CDO con guida clip (primario a cremagliera, secondario a scatto)",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    61,
+    72
+   ],
+   "pagina_stampata": [
+    60,
+    71
+   ]
+  },
+  {
+   "id": "CS7",
+   "ambito": "controsoffitto",
+   "condizione": "Plenum da ispezionare (impianti sotto solaio)",
+   "conseguenza": "Controsoffitto ispezionabile: struttura PregyGrid + pannelli 60x60 PregyBoard (a vista, ribassato, vinilico) o PregyGips",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    62,
+    75,
+    104
+   ],
+   "pagina_stampata": [
+    61,
+    74,
+    103
+   ]
+  },
+  {
+   "id": "CS8",
+   "ambito": "controsoffitto",
+   "condizione": "Ispezionabile con resistenza al fuoco REI 120",
+   "conseguenza": "Variante 'Bordo a vista T24-37 REI 120': portanti 1,75 m/m², trasversali 600 da 1,75 m/m², niente trasversali 1200, cornice a 'C', sospensioni 1,40 U/m²",
+   "tipo_regola": "certificazione",
+   "pagina": [
+    104
+   ],
+   "pagina_stampata": [
+    103
+   ]
+  },
+  {
+   "id": "CS9",
+   "ambito": "controsoffitto",
+   "condizione": "Resistenza al fuoco richiesta",
+   "conseguenza": "Cercare il rapporto di classificazione Siniat corrispondente; se il contesto solaio + controsoffitto non coincide col provato serve una valutazione a calcolo (Divisione Tecnica Siniat + 'Tecnico 818'); l'applicatore verifica prima della firma che sia nominato un tecnico antincendio iscritto all'albo VVF",
+   "tipo_regola": "certificazione",
+   "pagina": [
+    62,
+    63
+   ],
+   "pagina_stampata": [
+    61,
+    62
+   ]
+  },
+  {
+   "id": "CS10",
+   "ambito": "controsoffitto",
+   "condizione": "Isolamento acustico da rumore aereo",
+   "conseguenza": "Materassino di lana di vetro 20÷30 kg/m³ sp. 6÷8 cm appoggiato sull'orditura, eventualmente pendini acustici (il controsoffitto migliora solo il rumore aereo)",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    63
+   ],
+   "pagina_stampata": [
+    62
+   ]
+  },
+  {
+   "id": "CS11",
+   "ambito": "controsoffitto",
+   "condizione": "Isolamento termico (solai sotto tetto o lastrico solare; consigliato anche tra piani)",
+   "conseguenza": "EPS/XPS tassellato al solaio + controsoffitto, oppure lana minerale ad alta densità su CSO; escludere lana a bassa densità e pannelli rigidi su CDO",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    63
+   ],
+   "pagina_stampata": [
+    62
+   ]
+  },
+  {
+   "id": "CS12",
+   "ambito": "controsoffitto",
+   "condizione": "Canalizzazioni o carichi pesanti nel plenum",
+   "conseguenza": "Appenderli autonomamente al solaio, mai appoggiarli sui profili; mai ancorare i pendini agli impianti",
+   "tipo_regola": "vincolo",
+   "pagina": [
+    62,
+    75
+   ],
+   "pagina_stampata": [
+    61,
+    74
+   ]
+  },
+  {
+   "id": "CS13",
+   "ambito": "controsoffitto",
+   "condizione": "Interasse pendini maggiore di 100 cm",
+   "conseguenza": "Solo con verifica statica della Divisione Tecnica Siniat",
+   "tipo_regola": "rinvio_consulenza",
+   "pagina": [
+    74
+   ],
+   "pagina_stampata": [
+    73
+   ]
+  },
+  {
+   "id": "CS14",
+   "ambito": "controsoffitto",
+   "condizione": "Capannoni industriali / solaio non adatto all'aggancio diretto",
+   "conseguenza": "Realizzare una sottostruttura a cui ancorare i pendini",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "id": "CS15",
+   "ambito": "controsoffitto",
+   "condizione": "Ambiente umido (es. bagno)",
+   "conseguenza": "Lastra Pregydro",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    74
+   ],
+   "pagina_stampata": [
+    73
+   ]
+  },
+  {
+   "id": "CS16",
+   "ambito": "controsoffitto",
+   "condizione": "Massima planarità del soffitto",
+   "conseguenza": "Lastra Synia (bordi trasversali assottigliati): 7 viti sul bordo trasversale invece di 5",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    70,
+    83
+   ],
+   "pagina_stampata": [
+    69,
+    82
+   ]
+  },
+  {
+   "id": "CS17",
+   "ambito": "controsoffitto",
+   "condizione": "Configurazione base con 1 lastra BA13 (tavola prestazionale)",
+   "conseguenza": "CSO: S4927 a interasse ≤ 60 cm, pendini ≤ 100 cm, carico max 18,9 kg/pendino. CDO: primario S4927 ≤ 100 cm, secondario S4927 ≤ 60 cm, pendini ≤ 100 cm, carico max 33,5 kg/pendino",
+   "tipo_regola": "parametro",
+   "pagina": [
+    76
+   ],
+   "pagina_stampata": [
+    75
+   ]
+  },
+  {
+   "id": "CS18",
+   "ambito": "controsoffitto",
+   "condizione": "Cambio di tipo/numero lastre o interassi imposti da certificazione al fuoco",
+   "conseguenza": "Ricalcolare il carico sui pendini",
+   "tipo_regola": "verifica",
+   "pagina": [
+    76
+   ],
+   "pagina_stampata": [
+    75
+   ]
+  },
+  {
+   "id": "CS19",
+   "ambito": "controsoffitto",
+   "condizione": "Pendini",
+   "conseguenza": "Solo pendini con marcatura CE EN 13964 e carico di sicurezza puntuale dichiarato; tasselli con rottura ≥ 5 volte il carico di esercizio",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    62,
+    66
+   ],
+   "pagina_stampata": [
+    61,
+    65
+   ]
+  },
+  {
+   "id": "ST1",
+   "ambito": "stuccatura",
+   "condizione": "Stucchi a presa (P25, P25 Extra, P35…)",
+   "conseguenza": "Nastro in carta microforata (indispensabile)",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    81
+   ],
+   "pagina_stampata": [
+    80
+   ]
+  },
+  {
+   "id": "ST2",
+   "ambito": "stuccatura",
+   "condizione": "Lastre Siniat in classe A1",
+   "conseguenza": "Nastro in carta microforata",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    82
+   ],
+   "pagina_stampata": [
+    81
+   ]
+  },
+  {
+   "id": "ST3",
+   "ambito": "stuccatura",
+   "condizione": "Serve la massima rapidità (stucchi non a presa)",
+   "conseguenza": "Rete adesiva: metodo più rapido",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    81
+   ],
+   "pagina_stampata": [
+    80
+   ]
+  },
+  {
+   "id": "ST4",
+   "ambito": "stuccatura",
+   "condizione": "Spigoli esterni esposti a urti",
+   "conseguenza": "Paraspigolo metallico; banda armata solo a basso rischio d'urto o sopra l'altezza della spalla",
+   "tipo_regola": "preferenza",
+   "pagina": [
+    84
+   ],
+   "pagina_stampata": [
+    83
+   ]
+  },
+  {
+   "id": "ST5",
+   "ambito": "stuccatura",
+   "condizione": "Angolo interno contro muratura o soffitto intonacato",
+   "conseguenza": "Silicone acrilico o cornice coprifilo (niente nastro)",
+   "tipo_regola": "obbligo",
+   "pagina": [
+    85
+   ],
+   "pagina_stampata": [
+    84
+   ]
+  }
+ ],
+ "tavola_prestazionale_contropareti": [
+  {
+   "prodotto": "PREGYSTYRENE",
+   "isolante": "polistirolo espanso (EPS)",
+   "pannello": "10 + 20",
+   "spessore_lastra_mm": 9.5,
+   "spessore_isolante_mm": 20,
+   "R_m2K_W": 0.53,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYSTYRENE",
+   "isolante": "polistirolo espanso (EPS)",
+   "pannello": "10 + 30",
+   "spessore_lastra_mm": 9.5,
+   "spessore_isolante_mm": 30,
+   "R_m2K_W": 0.78,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYSTYRENE",
+   "isolante": "polistirolo espanso (EPS)",
+   "pannello": "10 + 40",
+   "spessore_lastra_mm": 9.5,
+   "spessore_isolante_mm": 40,
+   "R_m2K_W": 1.02,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYSTYRENE",
+   "isolante": "polistirolo espanso (EPS)",
+   "pannello": "13 + 20",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 20,
+   "R_m2K_W": 0.55,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYSTYRENE",
+   "isolante": "polistirolo espanso (EPS)",
+   "pannello": "13 + 30",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 30,
+   "R_m2K_W": 0.79,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYSTYRENE",
+   "isolante": "polistirolo espanso (EPS)",
+   "pannello": "13 + 40",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 40,
+   "R_m2K_W": 1.04,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "10 + 20",
+   "spessore_lastra_mm": 9.5,
+   "spessore_isolante_mm": 20,
+   "R_m2K_W": 0.6,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "10 + 30",
+   "spessore_lastra_mm": 9.5,
+   "spessore_isolante_mm": 30,
+   "R_m2K_W": 0.88,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "10 + 40",
+   "spessore_lastra_mm": 9.5,
+   "spessore_isolante_mm": 40,
+   "R_m2K_W": 1.16,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "13 + 20",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 20,
+   "R_m2K_W": 0.62,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ],
+   "spessore_lastra_mm_come_impaginato": 9.5,
+   "note": "DA VERIFICARE: nell'impaginazione la cella unita '9,5' copre anche questa riga; il codice pannello '13' indica lastra 12,5 mm come nelle altre serie."
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "13 + 30",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 30,
+   "R_m2K_W": 0.89,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "13 + 40",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 40,
+   "R_m2K_W": 1.17,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "13 + 50",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 50,
+   "R_m2K_W": 1.45,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYFOAM",
+   "isolante": "polistirolo estruso (XPS)",
+   "pannello": "13 + 60",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 60,
+   "R_m2K_W": 1.73,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYVER",
+   "isolante": "lana di vetro",
+   "pannello": "13 + 20",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 20,
+   "R_m2K_W": 0.67,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYVER",
+   "isolante": "lana di vetro",
+   "pannello": "13 + 30",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 30,
+   "R_m2K_W": 0.97,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYVER",
+   "isolante": "lana di vetro",
+   "pannello": "13 + 40",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 40,
+   "R_m2K_W": 1.27,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYROCHE",
+   "isolante": "lana di roccia",
+   "pannello": "13 + 30",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 30,
+   "R_m2K_W": 0.92,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  },
+  {
+   "prodotto": "PREGYROCHE",
+   "isolante": "lana di roccia",
+   "pannello": "13 + 40",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 40,
+   "R_m2K_W": 1.8,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ],
+   "note": "DA VERIFICARE: valore trascritto esattamente ma non monotono (40 mm = 1,80 > 50 mm = 1,49); per coerenza con le altre serie ci si aspetterebbe circa 1,2: probabile refuso."
+  },
+  {
+   "prodotto": "PREGYROCHE",
+   "isolante": "lana di roccia",
+   "pannello": "13 + 50",
+   "spessore_lastra_mm": 12.5,
+   "spessore_isolante_mm": 50,
+   "R_m2K_W": 1.49,
+   "pagina": [
+    58
+   ],
+   "pagina_stampata": [
+    57
+   ]
+  }
+ ],
+ "tavola_prestazionale_controsoffitti": [
+  {
+   "tipologia": "Controsoffitto a semplice orditura (CSO)",
+   "tipo_lastra": "1 PS BA 13",
+   "profilo_primario_tipo": "S4927",
+   "profilo_primario_interasse_max_cm": 60,
+   "profilo_secondario_tipo": null,
+   "profilo_secondario_interasse_max_cm": null,
+   "pendino_interasse_max_cm": 100,
+   "carico_max_su_pendino_kg": 18.9,
+   "note": "Sigla 'PS' non spiegata nel manuale (probabilmente PregyPlac Standard: DA VERIFICARE).",
+   "pagina": [
+    76
+   ],
+   "pagina_stampata": [
+    75
+   ]
+  },
+  {
+   "tipologia": "Controsoffitto a doppia orditura (CDO)",
+   "tipo_lastra": "1 PS BA 13",
+   "profilo_primario_tipo": "S4927",
+   "profilo_primario_interasse_max_cm": 100,
+   "profilo_secondario_tipo": "S4927",
+   "profilo_secondario_interasse_max_cm": 60,
+   "pendino_interasse_max_cm": 100,
+   "carico_max_su_pendino_kg": 33.5,
+   "note": "Sigla 'PS' non spiegata nel manuale (probabilmente PregyPlac Standard: DA VERIFICARE).",
+   "pagina": [
+    76
+   ],
+   "pagina_stampata": [
+    75
+   ]
+  }
+ ],
+ "documentazione": [
+  {
+   "etichetta": "AQUABOARD",
+   "titolo_copertina": "Sistema AquaBoard",
+   "contenuto_copertina": "Il sistema a secco esce allo scoperto.",
+   "a_cosa_serve": "Sistema a secco per esterni con lastra AquaBoard (uso dedotto dal titolo)",
+   "fonte": "copertina",
+   "pagina": [
+    92
+   ],
+   "pagina_stampata": [
+    91
+   ]
+  },
+  {
+   "etichetta": "LADURA PLUS",
+   "titolo_copertina": "LaDura Plus",
+   "contenuto_copertina": "L'unica. Come nessuna.",
+   "a_cosa_serve": "Lastra ad alta densità e resistenza meccanica (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    92
+   ],
+   "pagina_stampata": [
+    91
+   ]
+  },
+  {
+   "etichetta": "SISMICA",
+   "titolo_copertina": "La sicurezza sismica per gli interni",
+   "contenuto_copertina": "Case realizzate nel 2009 a Preturo (AQ) con il sistema antisismico Siniat LaDura Plus",
+   "a_cosa_serve": "Sistemi a secco antisismici per interni (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    92
+   ],
+   "pagina_stampata": [
+    91
+   ]
+  },
+  {
+   "etichetta": "PREGYINDUSTRY",
+   "titolo_copertina": "Sistema PregyIndustry",
+   "contenuto_copertina": "Pareti antincendio per locali di grande altezza.",
+   "a_cosa_serve": "Pareti antincendio di grande altezza (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    92
+   ],
+   "pagina_stampata": [
+    91
+   ]
+  },
+  {
+   "etichetta": "SYNIA",
+   "titolo_copertina": "Pregy Synia",
+   "contenuto_copertina": "Il soffitto, semplicemente perfetto.",
+   "a_cosa_serve": "Lastra a bordi assottigliati (anche trasversali) per controsoffitti planari (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    92
+   ],
+   "pagina_stampata": [
+    91
+   ]
+  },
+  {
+   "etichetta": "PANNELLI ACCOPPIATI",
+   "titolo_copertina": "Pannelli Accoppiati",
+   "contenuto_copertina": "PregyStyrene - PregyFoam - PregyVer - PregyRoche",
+   "a_cosa_serve": "Accoppiati isolanti per contropareti incollate (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    92
+   ],
+   "pagina_stampata": [
+    91
+   ]
+  },
+  {
+   "etichetta": "HYDROPANEL",
+   "titolo_copertina": "Hydropanel",
+   "contenuto_copertina": "La soluzione per prestazioni eccezionali. Resistenza all'acqua, al fuoco, agli urti ed isolamento acustico.",
+   "a_cosa_serve": "Lastra ad alte prestazioni (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "BLUCLAD",
+   "titolo_copertina": "Bluclad",
+   "contenuto_copertina": "Lastra porta intonaco in fibrocemento.",
+   "a_cosa_serve": "Lastra per esterni da intonacare (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "DURIPANEL",
+   "titolo_copertina": "Duripanel",
+   "contenuto_copertina": "Lastra in legno-cemento.",
+   "a_cosa_serve": "Lastra in legno-cemento (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "BOTOLE",
+   "titolo_copertina": "Botole d'ispezione",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Botole d'ispezione (nessuna istruzione di posa nelle pagine 45-106)",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "GREENSERVICE",
+   "titolo_copertina": "Pregy GreenService",
+   "contenuto_copertina": "Servizio di recupero e riciclo scarti a base gesso.",
+   "a_cosa_serve": "Ritiro e riciclo degli scarti di cantiere a base gesso",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "SVILUPPO SOSTENIBILE",
+   "titolo_copertina": "Pregy Sviluppo Sostenibile",
+   "contenuto_copertina": "GreenShaping",
+   "a_cosa_serve": "Sostenibilità ambientale (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "SPI",
+   "titolo_copertina": "Pregy Scuola di Posa Itinerante Siniat S.p.A.",
+   "contenuto_copertina": "Guida ai corsi",
+   "a_cosa_serve": "Catalogo dei corsi di formazione SPI",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "TECNOLOGIA A SECCO",
+   "titolo_copertina": "Soluzioni versatili e performanti per il comfort abitativo: i vantaggi della tecnologia a secco",
+   "contenuto_copertina": "Co-brand Rockwool / Siniat",
+   "a_cosa_serve": "Brochure divulgativa sulla tecnologia a secco con isolanti in lana di roccia (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "STUCCATURA",
+   "titolo_copertina": "Manuale della stuccatura",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Riferimento completo su stucchi e trattamento dei giunti (citato anche a p79)",
+   "fonte": "copertina",
+   "pagina": [
+    93
+   ],
+   "pagina_stampata": [
+    92
+   ]
+  },
+  {
+   "etichetta": "POSA AQUABOARD",
+   "titolo_copertina": "Manuale di posa AquaBoard",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Istruzioni di posa del sistema AquaBoard per esterni",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "MEMENTO",
+   "titolo_copertina": "Memento",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Catalogo dei sistemi Siniat; le appendici vi rimandano per prestazioni di resistenza al fuoco",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "ANTINCENDIO",
+   "titolo_copertina": "Catalogo di soluzioni antincendio",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Soluzioni certificate di resistenza al fuoco",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "LA CASA",
+   "titolo_copertina": "La Casa.",
+   "contenuto_copertina": "Diamo forma alla qualità del vivere.",
+   "a_cosa_serve": "Soluzioni per l'edilizia residenziale (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "LA SCUOLA",
+   "titolo_copertina": "La Scuola.",
+   "contenuto_copertina": "La sicurezza nelle scuole. Costruiamola insieme.",
+   "a_cosa_serve": "Soluzioni per l'edilizia scolastica (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "INSIDE EXPO",
+   "titolo_copertina": "Inside Expo.",
+   "contenuto_copertina": "Siniat for The Universal Exposition of Milan.",
+   "a_cosa_serve": "Referenze Expo Milano 2015 (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "STUCCO E6.0",
+   "titolo_copertina": "Stucco E6.0",
+   "contenuto_copertina": "Stucco per riempimento e finitura manuale dei giunti con nastro, in ambienti chiusi (giunti lastra-lastra, lastra-strutture esistenti, dissimulazione viti); nastro in carta microforata raccomandato; utilizzabile anche per la rasatura completa delle lastre.",
+   "a_cosa_serve": "Scheda prodotto stucco",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "ANTISFONDELLAMENTO",
+   "titolo_copertina": "Sicurezza antisismica e antisfondellamento",
+   "contenuto_copertina": "Soluzioni a secco certificate.",
+   "a_cosa_serve": "Sistemi certificati antisismici e antisfondellamento (uso dedotto)",
+   "fonte": "copertina",
+   "pagina": [
+    94
+   ],
+   "pagina_stampata": [
+    93
+   ]
+  },
+  {
+   "etichetta": "CONTROSOFFITTI (documentazione)",
+   "titolo_copertina": "Controsoffitti",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Per individuare in prima approssimazione la configurazione di controsoffitto più vicina all'esigenza",
+   "fonte": "citazione nel testo",
+   "pagina": [
+    62
+   ],
+   "pagina_stampata": [
+    61
+   ]
+  },
+  {
+   "etichetta": "SCHEDE PREGYBOARD / PREGYGIPS",
+   "titolo_copertina": "Documentazioni tecniche specifiche pannelli Pregyboard e Pregygips",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Dettagli su pannelli e sistema ispezionabile",
+   "fonte": "citazione nel testo",
+   "pagina": [
+    75
+   ],
+   "pagina_stampata": [
+    74
+   ]
+  },
+  {
+   "etichetta": "DIVISIONE TECNICA SINIAT",
+   "titolo_copertina": "Divisione Tecnica Siniat – tel. 0382 4575.75",
+   "contenuto_copertina": null,
+   "a_cosa_serve": "Consulenza per prestazioni particolari di resistenza al fuoco (rimando nelle appendici insieme al Memento)",
+   "fonte": "citazione nel testo",
+   "pagina": [
+    100
+   ],
+   "pagina_stampata": [
+    99
+   ]
+  }
+ ],
+ "documentazione_nota": "I manuali specifici dei sistemi riportano voci di capitolato, quantitativi medi e disegni; documentazione e brochure si scaricano da www.siniat.it o si richiedono via fax 0382 4575.250 o e-mail siniat.italia@siniat.com (p94/93). Per le copertine l'uso è dedotto dal titolo e dal sottotitolo; i riferimenti potrebbero essere datati (copertina Memento 'Luglio 2013', Expo 2015).",
+ "quantitativi_medi": [
+  {
+   "id": "APP1_S_doppio_paramento_doppio_montante_i60",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo S (separativa)",
+   "descrizione": "Parete separativa a doppio paramento e doppio montante",
+   "adatta_per": "Pareti ad alte prestazioni acustiche e/o pareti E.I., es. divisori tra unità abitative, o tra corridoi e camere in hotel",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13)",
+     "unita": "m²",
+     "quantita": 4.2,
+     "testo_originale": "4,2 m² (doppio paramento);",
+     "note": "Lettura: 4 strati di lastra in totale × 1,05."
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 1.8,
+     "testo_originale": "1,8 m",
+     "note": "Osservazione: le altre tabelle riportano 0,7 m (DA VERIFICARE col motore)."
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 7.0,
+     "testo_originale": "7,0 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 6,
+     "testo_originale": "6 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx35 2° paramento",
+     "unita": "U",
+     "quantita": 18,
+     "testo_originale": "18 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 2,
+     "testo_originale": "2 U",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 8,
+     "testo_originale": "8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli isolanti",
+     "unita": "m²",
+     "quantita": null,
+     "testo_originale": "1,05 m² oppure 2,1 m²",
+     "note": "Alternative: 1,05 (uno strato) oppure 2,1 m².",
+     "quantita_alternative": [
+      1.05,
+      2.1
+     ]
+    }
+   ],
+   "pagina": [
+    97
+   ],
+   "pagina_stampata": [
+    96
+   ]
+  },
+  {
+   "id": "APP1_S_paramento_multiplo_singolo_montante_i60",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo S (separativa)",
+   "descrizione": "Parete separativa a paramento multiplo e singolo montante",
+   "adatta_per": "Pareti ad alte prestazioni acustiche e/o pareti E.I., es. divisori tra zone notte e zone giorno, tra ufficio ed ufficio",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13)",
+     "unita": "m²",
+     "quantita": 5.25,
+     "testo_originale": "5,25 m²",
+     "note": "Lettura: 5 strati di lastra in totale × 1,05."
+    },
+    {
+     "prodotto": "Angolare metallico 40x40 (guida)",
+     "unita": "m",
+     "quantita": 2.6,
+     "testo_originale": "2,6 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 3.5,
+     "testo_originale": "3,5 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 6,
+     "testo_originale": "6 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx35 2° paramento",
+     "unita": "U",
+     "quantita": 18,
+     "testo_originale": "18 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx55 3° paramento",
+     "unita": "U",
+     "quantita": 12,
+     "testo_originale": "12 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 3,
+     "testo_originale": "3 U",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.9,
+     "testo_originale": "0,9 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 4,
+     "testo_originale": "4 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli isolanti",
+     "unita": "m²",
+     "quantita": 1.15,
+     "testo_originale": "1,15 m²",
+     "note": null
+    }
+   ],
+   "pagina": [
+    97
+   ],
+   "pagina_stampata": [
+    96
+   ],
+   "note": "Nessuna riga 'Stucco Pregy S (in pasta)' in questa tabella."
+  },
+  {
+   "id": "APP1_SL_doppio_paramento_singolo_montante_i60",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo SL (separativa legata)",
+   "descrizione": "Parete separativa legata a doppio paramento e singolo montante",
+   "adatta_per": "Pareti a grandi altezze e/o pareti E.I., es. centri commerciali, hall di alberghi, palestre",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 4.2,
+     "testo_originale": "4,2 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Lamiera piatta sp. 10/10",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo lo spessore e l'altezza della parete*",
+     "note": "Quantità non fissa: 'Secondo lo spessore e l'altezza della parete*'. *Per ciascun connettore considerare ulteriori 4 viti TEKS SNT oltre quelle del prospetto."
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 3.5,
+     "testo_originale": "3,5 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 6,
+     "testo_originale": "6 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx35 2° paramento",
+     "unita": "U",
+     "quantita": 18,
+     "testo_originale": "18 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 3,
+     "testo_originale": "3 U",
+     "note": "Aggiungere 4 viti TEKS SNT per ciascun connettore (nota * della tabella)."
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 8,
+     "testo_originale": "8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti eventuali",
+     "unita": "m²",
+     "quantita": null,
+     "testo_originale": "1,05 opp. 2,1 m²",
+     "note": "Alternative: 1,05 oppure 2,1 m².",
+     "quantita_alternative": [
+      1.05,
+      2.1
+     ]
+    }
+   ],
+   "pagina": [
+    98
+   ],
+   "pagina_stampata": [
+    97
+   ]
+  },
+  {
+   "id": "APP1_SL_doppio_paramento_singolo_montante_i40",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo SL (separativa legata)",
+   "descrizione": "Parete separativa legata a doppio paramento e singolo montante",
+   "adatta_per": "Pareti a grandi altezze e/o pareti E.I., es. centri commerciali, hall di alberghi, palestre",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 40 cm",
+   "interasse_cm": 40,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 4.2,
+     "testo_originale": "4,2 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Lamiera piatta sp. 10/10",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo lo spessore e l'altezza della parete*",
+     "note": "Quantità non fissa: 'Secondo lo spessore e l'altezza della parete*'. *Per ciascun connettore considerare ulteriori 4 viti TEKS SNT oltre quelle del prospetto."
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 5.3,
+     "testo_originale": "5,3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 9,
+     "testo_originale": "9 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx35 2° paramento",
+     "unita": "U",
+     "quantita": 27,
+     "testo_originale": "27 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 5,
+     "testo_originale": "5 U",
+     "note": "Aggiungere 4 viti TEKS SNT per ciascun connettore (nota * della tabella)."
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 8,
+     "testo_originale": "8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti eventuali",
+     "unita": "m²",
+     "quantita": null,
+     "testo_originale": "1,05 opp. 2,1 m²",
+     "note": "Alternative: 1,05 oppure 2,1 m².",
+     "quantita_alternative": [
+      1.05,
+      2.1
+     ]
+    }
+   ],
+   "pagina": [
+    98
+   ],
+   "pagina_stampata": [
+    97
+   ]
+  },
+  {
+   "id": "APP1_SL_doppio_paramento_doppio_montante_i60",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo SL (separativa legata)",
+   "descrizione": "Parete separativa legata a doppio paramento e doppio montante",
+   "adatta_per": "Pareti a grandi altezze e/o pareti E.I., es. capannoni, centri sportivi",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 4.2,
+     "testo_originale": "4,2 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Lamiera piatta sp 10/10",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo lo spessore e l'altezza della parete*",
+     "note": "Quantità non fissa: 'Secondo lo spessore e l'altezza della parete*'. *Per ciascun connettore considerare ulteriori 4 viti TEKS SNT oltre quelle del prospetto."
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 7,
+     "testo_originale": "7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 6,
+     "testo_originale": "6 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx35 2° paramento",
+     "unita": "U",
+     "quantita": 28,
+     "testo_originale": "28 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 12,
+     "testo_originale": "12 U",
+     "note": "Aggiungere 4 viti TEKS SNT per ciascun connettore (nota * della tabella)."
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 8,
+     "testo_originale": "8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti eventuali",
+     "unita": "m²",
+     "quantita": null,
+     "testo_originale": "1,05 opp. 2,1 m²",
+     "note": "Alternative: 1,05 oppure 2,1 m².",
+     "quantita_alternative": [
+      1.05,
+      2.1
+     ]
+    }
+   ],
+   "pagina": [
+    98
+   ],
+   "pagina_stampata": [
+    97
+   ]
+  },
+  {
+   "id": "APP1_SL_doppio_paramento_doppio_montante_i40",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo SL (separativa legata)",
+   "descrizione": "Parete separativa legata a doppio paramento e doppio montante",
+   "adatta_per": "Pareti a grandi altezze e/o pareti E.I., es. capannoni, centri sportivi",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 40 cm",
+   "interasse_cm": 40,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 4.2,
+     "testo_originale": "4,2 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Lamiera piatta sp 10/10",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo lo spessore e l'altezza della parete*",
+     "note": "Quantità non fissa: 'Secondo lo spessore e l'altezza della parete*'. *Per ciascun connettore considerare ulteriori 4 viti TEKS SNT oltre quelle del prospetto."
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 11,
+     "testo_originale": "11 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 9,
+     "testo_originale": "9 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx35 2° paramento",
+     "unita": "U",
+     "quantita": 37,
+     "testo_originale": "37 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 16,
+     "testo_originale": "16 U",
+     "note": "Aggiungere 4 viti TEKS SNT per ciascun connettore (nota * della tabella)."
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 8,
+     "testo_originale": "8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti eventuali",
+     "unita": "m²",
+     "quantita": null,
+     "testo_originale": "1,05 opp. 2,1 m²",
+     "note": "Alternative: 1,05 oppure 2,1 m².",
+     "quantita_alternative": [
+      1.05,
+      2.1
+     ]
+    }
+   ],
+   "pagina": [
+    98
+   ],
+   "pagina_stampata": [
+    97
+   ]
+  },
+  {
+   "id": "APP1_SLA_paramento_multiplo_doppio_montante_i60",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo SLA (separativa legata acustica)",
+   "descrizione": "Parete separativa legata acustica a paramento multiplo e doppio montante",
+   "adatta_per": "Pareti a grandi altezze e ad altissime prestazioni acustiche e/o pareti E.I., es. cinema multisala",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": null,
+     "testo_originale": "4,2 m² (doppio paramento); 5,25 m² (triplo paramento);",
+     "note": "Alternative secondo il paramento.",
+     "quantita_alternative": [
+      {
+       "quantita": 4.2,
+       "condizione": "doppio paramento"
+      },
+      {
+       "quantita": 5.25,
+       "condizione": "triplo paramento"
+      }
+     ]
+    },
+    {
+     "prodotto": "Connettori PHONI SL",
+     "unita": "U",
+     "quantita": 1.2,
+     "testo_originale": "1,2 U",
+     "note": null
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 7.0,
+     "testo_originale": "7,0 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNT",
+     "unita": "U",
+     "quantita": 45,
+     "testo_originale": "45 U",
+     "note": null
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 40,
+     "testo_originale": "40 U",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 8,
+     "testo_originale": "8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli in lana di roccia",
+     "unita": "m²",
+     "quantita": null,
+     "testo_originale": "2,1 m² per SLA 260; 4,2 m² per SLA 440",
+     "note": "Alternative per versione.",
+     "quantita_alternative": [
+      {
+       "quantita": 2.1,
+       "condizione": "SLA 260"
+      },
+      {
+       "quantita": 4.2,
+       "condizione": "SLA 440"
+      }
+     ]
+    }
+   ],
+   "pagina": [
+    99
+   ],
+   "pagina_stampata": [
+    98
+   ]
+  },
+  {
+   "id": "APP1_D_singolo_paramento_doppio_montante_i60",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo D (distributiva)",
+   "descrizione": "Parete distributiva a singolo paramento e doppio montante",
+   "adatta_per": "Divisori tra ambienti e/o pareti E.I., es. cucina e bagno",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 2.1,
+     "testo_originale": "2,1 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 3.8,
+     "testo_originale": "3,8 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 (BA13) opp. SNTx35 (BA15 - BA18)",
+     "unita": "U",
+     "quantita": 30,
+     "testo_originale": "30 U",
+     "note": "SNTx25 con BA13; SNTx35 con BA15 o BA18."
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 6,
+     "testo_originale": "6 U",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 4,
+     "testo_originale": "4 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": null
+    }
+   ],
+   "pagina": [
+    100
+   ],
+   "pagina_stampata": [
+    99
+   ]
+  },
+  {
+   "id": "APP1_D_singolo_paramento_doppio_montante_i40",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo D (distributiva)",
+   "descrizione": "Parete distributiva a singolo paramento e doppio montante",
+   "adatta_per": "Divisori tra ambienti e/o pareti E.I., es. cucina e bagno",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 40 cm",
+   "interasse_cm": 40,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 2.1,
+     "testo_originale": "2,1 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 5.5,
+     "testo_originale": "5,5 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 (BA13) opp. SNTx35 (BA15 - BA18)",
+     "unita": "U",
+     "quantita": 40,
+     "testo_originale": "40 U",
+     "note": "SNTx25 con BA13; SNTx35 con BA15 o BA18."
+    },
+    {
+     "prodotto": "Viti Pregy TEKS SNT",
+     "unita": "U",
+     "quantita": 8,
+     "testo_originale": "8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 4,
+     "testo_originale": "4 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": null
+    }
+   ],
+   "pagina": [
+    100
+   ],
+   "pagina_stampata": [
+    99
+   ]
+  },
+  {
+   "id": "APP1_D_doppio_paramento_singolo_montante_i60",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo D (distributiva)",
+   "descrizione": "Parete distributiva a doppio paramento e singolo montante",
+   "adatta_per": "Divisori tra locali di ambienti pubblici e/o pareti E.I., es. negozi, scuole",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 4.2,
+     "testo_originale": "4,2 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 1.8,
+     "testo_originale": "1,8 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 6,
+     "testo_originale": "6 U",
+     "note": "A interasse 40 cm il valore è stampato senza unità ('9')."
+    },
+    {
+     "prodotto": "Viti SNTx45 2° paramento",
+     "unita": "U",
+     "quantita": 18,
+     "testo_originale": "18 U",
+     "note": "Qui SNTx45 (nelle altre tabelle il 2° paramento usa SNTx35)."
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 4,
+     "testo_originale": "4 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": null
+    }
+   ],
+   "pagina": [
+    100
+   ],
+   "pagina_stampata": [
+    99
+   ],
+   "note": "Nessuna riga 'Viti Pregy TEKS SNT' in questa tabella."
+  },
+  {
+   "id": "APP1_D_doppio_paramento_singolo_montante_i40",
+   "appendice": "Appendice 1 - Quantitativi medi pareti",
+   "sistema": "Parete tipo D (distributiva)",
+   "descrizione": "Parete distributiva a doppio paramento e singolo montante",
+   "adatta_per": "Divisori tra locali di ambienti pubblici e/o pareti E.I., es. negozi, scuole",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 40 cm",
+   "interasse_cm": 40,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (BA13 - BA15 - BA18)",
+     "unita": "m²",
+     "quantita": 4.2,
+     "testo_originale": "4,2 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Guide",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Montanti",
+     "unita": "m",
+     "quantita": 2.6,
+     "testo_originale": "2,6m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNTx25 1° paramento",
+     "unita": "U",
+     "quantita": 9,
+     "testo_originale": "9",
+     "note": "A interasse 40 cm il valore è stampato senza unità ('9')."
+    },
+    {
+     "prodotto": "Viti SNTx45 2° paramento",
+     "unita": "U",
+     "quantita": 27,
+     "testo_originale": "27 U",
+     "note": "Qui SNTx45 (nelle altre tabelle il 2° paramento usa SNTx35)."
+    },
+    {
+     "prodotto": "Stucco Pregy P25; P25 Extra; P35; P45; P95",
+     "unita": "kg",
+     "quantita": 0.7,
+     "testo_originale": "0,7 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Stucco Pregy S (in pasta)",
+     "unita": "kg",
+     "quantita": 1,
+     "testo_originale": "1 kg",
+     "note": "Stucco in polvere e stucco in pasta compaiono entrambi: probabilmente alternativi, non da sommare (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Nastro per giunti (in carta o adesivo)",
+     "unita": "m",
+     "quantita": 3,
+     "testo_originale": "3 m",
+     "note": null
+    },
+    {
+     "prodotto": "Colla P120",
+     "unita": "kg",
+     "quantita": 0.1,
+     "testo_originale": "0,1 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro rinforzato o paraspigoli in metallo",
+     "unita": null,
+     "quantita": null,
+     "testo_originale": "Secondo n° di angoli uscenti per altezza del locale",
+     "note": "Quantità non fissa: dipende dal numero di angoli uscenti per l'altezza del locale."
+    },
+    {
+     "prodotto": "Fissaggi (chiodi sparati o tassellati)",
+     "unita": "U",
+     "quantita": 4,
+     "testo_originale": "4 U",
+     "note": null
+    },
+    {
+     "prodotto": "Pannelli Isolanti",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": null
+    }
+   ],
+   "pagina": [
+    100
+   ],
+   "pagina_stampata": [
+    99
+   ],
+   "note": "Nessuna riga 'Viti Pregy TEKS SNT' in questa tabella."
+  },
+  {
+   "id": "APP2_controparete_struttura_metallica_i60",
+   "appendice": "Appendice 2 - Quantitativi medi contropareti",
+   "sistema": "Controparete su struttura metallica",
+   "descrizione": "Contropareti a fissaggio meccanico su tramezzature interne, esterne o su pareti divisorie",
+   "adatta_per": "Pareti perimetrali e/o pareti R.E.I., es. appartamenti, capannoni, edifici da risanare in generale",
+   "condizioni": "quantità per m² (sfrido 5%); interasse montanti 60 cm",
+   "interasse_cm": 60,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGYPlac BA13",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": null
+    },
+    {
+     "prodotto": "Pannello isolante in …(1)",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": "(1) Lana di vetro; lana di roccia"
+    },
+    {
+     "prodotto": "Profili a “C” verticali di mm …(2) sp.6/10",
+     "unita": "m",
+     "quantita": 1.8,
+     "testo_originale": "1,8 m",
+     "note": "(2) 47-49-50 mm (montanti standard 50); 27-48-27 mm (profili per controparete S4927). Osservazione: a p61 S4927 = 27-49-27."
+    },
+    {
+     "prodotto": "Guida ad “U” di mm …(3) sp. 6/10",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": "(3) 40-50-40 mm (per montanti standard 50); 29-29-29 mm (per profili S4927)"
+    },
+    {
+     "prodotto": "Nastro monoadesivo in polietilene",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "0,7 m",
+     "note": null
+    },
+    {
+     "prodotto": "Squadre ad “L” 60x35mm (per montanti standard 50)",
+     "unita": "U",
+     "quantita": 1.0,
+     "testo_originale": "1,0 U",
+     "note": "Solo con montanti standard 50."
+    },
+    {
+     "prodotto": "Staffe regolabili o appoggi in plastica (per profili S4927)",
+     "unita": "U",
+     "quantita": 2.0,
+     "testo_originale": "2,0 U",
+     "note": "Solo con profili S4927."
+    },
+    {
+     "prodotto": "Tasselli metallici",
+     "unita": "U",
+     "quantita": 4,
+     "testo_originale": "4 U",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco per giunti PREGY …(4)",
+     "unita": "kg",
+     "quantita": 0.35,
+     "testo_originale": "0,35 kg",
+     "note": "(4) P25; P25 extra; P35; P45; P95; PREGY S (tipo di stucco)"
+    },
+    {
+     "prodotto": "Nastro di armatura …(5)",
+     "unita": "m",
+     "quantita": 1.6,
+     "testo_originale": "1,60 m",
+     "note": "(5) Banda in carta microforata; rete adesiva in fibra di vetro; banda in fibra di vetro (tipo di armatura dei giunti)"
+    },
+    {
+     "prodotto": "Viti SNT",
+     "unita": "U",
+     "quantita": 12,
+     "testo_originale": "12 U",
+     "note": null
+    }
+   ],
+   "pagina": [
+    101
+   ],
+   "pagina_stampata": [
+    100
+   ]
+  },
+  {
+   "id": "APP2_controparete_accoppiati_isolanti",
+   "appendice": "Appendice 2 - Quantitativi medi contropareti",
+   "sistema": "Controparete con accoppiati isolanti",
+   "descrizione": "Contropareti a fissaggio meccanico su tramezzature interne, esterne o su pareti divisorie (sottotitolo identico alla controparete su struttura: il sistema però è incollato)",
+   "adatta_per": "Pareti perimetrali, es. appartamenti, box, sottotetti, scantinati",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Pannelli accoppiati PREGY",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": null
+    },
+    {
+     "prodotto": "COLLA PREGY P120",
+     "unita": "kg",
+     "quantita": 2.8,
+     "testo_originale": "2,80 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco per giunti PREGY",
+     "unita": "kg",
+     "quantita": 0.35,
+     "testo_originale": "0,35 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro di armatura",
+     "unita": "m",
+     "quantita": 1.6,
+     "testo_originale": "1,60 m",
+     "note": null
+    }
+   ],
+   "pagina": [
+    101
+   ],
+   "pagina_stampata": [
+    100
+   ],
+   "note": "N.B. la parete preesistente può essere di vari tipi di forati e/o blocchi; nessun interasse (sistema incollato)."
+  },
+  {
+   "id": "APP3_CDO_con_plenum",
+   "appendice": "Appendice 3 - Quantitativi medi controsoffitti",
+   "sistema": "Controsoffitto a doppia orditura CDO con plenum",
+   "descrizione": "Controsoffitti a doppia orditura CDO con plenum",
+   "adatta_per": "Ogni tipologia di controsoffitto dove ci sia la possibilità/necessità di ribassare il controsoffitto in cartongesso dal soffitto preesistente",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (per ciascun paramento)",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": "Per ciascuno strato di lastre."
+    },
+    {
+     "prodotto": "Profili S4927 (Primario 100 cm, secondario 60 cm)",
+     "unita": "m",
+     "quantita": 2.8,
+     "testo_originale": "2,8 m",
+     "note": "Primario a 100 cm + secondario a 60 cm."
+    },
+    {
+     "prodotto": "Guida Perimetrale",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "secondo necessità",
+     "note": "Quantità non fissa (dipende dal perimetro)."
+    },
+    {
+     "prodotto": "Attacchi semplici (Interasse pendini 100 cm)",
+     "unita": "U",
+     "quantita": 1.1,
+     "testo_originale": "1,1 U",
+     "note": "Osservazione: 1,1 U contro 1,7 U di tasselli e 1,7 × h di barra (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Barra filettata Ø6mm Pendino a molla Ø4mm",
+     "unita": "m",
+     "quantita": 1.7,
+     "testo_originale": "1,7 x (altezza plenum) m",
+     "note": "Quantità = 1,7 × altezza del plenum in m (barra filettata Ø6 oppure pendino a molla con barra Ø4).",
+     "moltiplicatore": "altezza plenum [m]"
+    },
+    {
+     "prodotto": "Ganci di unione per S4927",
+     "unita": "U",
+     "quantita": 6,
+     "testo_originale": "6 U",
+     "note": "Osservazione: una maglia 100×60 ha circa 1,7 incroci/m² (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Tasselli metallici",
+     "unita": "U",
+     "quantita": 1.7,
+     "testo_originale": "1,7 U",
+     "note": null
+    },
+    {
+     "prodotto": "Stucco per giunti PREGY",
+     "unita": "kg",
+     "quantita": 0.35,
+     "testo_originale": "0,35 kg",
+     "note": null
+    },
+    {
+     "prodotto": "Nastro di armatura",
+     "unita": "m",
+     "quantita": 1.6,
+     "testo_originale": "1,6 m",
+     "note": null
+    },
+    {
+     "prodotto": "Viti SNT",
+     "unita": "U",
+     "quantita": 12,
+     "testo_originale": "12 U",
+     "note": null
+    }
+   ],
+   "pagina": [
+    102
+   ],
+   "pagina_stampata": [
+    101
+   ],
+   "note": "La testata della pagina dice 'APPENDICE 2 - QUANTITATIVI MEDI CONTROSOFFITTI', l'indice p96 'Appendice 3'."
+  },
+  {
+   "id": "APP3_CSO_con_plenum",
+   "appendice": "Appendice 3 - Quantitativi medi controsoffitti",
+   "sistema": "Controsoffitto a semplice orditura CSO con plenum",
+   "descrizione": "Controsoffitti a semplice orditura CSO con plenum",
+   "adatta_per": "Ogni tipologia di controsoffitto dove ci sia la possibilità/necessità di ribassare il controsoffitto in cartongesso dal soffitto preesistente",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (per ciascun paramento)",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": "Per ciascuno strato di lastre."
+    },
+    {
+     "prodotto": "Profili S4927 (passo 50 cm)",
+     "unita": "m",
+     "quantita": 2.1,
+     "testo_originale": "2,1 m",
+     "note": null
+    },
+    {
+     "prodotto": "Pendino a molla (passo 50 cm)",
+     "unita": "U",
+     "quantita": 2.1,
+     "testo_originale": "2,1 U",
+     "note": "Osservazione: con profili a 50 cm, 2,1 U/m² vuol dire un pendino ogni ~100 cm lungo il profilo (DA VERIFICARE)."
+    },
+    {
+     "prodotto": "Guida Perimetrale",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "secondo necessità",
+     "note": "Quantità non fissa."
+    },
+    {
+     "prodotto": "Stucco per giunti PREGY",
+     "unita": "kg",
+     "quantita": 0.35,
+     "testo_originale": "(n. di lastre) x 0,35 kg",
+     "note": "Moltiplicare per il numero di lastre (strati).",
+     "moltiplicatore": "n. di lastre"
+    },
+    {
+     "prodotto": "Nastro di armatura",
+     "unita": "m",
+     "quantita": 1.6,
+     "testo_originale": "(n. di lastre) x 1,6 m",
+     "note": "Moltiplicare per il numero di lastre (strati).",
+     "moltiplicatore": "n. di lastre"
+    },
+    {
+     "prodotto": "Viti SNT",
+     "unita": "U",
+     "quantita": 12,
+     "testo_originale": "(n. di lastre) x 12 U",
+     "note": "Moltiplicare per il numero di lastre (strati).",
+     "moltiplicatore": "n. di lastre"
+    }
+   ],
+   "pagina": [
+    103
+   ],
+   "pagina_stampata": [
+    102
+   ],
+   "note": "Tasselli e barre/pendini (lunghezza) non elencati."
+  },
+  {
+   "id": "APP3_CSO_in_aderenza",
+   "appendice": "Appendice 3 - Quantitativi medi controsoffitti",
+   "sistema": "Controsoffitto a semplice orditura CSO in aderenza",
+   "descrizione": "Controsoffitti a semplice orditura CSO in aderenza",
+   "adatta_per": "Ogni tipologia di controsoffitto dove NON ci sia la possibilità di ribassare il controsoffitto in cartongesso dal soffitto preesistente",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Lastre PREGY (per ciascun paramento)",
+     "unita": "m²",
+     "quantita": 1.05,
+     "testo_originale": "1,05 m²",
+     "note": "Per ciascuno strato di lastre."
+    },
+    {
+     "prodotto": "Profili S4927 (passo 60 cm)",
+     "unita": "m",
+     "quantita": 1.8,
+     "testo_originale": "1,8 m",
+     "note": null
+    },
+    {
+     "prodotto": "Attacchi semplici (passo 100 cm)",
+     "unita": "U",
+     "quantita": 1.8,
+     "testo_originale": "1,8 U",
+     "note": null
+    },
+    {
+     "prodotto": "Guida Perimetrale",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "secondo necessità",
+     "note": "Quantità non fissa."
+    },
+    {
+     "prodotto": "Stucco per giunti PREGY",
+     "unita": "kg",
+     "quantita": 0.35,
+     "testo_originale": "(n. di lastre) x 0,35 kg",
+     "note": "Moltiplicare per il numero di lastre (strati).",
+     "moltiplicatore": "n. di lastre"
+    },
+    {
+     "prodotto": "Nastro di armatura",
+     "unita": "m",
+     "quantita": 1.6,
+     "testo_originale": "(n. di lastre) x 1,6 m",
+     "note": "Moltiplicare per il numero di lastre (strati).",
+     "moltiplicatore": "n. di lastre"
+    },
+    {
+     "prodotto": "Viti SNT",
+     "unita": "U",
+     "quantita": 12,
+     "testo_originale": "(n. di lastre) x 12 U",
+     "note": "Moltiplicare per il numero di lastre (strati).",
+     "moltiplicatore": "n. di lastre"
+    }
+   ],
+   "pagina": [
+    103
+   ],
+   "pagina_stampata": [
+    102
+   ],
+   "note": "Tasselli non elencati."
+  },
+  {
+   "id": "APP3_ispezionabile_BORDO_A_VISTA_T2437",
+   "appendice": "Appendice 3 - Quantitativi medi controsoffitti",
+   "sistema": "Controsoffitto ispezionabile PregyGrid + PregyBoard",
+   "descrizione": "Controsoffitti ispezionabili – BORDO A VISTA T24-37",
+   "adatta_per": "Controsoffitti in cui si ha la necessità di accedere al plenum sovrastante per il passaggio di cavi e dotti di aereazione (es. banche, uffici); soffitto preesistente in travi di legno, latero-cemento, cemento armato o lamiera grecata e travi in acciaio",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Pannello PREGYBOARD",
+     "unita": "m²",
+     "quantita": 1.0,
+     "testo_originale": "1,00 m²",
+     "note": "1,00 m² nonostante l'intestazione 'sfrido 5%' (pannelli modulari)."
+    },
+    {
+     "prodotto": "Profilo portante PREGYGRID da 3600 mm",
+     "unita": "m",
+     "quantita": 0.88,
+     "testo_originale": "0,88 m",
+     "note": null
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 1200 mm",
+     "unita": "m",
+     "quantita": 1.75,
+     "testo_originale": "1,75 m",
+     "note": null
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 600 mm",
+     "unita": "m",
+     "quantita": 0.88,
+     "testo_originale": "0,88 m",
+     "note": null
+    },
+    {
+     "prodotto": "Cornice Perimetrale “L”",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "a necess. medio 0,7 m",
+     "note": "A necessità, valore medio."
+    },
+    {
+     "prodotto": "Cornice Perimetrale “C”",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "-",
+     "note": "Non prevista ('-')."
+    },
+    {
+     "prodotto": "Sospensioni Molla a doppia regolazione + barra Ø 4 mm",
+     "unita": "U",
+     "quantita": 0.7,
+     "testo_originale": "0,70 U",
+     "note": null
+    }
+   ],
+   "pagina": [
+    104
+   ],
+   "pagina_stampata": [
+    103
+   ]
+  },
+  {
+   "id": "APP3_ispezionabile_A_VISTA_VINILICO_T2437",
+   "appendice": "Appendice 3 - Quantitativi medi controsoffitti",
+   "sistema": "Controsoffitto ispezionabile PregyGrid + PregyBoard",
+   "descrizione": "Controsoffitti ispezionabili – A VISTA VINILICO T24-37",
+   "adatta_per": "Controsoffitti in cui si ha la necessità di accedere al plenum sovrastante per il passaggio di cavi e dotti di aereazione (es. banche, uffici); soffitto preesistente in travi di legno, latero-cemento, cemento armato o lamiera grecata e travi in acciaio",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Pannello PREGYBOARD",
+     "unita": "m²",
+     "quantita": 1.0,
+     "testo_originale": "1,00 m²",
+     "note": "1,00 m² nonostante l'intestazione 'sfrido 5%' (pannelli modulari)."
+    },
+    {
+     "prodotto": "Profilo portante PREGYGRID da 3600 mm",
+     "unita": "m",
+     "quantita": 0.88,
+     "testo_originale": "0,88 m",
+     "note": null
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 1200 mm",
+     "unita": "m",
+     "quantita": 1.75,
+     "testo_originale": "1,75 m",
+     "note": null
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 600 mm",
+     "unita": "m",
+     "quantita": 0.88,
+     "testo_originale": "0,88 m",
+     "note": null
+    },
+    {
+     "prodotto": "Cornice Perimetrale “L”",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "a necess. medio 0,7 m",
+     "note": "A necessità, valore medio."
+    },
+    {
+     "prodotto": "Cornice Perimetrale “C”",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "-",
+     "note": "Non prevista ('-')."
+    },
+    {
+     "prodotto": "Sospensioni Molla a doppia regolazione + barra Ø 4 mm",
+     "unita": "U",
+     "quantita": 0.7,
+     "testo_originale": "0,70 U",
+     "note": null
+    }
+   ],
+   "pagina": [
+    104
+   ],
+   "pagina_stampata": [
+    103
+   ]
+  },
+  {
+   "id": "APP3_ispezionabile_BORDO_A_VISTA_T2437_REI_120",
+   "appendice": "Appendice 3 - Quantitativi medi controsoffitti",
+   "sistema": "Controsoffitto ispezionabile PregyGrid + PregyBoard",
+   "descrizione": "Controsoffitti ispezionabili – BORDO A VISTA T24-37 REI 120",
+   "adatta_per": "Controsoffitti in cui si ha la necessità di accedere al plenum sovrastante per il passaggio di cavi e dotti di aereazione (es. banche, uffici); soffitto preesistente in travi di legno, latero-cemento, cemento armato o lamiera grecata e travi in acciaio",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Pannello PREGYBOARD",
+     "unita": "m²",
+     "quantita": 1.0,
+     "testo_originale": "1,00 m²",
+     "note": "1,00 m² nonostante l'intestazione 'sfrido 5%' (pannelli modulari)."
+    },
+    {
+     "prodotto": "Profilo portante PREGYGRID da 3600 mm",
+     "unita": "m",
+     "quantita": 1.75,
+     "testo_originale": "1,75 m",
+     "note": null
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 1200 mm",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "-",
+     "note": "Non previsto ('-')."
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 600 mm",
+     "unita": "m",
+     "quantita": 1.75,
+     "testo_originale": "1,75 m",
+     "note": null
+    },
+    {
+     "prodotto": "Cornice Perimetrale “L”",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "-",
+     "note": "Non prevista ('-')."
+    },
+    {
+     "prodotto": "Cornice Perimetrale “C”",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "a necess. medio 0,7 m",
+     "note": "A necessità, valore medio."
+    },
+    {
+     "prodotto": "Sospensioni Molla a doppia regolazione + barra Ø 4 mm",
+     "unita": "U",
+     "quantita": 1.4,
+     "testo_originale": "1,40 U",
+     "note": null
+    }
+   ],
+   "pagina": [
+    104
+   ],
+   "pagina_stampata": [
+    103
+   ],
+   "note": "Variante per resistenza al fuoco REI 120 (rapporto non indicato: DA VERIFICARE su Memento/antincendio)."
+  },
+  {
+   "id": "APP3_ispezionabile_BORDO_RIBASSATO_T14537",
+   "appendice": "Appendice 3 - Quantitativi medi controsoffitti",
+   "sistema": "Controsoffitto ispezionabile PregyGrid + PregyBoard",
+   "descrizione": "Controsoffitti ispezionabili – BORDO RIBASSATO T14,5-37",
+   "adatta_per": "Controsoffitti in cui si ha la necessità di accedere al plenum sovrastante per il passaggio di cavi e dotti di aereazione (es. banche, uffici); soffitto preesistente in travi di legno, latero-cemento, cemento armato o lamiera grecata e travi in acciaio",
+   "condizioni": "quantità per m² (sfrido 5%)",
+   "interasse_cm": null,
+   "sfrido_percento": 5,
+   "voci": [
+    {
+     "prodotto": "Pannello PREGYBOARD",
+     "unita": "m²",
+     "quantita": 1.0,
+     "testo_originale": "1,00 m²",
+     "note": "1,00 m² nonostante l'intestazione 'sfrido 5%' (pannelli modulari)."
+    },
+    {
+     "prodotto": "Profilo portante PREGYGRID da 3600 mm",
+     "unita": "m",
+     "quantita": 0.88,
+     "testo_originale": "0,88 m",
+     "note": null
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 1200 mm",
+     "unita": "m",
+     "quantita": 1.75,
+     "testo_originale": "1,75 m",
+     "note": null
+    },
+    {
+     "prodotto": "Profilo trasversale PREGYGRID da 600 mm",
+     "unita": "m",
+     "quantita": 0.88,
+     "testo_originale": "0,88 m",
+     "note": null
+    },
+    {
+     "prodotto": "Cornice Perimetrale “L”",
+     "unita": "m",
+     "quantita": 0.7,
+     "testo_originale": "a necess. medio 0,7 m",
+     "note": "A necessità, valore medio."
+    },
+    {
+     "prodotto": "Cornice Perimetrale “C”",
+     "unita": "m",
+     "quantita": null,
+     "testo_originale": "-",
+     "note": "Non prevista ('-')."
+    },
+    {
+     "prodotto": "Sospensioni Molla a doppia regolazione + barra Ø 4 mm",
+     "unita": "U",
+     "quantita": 0.7,
+     "testo_originale": "0,70 U",
+     "note": null
+    }
+   ],
+   "pagina": [
+    104
+   ],
+   "pagina_stampata": [
+    103
+   ]
+  }
+ ],
+ "definizioni_tipi_parete": [
+  {
+   "tipo": "D",
+   "significato": "distributivo",
+   "definizione": "Parete a semplice orditura per dividere ambienti.",
+   "varianti_appendice": [
+    "Parete distributiva a singolo paramento e doppio montante",
+    "Parete distributiva a doppio paramento e singolo montante"
+   ],
+   "pagina": [
+    27,
+    100
+   ],
+   "pagina_stampata": [
+    26,
+    99
+   ]
+  },
+  {
+   "tipo": "S",
+   "significato": "separativo",
+   "definizione": "Parete a doppia orditura parallela desolidarizzata ad alte prestazioni; le due orditure possono avere montanti allineati o sfalsati.",
+   "varianti_appendice": [
+    "Parete separativa a doppio paramento e doppio montante",
+    "Parete separativa a paramento multiplo e singolo montante"
+   ],
+   "pagina": [
+    27,
+    97
+   ],
+   "pagina_stampata": [
+    26,
+    96
+   ]
+  },
+  {
+   "tipo": "SL",
+   "significato": "separativo legato",
+   "definizione": "Doppia orditura parallela collegata da piastre metalliche, per grandi altezze (p32: lastrine di cartongesso, o bande di lamiera 10/10 se serve la resistenza al fuoco).",
+   "varianti_appendice": [
+    "Parete separativa legata a doppio paramento e singolo montante",
+    "Parete separativa legata a doppio paramento e doppio montante"
+   ],
+   "pagina": [
+    27,
+    32,
+    98
+   ],
+   "pagina_stampata": [
+    26,
+    31,
+    97
+   ]
+  },
+  {
+   "tipo": "SLA",
+   "significato": "separativo legato acustico",
+   "definizione": "Come la SL ma con le orditure collegate da connettori acustici (PHONI SL) per alte prestazioni fonoisolanti; montanti sempre dorso-dorso.",
+   "varianti_appendice": [
+    "Parete separativa legata acustica a paramento multiplo e doppio montante (SLA 260 / SLA 440)"
+   ],
+   "pagina": [
+    27,
+    32,
+    99
+   ],
+   "pagina_stampata": [
+    26,
+    31,
+    98
+   ]
+  }
+ ],
+ "scuola_di_posa": {
+  "descrizione": "Scuola itinerante di formazione teorico-pratica per applicatori e operatori, presso i distributori Siniat; certificata ISO 9001 (Bureau Veritas, ratifica Accredia).",
+  "titoli": [
+   "Attestato di Partecipazione (senza esami)",
+   "Certificato di Competenza (con esami teorico-pratici superati)"
+  ],
+  "corsi": [
+   "Corso Base",
+   "Corso Superfici Curve",
+   "Corso Stucchi e Trattamento dei Giunti",
+   "Corso sulla Protezione al Fuoco dei Sistemi (parte pratica: giunti di dilatazione, canalizzazioni, supporti intumescenti per attraversamenti)",
+   "Corso Base informativo (magazzinieri, venditori, tecnici dei distributori)",
+   "Corso Protezione al Fuoco dei Sistemi (informazioni base su norme e leggi)",
+   "Corso Acustica nei Sistemi",
+   "Corso Sistemi AquaBoard e LaDura (pareti perimetrali esterne antintrusione, controsoffitti esterni, pareti separative antintrusione)"
+  ],
+  "contatti_riportati": "Tel. 0382 4575.75; Fax 0382 4575.250; siniat.italia@siniat.com (probabilmente datati)",
+  "pagina": [
+   89
+  ],
+  "pagina_stampata": [
+   88
+  ]
+ },
+ "osservazioni_coerenza": [
+  "Lettura dello sfrido (interpretazione): lastre 1,05 m² per strato; 2,1/4,2/5,25 = 2/4/5 strati totali; montanti a 60 cm ≈ 1,67 m/m² × 1,05 ≈ 1,8; a 40 cm ≈ 2,5 × 1,05 ≈ 2,6; guide 0,7 m/m² ≈ 2 guide per circa 3 m di altezza × 1,05.",
+  "S doppio paramento doppio montante: Guide 1,8 m contro 0,7 m in tutte le altre tabelle (anche SL/SLA a doppia orditura) – DA VERIFICARE.",
+  "CDO con plenum: attacchi 1,1 U/m² ma tasselli 1,7 U/m² e barra 1,7 × h; ganci di unione 6 U/m² – conteggi non coerenti tra loro – DA VERIFICARE.",
+  "CSO con plenum: pendino a molla 'passo 50 cm' 2,1 U/m² (coerente con un pendino ogni ~100 cm su profili a 50 cm) – DA VERIFICARE.",
+  "CSO (plenum e aderenza): tasselli non elencati; CSO con plenum non elenca barre; stucco/nastro/viti per numero di lastre.",
+  "Pareti: stucco in polvere (0,7 kg) e stucco in pasta Pregy S (1 kg) elencati insieme – probabilmente alternativi – DA VERIFICARE.",
+  "D doppio paramento singolo montante: viti SNTx45 per il 2° paramento (SNTx35 nelle altre tabelle); manca la riga TEKS; '9' senza unità a interasse 40.",
+  "Contropareti: nota (2) S4927 = 27-48-27 mm contro 27-49-27 a p61; tabella accoppiati con sottotitolo 'a fissaggio meccanico' ma sistema incollato.",
+  "Ispezionabili: PregyBoard 1,00 m² nonostante lo 'sfrido 5%' in intestazione; nel testo grezzo le colonne erano in ordine diverso (vale l'ordine dell'immagine).",
+  "Indice p96: elenca 'CDO in aderenza con profilo clip' ma la tabella non c'è; testate p102-103 'Appendice 2' invece di 3.",
+  "Rinvii interni: p58 rimanda all'Appendice 'pag. 102' (in realtà stampata 100); p76 a 'pag. 103' (stampate 101-103).",
+  "Tavola p58: PregyRoche 13+40 R=1,80 > 13+50 R=1,49 (probabile refuso); PregyFoam 13+20 impaginato nella cella lastra '9,5'.",
+  "p55: classe 'B2-s1, d0' non esistente in EN 13501-1 (probabile B-s1,d0); p55 promette valori acustici che la tavola p58 non riporta.",
+  "Livello testo p93 (miniature, non leggibile a vista, dati di vecchie brochure – DA VERIFICARE): PregyAquaBoard 860 kg/m³, λ=0,25 W/mK, μ=11, riciclato 84%, A2-s1,d0, EN 15283-1 GM-H1 GM-I, 1200x2000/1200x3000 mm sp. 12,5; PregyLaDura 1025 kg/m³, λ=0,28, μ=10, riciclato 24%, A2-s1,d0, EN 520; PregyMetal (AquaBoard in Aluzink) 50/75/100/150 mm sp. 6/10."
+ ],
+ "da_verificare": [
+  "Tavola p58: PregyRoche 13+40 R=1,80; PregyFoam 13+20 spessore lastra (cella unita 9,5); valori acustici degli accoppiati assenti.",
+  "p55: euroclasse 'B2-s1, d0'.",
+  "p76: sigla 'PS' in '1 PS BA 13'.",
+  "p66: tipo di solaio del tassello metallico a espansione; nessuna indicazione di tassello per solai in legno, lamiera grecata, acciaio.",
+  "p49: sistemi REI 120 per contropareti senza numero di rapporto né stratigrafia delle lastre.",
+  "p52: l'interasse 1,20/1,50 m è riferito agli attacchi/staffe lungo il profilo (lettura più probabile del testo).",
+  "Appendice: tabella 'CDO in aderenza con profilo clip' mancante; incongruenze in osservazioni_coerenza.",
+  "Botole: solo brochure, nessuna regola di posa in p45-106. Livelli di finitura Q1-Q4: non presenti.",
+  "Contatti, nomi prodotto e riferimenti normativi (D.Lgs. 311/2006) possibilmente superati: edizione 2025 con contenuti datati.",
+  "Equivalenza PregyLaDura / LaDura Plus non certa."
+ ],
+ "equivalenze_nomi": [
+  {
+   "nome_manuale": "PregyPlac BA13 / BA10",
+   "nota": "lastra standard (pregyplac); BA10 usata per ricavare i PregyBoard"
+  },
+  {
+   "nome_manuale": "Pregydro",
+   "nota": "lastra idrorepellente (pregydro)"
+  },
+  {
+   "nome_manuale": "PregyVapor",
+   "nota": "lastra con barriera al vapore (lamina di alluminio sul dorso)"
+  },
+  {
+   "nome_manuale": "Synia",
+   "nota": "lastra con bordi trasversali assottigliati (4 bordi)"
+  },
+  {
+   "nome_manuale": "PregyColle P120 = Colla P120 = COLLA PREGY P120",
+   "nota": "collante per accoppiati"
+  },
+  {
+   "nome_manuale": "PregyStyrene / PregyFoam / PregyVer / PregyRoche",
+   "nota": "accoppiati isolanti EPS / XPS / lana di vetro / lana di roccia"
+  },
+  {
+   "nome_manuale": "PregyGrid / PregyBoard / PregyGips",
+   "nota": "orditura a vista, pannello 60x60 (EN 14190, da PregyPlac BA10), pannello in gesso alleggerito"
+  },
+  {
+   "nome_manuale": "P25, P25 Extra, P35, P45, P95 / Pregy S / E6.0",
+   "nota": "stucchi in polvere a presa / stucco in pasta / stucco E6.0"
+  },
+  {
+   "nome_manuale": "PregyAquaBoard = AquaBoard",
+   "nota": "lastra per esterni"
+  },
+  {
+   "nome_manuale": "PregyLaDura ~ LaDura Plus",
+   "nota": "DA VERIFICARE (LaDura Plus forse è l'evoluzione)"
+  }
+ ]
+}
