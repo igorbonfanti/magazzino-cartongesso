@@ -1,8 +1,9 @@
-import { Link, NavLink, Navigate, Route, Routes } from 'react-router-dom';
+import { Link, NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Distinta from './pages/Distinta';
 import ComeSiCalcola from './pages/ComeSiCalcola';
 import Accesso from './pages/Accesso';
 import Mappatura from './pages/Mappatura';
+import Recinto from './pages/Recinto';
 import { useTema } from './lib/tema';
 import { ProviderAccesso, useAccesso } from './lib/auth';
 import { ProviderDati } from './lib/dati';
@@ -22,6 +23,7 @@ export default function App() {
 function Guscio() {
   const [tema, cambiaTema] = useTema();
   const { utente, autorizzato, logout } = useAccesso();
+  const posizione = useLocation();
 
   return (
     <div className="app">
@@ -60,14 +62,17 @@ function Guscio() {
       </nav>
 
       <main>
-        <Routes>
-          <Route path="/" element={<Navigate to="/distinta" replace />} />
-          <Route path="/distinta" element={<Distinta />} />
-          <Route path="/accesso" element={utente ? <Navigate to="/distinta" replace /> : <Accesso />} />
-          <Route path="/mappatura" element={<Mappatura />} />
-          <Route path="/come-si-calcola" element={<ComeSiCalcola />} />
-          <Route path="*" element={<Navigate to="/distinta" replace />} />
-        </Routes>
+        {/* cambiando pagina il recinto si azzera: un errore non blocca le altre pagine */}
+        <Recinto key={posizione.pathname}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/distinta" replace />} />
+            <Route path="/distinta" element={<Distinta />} />
+            <Route path="/accesso" element={utente ? <Navigate to="/distinta" replace /> : <Accesso />} />
+            <Route path="/mappatura" element={<Mappatura />} />
+            <Route path="/come-si-calcola" element={<ComeSiCalcola />} />
+            <Route path="*" element={<Navigate to="/distinta" replace />} />
+          </Routes>
+        </Recinto>
       </main>
     </div>
   );

@@ -182,8 +182,13 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
   const [inCorso, setInCorso] = useState(false);
   const scheda = useRef<HTMLElement>(null);
 
-  // la scheda sta sopra l'elenco: se si è cliccata una voce in fondo, la si porta in vista
-  useEffect(() => scheda.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), []);
+  // la scheda sta sopra l'elenco: se si è cliccata una voce in fondo, la si porta in vista.
+  // Con le graffe: Chrome recente fa restituire una Promise a scrollIntoView, e un effetto
+  // che restituisce qualcosa che non è una funzione manda in errore React quando la
+  // scheda si chiude (era la pagina vuota dopo "Salva").
+  useEffect(() => {
+    scheda.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, []);
 
   const risultati = useMemo(() => (dati.listino ? cercaArticoli(dati.listino.articoli, cerca) : []), [dati.listino, cerca]);
   const articolo: ArticoloListino | undefined = codice ? dati.indice.get(codice) : undefined;
