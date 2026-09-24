@@ -10,6 +10,7 @@ import type { ArticoloListino } from '../lib/listino';
 import { confezioneDaRivedere, mappaturaPer } from '../lib/mappatura';
 import type { Mappatura as MappaturaSalvata } from '../lib/mappatura';
 import { formattaIntero, formattaPercento, formattaPrezzoListino, percentoABp } from '../money';
+import { prezzoUnitaSospetto } from '../prezzi';
 import { Interruttore, singolare } from './distinta/comuni';
 
 /**
@@ -43,15 +44,18 @@ export default function Mappatura() {
     const m = mappaturaPer(v.chiave, dati.mappature);
     const art = m ? dati.indice.get(m.codice) : undefined;
     // la confezione salvata che la descrizione dell'articolo smentisce (montanti "a rotoli"…)
-    return { v, m, art, rivedere: m && art ? confezioneDaRivedere(v, m, art.descrizione) : null };
+    const rivedere = m && art ? confezioneDaRivedere(v, m, art.descrizione) : null;
+    // il prezzo del pezzo preso per quello della confezione (0,12 € la scatola da 100 tasselli)
+    const prezzo = m && art ? prezzoUnitaSospetto(v, m.prezzoPer, m.contenuto ?? v.contenuto, art.prezzo) : null;
+    return { v, m, art, rivedere, prezzo };
   });
   const daMappare = conMappatura.filter((x) => !x.m).length;
-  const daRivedere = conMappatura.filter((x) => x.rivedere).length;
+  const daRivedere = conMappatura.filter((x) => x.rivedere || x.prezzo !== null).length;
   const parole = filtro.toLowerCase().split(/\s+/).filter(Boolean);
   const visibili = conMappatura.filter(
     (x) =>
       (!soloDaMappare || !x.m) &&
-      (!soloDaRivedere || x.rivedere) &&
+      (!soloDaRivedere || x.rivedere || x.prezzo !== null) &&
       parole.every((p) => `${x.v.chiave} ${x.v.descrizione} ${x.m?.codice ?? ''}`.toLowerCase().includes(p)),
   );
   const apri = (chiave: string | null) => setParametri(chiave ? { chiave } : {}, { replace: true });
@@ -89,14 +93,16 @@ export default function Mappatura() {
         {(daRivedere > 0 || soloDaRivedere) && (
           <label className="opzione opzione-spunta">
             <input type="checkbox" checked={soloDaRivedere} onChange={(e) => setSoloDaRivedere(e.target.checked)} />
-            <span>Confezione da rivedere ({daRivedere})</span>
+            <span>Da rivedere ({daRivedere})</span>
           </label>
         )}
       </div>
 
       {scelta && (
         <Scheda
-          key={scelta}
+          // aperta prima che arrivino le mappature salvate (pagina ricaricata su ?chiave=…), la
+          // scheda partirebbe da quella di partenza: quando arriva la salvata, si riapre con quella
+          key={`${scelta}|${mappaturaPer(scelta, dati.mappature)?.origine ?? ''}`}
           voce={voci.find((v) => v.chiave === scelta) ?? voceSconosciuta(scelta)}
           chiudi={() => apri(null)}
           {...(prossima ? { avanti: () => apri(prossima) } : {})}
@@ -113,7 +119,7 @@ export default function Mappatura() {
             </tr>
           </thead>
           <tbody>
-            {visibili.map(({ v, m, art, rivedere }) => {
+            {visibili.map(({ v, m, art, rivedere, prezzo }) => {
               return (
                 <tr key={v.chiave} className={`cliccabile ${m ? '' : 'da-mappare'} ${scelta === v.chiave ? 'riga-scelta' : ''}`} onClick={() => apri(v.chiave)}>
                   <td>
@@ -138,6 +144,12 @@ export default function Mappatura() {
                           <div className="articolo-meta">
                             <span className="ag-pastiglia pastiglia-ambra">confezione da rivedere</span> la descrizione dice{' '}
                             {singolare(rivedere.confezione)} da {decimale(rivedere.contenuto)} {v.um}
+                          </div>
+                        )}
+                        {prezzo !== null && (
+                          <div className="articolo-meta">
+                            <span className="ag-pastiglia pastiglia-ambra">prezzo da rivedere</span> a confezione sono{' '}
+                            {formattaPrezzoListino(Math.max(1, Math.round(prezzo)))} € al {v.um}: sembra il prezzo del {v.um}
                           </div>
                         )}
                       </>
@@ -224,6 +236,8 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
   const proposta = articolo ? confezioneDaDescrizione(articolo.descrizione, voce.um, voce.umConf) : null;
   const comeProposta =
     !!proposta && contenutoNum !== null && Math.abs(proposta.contenuto - contenutoNum) < 1e-9 && proposta.confezione === confezione.trim();
+  // pagato a confezione, il prezzo per unità che ne verrebbe: troppo basso = è il prezzo dell'unità
+  const prezzoSospetto = articolo && contenutoNum ? prezzoUnitaSospetto(voce, 'confezione', contenutoNum, articolo.prezzo) : null;
 
   /**
    * Scegliendo un articolo, la confezione scritta nella sua descrizione diventa la
@@ -234,8 +248,11 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
     setCodice(a.codice);
     const c = confezioneDaDescrizione(a.descrizione, voce.um, voce.umConf);
     const stesso = attuale?.codice === a.codice ? attuale : undefined;
-    setContenuto(decimale(c?.contenuto ?? stesso?.contenuto ?? voce.contenuto));
+    const quanto = c?.contenuto ?? stesso?.contenuto ?? voce.contenuto;
+    setContenuto(decimale(quanto));
     setConfezione(c?.confezione ?? stesso?.confezione ?? voce.umConf);
+    // 0,12 € per la scatola da 100 tasselli non può essere: si propone il prezzo al pz
+    setPrezzoPer(prezzoUnitaSospetto(voce, 'confezione', quanto, a.prezzo) !== null ? 'um' : stesso?.prezzoPer ?? 'confezione');
   }
 
   async function salva(poi: () => void) {
@@ -379,13 +396,32 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
           {!proposta && (
             <p className="nota">La descrizione non dice la confezione: controlla quanto contiene un articolo e come si vende.</p>
           )}
+          {prezzoSospetto !== null && contenutoNum && (
+            <p className={prezzoPer === 'confezione' ? 'avviso avviso-attenzione' : 'nota'}>
+              {formattaPrezzoListino(articolo.prezzo)} € per {singolare(confezione || voce.umConf)} da {decimale(contenutoNum)} {voce.um} sarebbero{' '}
+              {formattaPrezzoListino(Math.max(1, Math.round(prezzoSospetto)))} € al {voce.um}: il prezzo del listino è quello del {voce.um}.
+              {prezzoPer === 'confezione' && (
+                <>
+                  {' '}
+                  <button className="btn btn-sm" onClick={() => setPrezzoPer('um')}>
+                    Prezzo per 1 {voce.um}
+                  </button>
+                </>
+              )}
+            </p>
+          )}
           {contenutoNum ? (
             <p className="nota">
               Esempio: per 100 {voce.um} servono {Math.ceil(Math.round((100 / contenutoNum) * 1e6) / 1e6)} {confezione || voce.umConf} {articolo.codice}, pagati{' '}
               {prezzoPer === 'um'
                 ? `a ${voce.um} (${decimale(Math.ceil(Math.round((100 / contenutoNum) * 1e6) / 1e6) * contenutoNum)} ${voce.um})`
                 : `a ${singolare(confezione || voce.umConf)}`}{' '}
-              a {formattaPrezzoListino(articolo.prezzo)} €{articolo.scontoBp ? `, meno lo sconto base del ${formattaPercento(articolo.scontoBp)}%` : ''}.
+              a {formattaPrezzoListino(articolo.prezzo)} €
+              {/* il prezzo per unità fa saltare all'occhio il prezzo del pezzo preso per quello della confezione (0,0012 € al pz) */}
+              {prezzoPer === 'confezione' && contenutoNum > 1
+                ? `, cioè ${formattaPrezzoListino(Math.round(articolo.prezzo / contenutoNum))} € al ${voce.um}`
+                : ''}
+              {articolo.scontoBp ? `, meno lo sconto base del ${formattaPercento(articolo.scontoBp)}%` : ''}.
             </p>
           ) : null}
         </div>

@@ -10,12 +10,13 @@
  * sola, al centesimo, come nel gestionale; lo sconto del venditore (sconto 2)
  * arriva col preventivo.
  */
-import { arrotondaSu, pezziConSfrido } from './engine';
+import { arrotondaSu } from './engine';
 import type { RigaDistinta } from './engine';
 import type { ArticoloListino } from './lib/listino';
 import { mappaturaPer } from './lib/mappatura';
 import type { Mappatura, MappaturaRisolta } from './lib/mappatura';
 import { quantitaAMilli, sommaCent, totaleRigaDaListino } from './money';
+import type { Um } from './types';
 
 export type StatoPrezzo = 'prezzata' | 'da_mappare' | 'fuori_listino';
 
@@ -28,11 +29,13 @@ export type RigaVenduta = RigaDistinta & {
 /**
  * La riga con la confezione dell'articolo del listino: il nastro in rotoli
  * MICRO da 23 ml, la banda in BIACAR5 da 20 ml, le lastre da 3,6 m². La
- * quantità resta quella della distinta; cambiano i pezzi da ordinare, contati
- * come il motore: con lo sfrido su lastre e isolante (pezziConSfrido), altrimenti
- * a confezioni intere. I montanti contati a barre per posizione (misure L×H)
- * restano come sono se l'articolo è più lungo di 3 m: il conto per barre più
- * lunghe va rifatto a mano, e la riga lo dice.
+ * quantità resta quella della distinta, sfrido compreso; i pezzi da ordinare
+ * sono quanti articoli interi la coprono. Lo sfrido si conta sulla quantità e
+ * non sui pezzi come fa il motore (pezziConSfrido): con i rotoli di lana da
+ * 12 m² 17,82 m² sono 2 rotoli, e lo sfrido sui pezzi ne aggiungeva un terzo.
+ * I montanti contati a barre per posizione (misure L×H) restano come sono se
+ * l'articolo è più lungo di 3 m: il conto per barre più lunghe va rifatto a
+ * mano, e la riga lo dice.
  *
  * La confezione confermata nella mappatura toglie dalla riga le verifiche su
  * formato, lunghezze e confezioni; le altre ("in alternativa…") restano. Le
@@ -52,15 +55,13 @@ export function conConfezione(r: RigaDistinta, m: Pick<Mappatura, 'codice' | 'co
   if (Math.abs(contenuto - r.contenuto) < 1e-9 && umConf === r.umConf) return confermata;
   let pezzi: number;
   let nota = r.nota;
-  if (r.sfridoPct > 0) {
-    // la quantità della riga ha già lo sfrido: si torna alla netta e si ricontano i pezzi
-    pezzi = pezziConSfrido((r.quantita * 100) / (100 + r.sfridoPct), contenuto, r.sfridoPct);
-  } else if (r.metodo === 'geometrico' && r.ruolo === 'MONTANTE' && contenuto > r.contenuto) {
+  if (r.metodo === 'geometrico' && r.ruolo === 'MONTANTE' && contenuto > r.contenuto) {
     pezzi = r.pezzi;
     nota = [r.nota, `contati a barre da ${String(r.contenuto).replace('.', ',')} m: con barre più lunghe il numero va ricontrollato`]
       .filter(Boolean)
       .join('; ');
   } else {
+    // la quantità ha già lo sfrido (lastre e isolante): articoli interi, arrotondati una volta sola
     pezzi = arrotondaSu(r.quantita / contenuto);
   }
   return { ...confermata, contenuto, umConf, pezzi, ...(nota ? { nota } : {}), confezioneListino: m.codice };
@@ -81,6 +82,42 @@ export interface PrezzoRiga {
   unita: string;
   /** totale al prezzo di listino con lo sconto base, in centesimi; 0 se non prezzata */
   totaleCent: number;
+  /** pagata a confezione, il prezzo per unità che ne viene è troppo basso: decimillesimi al pz, al m… */
+  prezzoSospetto?: number;
+}
+
+/**
+ * Il prezzo più basso che un'unità della voce (pz, ml, m², kg) può avere, in
+ * decimillesimi di euro: sotto, il prezzo del listino non è della confezione
+ * ma dell'unità. Soglie prudenti, lette sul listino del 10/06/2026: i tasselli
+ * Akifix a 0,11–0,65 € "pz.100/200" sarebbero 0,0006–0,013 € al tassello, la
+ * lana PAR45 a 4,60 € 0,38 € al m² di un rotolo da 12 m², la fascia FONO200 a
+ * 1,45 € 0,03 € al m di un rotolo da 50; invece le viti più economiche costano
+ * 0,013 € al pz a scatola, le lastre da 3,9 € al m², i profili da 0,7 € al m.
+ */
+function prezzoMinimoUnita(chiave: string, um: Um): number {
+  if (/^TASSELLI/.test(chiave)) return 300; // 0,03 € al tassello
+  if (/^(LASTRA|LANA|ISOLANTE)/.test(chiave)) return 10000; // 1 € al m²
+  if (/^(GUIDA|MONTANTE|PROFILO|PORTA_F)/.test(chiave)) return 3000; // 0,30 € al m
+  return { pz: 40, ml: 500, mq: 2000, kg: 1000 }[um]; // 0,004 € al pz, 0,05 € al m, 0,20 € al m², 0,10 € al kg
+}
+
+/**
+ * Il prezzo per unità che dà un articolo pagato a confezione, quando è troppo
+ * basso per essere vero: 0,12 € per la scatola da 100 tasselli farebbero
+ * 0,0012 € al tassello, quindi 0,12 € è il prezzo del tassello e la riga va
+ * pagata a pz. In decimillesimi, anche con i decimali; null se è plausibile,
+ * se la riga si paga già a unità o se la confezione è di un'unità sola.
+ */
+export function prezzoUnitaSospetto(
+  voce: { chiave: string; um: Um },
+  prezzoPer: 'confezione' | 'um',
+  contenuto: number,
+  prezzo: number,
+): number | null {
+  if (prezzoPer !== 'confezione' || contenuto <= 1 || prezzo <= 0) return null;
+  const unita = prezzo / contenuto;
+  return unita < prezzoMinimoUnita(voce.chiave, voce.um) ? unita : null;
 }
 
 export function prezzaRiga(
@@ -96,7 +133,8 @@ export function prezzaRiga(
   const articolo = listino.get(mappatura.codice);
   if (!articolo) return { stato: 'fuori_listino', mappatura, quantitaMilli, unita, totaleCent: 0 };
   const totaleCent = totaleRigaDaListino(articolo.prezzo, articolo.scontoBp ? [articolo.scontoBp] : [], quantitaMilli);
-  return { stato: 'prezzata', mappatura, articolo, quantitaMilli, unita, totaleCent };
+  const sospetto = prezzoUnitaSospetto(r, mappatura.prezzoPer, r.contenuto, articolo.prezzo);
+  return { stato: 'prezzata', mappatura, articolo, quantitaMilli, unita, totaleCent, ...(sospetto !== null ? { prezzoSospetto: sospetto } : {}) };
 }
 
 export interface TotaleDistinta {

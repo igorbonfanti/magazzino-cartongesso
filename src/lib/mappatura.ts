@@ -47,7 +47,7 @@ export function mappaturaPer(chiave: string, salvate: ReadonlyMap<string, Mappat
   const s = salvate.get(chiave);
   if (s) return { ...s, origine: 'archivio' };
   const p = MAPPING_SEED[chiave];
-  return p ? { chiave, codice: p.codice, prezzoPer: 'confezione', origine: 'partenza' } : undefined;
+  return p ? { chiave, codice: p.codice, prezzoPer: p.prezzoPer ?? 'confezione', origine: 'partenza' } : undefined;
 }
 
 /** Un documento letto da cgp_mapping, controllato: null se non ha la forma giusta. */

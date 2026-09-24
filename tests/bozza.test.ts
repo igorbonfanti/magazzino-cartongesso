@@ -55,7 +55,7 @@ describe('dalla bozza al motore', () => {
     expect(sceltePerMotore(bozzaVuota())).toBeNull();
   });
 
-  it('il caso reale digitato come al banco da le 95 lastre', () => {
+  it('il caso reale digitato come al banco da le 94 lastre (sfrido sulla quantità)', () => {
     const b = {
       ...conAmbito(bozzaVuota(), 'controparete'),
       sistemaId: 'controparete_singola' as const,
@@ -66,7 +66,7 @@ describe('dalla bozza al motore', () => {
       ],
     };
     const d = calcolaDistinta(sceltePerMotore(b)!);
-    expect(d.righe.find((r) => r.ruolo === 'LASTRA')!.pezzi).toBe(95);
+    expect(d.righe.find((r) => r.ruolo === 'LASTRA')!.pezzi).toBe(94);
   });
 
   it('cambiando ambito si azzera il sottotipo e il profilo resta ammesso', () => {

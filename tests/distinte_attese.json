@@ -45,6 +45,7 @@
   },
   "caso_reale": {
     "_descrizione": "Controparete singola 75, campiture 30 x 2,50 + 30 x 4,32, interasse 60, sfrido lastre 10%",
+    "_nota": "LASTRA 94 dal 24/09/2026, per decisione dell'utente: lo sfrido si conta sulla quantita' (225,06 mq / 2,4 = 93,8 -> 94). Il preventivo vero ne aveva 95, con lo sfrido sui pezzi (86 + 10% = 94,6 -> 95), che con le confezioni grandi aggiungeva una confezione intera.",
     "scelte": {
       "sistemaId": "controparete_singola",
       "prestazione": "standard",
@@ -60,7 +61,7 @@
     },
     "mq_netti": 204.6,
     "pezzi": {
-      "LASTRA": 95, "MONTANTE": 137, "GUIDA": 40, "ISOLANTE": 285,
+      "LASTRA": 94, "MONTANTE": 137, "GUIDA": 40, "ISOLANTE": 285,
       "TASSELLI": 4, "VITI_25": 3, "VELOVETRO": 4, "STUCCO": 11
     }
   }

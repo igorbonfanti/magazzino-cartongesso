@@ -120,6 +120,20 @@ export default function TabellaDistinta({
                             <span className="ag-pastiglia pastiglia-rossa">{p.mappatura?.codice} non è nel listino</span>
                           </div>
                         )}
+                        {p?.prezzoSospetto !== undefined && p.articolo && (
+                          // 0,12 € per una scatola da 100 tasselli: il prezzo del listino è quello del tassello
+                          <div className="articolo-meta">
+                            <span className="ag-pastiglia pastiglia-rossa">prezzo da rivedere</span> {formattaPrezzoListino(p.articolo.prezzo)} € per{' '}
+                            {singolare(r.umConf)} da {numero(r.contenuto)} {r.um} sono {formattaPrezzoListino(Math.max(1, Math.round(p.prezzoSospetto)))} € al{' '}
+                            {r.um}: sembra il prezzo del {r.um}
+                            {mappatura && (
+                              <>
+                                {' · '}
+                                <Link to={`/mappatura?chiave=${encodeURIComponent(r.chiave)}`}>correggi</Link>
+                              </>
+                            )}
+                          </div>
+                        )}
                         {r.nota && <div className="articolo-meta">{r.nota}</div>}
                         {r.daVerificare && <div className="articolo-meta">{r.daVerificare}</div>}
                       </td>

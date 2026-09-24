@@ -143,8 +143,9 @@ describe('regole del motore', () => {
 
   it('sfrido su lastre e isolante, mai sui profili', () => {
     const d = coppie(calcolaDistinta(scelte('controparete_singola', { sfrido: { lastre: 10, isolante: 10 } })));
-    expect(d.LASTRA).toEqual([110, 47]); // 42 lastre nette → 46,2 → 47
-    expect(d.ISOLANTE).toEqual([110, 153]); // 139 pannelli netti → 152,9 → 153
+    // lo sfrido sulla quantità, arrotondata una volta sola (dal 24/09/2026)
+    expect(d.LASTRA).toEqual([110, 46]); // 110 mq / 2,4 = 45,8 → 46 (sui pezzi: 42 → 46,2 → 47)
+    expect(d.ISOLANTE).toEqual([110, 153]); // 110 mq / 0,72 = 152,8 → 153
     expect(d.GUIDA).toEqual([67, 23]);
   });
 

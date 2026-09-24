@@ -86,6 +86,14 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
 - **Sfrido di partenza 10% su lastre e isolante** (confermato il 23/09/2026). Il
   caso reale della specifica (285 pannelli) resta calcolato senza sfrido sulla
   lana, come nella specifica: il test lo tiene così.
+- **Sfrido sulla quantità** (deciso dall'utente il 24/09/2026): pezzi =
+  CEIL(quantità con lo sfrido / confezione), arrotondati una volta sola, nel
+  motore (`pezziConSfrido`) e con la confezione della mappatura. Prima lo
+  sfrido si aggiungeva ai pezzi già arrotondati, per rifare le 95 lastre del
+  preventivo vero del caso reale; con le confezioni grandi aggiungeva una
+  confezione intera (17,82 m² di lana in rotoli da 12 m² facevano 3 rotoli).
+  Il caso reale ora fa 94 lastre (225,06 m² / 2,4 = 93,8): è cambiato apposta
+  in `tests/distinte_attese.json`, con la nota.
 
 ## Fase 3 — listino, mappatura, prezzi (23/09/2026)
 
@@ -107,8 +115,8 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
 - **Confezione dell'articolo** (24/09/2026): la mappatura dice anche quanto
   contiene un articolo del listino e come si chiama (MICRO = rotolo da 23 ml,
   BIACAR5 = rotolo da 20 ml, lastra 3,6 m²). L'articolo non si divide: "Da
-  ordinare" diventa il numero di articoli (`conConfezione` in `prezzi.ts`, con
-  lo sfrido contato come il motore). È una proprietà dell'articolo: si salva
+  ordinare" diventa il numero di articoli interi che coprono la quantità,
+  sfrido compreso (`conConfezione` in `prezzi.ts`), come nel motore. È una proprietà dell'articolo: si salva
   sempre, anche se uguale a quella della voce, e toglie dalla riga le verifiche
   su formato e lunghezze. La proposta viene dalla descrizione
   (`confezioneDaDescrizione`), si conferma a mano. Il nome lo dà la
@@ -120,6 +128,15 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   (`confezioneDaRivedere`), con il filtro in testa all'elenco. Le mappature senza
   confezione (di partenza, o salvate prima) usano quella della voce. Montanti
   contati per posizione con barre più lunghe di 3 m: pezzi invariati e nota.
+- **Prezzo del pezzo o della confezione** (24/09/2026): il listino non dice
+  a cosa si riferisce il prezzo. Pagato a confezione, se il prezzo per unità
+  che ne viene è impossibile (`prezzoUnitaSospetto` in `prezzi.ts`: meno di
+  0,03 € al tassello, 0,004 € alla vite, 1 € al m² di lastra o lana, 0,30 € al
+  m di profilo, 0,05 € al m di nastro), il prezzo è dell'unità: la scheda di
+  Mappatura propone "prezzo per 1 pz", la riga della distinta e l'elenco della
+  mappatura dicono «prezzo da rivedere». Nel listino del 10/06/2026 tutti i
+  tasselli Akifix e Fischer hanno il prezzo del tassello (AKF202M 0,12 €
+  "pz.100/200/300"): la mappatura di partenza TASSELLI → AKF202M è al pz.
 - **Voci che dipendono dalla struttura**: banda `BANDA_50/75/100/150` per
   larghezza del montante (BIACAR5 per il 50…), `BANDA_PERIMETRALE` per i
   controsoffitti, `BANDA_POLIETILENE` solo per le pareti perimetrali esterne
@@ -264,7 +281,7 @@ Distinte in `src/data/sistemi.ts` (classica + manuale, fonte commentata), motore
 - Orditura doppia parete: guida 1,4 ml/mq
 
 ### Test obbligatori (`src/engine/calcolo.test.ts`)
-9 sistemi a 100 mq, sfrido 0, classica = Excel storico. Caso reale: controparete singola 75, campiture 30×2,50 + 30×4,32, i60, sfrido 10% → 95 lastre, 137 montanti, 40 guide (geometrico), 285 pannelli lana, 4 conf tasselli, 3 conf viti 25, 4 rotoli velovetro, 11 sacchi stucco.
+9 sistemi a 100 mq, sfrido 0, classica = Excel storico. Caso reale: controparete singola 75, campiture 30×2,50 + 30×4,32, i60, sfrido 10% → 95 lastre (94 dal 24/09/2026: sfrido sulla quantità, vedi Decisioni), 137 montanti, 40 guide (geometrico), 285 pannelli lana, 4 conf tasselli, 3 conf viti 25, 4 rotoli velovetro, 11 sacchi stucco.
 
 ## Listino / mapping
 - Collection listino esistente (nome e schema da chiedere/esplorare); `cgp_mapping`: articolo generico → codice magazzino (+ sconti default)

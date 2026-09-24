@@ -4,7 +4,7 @@ import { sistema, spessoreIsolante } from '../src/data/siniat/catalogo';
 import type { RigaDistinta } from '../src/engine';
 import { confezioneDaDescrizione } from '../src/lib/listino';
 import { confezioneDaRivedere, mappaturaValida } from '../src/lib/mappatura';
-import { conConfezione, indiceListino, prezzaRiga } from '../src/prezzi';
+import { conConfezione, indiceListino, prezzaRiga, prezzoUnitaSospetto } from '../src/prezzi';
 
 // Codici e prezzi di prova, non quelli del magazzino (salvo i nomi degli
 // esempi fatti dall'utente: MICRO, BIACAR5). Le descrizioni della lettura
@@ -100,13 +100,33 @@ describe("confezione dell'articolo mappato", () => {
     expect(r.pezzi).toBe(2);
   });
 
-  it('lastre da 3,6 m² con lo sfrido: 132 m² (120 netti + 10%) fanno 38 lastre', () => {
+  it('lastre da 3,6 m² con lo sfrido: 132 m² (120 netti + 10%) fanno 37 lastre', () => {
     const r = conConfezione(
       riga({ ruolo: 'LASTRA', chiave: 'LASTRA_PREGYFLAM_BA15', um: 'mq', quantita: 132, contenuto: 2.4, umConf: 'lastre', pezzi: 55, sfridoPct: 10 }),
       { codice: 'PF15300', contenuto: 3.6, confezione: 'lastre' },
     );
-    // come il motore: ceil(ceil(120 / 3,6) × 1,10) = ceil(34 × 1,1) = 38
-    expect(r.pezzi).toBe(38);
+    // lo sfrido è già nei 132 m²: 132 / 3,6 = 36,7 → 37 (133,2 m²)
+    expect(r.pezzi).toBe(37);
+  });
+
+  it('lana in rotoli da 12 m²: 17,82 m² (16,2 + 10%) sono 2 rotoli, non 3', () => {
+    const r = conConfezione(
+      riga({ ruolo: 'ISOLANTE', chiave: 'LANA_MINERALE_SP45', um: 'mq', quantita: 17.82, contenuto: 0.72, umConf: 'pannelli', pezzi: 26, sfridoPct: 10 }),
+      { codice: 'PAR45', contenuto: 12, confezione: 'rotoli' },
+    );
+    // lo sfrido sui pezzi (ceil(ceil(16,2 / 12) × 1,1) = ceil(2,2)) dava 3 rotoli, 36 m² per 17,82
+    expect(r.pezzi).toBe(2);
+    const m = { chiave: 'LANA_MINERALE_SP45', codice: 'PAR45', prezzoPer: 'um' as const, contenuto: 12, confezione: 'rotoli' };
+    const listino = indiceListino([{ codice: 'PAR45', descrizione: 'LANA DI VETRO ROTOLO', prezzo: 46000, scontoBp: 0, fornitore: '', categoria: '' }]);
+    // 2 rotoli = 24 m² a 4,60 = 110,40
+    expect(prezzaRiga(r, new Map([['LANA_MINERALE_SP45', m]]), listino)).toMatchObject({ quantitaMilli: 24000, unita: 'mq', totaleCent: 11040 });
+  });
+
+  it('tasselli di partenza AKF202M: 0,12 € è il tassello, la confezione da 100 si paga 100 tasselli', () => {
+    const r = riga({ ruolo: 'TASSELLI', chiave: 'TASSELLI', um: 'pz', quantita: 24, contenuto: 100, umConf: 'conf.', pezzi: 1 });
+    const listino = indiceListino([{ codice: 'AKF202M', descrizione: 'TASSELLI A VITE 6X30 pz.100/200/300', prezzo: 1200, scontoBp: 2000, fornitore: '', categoria: '' }]);
+    // 100 × 0,12 × 0,80 = 9,60 (prima: 1 × 0,12 × 0,80 = 0,10)
+    expect(prezzaRiga(r, new Map(), listino)).toMatchObject({ stato: 'prezzata', quantitaMilli: 100000, unita: 'pz', totaleCent: 960 });
   });
 
   it('guide dal perimetro in barre da 4 m; i montanti per posizione restano e la riga lo dice', () => {
@@ -144,6 +164,35 @@ describe("confezione dell'articolo mappato", () => {
     expect(r).toMatchObject({ pezzi: 3, contenuto: 1000, umConf: 'conf.' });
     expect(r.daVerificare).toBeUndefined();
     expect('confezioneListino' in r).toBe(false);
+  });
+
+  it('il prezzo del pezzo preso per quello della confezione si vede (listino del 10/06/2026)', () => {
+    const tasselli = { chiave: 'TASSELLI', um: 'pz' as const };
+    // Akifix: 0,12 € "pz.100/200/300", 0,65 € "PZ.50", 0,11 € "pz.200": prezzi del tassello
+    expect(prezzoUnitaSospetto(tasselli, 'confezione', 100, 1200)).toBe(12);
+    expect(prezzoUnitaSospetto(tasselli, 'confezione', 50, 6500)).toBe(130);
+    expect(prezzoUnitaSospetto(tasselli, 'confezione', 200, 1100)).toBe(5.5);
+    // il blister da 50 a 5,40 € è davvero il blister; pagati a pz non c'è niente da dire
+    expect(prezzoUnitaSospetto(tasselli, 'confezione', 50, 54000)).toBeNull();
+    expect(prezzoUnitaSospetto(tasselli, 'um', 100, 1200)).toBeNull();
+    // viti a scatola da 1000 a 13,00 €: plausibili; le SOLIDTAS a 0,08 € "PZ.1000" no
+    expect(prezzoUnitaSospetto({ chiave: 'VITI_25', um: 'pz' }, 'confezione', 1000, 130000)).toBeNull();
+    expect(prezzoUnitaSospetto({ chiave: 'VITI_S_TEX_32_MM', um: 'pz' }, 'confezione', 1000, 800)).not.toBeNull();
+    // lana PAR45 a 4,60 € il rotolo da 12 m²: è il prezzo al m²; lastre e pannelli veri no
+    expect(prezzoUnitaSospetto({ chiave: 'LANA_MINERALE_SP45', um: 'mq' }, 'confezione', 12, 46000)).not.toBeNull();
+    expect(prezzoUnitaSospetto({ chiave: 'LASTRA_BA13_STD', um: 'mq' }, 'confezione', 2.4, 103000)).toBeNull();
+    expect(prezzoUnitaSospetto({ chiave: 'LANA_MINERALE_SP45', um: 'mq' }, 'confezione', 0.72, 92000)).toBeNull();
+    // fascia FONO200 a 1,45 € per 50 m; nastri, bande e profili veri no
+    expect(prezzoUnitaSospetto({ chiave: 'BANDA_75', um: 'ml' }, 'confezione', 50, 14500)).not.toBeNull();
+    expect(prezzoUnitaSospetto({ chiave: 'BANDA_75', um: 'ml' }, 'confezione', 20, 184000)).toBeNull();
+    expect(prezzoUnitaSospetto({ chiave: 'VELOVETRO', um: 'ml' }, 'confezione', 90, 86000)).toBeNull();
+    expect(prezzoUnitaSospetto({ chiave: 'GUIDA_75', um: 'ml' }, 'confezione', 3, 94000)).toBeNull();
+    expect(prezzoUnitaSospetto({ chiave: 'STUCCO', um: 'kg' }, 'confezione', 10, 140000)).toBeNull();
+    // la riga della distinta lo porta con sé
+    const r = riga({ ruolo: 'TASSELLI', chiave: 'TASSELLI', um: 'pz', quantita: 24, contenuto: 100, umConf: 'conf.', pezzi: 1 });
+    const listino = indiceListino([{ codice: 'AKF7', descrizione: 'TASSELLI ACCIAIO CONO PZ.50', prezzo: 6500, scontoBp: 0, fornitore: '', categoria: '' }]);
+    const salvate = new Map([['TASSELLI', { chiave: 'TASSELLI', codice: 'AKF7', prezzoPer: 'confezione' as const }]]);
+    expect(prezzaRiga(r, salvate, listino).prezzoSospetto).toBe(65);
   });
 
   it('senza confezione nella mappatura la riga non cambia', () => {

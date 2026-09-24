@@ -255,16 +255,17 @@ export function calcolaDistinta(scelte: Scelte): Distinta {
 }
 
 /**
- * Pezzi con sfrido: prima i pezzi netti arrotondati, poi lo sfrido, poi di
- * nuovo per eccesso.
+ * Pezzi con sfrido: la quantità con lo sfrido in pezzi interi, arrotondati una
+ * volta sola (specifica, par. 4: pezzi = CEIL(quantità / confezione)).
  *
- * DA CONFERMARE: e' l'unica lettura che riproduce le 95 lastre del caso reale
- * (204,6 mq / 2,4 = 86 lastre, +10% = 94,6 → 95). La formula secca
- * ceil(204,6 × 1,10 / 2,4) darebbe 94.
+ * Deciso con l'utente il 24/09/2026. Prima lo sfrido si aggiungeva ai pezzi già
+ * arrotondati, per rifare le 95 lastre del preventivo del caso reale (204,6 mq
+ * / 2,4 = 86 lastre, +10% = 94,6 → 95); ma con le confezioni grandi aggiungeva
+ * una confezione intera (17,82 m² di lana in rotoli da 12 m² facevano 3 rotoli).
+ * Ora il caso reale fa 225,06 mq / 2,4 = 93,8 → 94 lastre.
  */
 export function pezziConSfrido(qtaNetta: number, contenuto: number, sfridoPct: number): number {
-  const netti = arrotondaSu(qtaNetta / contenuto);
-  return sfridoPct > 0 ? arrotondaSu((netti * (100 + sfridoPct)) / 100) : netti;
+  return arrotondaSu((qtaNetta * (100 + sfridoPct)) / 100 / contenuto);
 }
 
 /**
