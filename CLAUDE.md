@@ -111,7 +111,13 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   lo sfrido contato come il motore). È una proprietà dell'articolo: si salva
   sempre, anche se uguale a quella della voce, e toglie dalla riga le verifiche
   su formato e lunghezze. La proposta viene dalla descrizione
-  (`confezioneDaDescrizione`), si conferma a mano. Le mappature senza
+  (`confezioneDaDescrizione`), si conferma a mano. Il nome lo dà la
+  descrizione solo se lo dice (rotolo, barra, sacco, pacco…), altrimenti è
+  quello della voce: «MONTANTI CART. MM 50 ML.3 CAD.» sono barre, non rotoli
+  (errore trovato il 24/09/2026). Lastre e pannelli con le misure in cm o in
+  mm (3000X1200, 1000X600). «Si vende a» è un menu. Le mappature che la
+  descrizione smentisce sono segnate «confezione da rivedere»
+  (`confezioneDaRivedere`), con il filtro in testa all'elenco. Le mappature senza
   confezione (di partenza, o salvate prima) usano quella della voce. Montanti
   contati per posizione con barre più lunghe di 3 m: pezzi invariati e nota.
 - **Voci che dipendono dalla struttura**: banda `BANDA_50/75/100/150` per

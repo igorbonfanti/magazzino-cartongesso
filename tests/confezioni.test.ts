@@ -3,11 +3,12 @@ import { articoloSiniat } from '../src/data/siniat/articoli';
 import { sistema, spessoreIsolante } from '../src/data/siniat/catalogo';
 import type { RigaDistinta } from '../src/engine';
 import { confezioneDaDescrizione } from '../src/lib/listino';
-import { mappaturaValida } from '../src/lib/mappatura';
+import { confezioneDaRivedere, mappaturaValida } from '../src/lib/mappatura';
 import { conConfezione, indiceListino, prezzaRiga } from '../src/prezzi';
 
 // Codici e prezzi di prova, non quelli del magazzino (salvo i nomi degli
-// esempi fatti dall'utente: MICRO, BIACAR5).
+// esempi fatti dall'utente: MICRO, BIACAR5). Le descrizioni della lettura
+// della confezione sono quelle del listino del magazzino (10/06/2026).
 
 describe('confezione letta dalla descrizione del listino', () => {
   it('i casi del magazzino: rotoli, barre, sacchi, confezioni, lastre, pacchi', () => {
@@ -20,6 +21,56 @@ describe('confezione letta dalla descrizione del listino', () => {
     expect(confezioneDaDescrizione('CARTONGESSO BA13 LASTRA CM.200x120', 'mq')).toEqual({ contenuto: 2.4, confezione: 'lastre' });
     expect(confezioneDaDescrizione('LASTRA REI 15 MM 300X120', 'mq')).toEqual({ contenuto: 3.6, confezione: 'lastre' });
     expect(confezioneDaDescrizione('LANA ROCCIA SP.40 PACCO MQ 4,32', 'mq')).toEqual({ contenuto: 4.32, confezione: 'pacchi' });
+  });
+
+  it('guide, montanti e profili sono barre, non rotoli: il nome è quello della voce se la descrizione non lo dice', () => {
+    expect(confezioneDaDescrizione('MONTANTI CART. MM 50 ML.3 CAD.', 'ml', 'barre')).toEqual({ contenuto: 3, confezione: 'barre' });
+    expect(confezioneDaDescrizione('GUIDE CART. MM. 75 ML.3 CAD.', 'ml', 'barre')).toEqual({ contenuto: 3, confezione: 'barre' });
+    expect(confezioneDaDescrizione('GUIDE PORTA-F CM.2.8X4 ML.3 CAD.', 'ml', 'barre')).toEqual({ contenuto: 3, confezione: 'barre' });
+    expect(confezioneDaDescrizione('PARASPIGOLO ZINCATO ML.2,80 INTONACO [5/10 - Zn 200gr]', 'ml', 'barre')).toEqual({ contenuto: 2.8, confezione: 'barre' });
+    // il rotolo lo dice la descrizione; la banda e il nastro "a m" si vendono a rotoli
+    expect(confezioneDaDescrizione('CARTA MICROFORATA ROTOLO ML.23', 'ml', 'm')).toEqual({ contenuto: 23, confezione: 'rotoli' });
+    expect(confezioneDaDescrizione('BIADESIVO PER CARTONGESSO CM.5 ML.20', 'ml', 'm')).toEqual({ contenuto: 20, confezione: 'rotoli' });
+    expect(confezioneDaDescrizione('VELOVETRO ANTIMUFFA 90MT', 'ml', 'rotoli')).toEqual({ contenuto: 90, confezione: 'rotoli' });
+    // la larghezza e lo spessore non sono la lunghezza
+    expect(confezioneDaDescrizione('BLACKBAND ROTOLI CM.05 M.10 BENDA BUTILICA ADESIVA', 'ml', 'm')).toEqual({ contenuto: 10, confezione: 'rotoli' });
+    expect(confezioneDaDescrizione('ISOLMANT PIOMBO MM.0,30 ML.1X3 (23dB)', 'ml', 'm')).toBeNull();
+  });
+
+  it('lastre e pannelli: misure in cm o in mm, a lastre e a pannelli come la voce', () => {
+    expect(confezioneDaDescrizione('CARTONGESSO PREGYVAPOR BA13 SINIAT 3000X1200', 'mq', 'lastre')).toEqual({ contenuto: 3.6, confezione: 'lastre' });
+    expect(confezioneDaDescrizione('CARTONGESSO SAFEBOARD BA13 CM.625X2400 (MQ.1,5)', 'mq', 'lastre')).toEqual({ contenuto: 1.5, confezione: 'lastre' });
+    expect(confezioneDaDescrizione('AQUAPANEL OUTDOOR CM.200x120x012 (MQ.2,4 CAD.)', 'mq', 'lastre')).toEqual({ contenuto: 2.4, confezione: 'lastre' });
+    expect(confezioneDaDescrizione('CARTONGESSO BA06 LASTRA FLEX CM.300x120 (MQ.3,6 CAD.)', 'mq', 'lastre')).toEqual({ contenuto: 3.6, confezione: 'lastre' });
+    expect(confezioneDaDescrizione('LANA MINERALE CM.4 (35 KG/MC) MINERALWOOL 1200X600', 'mq', 'pannelli')).toEqual({ contenuto: 0.72, confezione: 'pannelli' });
+    expect(confezioneDaDescrizione('LANA DI ROCCIA CM.4 (70 KG/MC) NB SILENCE 1000X600', 'mq', 'pannelli')).toEqual({ contenuto: 0.6, confezione: 'pannelli' });
+    expect(confezioneDaDescrizione('LANA DI VETRO CM.4,5 600X1450 ARENA 34 (PANNELLI)', 'mq', 'pannelli')).toEqual({ contenuto: 0.87, confezione: 'pannelli' });
+    // non la maglia di una rete, non un cartello da 800×600 mm letto in cm
+    expect(confezioneDaDescrizione('RETE FIBRA VETRO x intonaco MAGLIA 10x10 [135g/mq]', 'mq', 'mq')).toBeNull();
+    expect(confezioneDaDescrizione('CARTELLO PVC 800X600 MM', 'mq', 'lastre')).toEqual({ contenuto: 0.48, confezione: 'lastre' });
+  });
+
+  it('sacchi e confezioni: non la densità della lana, anche "CF500PZ"', () => {
+    expect(confezioneDaDescrizione('STUCCO CARTONGESSO KG.10 SINIAT', 'kg', 'sacchi')).toEqual({ contenuto: 10, confezione: 'sacchi' });
+    expect(confezioneDaDescrizione('LANA DI ROCCIA CM.4 (70 KG/MC)', 'kg', 'kg')).toBeNull();
+    expect(confezioneDaDescrizione('VITI X SOLIDTEX 32mm CF.1000PZ ATS', 'pz', 'conf.')).toEqual({ contenuto: 1000, confezione: 'conf.' });
+    expect(confezioneDaDescrizione('VITI X B-BOARD/AQUAPANNEL SN HS 39mm CF500PZ', 'pz', 'conf.')).toEqual({ contenuto: 500, confezione: 'conf.' });
+  });
+
+  it('le mappature salvate che la descrizione smentisce si ritrovano, le altre no', () => {
+    const montante = { um: 'ml' as const, contenuto: 3, umConf: 'barre' };
+    // salvata "a rotoli" con la proposta di prima
+    expect(confezioneDaRivedere(montante, { contenuto: 3, confezione: 'rotoli' }, 'MONTANTI CART. MM 50 ML.3 CAD.')).toEqual({ contenuto: 3, confezione: 'barre' });
+    // quella di partenza, senza confezione: vale quella della voce, e torna
+    expect(confezioneDaRivedere(montante, {}, 'MONTANTI CART. MM 75 ML.3 CAD.')).toBeNull();
+    // una lastra 3000×1200 lasciata a 2,4 m²
+    expect(confezioneDaRivedere({ um: 'mq', contenuto: 2.4, umConf: 'lastre' }, {}, 'CARTONGESSO PREGYVAPOR BA13 SINIAT 3000X1200'))
+      .toEqual({ contenuto: 3.6, confezione: 'lastre' });
+    // viti salvate prima delle confezioni, a scatole da 250 e non da 1000
+    expect(confezioneDaRivedere({ um: 'pz', contenuto: 1000, umConf: 'conf.' }, {}, 'VITI PER CARTONGESSO 7.0 CONF. PZ.250'))
+      .toEqual({ contenuto: 250, confezione: 'conf.' });
+    // la descrizione non dice niente: niente da rivedere
+    expect(confezioneDaRivedere({ um: 'pz', contenuto: 2, umConf: 'conf.' }, {}, 'PENDINI CM. 100')).toBeNull();
   });
 
   it('non inventa: senza misura nella descrizione niente proposta, e M75 non sono 75 metri', () => {

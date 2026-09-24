@@ -8,6 +8,7 @@
  * codice non si inventa.
  */
 import { MAPPING_SEED } from '../data/mapping_seed';
+import { confezioneDaDescrizione } from './listino';
 
 export interface Mappatura {
   chiave: string;
@@ -79,4 +80,24 @@ export function mappaturaValida(chiave: string, dati: unknown): Mappatura | null
  */
 export function chiaveValida(chiave: string): boolean {
   return /^[A-Z0-9_]{1,120}$/.test(chiave);
+}
+
+/**
+ * La confezione che la descrizione dell'articolo propone, quando è diversa da
+ * quella che la mappatura usa (la sua, o quella della voce se non la dice).
+ * Serve a ritrovare le mappature salvate con una proposta sbagliata: guide e
+ * montanti "a rotoli", lastre 3000×1200 o pannelli 1000×600 contati con la
+ * misura della voce. null se coincidono o se la descrizione non dice niente;
+ * una scelta diversa fatta apposta resta segnalata, ma non cambia niente.
+ */
+export function confezioneDaRivedere(
+  voce: { um: 'mq' | 'ml' | 'kg' | 'pz'; contenuto: number; umConf: string },
+  m: Pick<Mappatura, 'contenuto' | 'confezione'>,
+  descrizione: string,
+): { contenuto: number; confezione: string } | null {
+  const p = confezioneDaDescrizione(descrizione, voce.um, voce.umConf);
+  if (!p) return null;
+  const contenuto = m.contenuto ?? voce.contenuto;
+  const confezione = m.confezione ?? voce.umConf;
+  return Math.abs(p.contenuto - contenuto) < 1e-9 && p.confezione === confezione ? null : p;
 }

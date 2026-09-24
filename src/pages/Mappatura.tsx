@@ -7,7 +7,7 @@ import { leggiNumero } from '../lib/bozza';
 import { useDati } from '../lib/dati';
 import { cercaArticoli, confezioneDaDescrizione } from '../lib/listino';
 import type { ArticoloListino } from '../lib/listino';
-import { mappaturaPer } from '../lib/mappatura';
+import { confezioneDaRivedere, mappaturaPer } from '../lib/mappatura';
 import type { Mappatura as MappaturaSalvata } from '../lib/mappatura';
 import { formattaIntero, formattaPercento, formattaPrezzoListino, percentoABp } from '../money';
 import { Interruttore, singolare } from './distinta/comuni';
@@ -24,6 +24,7 @@ export default function Mappatura() {
   const [parametri, setParametri] = useSearchParams();
   const [filtro, setFiltro] = useState('');
   const [soloDaMappare, setSoloDaMappare] = useState(false);
+  const [soloDaRivedere, setSoloDaRivedere] = useState(false);
   const voci = useMemo(() => vociNote(), []);
   const scelta = parametri.get('chiave');
 
@@ -38,12 +39,19 @@ export default function Mappatura() {
     );
   }
 
-  const conMappatura = voci.map((v) => ({ v, m: mappaturaPer(v.chiave, dati.mappature) }));
+  const conMappatura = voci.map((v) => {
+    const m = mappaturaPer(v.chiave, dati.mappature);
+    const art = m ? dati.indice.get(m.codice) : undefined;
+    // la confezione salvata che la descrizione dell'articolo smentisce (montanti "a rotoli"…)
+    return { v, m, art, rivedere: m && art ? confezioneDaRivedere(v, m, art.descrizione) : null };
+  });
   const daMappare = conMappatura.filter((x) => !x.m).length;
+  const daRivedere = conMappatura.filter((x) => x.rivedere).length;
   const parole = filtro.toLowerCase().split(/\s+/).filter(Boolean);
   const visibili = conMappatura.filter(
     (x) =>
       (!soloDaMappare || !x.m) &&
+      (!soloDaRivedere || x.rivedere) &&
       parole.every((p) => `${x.v.chiave} ${x.v.descrizione} ${x.m?.codice ?? ''}`.toLowerCase().includes(p)),
   );
   const apri = (chiave: string | null) => setParametri(chiave ? { chiave } : {}, { replace: true });
@@ -78,6 +86,12 @@ export default function Mappatura() {
           <input type="checkbox" checked={soloDaMappare} onChange={(e) => setSoloDaMappare(e.target.checked)} />
           <span>Solo da mappare ({daMappare})</span>
         </label>
+        {(daRivedere > 0 || soloDaRivedere) && (
+          <label className="opzione opzione-spunta">
+            <input type="checkbox" checked={soloDaRivedere} onChange={(e) => setSoloDaRivedere(e.target.checked)} />
+            <span>Confezione da rivedere ({daRivedere})</span>
+          </label>
+        )}
       </div>
 
       {scelta && (
@@ -99,8 +113,7 @@ export default function Mappatura() {
             </tr>
           </thead>
           <tbody>
-            {visibili.map(({ v, m }) => {
-              const art = m ? dati.indice.get(m.codice) : undefined;
+            {visibili.map(({ v, m, art, rivedere }) => {
               return (
                 <tr key={v.chiave} className={`cliccabile ${m ? '' : 'da-mappare'} ${scelta === v.chiave ? 'riga-scelta' : ''}`} onClick={() => apri(v.chiave)}>
                   <td>
@@ -121,6 +134,12 @@ export default function Mappatura() {
                             : ''}
                           {m.prezzoPer === 'um' ? ` · prezzo al ${v.um}` : ''}
                         </div>
+                        {rivedere && (
+                          <div className="articolo-meta">
+                            <span className="ag-pastiglia pastiglia-ambra">confezione da rivedere</span> la descrizione dice{' '}
+                            {singolare(rivedere.confezione)} da {decimale(rivedere.contenuto)} {v.um}
+                          </div>
+                        )}
                       </>
                     ) : (
                       <span className="ag-pastiglia pastiglia-arancio">da mappare</span>
@@ -185,7 +204,6 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
   // quanto contiene un articolo: quello salvato, altrimenti quello della voce
   const [contenuto, setContenuto] = useState(decimale(attuale?.contenuto ?? voce.contenuto));
   const [confezione, setConfezione] = useState(attuale?.confezione ?? voce.umConf);
-  const [letto, setLetto] = useState('');
   const [errore, setErrore] = useState('');
   const [inCorso, setInCorso] = useState(false);
   const scheda = useRef<HTMLElement>(null);
@@ -202,18 +220,22 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
   const articolo: ArticoloListino | undefined = codice ? dati.indice.get(codice) : undefined;
   const scontoBp = percentoABp(sconto);
   const contenutoNum = leggiNumero(contenuto);
+  // quello che la descrizione dell'articolo scelto dice della confezione, e se il modulo lo rispetta
+  const proposta = articolo ? confezioneDaDescrizione(articolo.descrizione, voce.um, voce.umConf) : null;
+  const comeProposta =
+    !!proposta && contenutoNum !== null && Math.abs(proposta.contenuto - contenutoNum) < 1e-9 && proposta.confezione === confezione.trim();
 
-  /** scegliendo un articolo, la confezione scritta nella sua descrizione diventa la proposta */
+  /**
+   * Scegliendo un articolo, la confezione scritta nella sua descrizione diventa la
+   * proposta; se la descrizione non la dice, quella salvata per lo stesso articolo o
+   * quella della voce: mai quella dell'articolo cliccato prima.
+   */
   function scegli(a: ArticoloListino) {
     setCodice(a.codice);
-    const c = confezioneDaDescrizione(a.descrizione, voce.um);
-    if (c) {
-      setContenuto(decimale(c.contenuto));
-      setConfezione(c.confezione);
-      setLetto(`Dalla descrizione: ${singolare(c.confezione)} da ${decimale(c.contenuto)} ${voce.um}.`);
-    } else {
-      setLetto('');
-    }
+    const c = confezioneDaDescrizione(a.descrizione, voce.um, voce.umConf);
+    const stesso = attuale?.codice === a.codice ? attuale : undefined;
+    setContenuto(decimale(c?.contenuto ?? stesso?.contenuto ?? voce.contenuto));
+    setConfezione(c?.confezione ?? stesso?.confezione ?? voce.umConf);
   }
 
   async function salva(poi: () => void) {
@@ -313,12 +335,14 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
           </label>
           <label className="opzione">
             <span className="ag-etichetta">Si vende a</span>
-            <input className="ag-campo campo-medio" list="nomi-confezione" value={confezione} onChange={(e) => setConfezione(e.target.value)} />
-            <datalist id="nomi-confezione">
-              {['lastre', 'barre', 'rotoli', 'sacchi', 'secchi', 'conf.', 'scatole', 'pannelli', 'pacchi', 'pz'].map((n) => (
-                <option key={n} value={n} />
+            {/* un menu e non un campo con suggerimenti: quelli mostravano solo il nome già scritto */}
+            <select className="ag-campo campo-medio" value={confezione} onChange={(e) => setConfezione(e.target.value)}>
+              {nomiConfezione(voce.umConf, confezione).map((n) => (
+                <option key={n} value={n}>
+                  {NOME_A_MENU[n] ?? n}
+                </option>
               ))}
-            </datalist>
+            </select>
           </label>
           <Interruttore<'confezione' | 'um'>
             etichetta="Il prezzo di listino è per"
@@ -333,7 +357,28 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
             <span className="ag-etichetta">Sconto extra di partenza %</span>
             <input className="ag-campo ag-dati campo-corto" inputMode="decimal" value={sconto} onChange={(e) => setSconto(e.target.value)} placeholder="0" />
           </label>
-          {letto && <p className="nota">{letto} Controlla e correggi se serve.</p>}
+          {proposta && comeProposta && (
+            <p className="nota">
+              Dalla descrizione: {singolare(proposta.confezione)} da {decimale(proposta.contenuto)} {voce.um}. Controlla e correggi se serve.
+            </p>
+          )}
+          {proposta && !comeProposta && (
+            <p className="avviso avviso-attenzione">
+              La descrizione dice {singolare(proposta.confezione)} da {decimale(proposta.contenuto)} {voce.um}.{' '}
+              <button
+                className="btn btn-sm"
+                onClick={() => {
+                  setContenuto(decimale(proposta.contenuto));
+                  setConfezione(proposta.confezione);
+                }}
+              >
+                Usa questa
+              </button>
+            </p>
+          )}
+          {!proposta && (
+            <p className="nota">La descrizione non dice la confezione: controlla quanto contiene un articolo e come si vende.</p>
+          )}
           {contenutoNum ? (
             <p className="nota">
               Esempio: per 100 {voce.um} servono {Math.ceil(Math.round((100 / contenutoNum) * 1e6) / 1e6)} {confezione || voce.umConf} {articolo.codice}, pagati{' '}
@@ -368,6 +413,19 @@ function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; 
       </div>
     </section>
   );
+}
+
+/** I nomi delle confezioni, al plurale come nella distinta: il menu «Si vende a». */
+const NOMI_CONFEZIONE = ['barre', 'lastre', 'pannelli', 'rotoli', 'sacchi', 'secchi', 'pacchi', 'scatole', 'conf.', 'pz'];
+
+/** Come si leggono nel menu i nomi che non si capiscono da soli: le voci sfuse e le sigle. */
+const NOME_A_MENU: Record<string, string> = {
+  'conf.': 'confezioni', pz: 'pezzi', m: 'metri, sfuso', ml: 'metri, sfuso', mq: 'm², sfuso', 'm²': 'm², sfuso', kg: 'kg, sfuso',
+};
+
+/** Il menu: i nomi di sempre, più quello della voce e quello salvato se sono altri (banda "a m"). */
+function nomiConfezione(nomeVoce: string, attuale: string): string[] {
+  return [...new Set([...NOMI_CONFEZIONE, nomeVoce, attuale.trim()].filter(Boolean))];
 }
 
 /** 23 → "23"; 2.4 → "2,4" */

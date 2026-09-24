@@ -126,36 +126,83 @@ function numeroIt(t: string): number {
   return Number(t.replace(',', '.'));
 }
 
+/** Nomi che sono unità di misura e non confezioni: la voce che si vende sfusa (banda "a m", accessori "a pz"). */
+const UNITA = new Set(['m', 'ml', 'mt', 'mq', 'm²', 'kg', 'pz', 'l', 'lt']);
+
+/**
+ * Le parole della descrizione che dicono la confezione, per unità della voce,
+ * al plurale come nella distinta ("3 rotoli"). Solo quelle che hanno senso per
+ * l'unità: un nastro "per lastre" resta un rotolo.
+ */
+const PAROLE_CONFEZIONE: Record<'mq' | 'ml' | 'kg' | 'pz', [RegExp, string][]> = {
+  ml: [[/ROTOL|\bROT\b/, 'rotoli'], [/BARR/, 'barre']],
+  mq: [[/LASTR/, 'lastre'], [/PANNELL/, 'pannelli'], [/PACC/, 'pacchi'], [/ROTOL/, 'rotoli']],
+  kg: [[/SACC/, 'sacchi'], [/SECCHI/, 'secchi']],
+  pz: [[/SCAT/, 'scatole']],
+};
+
+/** La prima misura del tipo "A×B" (anche "A×B×spessore") che passa il controllo. */
+function misura(d: string, re: RegExp, valida: (a: number, b: number) => boolean): [number, number] | null {
+  for (const x of d.matchAll(re)) {
+    const a = Number(x[1]);
+    const b = Number(x[2]);
+    if (valida(a, b)) return [a, b];
+  }
+  return null;
+}
+
 /**
  * La confezione scritta nella descrizione dell'articolo, nell'unità della
  * voce: "ROTOLO ML.23" → 23 ml, "KG.10" → 10 kg, "CONF.1000" → 1000 pz,
- * "LASTRA CM.200X120" → 2,4 m². È solo una proposta per la mappatura: si
- * conferma o si corregge a mano. null se la descrizione non la dice.
+ * "LASTRA CM.200X120" → 2,4 m², "1200X600" (mm) → 0,72 m². È solo una
+ * proposta per la mappatura: si conferma o si corregge a mano. null se la
+ * descrizione non la dice.
+ *
+ * Il nome viene dalla descrizione quando lo dice (rotolo, barra, sacco,
+ * pacco…), altrimenti è quello della voce (nomeVoce: barre per guide e
+ * montanti, lastre, pannelli), e solo per le voci sfuse ("a m", "a kg") uno
+ * di partenza per l'unità. "MONTANTI CART. MM 50 ML.3 CAD." sono barre da 3 m,
+ * non rotoli.
  */
-export function confezioneDaDescrizione(descrizione: string, um: 'mq' | 'ml' | 'kg' | 'pz'): { contenuto: number; confezione: string } | null {
+export function confezioneDaDescrizione(
+  descrizione: string,
+  um: 'mq' | 'ml' | 'kg' | 'pz',
+  nomeVoce?: string,
+): { contenuto: number; confezione: string } | null {
   const d = descrizione.toUpperCase();
-  // al plurale, come le confezioni della distinta ("3 rotoli")
-  const nome = (predefinito: string) =>
-    /ROTOL/.test(d) ? 'rotoli' : /BARR/.test(d) ? 'barre' : /SACC/.test(d) ? 'sacchi' : /SECCHI/.test(d) ? 'secchi' : /SCATOL/.test(d) ? 'scatole'
-      : /PANNELL/.test(d) ? 'pannelli' : /PACC/.test(d) ? 'pacchi' : /LASTR/.test(d) ? 'lastre' : predefinito;
+  const nome = (perUnita: string) => {
+    for (const [parola, n] of PAROLE_CONFEZIONE[um]) if (parola.test(d)) return n;
+    return nomeVoce && !UNITA.has(nomeVoce.toLowerCase()) ? nomeVoce : perUnita;
+  };
   let x: RegExpExecArray | null;
   switch (um) {
     case 'ml':
-      // "ML.23", "MT 20", oppure "3 M": non la M da sola davanti al numero, che è il montante (M75)
-      x = /\b(?:ML|MT)\.?\s*(\d+(?:[.,]\d+)?)\b/.exec(d) ?? /\b(\d+(?:[.,]\d+)?)\s*(?:ML|MT|M)\b/.exec(d);
+      // "ML.23", "MT 20", "M.10", "3 M", "90MT": non la M da sola davanti al numero, che è
+      // il montante (M75), né il numero dopo CM, MM o H, che è una larghezza o uno spessore
+      // (CM.05 M.10, MM.0,30 ML.1X3), né un pezzo di un numero con la virgola
+      x = /\b(?:ML|MT)\.?\s*(\d+(?:[.,]\d+)?)\b/.exec(d)
+        ?? /\bM\.\s*(\d+(?:[.,]\d+)?)\b/.exec(d)
+        ?? /(?<![\d.,])(?<!\b(?:CM|MM|H)\.?\s?)\b(\d+(?:[.,]\d+)?)\s*(?:ML|MT|M)\b/.exec(d);
       return x ? { contenuto: numeroIt(x[1]!), confezione: nome('rotoli') } : null;
     case 'kg':
-      x = /\bKG\.?\s*(\d+(?:[.,]\d+)?)/.exec(d) ?? /\b(\d+(?:[.,]\d+)?)\s*KG\b/.exec(d);
+      // non la densità (70 KG/MC) né la resa (0,2 KG/MQ)
+      x = /\bKG\.?\s*(\d+(?:[.,]\d+)?)/.exec(d) ?? /\b(\d+(?:[.,]\d+)?)\s*KG\b(?!\s*\/)/.exec(d);
       return x ? { contenuto: numeroIt(x[1]!), confezione: nome('sacchi') } : null;
     case 'pz':
-      x = /\b(?:CONF|SCATOLA|SCAT|PZ)\.?\s*(?:DA\s*)?(\d+)/.exec(d) ?? /\b(\d+)\s*PZ\b/.exec(d);
-      return x ? { contenuto: Number(x[1]!), confezione: /SCAT/.test(d) ? 'scatole' : 'conf.' } : null;
+      // "CONF.1000", "PZ.100", "CF500PZ", "1000 PZ"
+      x = /\b(?:CONF|SCATOLA|SCAT|PZ|CF)\.?\s*(?:DA\s*)?(\d+)/.exec(d) ?? /\b(\d+)\s*PZ\b/.exec(d);
+      return x ? { contenuto: Number(x[1]!), confezione: nome('conf.') } : null;
     case 'mq': {
-      // le misure in cm (200X120), o i m² della confezione (MQ 4,32)
-      x = /\b(\d{2,3})\s*[X×]\s*(\d{2,3})\b/.exec(d);
-      if (x) return { contenuto: Math.round(Number(x[1]) * Number(x[2])) / 10000, confezione: nome('lastre') };
+      // le misure della lastra o del pannello, in cm (200X120: da 20 a 400) o in mm (3000X1200,
+      // 1200X600, 600X600: oltre i 4 m non è più cm); non la maglia di una rete (10X10), non
+      // tre misure (294X152X70 è una scatola: le lastre CM.200x120x012 hanno i MQ scritti)
+      const cm = misura(d, /(?<!MAGLIA\s?)\b(\d{2,3})\s*[X×]\s*(\d{2,3})\b/g, (a, b) => Math.min(a, b) >= 20 && Math.max(a, b) <= 400);
+      if (cm) return { contenuto: Math.round(cm[0] * cm[1]) / 10000, confezione: nome('lastre') };
+      const mm = misura(d, /\b(\d{3,4})\s*[X×]\s*(\d{3,4})\b/g, (a, b) => Math.max(a, b) >= 1000 || Math.min(a, b) > 400);
+      if (mm) return { contenuto: Math.round((mm[0] * mm[1]) / 100) / 10000, confezione: nome('lastre') };
+      // i m² della confezione (MQ 4,32): pacchi, rotoli di guaina, di telo o di rete
       x = /\bMQ\.?\s*(\d+(?:[.,]\d+)?)/.exec(d) ?? /\b(\d+(?:[.,]\d+)?)\s*MQ\b/.exec(d);
-      return x ? { contenuto: numeroIt(x[1]!), confezione: nome('pacchi') } : null;
+      return x ? { contenuto: numeroIt(x[1]!), confezione: nome('rotoli') } : null;
     }
   }
 }
