@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { calcolaDistinta } from '../src/engine';
 import { calcolaDistintaSiniat } from '../src/engine-siniat';
-import { vociNote } from '../src/data/chiavi';
+import { terminiRicerca, vociNote } from '../src/data/chiavi';
 import { MAPPING_SEED } from '../src/data/mapping_seed';
 import { SISTEMI } from '../src/data/sistemi';
 import { chiaveValida, mappaturaPer, mappaturaValida } from '../src/lib/mappatura';
@@ -113,5 +113,24 @@ describe('voci della pagina di mappatura', () => {
       }
     }
     expect(distinte).toBeGreaterThan(60);
+  });
+});
+
+describe('ricerca impostata nella mappatura', () => {
+  it('ogni voce parte da qualcosa da cercare', () => {
+    for (const v of vociNote()) expect(terminiRicerca(v).trim().length, v.chiave).toBeGreaterThan(1);
+  });
+
+  it('radici brevi e il numero che conta', () => {
+    const t = (chiave: string) => terminiRicerca(vociNote().find((v) => v.chiave === chiave)!);
+    expect(t('GUIDA_75')).toBe('guid 75');
+    expect(t('MONTANTE_100')).toBe('montant 100');
+    expect(t('VITI_25')).toBe('vit 25');
+    expect(t('VITI_S_TEX_32_MM')).toBe('vit 32');
+    expect(t('PROFILO_S4927')).toBe('4927');
+    expect(t('LASTRA_PREGYFLAM_BA15')).toBe('pregyflam 15');
+    expect(t('LASTRA_BA13_STD')).toBe('ba13');
+    expect(t('LASTRA_SOLIDTEX_INDOOR')).toBe('solidtex');
+    expect(t('CAVALIERE')).toBe('cavalier');
   });
 });

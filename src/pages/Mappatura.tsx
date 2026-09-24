@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { vociNote } from '../data/chiavi';
+import { terminiRicerca, vociNote } from '../data/chiavi';
 import type { VoceNota } from '../data/chiavi';
 import { useAccesso } from '../lib/auth';
 import { useDati } from '../lib/dati';
@@ -46,6 +46,11 @@ export default function Mappatura() {
       parole.every((p) => `${x.v.chiave} ${x.v.descrizione} ${x.m?.codice ?? ''}`.toLowerCase().includes(p)),
   );
   const apri = (chiave: string | null) => setParametri(chiave ? { chiave } : {}, { replace: true });
+  // la prossima voce da mappare dopo quella aperta, nell'ordine dell'elenco (poi si ricomincia da capo)
+  const qui = visibili.findIndex((x) => x.v.chiave === scelta);
+  const prossima = scelta
+    ? [...visibili.slice(qui + 1), ...visibili.slice(0, Math.max(qui, 0))].find((x) => !x.m && x.v.chiave !== scelta)?.v.chiave
+    : undefined;
 
   return (
     <div className="mappatura">
@@ -79,6 +84,7 @@ export default function Mappatura() {
           key={scelta}
           voce={voci.find((v) => v.chiave === scelta) ?? voceSconosciuta(scelta)}
           chiudi={() => apri(null)}
+          {...(prossima ? { avanti: () => apri(prossima) } : {})}
         />
       )}
 
@@ -163,11 +169,12 @@ export function StatoListino() {
 }
 
 /** La scheda di una voce: cerca nel listino, scegli, salva. */
-function Scheda({ voce, chiudi }: { voce: VoceNota; chiudi: () => void }) {
+function Scheda({ voce, chiudi, avanti }: { voce: VoceNota; chiudi: () => void; avanti?: () => void }) {
   const dati = useDati();
   const attuale = mappaturaPer(voce.chiave, dati.mappature);
   const salvata: MappaturaSalvata | undefined = dati.mappature.get(voce.chiave);
-  const [cerca, setCerca] = useState(attuale?.codice ?? '');
+  // si parte dal codice che c'è già, altrimenti da parole adatte alla voce
+  const [cerca, setCerca] = useState(attuale?.codice ?? terminiRicerca(voce));
   const [codice, setCodice] = useState(attuale?.codice ?? '');
   const [prezzoPer, setPrezzoPer] = useState<'confezione' | 'um'>(attuale?.prezzoPer ?? 'confezione');
   const [sconto, setSconto] = useState(attuale?.scontoExtraBp ? formattaPercento(attuale.scontoExtraBp) : '');
@@ -182,14 +189,14 @@ function Scheda({ voce, chiudi }: { voce: VoceNota; chiudi: () => void }) {
   const articolo: ArticoloListino | undefined = codice ? dati.indice.get(codice) : undefined;
   const scontoBp = percentoABp(sconto);
 
-  async function salva() {
+  async function salva(poi: () => void) {
     setErrore('');
     if (!articolo) return setErrore('Scegli un articolo del listino.');
     if (scontoBp === null) return setErrore('Sconto extra non valido.');
     setInCorso(true);
     try {
       await dati.salvaMappatura({ chiave: voce.chiave, codice: articolo.codice, prezzoPer, scontoExtraBp: scontoBp || undefined });
-      chiudi();
+      poi();
     } catch (e) {
       setErrore(e instanceof Error ? e.message : 'Salvataggio non riuscito.');
       setInCorso(false);
@@ -278,7 +285,12 @@ function Scheda({ voce, chiudi }: { voce: VoceNota; chiudi: () => void }) {
       {errore && <p className="avviso avviso-attenzione">{errore}</p>}
 
       <div className="azioni-scheda">
-        <button className="btn btn-primary" disabled={!articolo || inCorso} onClick={() => void salva()}>
+        {avanti && (
+          <button className="btn btn-primary" disabled={!articolo || inCorso} onClick={() => void salva(avanti)}>
+            Salva e vai alla prossima
+          </button>
+        )}
+        <button className={`btn ${avanti ? '' : 'btn-primary'}`} disabled={!articolo || inCorso} onClick={() => void salva(chiudi)}>
           Salva
         </button>
         {salvata && (

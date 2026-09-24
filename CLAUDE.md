@@ -89,9 +89,10 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   alla confezione o all'unità di misura (lastre al m²), sconto extra di
   partenza per la Fase 4. Dove non c'è vale `mapping_seed.ts`. Il codice si
   sceglie dal listino, non si scrive.
-- **Regole `cgp_*`**: proposta in `docs/regole-firestore-cgp.md`, da aggiungere
-  a `magazzino-scorte/firestore.rules` e pubblicare. Finché non ci sono, la
-  mappatura salvata non funziona e l'app lo dice.
+- **Regole `cgp_*`**: in `magazzino-scorte/firestore.rules` dal commit
+  `3ea5d5a` (testo e motivi in `docs/regole-firestore-cgp.md`); valgono solo
+  dopo la pubblicazione in console. Finché non ci sono, la mappatura salvata
+  non funziona e l'app lo dice.
 - Firestore, Storage e SheetJS si caricano solo dopo l'accesso.
 
 ## Studio dei manuali Siniat (23/09/2026)

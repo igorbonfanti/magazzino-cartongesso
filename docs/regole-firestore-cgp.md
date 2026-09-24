@@ -1,4 +1,8 @@
-# Regole Firestore per le collection `cgp_*` — proposta
+# Regole Firestore per le collection `cgp_*`
+
+**Stato (24/09/2026):** aggiunte a `magazzino-scorte/firestore.rules` nel commit
+`3ea5d5a`. Restano da **pubblicare nella console Firebase**: finché non si
+pubblicano, la mappatura salvata non funziona.
 
 Le regole del progetto `magazzino-edile-pos` stanno per intero in
 `magazzino-scorte/firestore.rules`, l'unica copia versionata, e si pubblicano
@@ -42,10 +46,12 @@ prezzi del listino sì, ma la mappatura salvata no. Firestore risponde
 
 ## Come si pubblica
 
-1. Si aggiungono i due pezzi a `magazzino-scorte/firestore.rules` (posso farlo
-   io, con un commit in quel repository, quando mi dai l'ok).
-2. Nella console Firebase, Firestore Database → Regole, si incolla il file
-   intero e si pubblica.
+1. I due pezzi sono già in `magazzino-scorte/firestore.rules` (commit
+   `3ea5d5a`).
+2. Nella console Firebase, progetto `magazzino-edile-pos`, Firestore Database →
+   Regole, si incolla il file intero (da
+   https://github.com/igorbonfanti/magazzino-scorte/blob/main/firestore.rules)
+   e si pubblica.
 3. Si controlla subito che scorte, gestionale, ordini e solleciti funzionino:
    il blocco nuovo concede e basta, non toglie niente agli altri.
 
