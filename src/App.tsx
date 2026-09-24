@@ -3,13 +3,16 @@ import Distinta from './pages/Distinta';
 import ComeSiCalcola from './pages/ComeSiCalcola';
 import Accesso from './pages/Accesso';
 import Mappatura from './pages/Mappatura';
+import Preventivo from './pages/Preventivo';
+import PaginaPreventivo from './pages/PaginaPreventivo';
+import Archivio from './pages/Archivio';
 import Recinto from './pages/Recinto';
 import { useTema } from './lib/tema';
 import { ProviderAccesso, useAccesso } from './lib/auth';
 import { ProviderDati } from './lib/dati';
 
-// Fase 3: distinta a video per tutti; listino, prezzi e mappatura per gli
-// utenti autorizzati. Preventivo e archivio arrivano in Fase 4.
+// La distinta a video è per tutti; listino, prezzi, mappatura, preventivi e
+// archivio per gli utenti autorizzati.
 export default function App() {
   return (
     <ProviderAccesso>
@@ -35,7 +38,7 @@ function Guscio() {
           {utente && (
             <p className="ag-sottotitolo">
               {utente.email}
-              {!autorizzato && ' · non abilitato a prezzi e mappatura'}
+              {!autorizzato && ' · non abilitato a prezzi, mappatura e preventivi'}
             </p>
           )}
         </div>
@@ -57,6 +60,8 @@ function Guscio() {
 
       <nav className="ag-nav">
         <NavLink to="/distinta">Distinta</NavLink>
+        {autorizzato && <NavLink to="/preventivo">Preventivo</NavLink>}
+        {autorizzato && <NavLink to="/preventivi" end>Archivio</NavLink>}
         {autorizzato && <NavLink to="/mappatura">Mappatura</NavLink>}
         <NavLink to="/come-si-calcola">Come si calcola</NavLink>
       </nav>
@@ -69,6 +74,9 @@ function Guscio() {
             <Route path="/distinta" element={<Distinta />} />
             <Route path="/accesso" element={utente ? <Navigate to="/distinta" replace /> : <Accesso />} />
             <Route path="/mappatura" element={<Mappatura />} />
+            <Route path="/preventivo" element={<Preventivo />} />
+            <Route path="/preventivi" element={<Archivio />} />
+            <Route path="/preventivi/:numero" element={<PaginaPreventivo />} />
             <Route path="/come-si-calcola" element={<ComeSiCalcola />} />
             <Route path="*" element={<Navigate to="/distinta" replace />} />
           </Routes>

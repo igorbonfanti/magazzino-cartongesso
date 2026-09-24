@@ -40,6 +40,10 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
 | `src/lib/listino.ts` | lettura di `listino.xlsx` (pura, come il gestionale); `listinoRemoto.ts` lo scarica e lo tiene in IndexedDB |
 | `src/lib/mappatura.ts` | voce della distinta → codice di listino; `mappaturaRemota.ts` legge e scrive `cgp_mapping` |
 | `src/prezzi.ts` | prezzi delle righe: listino × (1 − sconto base) × quantità venduta |
+| `src/preventivo.ts` | preventivo puro: righe dalla distinta, sconti, totali con arrotondamento, numero PCG, lettura e duplicazione |
+| `src/schedaTecnica.ts` | la scheda tecnica del preventivo (stratigrafia, classi, rapporti, Rw, dicitura), fotografata alla creazione |
+| `src/lib/preventiviRemoti.ts` | `cgp_preventivi`, `cgp_contatori/{anno}`, `cgp_impostazioni/preventivo` |
+| `src/lib/clienti.ts`, `clientiRemoti.ts` | anagrafica clienti del gestionale, in sola lettura |
 | `src/data/chiavi.ts` | tutte le voci che una distinta può contenere, per la pagina Mappatura |
 | `src/lib/auth.tsx`, `ruoli.ts` | accesso email/password; autorizzati = gli UID di `autorizzato()` nelle regole |
 | `src/money.ts` | centesimi interi; prime funzioni identiche a scorte, poi la catena dei prezzi |
@@ -65,7 +69,9 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   soluzioni tutte a magazzino. Per le configurazioni certificate usa le
   sostituzioni che la guida elenca per quella configurazione, con lastre dello
   stesso spessore; per le schede Memento nessuna sostituzione oltre alle note
-  della scheda.
+  della scheda. Nel passo 3 l'interruttore *A magazzino / Su ordinazione /
+  Tutte* (si parte da A magazzino, la scelta resta nella bozza). Con la Fase 3
+  la disponibilità passerà al listino.
 - **Pregyflam BA15 al posto delle BA13** (deciso il 24/09/2026): è la proposta
   di partenza per le certificate provate con la UNI EN 1364-1 (pareti, setti,
   contropareti); le solidtex della guida restano un'opzione nella scheda della
@@ -76,9 +82,7 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   lastre H): lì valgono le solidtex o le lastre da ordinare. Le classi si
   mostrano fino a 4 m, la dicitura del preventivo lo dice con il rapporto da
   verificare. `sostituzioniMagazzino(c, 'spessore' | 'guida')`, fonte
-  `spessore`. Nel passo 3 l'interruttore *A magazzino / Su ordinazione /
-  Tutte* (si parte da A magazzino, la scelta resta nella bozza). Con la Fase 3
-  la disponibilità passerà al listino.
+  `spessore`.
 - **Sfrido di partenza 10% su lastre e isolante** (confermato il 23/09/2026). Il
   caso reale della specifica (285 pannelli) resta calcolato senza sfrido sulla
   lana, come nella specifica: il test lo tiene così.
@@ -121,6 +125,37 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   dopo la pubblicazione in console. Finché non ci sono, la mappatura salvata
   non funziona e l'app lo dice.
 - Firestore, Storage e SheetJS si caricano solo dopo l'accesso.
+
+## Fase 4 — preventivo (24/09/2026)
+
+- **Il preventivo si fa qui, non nel gestionale**: il PREV del gestionale non
+  ha spazio per la dicitura e la scheda tecnica, e il gestionale non accetta
+  righe da fuori (carrello solo in memoria). Serie `PCG-YYYY-NNNN`.
+- **Flusso**: distinta, passo 6, «Crea il preventivo» (o «Aggiungi al
+  preventivo in corso»: le stesse voci si sommano, le schede si accodano) →
+  `/preventivo`, bozza in localStorage `cartongesso.preventivo` → «Salva e
+  numera»: contatore `cgp_contatori/{anno}` e documento `cgp_preventivi/{numero}`
+  nella stessa transazione, così un salvataggio fallito non consuma numeri →
+  `/preventivi/{numero}`: non si modifica, si duplica (con i prezzi del
+  listino di oggi; gli articoli spariti dal listino restano gialli con il
+  netto di allora) → Stampa/PDF dal browser, il titolo della pagina diventa
+  il nome del file.
+- **Righe**: quelle del listino hanno prezzo e sconto base fissi e lo sconto
+  extra di partenza della mappatura; quelle senza articolo del listino sono
+  gialle, prezzo da scrivere, codice mai inventato; righe fuori listino a
+  mano. Sconto arrotondamento sul totale IVA inclusa, imponibile scorporato
+  (`scorporaIva`), come il gestionale.
+- **Cliente**: facoltativo; dall'anagrafica del gestionale in sola lettura
+  (`clienti.xlsx` in copia locale e la collection `clienti` cercata per inizio
+  di ragione sociale: ha decine di migliaia di documenti, non si legge tutta),
+  oppure scritto a mano. Un cliente nuovo resta sul preventivo: in anagrafica
+  lo aggiunge il gestionale. Qui non si scrive in `clienti`.
+- **Stampa**: prima pagina come i PREV (intestazione, numero verde, righe,
+  totali, dicitura, IBAN), seconda la scheda tecnica. La data è quella del
+  preventivo anche ristampando. IBAN e IVA di partenza in
+  `cgp_impostazioni/preventivo` (si cambiano dall'archivio; di partenza l'IBAN
+  che il gestionale stampa), l'IBAN si fotografa su ogni preventivo.
+- Da fare: invio per email e WhatsApp.
 
 ## Studio dei manuali Siniat (23/09/2026)
 

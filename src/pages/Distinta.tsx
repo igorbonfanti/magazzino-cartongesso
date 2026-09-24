@@ -23,6 +23,8 @@ import { adattaRighe, prezzaRiga } from '../prezzi';
 import type { RigaVenduta } from '../prezzi';
 import { StatoListino } from './Mappatura';
 import Classico from './distinta/Classico';
+import CreaPreventivo from './distinta/CreaPreventivo';
+import { schedaClassico, schedaSiniat } from '../schedaTecnica';
 import { CampiSfrido, Passo } from './distinta/comuni';
 import Misure from './distinta/Misure';
 import Requisiti from './distinta/Requisiti';
@@ -205,6 +207,13 @@ export default function Distinta() {
                     mappatura={autorizzato}
                   />
                 )}
+                {distintaClassica && scelte && autorizzato && (
+                  <CreaPreventivo
+                    righe={vendute(distintaClassica.righe)}
+                    prezzi={prezza(vendute(distintaClassica.righe))}
+                    scheda={schedaClassico(distintaClassica, scelte)}
+                  />
+                )}
               </Passo>
             </>
           )}
@@ -256,6 +265,13 @@ export default function Distinta() {
                     distinta={{ ...siniatOk, righe: vendute(siniatOk.righe) }}
                     prezzi={prezza(vendute(siniatOk.righe))}
                     mappatura={autorizzato}
+                  />
+                )}
+                {siniatOk && autorizzato && (
+                  <CreaPreventivo
+                    righe={vendute(siniatOk.righe)}
+                    prezzi={prezza(vendute(siniatOk.righe))}
+                    scheda={schedaSiniat(effettivo, siniatOk)}
                   />
                 )}
               </Passo>

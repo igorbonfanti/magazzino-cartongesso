@@ -30,6 +30,18 @@ export const COLL = {
 /** Il file del listino su Storage, condiviso con magazzino-gestionale. */
 export const FILE_LISTINO = 'listino.xlsx';
 
+/** L'anagrafica clienti del gestionale su Storage. Solo lettura. */
+export const FILE_CLIENTI = 'clienti.xlsx';
+
+/**
+ * Collection di altre app che questa legge soltanto: non ci si scrive mai
+ * (vedi CLAUDE.md, "le tre cose da non fare").
+ */
+export const SOLO_LETTURA = {
+  /** clienti aggiunti a mano nel gestionale */
+  clienti: 'clienti',
+} as const;
+
 /**
  * ID di documento a partire dal codice articolo: Firestore non accetta "/"
  * negli ID. Il codice originale resta sempre in un campo a parte.

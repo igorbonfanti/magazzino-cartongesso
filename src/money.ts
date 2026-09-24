@@ -162,6 +162,18 @@ export function totaliPreventivo(totaliRigaCent: readonly number[], aliquotaBp: 
   return { nettoCent: netto, ivaCent: iva, totaleCent: netto + iva };
 }
 
+/**
+ * Un importo IVA inclusa diviso in imponibile e imposta: l'imponibile si
+ * arrotonda al centesimo, l'IVA è la differenza, così la somma torna sempre.
+ * Serve dopo lo sconto arrotondamento, che si dà sul totale IVA inclusa come
+ * nel gestionale.
+ */
+export function scorporaIva(lordoCent: number, aliquotaBp: number): TotaliPreventivo {
+  if (!Number.isInteger(lordoCent) || lordoCent < 0) throw new Error(`Importo non valido: ${lordoCent}`);
+  const netto = Number(dividiArrotonda(BigInt(lordoCent) * 10000n, 10000n + BigInt(aliquotaBp)));
+  return { nettoCent: netto, ivaCent: lordoCent - netto, totaleCent: lordoCent };
+}
+
 // ===========================================================================
 // PREZZI DI LISTINO
 // ===========================================================================

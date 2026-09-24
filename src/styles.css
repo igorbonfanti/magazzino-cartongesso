@@ -395,3 +395,98 @@ td.r .articolo-meta { justify-content: flex-end; }
 .incidenze { margin-bottom: 12px; }
 .incidenze h4 { margin: 0 0 10px; font-size: var(--fs-base); }
 .incidenze .ag-pastiglia { margin-left: 6px; }
+
+/* --- PREVENTIVO --------------------------------------------------------- */
+
+.preventivo { display: flex; flex-direction: column; gap: 14px; }
+.preventivo > .nota { margin: 0; }
+.opzione-larga { flex: 1 1 280px; min-width: 0; }
+.opzione-larga .ag-campo { width: 100%; }
+.cliente-cerca,
+.cliente-scheda,
+.righe-preventivo { display: flex; flex-direction: column; gap: 12px; }
+.cliente-cerca .nota,
+.cliente-scheda .nota { margin: 0; }
+.tabella-preventivo td { vertical-align: top; }
+.tabella-preventivo td.r { white-space: nowrap; }
+.tabella-preventivo tr.da-mappare td { background: var(--orange-bg); }
+.tabella-preventivo .ag-campo { min-height: 34px; padding: 6px 8px; }
+.campo-codice { width: 110px !important; }
+.campo-descrizione { width: 100%; min-width: 220px; }
+.campo-um { width: 70px !important; }
+.errore-riga { color: var(--red); font-size: var(--fs-sm); font-weight: 600; white-space: normal; }
+.schede-preventivo { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.schede-preventivo li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.crea-preventivo { align-items: center; margin-top: 12px; }
+.crea-preventivo .nota { margin: 0; }
+.impostazioni-preventivo summary { cursor: pointer; font-weight: 600; }
+.impostazioni-preventivo[open] summary { margin-bottom: 12px; }
+.impostazioni-preventivo .nota { margin: 8px 0 0; }
+
+/* il documento: a video come in stampa, sempre su fondo chiaro come la carta */
+.documento {
+  --doc-verde: #16a34a;
+  max-width: 900px;
+  padding: 28px;
+  background: #fff;
+  color: #111;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.documento p { margin: 0; }
+.documento a { color: inherit; }
+.documento-testa { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+.documento-ditta h1 { margin: 0 0 4px; font-size: 22px; }
+.documento-numero { color: var(--doc-verde); font-weight: 700; font-size: 16px; }
+.documento-cliente { min-width: 240px; text-align: right; }
+.documento-cantiere { margin-top: 8px; padding: 8px 10px; background: #f1f1f4; border-radius: 6px; text-align: left; }
+.documento table { width: 100%; margin-top: 18px; border-collapse: collapse; }
+.documento th {
+  padding: 6px 5px;
+  border-bottom: 2px solid #111;
+  font-size: 11px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.documento td { padding: 5px; border-bottom: 1px solid #d4d4dc; vertical-align: top; }
+.documento .r { text-align: right; white-space: nowrap; }
+.documento-totali { width: min(100%, 380px); margin: 14px 0 0 auto; }
+.documento-totali > div { display: flex; justify-content: space-between; gap: 16px; padding: 3px 0; }
+.documento-totale { margin-top: 4px; padding-top: 6px !important; border-top: 2px solid #111; color: var(--doc-verde); font-size: 18px; font-weight: 700; }
+.documento-note { margin-top: 16px !important; white-space: pre-wrap; }
+.documento-dicitura { margin-top: 12px !important; padding: 8px 10px; border: 1px solid #111; font-weight: 600; }
+.documento-rinvio { margin-top: 12px !important; color: #555; font-size: 12px; }
+.documento-iban { margin-top: 16px !important; font-weight: 600; }
+.documento-scheda { margin-top: 36px; padding-top: 24px; border-top: 1px dashed #bbb; }
+.documento-scheda h2 { display: flex; justify-content: space-between; margin: 0 0 12px; font-size: 18px; }
+.scheda-stampa { margin-top: 16px; }
+.scheda-stampa h3 { margin: 0 0 2px; font-size: 15px; }
+.scheda-stampa ol,
+.documento-avvisi { margin: 8px 0; padding-left: 20px; }
+.scheda-stampa > p { margin-top: 6px; }
+.documento-rif { color: #555; font-size: 12px; }
+.documento-classi tr.classe-richiesta td { background: #eef8f0; }
+.documento-avvertenza { margin-top: 20px !important; color: #555; font-size: 11px; }
+
+@media print {
+  @page { size: A4; margin: 12mm; }
+  .no-stampa,
+  .ag-vuoto { display: none !important; }
+  main { padding: 0 !important; }
+  .preventivo { gap: 0; }
+  .documento { max-width: none; padding: 0; border: none; font-size: 11px; }
+  .documento-scheda { margin-top: 0; padding-top: 0; border-top: none; break-before: page; page-break-before: always; }
+  .documento tr { break-inside: avoid; page-break-inside: avoid; }
+  .documento a { text-decoration: none; }
+}
