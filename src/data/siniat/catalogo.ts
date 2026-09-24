@@ -109,3 +109,27 @@ export function sostituzioniMagazzino(c: ConfigurazioneFuoco): Sostituzione[] | 
   }
   return sostituzioni;
 }
+
+/**
+ * Spessore della lana in una scheda Memento per il montante scelto: la scheda
+ * lo dice per ogni orditura ("Lana minerale sp. 40/60/80/140 mm" con
+ * M(50/75/100/150)), o una volta sola ("sp. min. 50 mm"). Dove non lo dice,
+ * l'abbinamento delle pareti a singola orditura: 40 mm sul 50, 60 sul 75, 80
+ * sul 100, 140 sul 150. null per i profili dei controsoffitti.
+ */
+const SPESSORE_PER_MONTANTE: Record<number, number> = { 50: 40, 75: 60, 100: 80, 150: 140 };
+
+export function spessoreIsolante(s: SistemaSiniat, montante: string | null | undefined): number | null {
+  const mis = misuraMontante(montante);
+  const testo = (s.isolante ?? '').toLowerCase();
+  const elenco = /sp\.\s*([\d/]+)\s*mm/.exec(testo)?.[1]?.split('/').map(Number);
+  const montanti = /m\(([\d/]+)\)/i.exec(s.codice ?? '')?.[1]?.split('/').map(Number);
+  if (elenco && elenco.length === 1) return elenco[0]!;
+  if (elenco && montanti && elenco.length === montanti.length && mis != null) {
+    const i = montanti.indexOf(mis);
+    if (i >= 0) return elenco[i]!;
+  }
+  const minimo = /sp\.\s*min\.\s*(\d+)\s*mm/.exec(testo)?.[1];
+  if (minimo) return Number(minimo);
+  return mis != null ? SPESSORE_PER_MONTANTE[mis] ?? null : null;
+}

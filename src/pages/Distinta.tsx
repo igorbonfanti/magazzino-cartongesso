@@ -19,7 +19,8 @@ import type { SoluzioneScelta } from '../types';
 import type { RigaDistinta } from '../engine';
 import { useAccesso } from '../lib/auth';
 import { useDati } from '../lib/dati';
-import { prezzaRiga } from '../prezzi';
+import { adattaRighe, prezzaRiga } from '../prezzi';
+import type { RigaVenduta } from '../prezzi';
 import { StatoListino } from './Mappatura';
 import Classico from './distinta/Classico';
 import { CampiSfrido, Passo } from './distinta/comuni';
@@ -46,6 +47,8 @@ export default function Distinta() {
   const [bozza, setBozza] = useState<Bozza>(bozzaIniziale);
   const { utente, autorizzato } = useAccesso();
   const dati = useDati();
+  /** le righe con le confezioni degli articoli mappati (rotoli da 23 ml…), per chi vede la mappatura */
+  const vendute = (righe: RigaDistinta[]): RigaVenduta[] => (autorizzato ? adattaRighe(righe, dati.mappature) : righe);
   /** i prezzi riga per riga, se c'è il listino */
   const prezza = (righe: RigaDistinta[]) =>
     autorizzato && dati.listino ? righe.map((r) => prezzaRiga(r, dati.mappature, dati.indice)) : null;
@@ -189,7 +192,11 @@ export default function Distinta() {
               <Passo n={6} titolo="Distinta materiali">
                 {statoPrezzi}
                 {distintaClassica && (
-                  <TabellaDistinta distinta={distintaClassica} prezzi={prezza(distintaClassica.righe)} mappatura={autorizzato} />
+                  <TabellaDistinta
+                    distinta={{ ...distintaClassica, righe: vendute(distintaClassica.righe) }}
+                    prezzi={prezza(vendute(distintaClassica.righe))}
+                    mappatura={autorizzato}
+                  />
                 )}
               </Passo>
             </>
@@ -223,7 +230,13 @@ export default function Distinta() {
                 </div>
                 {statoPrezzi}
                 {distintaSiniat && 'errore' in distintaSiniat && <p className="avviso avviso-attenzione">{distintaSiniat.errore}</p>}
-                {siniatOk && <TabellaDistinta distinta={siniatOk} prezzi={prezza(siniatOk.righe)} mappatura={autorizzato} />}
+                {siniatOk && (
+                  <TabellaDistinta
+                    distinta={{ ...siniatOk, righe: vendute(siniatOk.righe) }}
+                    prezzi={prezza(vendute(siniatOk.righe))}
+                    mappatura={autorizzato}
+                  />
+                )}
               </Passo>
             </>
           ) : (

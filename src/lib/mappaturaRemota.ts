@@ -36,13 +36,17 @@ export async function leggiMappature(): Promise<EsitoMappature> {
   }
 }
 
-export async function salvaMappatura(m: Pick<Mappatura, 'chiave' | 'codice' | 'prezzoPer' | 'scontoExtraBp'>): Promise<void> {
+export async function salvaMappatura(
+  m: Pick<Mappatura, 'chiave' | 'codice' | 'prezzoPer' | 'scontoExtraBp' | 'contenuto' | 'confezione'>,
+): Promise<void> {
   if (!chiaveValida(m.chiave)) throw new Error(`Chiave non valida: ${m.chiave}`);
   if (!m.codice.trim()) throw new Error('Manca il codice di listino.');
   await setDoc(doc(db, COLL.mapping, m.chiave), {
     chiave: m.chiave,
     codice: m.codice.trim(),
     prezzoPer: m.prezzoPer,
+    ...(m.contenuto ? { contenuto: m.contenuto } : {}),
+    ...(m.confezione ? { confezione: m.confezione } : {}),
     ...(m.scontoExtraBp ? { scontoExtraBp: m.scontoExtraBp } : {}),
     aggiornatoDa: auth.currentUser?.email ?? '',
     aggiornatoIl: serverTimestamp(),

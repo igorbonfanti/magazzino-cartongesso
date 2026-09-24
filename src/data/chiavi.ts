@@ -10,7 +10,7 @@
 import { ARTICOLI, PROFILI_PER_AMBITO, SISTEMI_PER_AMBITO, chiaveArticolo, nomeLastra } from './sistemi';
 import { articoloSiniat } from './siniat/articoli';
 import { CATALOGO, sostituisciStratigrafia, sostituzioniMagazzino } from './siniat/catalogo';
-import { incidenzeDaRegola } from '../engine-siniat';
+import { conSpessore, incidenzeDaRegola, nomeIsolante } from '../engine-siniat';
 import type { Ambito, Prestazione, Ruolo, Um } from '../types';
 
 export interface VoceNota {
@@ -83,7 +83,7 @@ function vociSiniat(elenco: Map<string, VoceNota>) {
   for (const s of CATALOGO.sistemi) {
     const montanti = [...new Set(s.varianti.map((v) => v.montante ?? null))];
     for (const v of s.incidenze?.voci ?? []) {
-      for (const m of montanti.length ? montanti : [null]) vocePerSiniat(elenco, v.prodotto, v.unita, m);
+      for (const m of montanti.length ? montanti : [null]) vocePerSiniat(elenco, conSpessore(v.prodotto, s, m), v.unita, m);
     }
   }
   // regole per le certificate, anche con le lastre sostituite per il magazzino;
@@ -97,10 +97,7 @@ function vociSiniat(elenco: Map<string, VoceNota>) {
         for (const v of incidenzeDaRegola(x, '600', acc)) vocePerSiniat(elenco, v.prodotto, v.unita, x.montante);
       }
     }
-    if (st.isolante) {
-      const tipo = st.isolante.tipo === 'LR' ? 'lana di roccia' : st.isolante.tipo === 'LV' ? 'lana di vetro' : 'lana minerale';
-      vocePerSiniat(elenco, `Isolante in ${tipo}`, 'm²', st.montante);
-    }
+    if (st.isolante) vocePerSiniat(elenco, nomeIsolante(st.isolante), 'm²', st.montante);
   }
   // tasselli delle guide, che il motore Siniat aggiunge sempre alle pareti
   aggiungi(elenco, { chiave: 'TASSELLI', descrizione: 'Tasselli per le guide', categoria: 'TASSELLI', um: 'pz', contenuto: 100, umConf: 'conf.' }, 'siniat');

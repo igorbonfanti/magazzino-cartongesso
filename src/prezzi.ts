@@ -10,6 +10,7 @@
  * sola, al centesimo, come nel gestionale; lo sconto del venditore (sconto 2)
  * arriva col preventivo.
  */
+import { arrotondaSu, pezziConSfrido } from './engine';
 import type { RigaDistinta } from './engine';
 import type { ArticoloListino } from './lib/listino';
 import { mappaturaPer } from './lib/mappatura';
@@ -17,6 +18,58 @@ import type { Mappatura, MappaturaRisolta } from './lib/mappatura';
 import { quantitaAMilli, sommaCent, totaleRigaDaListino } from './money';
 
 export type StatoPrezzo = 'prezzata' | 'da_mappare' | 'fuori_listino';
+
+/** Una riga della distinta, con la confezione dell'articolo mappato se diversa da quella della voce. */
+export type RigaVenduta = RigaDistinta & {
+  /** il codice di listino della cui confezione si contano i pezzi (MICRO, BIACAR5…) */
+  confezioneListino?: string;
+};
+
+/**
+ * La riga con la confezione dell'articolo del listino: il nastro in rotoli
+ * MICRO da 23 ml, la banda in BIACAR5 da 20 ml, le lastre da 3,6 m². La
+ * quantità resta quella della distinta; cambiano i pezzi da ordinare, contati
+ * come il motore: con lo sfrido su lastre e isolante (pezziConSfrido), altrimenti
+ * a confezioni intere. I montanti contati a barre per posizione (misure L×H)
+ * restano come sono se l'articolo è più lungo di 3 m: il conto per barre più
+ * lunghe va rifatto a mano, e la riga lo dice.
+ *
+ * La confezione confermata nella mappatura toglie dalla riga le verifiche su
+ * formato, lunghezze e confezioni; le altre ("in alternativa…") restano. Le
+ * mappature senza confezione (quelle di partenza, quelle salvate prima) non
+ * cambiano niente.
+ */
+export function conConfezione(r: RigaDistinta, m: Pick<Mappatura, 'codice' | 'contenuto' | 'confezione'> | undefined): RigaVenduta {
+  if (!m?.contenuto) return r;
+  const contenuto = m.contenuto;
+  const umConf = m.confezione?.trim() || r.umConf;
+  const verifiche = r.daVerificare
+    ?.split('; ')
+    .filter((v) => !/^(formato|lunghezza|confezione|profilo e lunghezza)/.test(v))
+    .join('; ');
+  const { daVerificare: _vecchia, ...resto } = r;
+  const confermata: RigaDistinta = { ...resto, ...(verifiche ? { daVerificare: verifiche } : {}) };
+  if (Math.abs(contenuto - r.contenuto) < 1e-9 && umConf === r.umConf) return confermata;
+  let pezzi: number;
+  let nota = r.nota;
+  if (r.sfridoPct > 0) {
+    // la quantità della riga ha già lo sfrido: si torna alla netta e si ricontano i pezzi
+    pezzi = pezziConSfrido((r.quantita * 100) / (100 + r.sfridoPct), contenuto, r.sfridoPct);
+  } else if (r.metodo === 'geometrico' && r.ruolo === 'MONTANTE' && contenuto > r.contenuto) {
+    pezzi = r.pezzi;
+    nota = [r.nota, `contati a barre da ${String(r.contenuto).replace('.', ',')} m: con barre più lunghe il numero va ricontrollato`]
+      .filter(Boolean)
+      .join('; ');
+  } else {
+    pezzi = arrotondaSu(r.quantita / contenuto);
+  }
+  return { ...confermata, contenuto, umConf, pezzi, ...(nota ? { nota } : {}), confezioneListino: m.codice };
+}
+
+/** Le righe con le confezioni degli articoli mappati. */
+export function adattaRighe(righe: readonly RigaDistinta[], salvate: ReadonlyMap<string, Mappatura>): RigaVenduta[] {
+  return righe.map((r) => conConfezione(r, mappaturaPer(r.chiave, salvate)));
+}
 
 export interface PrezzoRiga {
   stato: StatoPrezzo;

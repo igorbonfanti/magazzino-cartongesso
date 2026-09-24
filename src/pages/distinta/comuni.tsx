@@ -77,6 +77,15 @@ export function CampiSfrido({
   );
 }
 
+const SINGOLARE: Record<string, string> = {
+  lastre: 'lastra', barre: 'barra', rotoli: 'rotolo', sacchi: 'sacco', secchi: 'secchio', scatole: 'scatola', pannelli: 'pannello', pacchi: 'pacco',
+};
+
+/** "rotoli" → "rotolo": il nome di una confezione sola */
+export function singolare(umConf: string): string {
+  return SINGOLARE[umConf] ?? umConf;
+}
+
 /** 5 → "5", 4.2 → "4,2" */
 export function metriTesto(x: number): string {
   return String(x).replace('.', ',');

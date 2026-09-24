@@ -153,7 +153,10 @@ export function articoloSiniat(prodotto: string, unita: string, montante?: strin
     return { categoria: 'VITI', chiave, descrizione: p, um: 'pz', contenuto: 1000, umConf: 'conf.', ...(snt ? {} : { daVerificare: 'confezione viti speciali' }) };
   }
   if (/banda in polietilene/.test(l)) {
-    return { categoria: 'BANDA', chiave: 'BANDA_POLIETILENE', descrizione: p, um: 'ml', contenuto: 1, umConf: 'm', daVerificare: 'lunghezza rotolo banda' };
+    // la banda si compra per larghezza: quella della struttura (BIACAR5 per il 50…)
+    const chiave = m ? `BANDA_${m}` : profiloS ? 'BANDA_PERIMETRALE' : 'BANDA_POLIETILENE';
+    const descrizione = m ? `Banda in polietilene per struttura ${m}` : profiloS ? 'Banda in polietilene per guida perimetrale' : p;
+    return { categoria: 'BANDA', chiave, descrizione, um: 'ml', contenuto: 1, umConf: 'm', daVerificare: 'lunghezza rotolo banda' };
   }
   if (/stucco per giunti/.test(l)) {
     // lo stesso articolo del flusso generico: STUGES, sacco da 10 kg
@@ -170,7 +173,12 @@ export function articoloSiniat(prodotto: string, unita: string, montante?: strin
   }
   if (/isolante|lana/.test(l)) {
     const roccia = /roccia/.test(l) && !/minerale\/roccia|minerale/.test(l);
-    return { categoria: 'ISOLANTE', chiave: roccia ? 'LANA_ROCCIA' : 'LANA_MINERALE', descrizione: p, um: 'mq', contenuto: 0.72, umConf: 'pannelli', sfrido: 'isolante' };
+    // spessore e densità fanno l'articolo (e per il fuoco la densità è un requisito)
+    const sp = /sp\.?\s*(\d+)\s*mm/.exec(l)?.[1];
+    const densita = /(\d+(?:[.,]\d+)?)\s*kg\/m/.exec(l)?.[1]?.replace(/[.,]\d+$/, '');
+    const vetro = !roccia && /vetro/.test(l) && !/roccia/.test(l);
+    const chiave = (roccia ? 'LANA_ROCCIA' : vetro ? 'LANA_VETRO' : 'LANA_MINERALE') + (sp ? `_SP${sp}` : '') + (sp && densita ? `_D${densita}` : '');
+    return { categoria: 'ISOLANTE', chiave, descrizione: p, um: 'mq', contenuto: 0.72, umConf: 'pannelli', sfrido: 'isolante' };
   }
   if (/adesivo|rasante|\brete\b|nastro in rete|banda in rete/.test(l)) {
     return { categoria: 'RASATURA', chiave: 'RASATURA_' + slug(p), descrizione: p, um: um(unita), contenuto: 1, umConf: um(unita), daVerificare: 'confezione prodotti di rasatura' };

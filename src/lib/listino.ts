@@ -121,3 +121,41 @@ export function cercaArticoli(articoli: readonly ArticoloListino[], cerca: strin
   trovati.sort((a, b) => +(b.codice.toLowerCase() === esatto) - +(a.codice.toLowerCase() === esatto) || a.codice.localeCompare(b.codice));
   return trovati.slice(0, massimo);
 }
+
+function numeroIt(t: string): number {
+  return Number(t.replace(',', '.'));
+}
+
+/**
+ * La confezione scritta nella descrizione dell'articolo, nell'unità della
+ * voce: "ROTOLO ML.23" → 23 ml, "KG.10" → 10 kg, "CONF.1000" → 1000 pz,
+ * "LASTRA CM.200X120" → 2,4 m². È solo una proposta per la mappatura: si
+ * conferma o si corregge a mano. null se la descrizione non la dice.
+ */
+export function confezioneDaDescrizione(descrizione: string, um: 'mq' | 'ml' | 'kg' | 'pz'): { contenuto: number; confezione: string } | null {
+  const d = descrizione.toUpperCase();
+  // al plurale, come le confezioni della distinta ("3 rotoli")
+  const nome = (predefinito: string) =>
+    /ROTOL/.test(d) ? 'rotoli' : /BARR/.test(d) ? 'barre' : /SACC/.test(d) ? 'sacchi' : /SECCHI/.test(d) ? 'secchi' : /SCATOL/.test(d) ? 'scatole'
+      : /PANNELL/.test(d) ? 'pannelli' : /PACC/.test(d) ? 'pacchi' : /LASTR/.test(d) ? 'lastre' : predefinito;
+  let x: RegExpExecArray | null;
+  switch (um) {
+    case 'ml':
+      // "ML.23", "MT 20", oppure "3 M": non la M da sola davanti al numero, che è il montante (M75)
+      x = /\b(?:ML|MT)\.?\s*(\d+(?:[.,]\d+)?)\b/.exec(d) ?? /\b(\d+(?:[.,]\d+)?)\s*(?:ML|MT|M)\b/.exec(d);
+      return x ? { contenuto: numeroIt(x[1]!), confezione: nome('rotoli') } : null;
+    case 'kg':
+      x = /\bKG\.?\s*(\d+(?:[.,]\d+)?)/.exec(d) ?? /\b(\d+(?:[.,]\d+)?)\s*KG\b/.exec(d);
+      return x ? { contenuto: numeroIt(x[1]!), confezione: nome('sacchi') } : null;
+    case 'pz':
+      x = /\b(?:CONF|SCATOLA|SCAT|PZ)\.?\s*(?:DA\s*)?(\d+)/.exec(d) ?? /\b(\d+)\s*PZ\b/.exec(d);
+      return x ? { contenuto: Number(x[1]!), confezione: /SCAT/.test(d) ? 'scatole' : 'conf.' } : null;
+    case 'mq': {
+      // le misure in cm (200X120), o i m² della confezione (MQ 4,32)
+      x = /\b(\d{2,3})\s*[X×]\s*(\d{2,3})\b/.exec(d);
+      if (x) return { contenuto: Math.round(Number(x[1]) * Number(x[2])) / 10000, confezione: nome('lastre') };
+      x = /\bMQ\.?\s*(\d+(?:[.,]\d+)?)/.exec(d) ?? /\b(\d+(?:[.,]\d+)?)\s*MQ\b/.exec(d);
+      return x ? { contenuto: numeroIt(x[1]!), confezione: nome('pacchi') } : null;
+    }
+  }
+}

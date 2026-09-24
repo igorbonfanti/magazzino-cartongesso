@@ -3,21 +3,20 @@ import type { Avviso, RigaDistinta } from '../../engine';
 import { mappaturaPer } from '../../lib/mappatura';
 import { formattaDecimale, formattaEuro, formattaIntero, formattaPercento, formattaPrezzoListino } from '../../money';
 import { totaleDistinta } from '../../prezzi';
-import type { PrezzoRiga } from '../../prezzi';
+import type { PrezzoRiga, RigaVenduta } from '../../prezzi';
+import { singolare } from './comuni';
 
 /** Quello che serve alla tabella: vale per la distinta classica e per quella Siniat. */
 export interface DistintaDaMostrare {
-  righe: RigaDistinta[];
+  righe: (RigaDistinta | RigaVenduta)[];
   avvisi: Avviso[];
   hint: string[];
   dicitura?: string;
 }
 
-const SINGOLARE: Record<string, string> = { lastre: 'lastra', barre: 'barra', sacchi: 'sacco', pannelli: 'pannello', rotoli: 'rotolo' };
-
 /** "1 sacco", "3 sacchi" */
 function confezioni(pezzi: number, umConf: string): string {
-  return pezzi === 1 ? SINGOLARE[umConf] ?? umConf : umConf;
+  return pezzi === 1 ? singolare(umConf) : umConf;
 }
 
 /** 0,67 · 1,7 · 204,6 · 95: fino a 3 decimali, senza zeri inutili. */
@@ -134,6 +133,11 @@ export default function TabellaDistinta({
                       </td>
                       <td className="r nascondi-telefono">
                         {numero(r.contenuto)} {r.um}
+                        {'confezioneListino' in r && r.confezioneListino && (
+                          <div className="articolo-meta">
+                            {singolare(r.umConf)} {r.confezioneListino}
+                          </div>
+                        )}
                       </td>
                       <td className="r da-ordinare">
                         {formattaIntero(r.pezzi)} <span className="um-conf">{confezioni(r.pezzi, r.umConf)}</span>
@@ -142,7 +146,7 @@ export default function TabellaDistinta({
                         <td className="r nascondi-telefono">
                           {p?.articolo && (
                             <>
-                              {formattaPrezzoListino(p.articolo.prezzo)} €/{p.mappatura?.prezzoPer === 'um' ? r.um : SINGOLARE[r.umConf] ?? r.umConf}
+                              {formattaPrezzoListino(p.articolo.prezzo)} €/{p.mappatura?.prezzoPer === 'um' ? r.um : singolare(r.umConf)}
                               {p.articolo.scontoBp > 0 && <div className="articolo-meta">sconto {formattaPercento(p.articolo.scontoBp)}%</div>}
                             </>
                           )}

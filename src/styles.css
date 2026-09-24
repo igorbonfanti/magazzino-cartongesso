@@ -256,6 +256,8 @@ main {
 }
 .risultati-listino .scelta { width: 100%; min-height: 0; padding: 10px 12px; }
 .azioni-scheda { display: flex; flex-wrap: wrap; gap: 8px; }
+.campo-con-unita { display: inline-flex; align-items: center; gap: 6px; color: var(--text2); }
+.campo-medio { width: 140px !important; }
 .tabella-distinta tfoot td { font-weight: 700; border-top: 2px solid var(--border-strong); }
 
 /* --- MISURE ------------------------------------------------------------- */

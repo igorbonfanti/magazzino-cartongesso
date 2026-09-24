@@ -19,6 +19,15 @@ export interface Mappatura {
    * a listino "al m²" si vende a lastre ma si paga 2,4 m² l'una.
    */
   prezzoPer: 'confezione' | 'um';
+  /**
+   * Quanto contiene un articolo del listino, nell'unità della voce: il rotolo
+   * MICRO da 23 ml, il BIACAR5 da 20 ml, la lastra da 2,4 m². L'articolo non si
+   * divide: "Da ordinare" diventa il numero di articoli. Se manca, vale la
+   * confezione della voce.
+   */
+  contenuto?: number;
+  /** come si chiama l'articolo che si vende: rotolo, lastra, sacco, scatola… */
+  confezione?: string;
   /** sconto extra di partenza del venditore, in punti base (sconto 2, Fase 4) */
   scontoExtraBp?: number;
   /** chi l'ha salvata e quando, per l'elenco */
@@ -49,10 +58,14 @@ export function mappaturaValida(chiave: string, dati: unknown): Mappatura | null
   const extra = typeof d.scontoExtraBp === 'number' && Number.isInteger(d.scontoExtraBp) && d.scontoExtraBp >= 0 && d.scontoExtraBp <= 10000
     ? d.scontoExtraBp
     : undefined;
+  const contenuto = typeof d.contenuto === 'number' && Number.isFinite(d.contenuto) && d.contenuto > 0 ? d.contenuto : undefined;
+  const confezione = typeof d.confezione === 'string' && d.confezione.trim() ? d.confezione.trim().slice(0, 30) : undefined;
   return {
     chiave,
     codice: d.codice.trim(),
     prezzoPer,
+    ...(contenuto !== undefined ? { contenuto } : {}),
+    ...(confezione !== undefined ? { confezione } : {}),
     ...(extra !== undefined ? { scontoExtraBp: extra } : {}),
     ...(typeof d.aggiornatoDa === 'string' ? { aggiornatoDa: d.aggiornatoDa } : {}),
     ...(typeof d.aggiornatoIl === 'string' ? { aggiornatoIl: d.aggiornatoIl } : {}),

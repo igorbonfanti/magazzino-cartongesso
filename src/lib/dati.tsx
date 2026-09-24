@@ -19,7 +19,7 @@ interface StatoDati {
   avvisoListino?: string;
   avvisoMappature?: string;
   aggiornaListino: () => Promise<void>;
-  salvaMappatura: (m: Pick<Mappatura, 'chiave' | 'codice' | 'prezzoPer' | 'scontoExtraBp'>) => Promise<void>;
+  salvaMappatura: (m: Pick<Mappatura, 'chiave' | 'codice' | 'prezzoPer' | 'scontoExtraBp' | 'contenuto' | 'confezione'>) => Promise<void>;
   togliMappatura: (chiave: string) => Promise<void>;
 }
 

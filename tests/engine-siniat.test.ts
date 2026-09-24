@@ -43,7 +43,7 @@ describe('distinta dalle tabelle Memento', () => {
     expect(d.fonteIncidenze).toBe('memento');
     expect(d.variante).toEqual({ nome: 'D125/M75', montante: 'C75', montanti: 'singolo', interasse: '600' });
     expect(riga(d, 'LASTRA_PREGYFLAM_BA13')).toMatchObject({ incidenza: 4.2, quantita: 400, pezzi: 167 });
-    expect(riga(d, 'LANA_MINERALE')).toMatchObject({ descrizione: 'Isolante in lana minerale sp. 45 mm', incidenza: 1.05, quantita: 100 });
+    expect(riga(d, 'LANA_MINERALE_SP45')).toMatchObject({ descrizione: 'Isolante in lana minerale sp. 45 mm', incidenza: 1.05, quantita: 100 });
     expect(d.righe.filter((r) => r.ruolo === 'ISOLANTE')).toHaveLength(1);
     expect(d.classificazioni.map((k) => k.minuti)).toEqual([45, 120]);
     expect(d.dicitura).toMatch(/verificare su certificato produttore/);
@@ -79,7 +79,7 @@ describe('distinta dalle tabelle Memento', () => {
     expect(riga(d, 'LASTRA_SOLIDTEX_INDOOR')).toMatchObject({ incidenza: 4.2, quantita: 400 });
     expect(riga(d, 'LASTRA_SOLIDTEX_INDOOR').nota).toBeUndefined();
     expect(d.righe.map((r) => r.chiave).filter((k) => k.startsWith('VITI'))).toEqual(['VITI_S_TEX_32_MM', 'VITI_S_TEX_42_MM']);
-    expect(riga(d, 'LANA_MINERALE').descrizione).toBe('Isolante in lana minerale sp. 45 mm');
+    expect(riga(d, 'LANA_MINERALE_SP45').descrizione).toBe('Isolante in lana minerale sp. 45 mm');
     expect(d.avvisi.find((a) => a.codice === 'LASTRA_SOSTITUITA')?.testo).toBe(
       'Lastre solidtex indoor al posto delle pregyflam BA13: sostituibilità indicata dalla guida antincendio per AF-009, per usare le lastre a magazzino.',
     );
@@ -119,7 +119,7 @@ describe('distinta con le regole del Memento (certificate senza scheda)', () => 
       MONTANTE_75: [1.8, 180, 60],
       VITI_25: [10, 1000, 1],
       VITI_35: [20, 2000, 2],
-      BANDA_POLIETILENE: [0.7, 70, 70],
+      BANDA_75: [0.7, 70, 70],
       STUCCO: [0.7, 70, 7],
       NASTRO_CARTA: [1.8, 180, 180],
       TASSELLI: [2, 140, 2],
@@ -171,7 +171,7 @@ describe('geometria delle campiture', () => {
   it('controsoffitto 4 × 5 m: guide perimetrali e banda sul perimetro, niente tasselli da parete', () => {
     const d = distinta({ tipo: 'sistema', id: 'mem24_cdo_pendinato_pregyplac_ba13' }, [{ modo: 'LxH', l: 4, h: 5 }]);
     expect(d.righe.find((r) => r.ruolo === 'GUIDA')).toMatchObject({ quantita: 18, pezzi: 6, metodo: 'geometrico' });
-    expect(riga(d, 'BANDA_POLIETILENE')).toMatchObject({ quantita: 18, metodo: 'geometrico' });
+    expect(riga(d, 'BANDA_PERIMETRALE')).toMatchObject({ quantita: 18, metodo: 'geometrico' });
     expect(d.righe.some((r) => r.ruolo === 'TASSELLI')).toBe(false);
     expect(riga(d, 'LASTRA_BA13_STD')).toMatchObject({ quantita: 20, pezzi: 9 });
   });

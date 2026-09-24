@@ -18,7 +18,7 @@
  * posatore). Il Memento non li conta.
  */
 import {
-  CATALOGO, configurazione, sistema as trovaSistema, sostituisciStratigrafia, spessoreLastra, variante as trovaVariante,
+  CATALOGO, configurazione, sistema as trovaSistema, sostituisciStratigrafia, spessoreIsolante, spessoreLastra, variante as trovaVariante,
 } from './data/siniat/catalogo';
 import { articoloSiniat, lastraDaTesto } from './data/siniat/articoli';
 import { aMagazzino, testoOrdine } from './data/magazzino';
@@ -84,7 +84,7 @@ function famigliaViti(lastra: string): { nome: string; lunghezze?: number[] } {
   return { nome: 'SNT' };
 }
 
-function nomeIsolante(i: Isolante): string {
+export function nomeIsolante(i: Isolante): string {
   const tipo = i.tipo === 'LR' ? 'lana di roccia' : i.tipo === 'LV' ? 'lana di vetro' : 'lana minerale';
   return `Isolante in ${tipo}` + (i.spessore ? ` sp. ${i.spessore} mm` : '') + (i.densita ? ` ${String(i.densita).replace('.', ',')} kg/m³` : '');
 }
@@ -155,8 +155,16 @@ function tipoDaFamiglia(f: string): Base['tipo'] {
   return 'parete';
 }
 
-function vociDaTabella(s: SistemaSiniat, colonna: string): VoceCalcolo[] {
-  return (s.incidenze?.voci ?? []).map((v) => ({ prodotto: v.prodotto, unita: v.unita, valore: v.valori[colonna] ?? null }));
+function vociDaTabella(s: SistemaSiniat, colonna: string, montante?: string | null): VoceCalcolo[] {
+  return (s.incidenze?.voci ?? []).map((v) => ({ prodotto: conSpessore(v.prodotto, s, montante), unita: v.unita, valore: v.valori[colonna] ?? null }));
+}
+
+/** "Isolante in lana minerale" → "Isolante in lana minerale sp. 60 mm", con lo spessore della scheda per il montante. */
+export function conSpessore(prodotto: string, s: SistemaSiniat, montante?: string | null): string {
+  // solo la lana: l'EPS del cappotto ha spessori suoi
+  if (!/lana/i.test(prodotto) || /\bsp\./i.test(prodotto)) return prodotto;
+  const sp = spessoreIsolante(s, montante);
+  return sp ? `${prodotto} sp. ${sp} mm` : prodotto;
 }
 
 /** La stessa parete per il Memento: tipo, file e lastre per lato, senza guardare l'ordine dei lati. */
@@ -198,7 +206,7 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
       titolo: s.titolo, codice: s.codice, tipo: tipoDaFamiglia(s.famiglia),
       file: s.stratigrafia?.file ?? (s.famiglia === 'parete_doppia_orditura' ? 2 : 1),
       accoppiati: v.montanti === 'accoppiato', interasse, montante: v.montante ?? null,
-      voci: vociDaTabella(s, colonna), fonte: 'memento',
+      voci: vociDaTabella(s, colonna, v.montante), fonte: 'memento',
       variante: { nome: v.nome, montante: v.montante ?? null, montanti: v.montanti ?? null, interasse }, classificazioni: [],
     };
   }
@@ -219,7 +227,7 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
       const v = vv?.variante;
       return {
         titolo: c.codice, codice: c.codice, tipo: st.tipo, file: st.file, accoppiati, interasse, montante: v?.montante ?? st.montante ?? null,
-        voci: vociDaTabella(scheda, colonna), fonte: 'memento',
+        voci: vociDaTabella(scheda, colonna, v?.montante ?? st.montante), fonte: 'memento',
         variante: { nome: v?.nome ?? null, montante: v?.montante ?? st.montante ?? null, montanti: v?.montanti ?? st.montanti ?? null, interasse },
         classificazioni: c.classificazioni, isolante: st.isolante ?? null,
       };
@@ -231,7 +239,7 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
     if (colonna) {
       return {
         titolo: c.codice, codice: c.codice, tipo: st?.tipo ?? tipoDaFamiglia(m.famiglia), file: st?.file ?? m.stratigrafia?.file ?? 1,
-        accoppiati: v.montanti === 'accoppiato', interasse, montante: v.montante ?? st?.montante ?? null, voci: vociDaTabella(m, colonna), fonte: 'memento',
+        accoppiati: v.montanti === 'accoppiato', interasse, montante: v.montante ?? st?.montante ?? null, voci: vociDaTabella(m, colonna, v.montante ?? st?.montante), fonte: 'memento',
         variante: { nome: v.nome, montante: v.montante ?? null, montanti: v.montanti ?? null, interasse },
         classificazioni: c.classificazioni, ...(st ? { isolante: st.isolante ?? null } : {}),
       };

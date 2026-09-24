@@ -89,6 +89,22 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   alla confezione o all'unità di misura (lastre al m²), sconto extra di
   partenza per la Fase 4. Dove non c'è vale `mapping_seed.ts`. Il codice si
   sceglie dal listino, non si scrive.
+- **Confezione dell'articolo** (24/09/2026): la mappatura dice anche quanto
+  contiene un articolo del listino e come si chiama (MICRO = rotolo da 23 ml,
+  BIACAR5 = rotolo da 20 ml, lastra 3,6 m²). L'articolo non si divide: "Da
+  ordinare" diventa il numero di articoli (`conConfezione` in `prezzi.ts`, con
+  lo sfrido contato come il motore). È una proprietà dell'articolo: si salva
+  sempre, anche se uguale a quella della voce, e toglie dalla riga le verifiche
+  su formato e lunghezze. La proposta viene dalla descrizione
+  (`confezioneDaDescrizione`), si conferma a mano. Le mappature senza
+  confezione (di partenza, o salvate prima) usano quella della voce. Montanti
+  contati per posizione con barre più lunghe di 3 m: pezzi invariati e nota.
+- **Voci che dipendono dalla struttura**: banda `BANDA_50/75/100/150` per
+  larghezza del montante (BIACAR5 per il 50…), `BANDA_PERIMETRALE` per i
+  controsoffitti, `BANDA_POLIETILENE` solo per le pareti perimetrali esterne
+  a doppia orditura; lana Siniat `LANA_<tipo>_SP<mm>[_D<kg/m³>]` con lo
+  spessore della scheda o dell'abbinamento al montante (`spessoreIsolante`).
+  `LANA_ROCCIA` del motore classico resta com'è.
 - **Regole `cgp_*`**: in `magazzino-scorte/firestore.rules` dal commit
   `3ea5d5a` (testo e motivi in `docs/regole-firestore-cgp.md`); valgono solo
   dopo la pubblicazione in console. Finché non ci sono, la mappatura salvata
