@@ -184,6 +184,14 @@ Regole del selettore da non perdere:
   delle pregyplac BA13), con avviso e sostituzione in distinta;
 - l'app riporta classi e Rw dichiarati da Siniat con il riferimento, non li certifica.
 
+Rapporti verificati uno per uno il 24/09/2026 contro la guida e i PDF
+(`docs/studio-siniat/verifica-rapporti-2026-09-24.md`): trascrizione e link
+giusti. Dove la guida abbina il rapporto di una parete affine al fascicolo
+tecnico o a un'estensione, `PROVATA` in `script/antincendio_build.py` dice quale
+parete è provata e scheda e stampa lo scrivono sotto il link («prova su …,
+estesa dal fascicolo tecnico …»). I link a domini dismessi si correggono in
+`HOST_DISMESSI`, nello stesso script.
+
 Distinta Siniat: incidenze Memento per m² (sfrido Siniat 5% già dentro; su lastre
 e isolante si toglie e si mette il nostro), guide e montanti corretti con la
 geometria come nel classico, tasselli uno ogni 50 cm di guida (posatore). Per le

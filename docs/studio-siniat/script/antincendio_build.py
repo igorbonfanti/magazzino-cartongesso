@@ -245,6 +245,15 @@ def chiave_rapporto(r):
     return m.group(1) if m else None
 def _norm(s):
     return re.sub(r'[^a-z0-9]', '', s.lower().replace('csi ', 'csi'))
+# Host che la guida usa ma che non rispondono più: lo stesso file è su www.siniat.it.
+# etexassets.azureedge.net (rapporto 351103-3915FR, p. 11 e 14): il dominio non si risolve,
+# la copia su siniat.it c'è ed è "D125/M75 - 2 S-tex + 2 PS Plus BA13 - LR" (verificato il 24/09/2026).
+HOST_DISMESSI = {'https://etexassets.azureedge.net/': 'https://www.siniat.it/'}
+def url_vivo(u):
+    for vecchio, nuovo in HOST_DISMESSI.items():
+        if u and u.startswith(vecchio): return nuovo + u[len(vecchio):]
+    return u
+
 def url_per(rif, pagina):
     if rif.startswith(('FT', 'Rapporto', 'Est.')): return None
     k = chiave_rapporto(rif)
@@ -252,7 +261,43 @@ def url_per(rif, pagina):
     cand = [l for l in LINK if l['file'] and _norm(k) in _norm(l['file'])]
     if not cand: return None
     cand.sort(key=lambda l: abs(l['pagina'] - pagina))
-    return cand[0]['url']
+    return url_vivo(cand[0]['url'])
+
+# Rapporti di una configurazione affine: la guida li abbina alla riga insieme al fascicolo
+# tecnico, all'EXAP o a un'estensione, ma la parete provata è un'altra. L'elemento provato è
+# letto nei rapporti stessi (verifica del 24/09/2026, docs/studio-siniat/verifica-rapporti-2026-09-24.md):
+# l'app lo scrive accanto al link, così aprendo il PDF non ci si sorprende.
+STEX_LR = 'D75/M50 1+1 solidtex indoor con lana di roccia'
+PF_LR = 'D100/M50 2+2 pregyflam BA13 con lana di roccia'
+PF_LV = 'D125/M75 2+2 pregyflam BA13 con lana di vetro'
+PROVATA = {
+    ('Pregy D150/M75 - 6 PSplus', '338285'): 'D125/M75 2+2 pregyplac plus BA13',
+    ('Pregy D125/M50 - 6 PS - LM', 'R001815'): 'D100/M50 2+2 pregyplac con lana minerale',
+    ('Pregy D130/M75 - 2 PF 15 + 2 PF 13', '381598'): 'D105/M75 1+1 pregyflam BA15',
+    ('Pregy D100/M50 - 4 PF 13 - LR', '351340'): STEX_LR,
+    ('Pregy D75/M50 - 2 LD - LR', '351340'): STEX_LR,
+    ('Pregy D100/M50 - 4 LD - LR', '351340'): STEX_LR,
+    ('Pregy D100/M50 - 4 LD - LR', '19056B'): PF_LR,
+    ('Pregy D100/M50 - 4 S-tex - LR', '351340'): STEX_LR,
+    ('Pregy D125/M50 - 6 PF 13 - LR', '19056B'): PF_LR,
+    ('Pregy D150/M75 - 6 PF 13', '381597'): 'D125/M75 2+2 pregyflam BA13',
+    ('Pregy D150/M75 - 6 PF 13 - LM', '381599'): PF_LV,
+    ('Pregy D175/M75 - 8 PF 13', '344892'): 'D160/M75 3+3 pregyflam BA15',
+    ('Pregy D125/M75 - 4 LD - LM', '381599'): PF_LV,
+    ('Pregy D125/M75 - 4 S-tex - LM', '381599'): PF_LV,
+    ('Pregy D190/M75 - 6 PF 15 + 2 PF 13', '383047'): 'D150/M75 3+3 pregyflam BA13',
+    ('Pregy S140/2M50 - 3 S-tex - LR', '351340'): STEX_LR,
+    ('Parete esterna aquaboard pro - EI 120', '386318'): 'Solidtex Wall System 240 (solidtex outdoor XT)',
+    ('Pregy CW95/M50 - 3 PF15 - LM (opzionale) (fuoco bidirezionale)', 'RS12-076'): 'controparete 3 pregyplac BA18',
+    ('Pregy CW95/M50 - 3 PF15 - LM (opzionale) (fuoco lato lastre)', 'RS12-076'): 'controparete 3 pregyplac BA18',
+}
+PROVATA_USATE = set()
+def provata(codice, rif):
+    k = (codice, chiave_rapporto(rif))
+    if k in PROVATA:
+        PROVATA_USATE.add(k)
+        return PROVATA[k]
+    return None
 
 # ------------------------------------------------------------------ consolidamento per configurazione
 configurazioni = OrderedDict()
@@ -265,7 +310,12 @@ for r in RIGHE:
                         supporto=r['supporto'], strati=r['strati'], rw_db=r['rw_db'], esposizione=r['esposizione'],
                         classificazioni=[], sostituibilita={}, note=[], pagine=[])
         configurazioni[k] = c
-    rif = [OrderedDict(testo=x, url=url_per(x, r['pagina'])) for x in r['riferimenti']]
+    rif = []
+    for x in r['riferimenti']:
+        d = OrderedDict(testo=x, url=url_per(x, r['pagina']))
+        p = provata(r['codice'], x)
+        if p: d['provata'] = p
+        rif.append(d)
     c['classificazioni'].append(OrderedDict(classe=r['classe'], hmax_m=r['hmax_m'], luce_max_m=r['luce_max_m'], riferimenti=rif, pagina=r['pagina']))
     for lastra, chiave in r['sostituibilita'].items():
         c['sostituibilita'][lastra] = S[chiave]
@@ -284,6 +334,10 @@ out = OrderedDict(
     'PROMATECT-100X e PROMASEAL sono prodotti Promat (gruppo Etex): certificati su MyPromat.'],
   righe_manuale=len(RIGHE), configurazioni=list(configurazioni.values()), acciaio=ACCIAIO, sostituibilita_note=S)
 json.dump(out, open(os.path.join(QUI,'..','estrazioni','antincendio.json'),'w',encoding='utf-8'), ensure_ascii=False, indent=1)
+
+# ogni voce di PROVATA deve trovare la sua riga: un codice scritto male non passa in silenzio
+mancanti = set(PROVATA) - PROVATA_USATE
+assert not mancanti, f'PROVATA senza riga: {mancanti}'
 
 # riepilogo
 senza_url = [(c['id'], x['testo']) for c in configurazioni.values() for cl in c['classificazioni'] for x in cl['riferimenti'] if x['url'] is None and not x['testo'].startswith(('FT','Rapporto','Est.'))]

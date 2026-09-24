@@ -119,6 +119,11 @@ export interface Riferimento {
   testo: string;
   /** PDF del rapporto su siniat.it, quando la guida lo collega */
   url?: string;
+  /**
+   * la parete provata nel rapporto, quando è una configurazione affine: la guida
+   * lo abbina insieme al fascicolo tecnico, all'EXAP o a un'estensione
+   */
+  provata?: string;
 }
 
 /** Una classe ottenuta da una configurazione, con l'altezza per cui vale. */

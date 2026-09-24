@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { calcolaDistinta } from '../src/engine';
 import { calcolaDistintaSiniat } from '../src/engine-siniat';
-import { schedaClassico, schedaSiniat } from '../src/schedaTecnica';
+import { notaProvata, schedaClassico, schedaSiniat } from '../src/schedaTecnica';
 import { selezionaSoluzioni } from '../src/selettore';
 import type { Requisiti, Scelte } from '../src/types';
 
@@ -34,6 +34,29 @@ describe('scheda tecnica del preventivo', () => {
     expect(s.avvisi.filter((a) => /pregyflam BA15/.test(a))).toHaveLength(0);
     expect(s.avvisi.join(' ')).not.toMatch(/Quantità ricavate/);
     expect(s.dicitura).toMatch(/aumento dello spessore delle lastre \(UNI EN 1364-1, art\. 13\)/);
+  });
+
+  it('rapporto di una parete affine: la nota dice quale parete è provata e con che cosa si estende', () => {
+    const c = selezionaSoluzioni(req({ fuoco: 120, altezza: 3 })).certificate.find((x) => x.id === 'AF-033')!;
+    const d = calcolaDistintaSiniat(
+      { tipo: 'certificata', id: c.id, varianteId: c.variante?.varianteId ?? null, interasse: c.variante?.interasse ?? null, sostituzioni: c.sostituzioni ?? [] },
+      [{ modo: 'mq', mq: 20 }],
+      { sfrido: { lastre: 10, isolante: 10 } },
+    );
+    if ('errore' in d) throw new Error(d.errore);
+    const s = schedaSiniat(c, d);
+    const ei120 = s.classi.find((k) => k.classe === 'EI 120')!;
+    expect(ei120.rapporti[0]).toMatchObject({
+      testo: 'Ist. Giordano 381597-4112FR',
+      nota: 'prova su D125/M75 2+2 pregyflam BA13, estesa dal fascicolo tecnico SI-017/06/2022',
+    });
+    // per EI 180 il rapporto è proprio della 3+3: nessuna nota
+    expect(s.classi.find((k) => k.classe === 'EI 180')!.rapporti[0]!.nota).toBeUndefined();
+    const rs = { testo: 'CSTB RS12-076', provata: 'controparete 3 pregyplac BA18' };
+    expect(notaProvata(rs, [rs, { testo: 'Est. 13/2' }, { testo: 'FT SI-012/03/2025' }])).toBe(
+      "prova su controparete 3 pregyplac BA18, estesa dall'estensione 13/2 e dal fascicolo tecnico SI-012/03/2025",
+    );
+    expect(notaProvata({ testo: 'Ist. Giordano 381599-4114FR' }, [])).toBeNull();
   });
 
   it('calcolo classico antincendio: la dicitura di rinvio al certificato, niente classi', () => {

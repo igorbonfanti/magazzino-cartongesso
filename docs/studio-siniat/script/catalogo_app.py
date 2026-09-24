@@ -163,7 +163,8 @@ def classificazione(k):
     if oltre: out['hmaxOltre'] = True
     if nota: out['hmaxNota'] = nota
     if k.get('luce_max_m'): out['luce'] = k['luce_max_m']
-    out['riferimenti'] = [OrderedDict((('testo', r['testo']),) + ((('url', r['url']),) if r.get('url') else ())) for r in k['riferimenti']]
+    out['riferimenti'] = [OrderedDict((('testo', r['testo']),) + ((('url', r['url']),) if r.get('url') else ())
+                                      + ((('provata', r['provata']),) if r.get('provata') else ())) for r in k['riferimenti']]
     out['pagina'] = k['pagina']
     return out
 

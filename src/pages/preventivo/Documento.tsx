@@ -187,6 +187,7 @@ function SchedaStampa({ s }: { s: SchedaTecnica }) {
                       ) : (
                         r.testo
                       )}
+                      {r.nota && <div className="documento-rif">{r.nota}</div>}
                     </div>
                   ))}
                 </td>

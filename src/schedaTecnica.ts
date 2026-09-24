@@ -12,14 +12,15 @@ import { nomeOrditura } from './selettore';
 import type { Candidato } from './selettore';
 import type { DistintaSiniat } from './engine-siniat';
 import type { Avviso, Distinta } from './engine';
-import type { Scelte } from './types';
+import type { Riferimento, Scelte } from './types';
 
 export interface ClasseScheda {
   classe: string;
   /** "altezza fino a 4 m", "luce fino a 3 m" */
   limite: string;
   nota?: string;
-  rapporti: { testo: string; url?: string }[];
+  /** nota: il rapporto è su una configurazione affine, estesa dal fascicolo tecnico o dall'EXAP */
+  rapporti: { testo: string; url?: string; nota?: string }[];
   /** la classe che soddisfa i requisiti */
   richiesta?: boolean;
 }
@@ -49,6 +50,24 @@ const AVVISI_PER_IL_CLIENTE = new Set<Avviso['codice']>([
 
 const metri = (x: number) => String(x).replace('.', ',');
 
+/**
+ * "prova su D125/M75 2+2 pregyflam BA13, estesa dal fascicolo tecnico SI-017/06/2022":
+ * il rapporto linkato è di una parete affine, e la classe vale con gli altri
+ * riferimenti della stessa riga. null se il rapporto è sulla configurazione proposta.
+ */
+export function notaProvata(r: Riferimento, riga: readonly Riferimento[]): string | null {
+  if (!r.provata) return null;
+  const da = riga
+    .filter((x) => x !== r)
+    .map((x) =>
+      x.testo.startsWith('FT ') ? `dal fascicolo tecnico ${x.testo.slice(3)}`
+        : x.testo.startsWith('Est. ') ? `dall'estensione ${x.testo.slice(5)}`
+          : /^Rapporto EXAP/i.test(x.testo) ? `dal rapporto ${x.testo.slice(9)}`
+            : `da ${x.testo}`,
+    );
+  return `prova su ${r.provata}${da.length ? `, estesa ${da.join(' e ')}` : ''}`;
+}
+
 /** La scheda di una soluzione Siniat, dal candidato scelto (orditura e lastre comprese) e dalla sua distinta. */
 export function schedaSiniat(c: Candidato, d: DistintaSiniat): SchedaTecnica {
   const conf = c.tipo === 'certificata' ? configurazione(c.id) : undefined;
@@ -58,7 +77,10 @@ export function schedaSiniat(c: Candidato, d: DistintaSiniat): SchedaTecnica {
         classe: `${k.tipo} ${k.minuti}${k.direzione ? ` ${k.direzione}` : ''}`,
         limite: k.hmax != null ? `altezza ${k.hmaxOltre ? 'oltre' : 'fino a'} ${metri(k.hmax)} m` : k.luce != null ? `luce fino a ${metri(k.luce)} m` : '',
         ...(k.hmaxNota ? { nota: k.hmaxNota } : {}),
-        rapporti: k.riferimenti.map((r) => ({ testo: r.testo, ...(r.url ? { url: r.url } : {}) })),
+        rapporti: k.riferimenti.map((r) => {
+          const nota = notaProvata(r, k.riferimenti);
+          return { testo: r.testo, ...(r.url ? { url: r.url } : {}), ...(nota ? { nota } : {}) };
+        }),
         ...(k === c.classificazione ? { richiesta: true } : {}),
       }))
     : sis?.fuocoTesto

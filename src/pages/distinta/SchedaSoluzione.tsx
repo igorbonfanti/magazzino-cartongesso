@@ -1,6 +1,7 @@
 import { CATALOGO, configurazione, HMAX_PER_SPESSORE, sistema } from '../../data/siniat/catalogo';
 import { testoOrdine } from '../../data/magazzino';
 import { nomeOrditura } from '../../selettore';
+import { notaProvata } from '../../schedaTecnica';
 import type { Candidato, Orditura } from '../../selettore';
 import type { Classificazione, InterasseSiniat, SceltaLastre } from '../../types';
 import { Interruttore, metriTesto } from './comuni';
@@ -266,6 +267,7 @@ function Classi({ classi, richiesta }: { classi: Classificazione[]; richiesta?: 
                     ) : (
                       r.testo
                     )}
+                    {r.provata && <div className="nota">{notaProvata(r, k.riferimenti)}</div>}
                   </div>
                 ))}
                 <div className="nota">guida p. {k.pagina}</div>
