@@ -9,8 +9,8 @@ import { PRESTAZIONI, PROFILI_PER_AMBITO, SISTEMI, SISTEMI_PER_AMBITO } from '..
 import { SFRIDO_DEFAULT } from '../engine';
 import { OPERE, operaInfo } from '../selettore';
 import type {
-  Ambiente, Ambito, Campitura, Disponibilita, Interasse, InterasseSiniat, Modalita, Opera, Prestazione, Profilo, Requisiti, Scelte,
-  SistemaId,
+  Ambiente, Ambito, Campitura, Disponibilita, Interasse, InterasseSiniat, Modalita, Opera, Prestazione, Profilo, Requisiti, SceltaLastre,
+  Scelte, SistemaId,
 } from '../types';
 
 export interface AperturaBozza {
@@ -44,10 +44,11 @@ export interface RequisitiBozza {
 
 /**
  * La soluzione scelta: una del catalogo Siniat (con l'orditura scelta a mano,
- * se l'operatore l'ha cambiata) oppure il calcolo classico Excel/Fassa.
+ * se l'operatore l'ha cambiata, e per le certificate le lastre a magazzino:
+ * senza, la stessa lastra più spessa) oppure il calcolo classico Excel/Fassa.
  */
 export type SoluzioneBozza =
-  | { tipo: 'certificata' | 'sistema'; id: string; varianteId?: string; interasse?: InterasseSiniat }
+  | { tipo: 'certificata' | 'sistema'; id: string; varianteId?: string; interasse?: InterasseSiniat; lastre?: SceltaLastre }
   | { tipo: 'classico' };
 
 export interface Bozza {
@@ -229,8 +230,12 @@ function requisitiValidi(x: unknown): x is RequisitiBozza {
 function soluzioneValida(x: unknown): x is SoluzioneBozza | null {
   if (x === null) return true;
   if (!x || typeof x !== 'object') return false;
-  const s = x as { tipo?: unknown; id?: unknown };
-  return s.tipo === 'classico' || ((s.tipo === 'certificata' || s.tipo === 'sistema') && typeof s.id === 'string');
+  const s = x as { tipo?: unknown; id?: unknown; lastre?: unknown };
+  return (
+    s.tipo === 'classico' ||
+    ((s.tipo === 'certificata' || s.tipo === 'sistema') && typeof s.id === 'string' &&
+      (s.lastre === undefined || s.lastre === 'spessore' || s.lastre === 'guida'))
+  );
 }
 
 /**

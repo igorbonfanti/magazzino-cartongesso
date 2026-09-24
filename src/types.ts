@@ -280,20 +280,30 @@ export interface Requisiti {
   antieffrazione: boolean;
 }
 
-/** La soluzione scelta dall'operatore: una configurazione certificata o una scheda Memento. */
 /**
- * Lastra sostituita come ammette il produttore: la nota di una scheda Memento
- * (pregydro H2 negli ambienti umidi) o la sostituibilità di una configurazione
- * della guida antincendio (per usare le lastre a magazzino).
+ * Lastra sostituita come ammette il produttore o la norma di prova: la nota di
+ * una scheda Memento (pregydro H2 negli ambienti umidi), la sostituibilità di
+ * una configurazione della guida antincendio, oppure la stessa lastra più
+ * spessa (pregyflam BA15 al posto della BA13), che il campo di applicazione
+ * diretta della UNI EN 1364-1 (art. 13) ammette per le pareti. Le ultime due
+ * servono a usare le lastre a magazzino.
  */
 export interface Sostituzione {
   da: string;
   a: string;
-  fonte: 'memento' | 'guida';
+  fonte: 'memento' | 'guida' | 'spessore';
   /** la nota o la regola che la ammette */
   motivo: string;
 }
 
+/**
+ * Come portare a magazzino una configurazione certificata: con la stessa
+ * lastra più spessa (di partenza, decisione del 24/09/2026) o con la
+ * sostituzione elencata dalla guida (le solidtex al posto delle pregyflam BA13).
+ */
+export type SceltaLastre = 'spessore' | 'guida';
+
+/** La soluzione scelta dall'operatore: una configurazione certificata o una scheda Memento. */
 export interface SoluzioneScelta {
   tipo: 'certificata' | 'sistema';
   id: string;

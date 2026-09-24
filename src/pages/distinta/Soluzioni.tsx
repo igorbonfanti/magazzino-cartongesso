@@ -8,7 +8,7 @@ import type { Disponibilita } from '../../types';
 import { Interruttore, metriTesto } from './comuni';
 
 const NOTE: Record<Disponibilita, string> = {
-  magazzino: 'Solo soluzioni con tutte le lastre a magazzino, anche grazie alle sostituzioni ammesse dalla guida.',
+  magazzino: 'Solo soluzioni con tutte le lastre a magazzino, anche con le sostituzioni ammesse: la stessa lastra più spessa o quelle della guida.',
   ordine: `Soluzioni con almeno una lastra ${testoOrdine()}.`,
   tutte: `Prima quelle a magazzino; le altre arrivano su ordinazione da ${FORNITORE_ORDINI.nome} in ${FORNITORE_ORDINI.giorni} giorni.`,
 };

@@ -48,7 +48,10 @@ agenti non sono stati conservati. Se Siniat pubblica nuove edizioni, si rifà l'
 
 1. **Hmax al fuoco ≠ Hmax statica.** Vale la minore: la guida lo dice in ogni tabella (#).
 2. **Una classe più alta copre le più basse**, ma con la sua Hmax: EI 120 fino a 5 m non vuol dire EI 60 fino a 12 m.
-3. **Sostituzioni solo quelle elencate** nella configurazione, con spessore almeno pari al provato.
+3. **Sostituzioni solo quelle elencate** nella configurazione, con spessore almeno pari al provato. In più,
+   per le prove EN 1364-1 (pareti, setti, contropareti), la stessa lastra più spessa: l'aumento dello
+   spessore delle lastre è nel campo di applicazione diretta (art. 13) riportato nei rapporti di
+   classificazione. Nell'app: pregyflam BA15 al posto delle BA13, fino a 4 m (decisione del 24/09/2026).
 4. **Contropareti** vincolate: nessuna classe al fuoco propria; il loro Rw è con un muro di riferimento (44–46 dB).
 5. **Acustica**: Rw di laboratorio; in opera si perdono 6–8 dB (tra unità diverse servono ≥ 50 dB in opera).
 6. Il preventivo **cita** il rapporto, non certifica: la scelta del sistema la firma il tecnico antincendio,

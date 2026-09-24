@@ -86,12 +86,12 @@ function vociSiniat(elenco: Map<string, VoceNota>) {
       for (const m of montanti.length ? montanti : [null]) vocePerSiniat(elenco, conSpessore(v.prodotto, s, m), v.unita, m);
     }
   }
-  // regole per le certificate, anche con le lastre sostituite per il magazzino;
-  // le chiavi non dipendono dall'interasse, solo le quantità
+  // regole per le certificate, anche con le lastre sostituite per il magazzino
+  // (più spesse o della guida); le chiavi non dipendono dall'interasse, solo le quantità
   for (const c of CATALOGO.configurazioni) {
     const st = c.stratigrafia;
     if (!st || c.promat || (st.tipo !== 'parete' && st.tipo !== 'setto')) continue;
-    const varianti = [st, sostituisciStratigrafia(st, sostituzioniMagazzino(c) ?? [])];
+    const varianti = [st, ...(['spessore', 'guida'] as const).map((x) => sostituisciStratigrafia(st, sostituzioniMagazzino(c, x) ?? []))];
     for (const x of varianti) {
       for (const acc of [false, true]) {
         for (const v of incidenzeDaRegola(x, '600', acc)) vocePerSiniat(elenco, v.prodotto, v.unita, x.montante);

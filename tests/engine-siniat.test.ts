@@ -85,6 +85,46 @@ describe('distinta dalle tabelle Memento', () => {
     );
   });
 
+  it('AF-009 con le pregyflam BA15: tabella della scheda con 4 PF15, viti SNT 45 sulla seconda lastra, classi fino a 4 m', () => {
+    const d = distinta({
+      tipo: 'certificata', id: 'AF-009', varianteId: 'memento-p33-SX#2', interasse: '600',
+      sostituzioni: [{ da: 'pregyflam BA13', a: 'pregyflam BA15', fonte: 'spessore', motivo: 'aumento dello spessore delle lastre, nel campo di applicazione diretta del rapporto di classificazione (UNI EN 1364-1, art. 13), fino a 4 m di altezza' }],
+    });
+    expect(d.fonteIncidenze).toBe('memento');
+    expect(riga(d, 'LASTRA_PREGYFLAM_BA15')).toMatchObject({ incidenza: 4.2, quantita: 400 });
+    expect(riga(d, 'LASTRA_PREGYFLAM_BA15').nota).toBeUndefined();
+    expect(d.righe.map((r) => r.chiave).filter((k) => k.startsWith('VITI'))).toEqual(['VITI_25', 'VITI_SNT_45_MM']);
+    expect(riga(d, 'LANA_MINERALE_SP45').incidenza).toBe(1.05);
+    expect(d.classificazioni.map((k) => `${k.tipo} ${k.minuti} ${k.hmax}`)).toEqual(['EI 45 4', 'EI 120 4']);
+    expect(d.avvisi.find((a) => a.codice === 'LASTRA_SOSTITUITA')?.testo).toBe(
+      'Lastre pregyflam BA15 al posto delle pregyflam BA13: aumento dello spessore delle lastre, nel campo di applicazione diretta del rapporto di classificazione (UNI EN 1364-1, art. 13), fino a 4 m di altezza. Da verificare sul rapporto di classificazione.',
+    );
+    expect(d.dicitura).toBe(
+      'Sistema da verificare su certificato produttore: posa secondo il rapporto di classificazione. Variante con pregyflam BA15 al posto delle pregyflam BA13 della configurazione provata: aumento dello spessore delle lastre (UNI EN 1364-1, art. 13), da verificare sul rapporto di classificazione Ist. Giordano 381599-4114FR; altezza fino a 4 m.',
+    );
+  });
+
+  it("con le BA15 oltre i 4 m l'avviso rimanda alla sostituzione della guida", () => {
+    const d = distinta(
+      { tipo: 'certificata', id: 'AF-009', varianteId: 'memento-p33-SX#2', interasse: '600',
+        sostituzioni: [{ da: 'pregyflam BA13', a: 'pregyflam BA15', fonte: 'spessore', motivo: 'aumento dello spessore delle lastre' }] },
+      [{ modo: 'LxH', l: 10, h: 4.5 }],
+    );
+    expect(d.avvisi.filter((a) => a.codice === 'ALTEZZA_OLTRE_HMAX').map((a) => a.testo)).toEqual([
+      "altezza 4,5 m: con le pregyflam BA15 al posto delle pregyflam BA13 la configurazione vale fino a 4 m. Oltre, nella scheda della soluzione scegliere la sostituzione della guida, o un'altra soluzione.",
+    ]);
+  });
+
+  it('setto AF-060 con le BA15: regole, viti SNT 25 e 45', () => {
+    const d = distinta({
+      tipo: 'certificata', id: 'AF-060',
+      sostituzioni: [{ da: 'pregyflam BA13', a: 'pregyflam BA15', fonte: 'spessore', motivo: 'aumento dello spessore delle lastre' }],
+    });
+    expect(d.fonteIncidenze).toBe('regola');
+    expect(riga(d, 'LASTRA_PREGYFLAM_BA15').incidenza).toBe(2.1);
+    expect(d.righe.map((r) => r.chiave).filter((k) => k.startsWith('VITI'))).toEqual(['VITI_25', 'VITI_SNT_45_MM']);
+  });
+
   it('senza scheda Memento con le lastre sostitute valgono le regole, con le viti della lastra sostituta', () => {
     // AF-003 4 PSplus → pregydro H2: il Memento non ha una parete di sole pregydro
     const d = distinta({

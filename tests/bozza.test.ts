@@ -145,3 +145,12 @@ describe('bozza — soluzioni a magazzino o su ordinazione', () => {
     expect(bozzaValida({ ...bozzaVuota(), disponibilita: 'boh' })).toBe(false);
   });
 });
+
+describe('bozza — lastre a magazzino delle certificate', () => {
+  it('la scelta delle solidtex si ricorda; senza, valgono le BA15 di partenza', () => {
+    const conGuida = { ...conOpera(bozzaVuota(), 'parete'), soluzione: { tipo: 'certificata' as const, id: 'AF-009', lastre: 'guida' as const } };
+    expect(leggiBozza(JSON.parse(JSON.stringify(conGuida)))!.soluzione).toEqual({ tipo: 'certificata', id: 'AF-009', lastre: 'guida' });
+    expect(bozzaValida({ ...bozzaVuota(), soluzione: { tipo: 'certificata', id: 'AF-009' } })).toBe(true);
+    expect(bozzaValida({ ...bozzaVuota(), soluzione: { tipo: 'certificata', id: 'AF-009', lastre: 'boh' } })).toBe(false);
+  });
+});

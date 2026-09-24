@@ -1,9 +1,25 @@
-import { CATALOGO, configurazione, sistema } from '../../data/siniat/catalogo';
+import { CATALOGO, configurazione, HMAX_PER_SPESSORE, sistema } from '../../data/siniat/catalogo';
 import { testoOrdine } from '../../data/magazzino';
 import { nomeOrditura } from '../../selettore';
 import type { Candidato, Orditura } from '../../selettore';
-import type { Classificazione, InterasseSiniat } from '../../types';
-import { metriTesto } from './comuni';
+import type { Classificazione, InterasseSiniat, SceltaLastre } from '../../types';
+import { Interruttore, metriTesto } from './comuni';
+
+/** La scelta delle lastre a magazzino per le certificate: le due proposte e quella in uso. */
+export interface SceltaLastreScheda {
+  alternative: Record<SceltaLastre, Candidato>;
+  scelta: SceltaLastre;
+  cambia: (s: SceltaLastre) => void;
+}
+
+/** Le lastre che cambiano fra le due proposte, con la sostituta di ciascuna. */
+function differenze(alt: Record<SceltaLastre, Candidato>): { da: string[]; spessore: string[]; guida: string[] } {
+  const mappa = (c: Candidato) => new Map((c.sostituzioni ?? []).map((x) => [x.da, x.a]));
+  const s = mappa(alt.spessore);
+  const g = mappa(alt.guida);
+  const da = [...new Set([...s.keys(), ...g.keys()])].filter((k) => s.get(k) !== g.get(k));
+  return { da, spessore: da.map((k) => s.get(k) ?? k), guida: da.map((k) => g.get(k) ?? k) };
+}
 
 /**
  * La scheda tecnica della soluzione scelta: com'è fatta, che classi ha e con
@@ -16,6 +32,7 @@ export default function SchedaSoluzione({
   orditure,
   orditura,
   cambiaOrditura,
+  lastre,
 }: {
   candidato: Candidato;
   /** pareti, contropareti, cavedi: l'altezza e la statica contano */
@@ -25,6 +42,8 @@ export default function SchedaSoluzione({
   /** quella in uso */
   orditura: { varianteId: string; interasse: InterasseSiniat | null } | null;
   cambiaOrditura: (o: { varianteId: string; interasse: InterasseSiniat }) => void;
+  /** certificate: lastre più spesse o sostituzione della guida, quando si può scegliere */
+  lastre?: SceltaLastreScheda | null;
 }) {
   const conf = candidato.tipo === 'certificata' ? configurazione(candidato.id) : undefined;
   const sis = candidato.tipo === 'sistema' ? sistema(candidato.id) : undefined;
@@ -33,6 +52,8 @@ export default function SchedaSoluzione({
   const alternative = conf?.stratigrafia
     ? [...conf.stratigrafia.lato1, ...conf.stratigrafia.intermedia, ...conf.stratigrafia.lato2].filter((s) => s.alternative)
     : [];
+  const diverse = lastre ? differenze(lastre.alternative) : null;
+  const hGuida = lastre?.alternative.guida.hmaxUtile;
 
   return (
     <div className="scheda-soluzione">
@@ -63,8 +84,36 @@ export default function SchedaSoluzione({
               In opera: {sostituzioni.map((x) => `${x.a} al posto delle ${x.da}`).join('; ')}
             </p>
           )}
-          {sostituzioni.some((x) => x.fonte === 'guida') && (
-            <p className="nota">Sostituzione ammessa dalla guida antincendio per questa configurazione, per usare le lastre a magazzino.</p>
+          {lastre && diverse ? (
+            <>
+              <Interruttore<SceltaLastre>
+                etichetta={`Al posto delle ${diverse.da.join(', ')}`}
+                valore={lastre.scelta}
+                voci={[
+                  ['spessore', diverse.spessore.join(', ')],
+                  ['guida', `${diverse.guida.join(', ')} (guida)`],
+                ]}
+                cambia={lastre.cambia}
+              />
+              <p className="nota">
+                Di partenza {diverse.spessore.join(', ')}: più spesse di quelle provate, variante nel campo di applicazione
+                diretta del rapporto di classificazione (UNI EN 1364-1, art. 13), fino a {HMAX_PER_SPESSORE} m. In alternativa{' '}
+                {diverse.guida.join(', ')}, sostituzione elencata dalla guida antincendio
+                {hGuida != null && hGuida > HMAX_PER_SPESSORE ? `, fino a ${metriTesto(hGuida)} m` : ''}.
+              </p>
+            </>
+          ) : (
+            <>
+              {sostituzioni.some((x) => x.fonte === 'spessore') && (
+                <p className="nota">
+                  Lastre più spesse di quelle provate: variante nel campo di applicazione diretta del rapporto di classificazione
+                  (UNI EN 1364-1, art. 13), fino a {HMAX_PER_SPESSORE} m. Da verificare sul rapporto.
+                </p>
+              )}
+              {sostituzioni.some((x) => x.fonte === 'guida') && (
+                <p className="nota">Sostituzione ammessa dalla guida antincendio per questa configurazione, per usare le lastre a magazzino.</p>
+              )}
+            </>
           )}
           {candidato.aMagazzino === true && <p className="nota">Lastre tutte a magazzino.</p>}
           {candidato.aMagazzino === false && (
@@ -115,12 +164,15 @@ export default function SchedaSoluzione({
           <div>
             <span className="ag-etichetta">Isolamento acustico</span>
             <p className="scheda-valore">Rw {candidato.rw} dB</p>
-            <p className="nota">Valore di laboratorio del produttore; in opera si perdono 6–8 dB.</p>
+            <p className="nota">
+              Valore di laboratorio del produttore{conf && sostituzioni.length ? ', misurato con le lastre della prova' : ''}; in opera si
+              perdono 6–8 dB.
+            </p>
           </div>
         )}
       </div>
 
-      {conf && <Classi classi={conf.classificazioni} richiesta={candidato.classificazione} />}
+      {conf && <Classi classi={candidato.classi ?? conf.classificazioni} richiesta={candidato.classificazione} />}
 
       {sis && (
         <div>

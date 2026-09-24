@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { configurazione, sostituisciStratigrafia } from '../src/data/siniat/catalogo';
-import { conOrditura, orditurePossibili, perDisponibilita, selezionaSoluzioni } from '../src/selettore';
+import { alternativeLastre, conOrditura, orditurePossibili, perDisponibilita, selezionaSoluzioni } from '../src/selettore';
 import type { Candidato } from '../src/selettore';
 import type { Requisiti } from '../src/types';
 
@@ -25,7 +25,7 @@ describe('selettore — configurazioni certificate', () => {
     }
   });
 
-  it('AF-009 a EI 120 e 5 m: C75 a interasse 600 della scheda p33-SX, altezza utile 5 m', () => {
+  it('AF-009 a EI 120 e 5 m: C75 a interasse 600 della scheda p33-SX, altezza utile 5 m (oltre i 4 m le solidtex della guida)', () => {
     const c = trova(selezionaSoluzioni(req({ fuoco: 120, altezza: 5 })).certificate, 'AF-009');
     expect(c.classificazione).toMatchObject({ tipo: 'EI', minuti: 120, hmax: 5 });
     expect(c.variante).toMatchObject({ sistemaId: 'memento-p33-SX', varianteId: 'memento-p33-SX#2', montante: 'C75', montanti: 'singolo', interasse: '600', hmaxStatica: 5 });
@@ -156,11 +156,14 @@ describe('selettore — lastre a magazzino', () => {
     }
   });
 
-  it('le pregyflam BA13 senza sostituzioni ammesse si ordinano: AF-028', () => {
-    const c = trova(selezionaSoluzioni(req({ fuoco: 90, altezza: 4 })).certificate, 'AF-028');
-    expect(c.aMagazzino).toBe(false);
-    expect(c.daOrdinare).toEqual(['pregyflam BA13']);
-    expect(c.sostituzioni).toBeUndefined();
+  it('AF-028, senza sostituzioni nella guida: fino a 4 m le pregyflam BA15, oltre si ordinano le BA13', () => {
+    const a4 = trova(selezionaSoluzioni(req({ fuoco: 90, altezza: 4 })).certificate, 'AF-028');
+    expect(a4).toMatchObject({ aMagazzino: true, daOrdinare: [] });
+    expect(a4.sostituzioni?.map((x) => [x.a, x.fonte])).toEqual([['pregyflam BA15', 'spessore']]);
+    const a5 = trova(selezionaSoluzioni(req({ fuoco: 90, altezza: 5 })).certificate, 'AF-028');
+    expect(a5).toMatchObject({ aMagazzino: false, daOrdinare: ['pregyflam BA13'] });
+    expect(a5.sostituzioni).toBeUndefined();
+    expect(a5.classificazione).toMatchObject({ minuti: 90, hmax: 12 });
   });
 
   it('PF15, pregyplac, solidtex e le membrane PF15 sono a magazzino senza sostituzioni', () => {
@@ -205,5 +208,67 @@ describe('selettore — a magazzino o su ordinazione', () => {
     const ord = perDisponibilita(certificate, 'ordine').map((c) => c.id);
     expect(ord).toEqual(expect.arrayContaining(['AF-051', 'AF-040', 'AF-041', 'AF-042']));
     expect(ord).not.toContain('AF-009');
+  });
+});
+
+describe('selettore — pregyflam BA15 al posto delle BA13 (decisione del 24/09/2026)', () => {
+  const MOTIVO = 'aumento dello spessore delle lastre, nel campo di applicazione diretta del rapporto di classificazione (UNI EN 1364-1, art. 13), fino a 4 m di altezza';
+
+  it('AF-009 a EI 120 e 3 m: di partenza le BA15, con le classi fino a 4 m', () => {
+    const c = trova(selezionaSoluzioni(req({ fuoco: 120, altezza: 3 })).certificate, 'AF-009');
+    expect(c.sostituzioni).toEqual([{ da: 'pregyflam BA13', a: 'pregyflam BA15', fonte: 'spessore', motivo: MOTIVO }]);
+    expect(c.classificazione).toMatchObject({ tipo: 'EI', minuti: 120, hmax: 4 });
+    expect(c.classificazione?.hmaxNota).toMatch(/fino a 4 m \(campo di applicazione diretta\)/);
+    expect(c.classi).toContain(c.classificazione);
+    expect(c.hmaxUtile).toBe(4);
+    expect(c).toMatchObject({ aMagazzino: true, daOrdinare: [] });
+    expect(c.avvisi).toEqual([
+      'Con le lastre a magazzino: pregyflam BA15 al posto delle pregyflam BA13, più spesse di quelle provate: variante nel campo di applicazione diretta del rapporto di classificazione (UNI EN 1364-1, art. 13), fino a 4 m. Da verificare sul rapporto.',
+      'Rw misurato con le lastre della prova.',
+    ]);
+  });
+
+  it('nella scheda si sceglie fra le BA15 e le solidtex della guida, che arrivano a 5 m', () => {
+    const r = req({ fuoco: 120, altezza: 3 });
+    const alt = alternativeLastre(trova(selezionaSoluzioni(r).certificate, 'AF-009'), r)!;
+    expect(alt.spessore.sostituzioni?.map((x) => x.a)).toEqual(['pregyflam BA15']);
+    expect(alt.guida.sostituzioni?.map((x) => x.a)).toEqual(['solidtex indoor']);
+    expect(alt.guida.classificazione).toMatchObject({ minuti: 120, hmax: 5 });
+    expect(alt.guida.hmaxUtile).toBe(5);
+    // le configurazioni già a magazzino non hanno niente da scegliere
+    expect(alternativeLastre(trova(selezionaSoluzioni(r).certificate, 'AF-036'), r)).toBeNull();
+  });
+
+  it('oltre i 4 m e in ambiente umido restano le solidtex, senza scelta', () => {
+    const a5 = req({ fuoco: 120, altezza: 5 });
+    const c5 = trova(selezionaSoluzioni(a5).certificate, 'AF-009');
+    expect(c5.sostituzioni?.map((x) => x.a)).toEqual(['solidtex indoor']);
+    expect(alternativeLastre(c5, a5)).toBeNull();
+    // le pregyflam non sono lastre H: a vista servono le solidtex
+    const umido = req({ fuoco: 60, altezza: 3, ambiente: 'umido' });
+    const cu = trova(selezionaSoluzioni(umido).certificate, 'AF-009');
+    expect(cu.sostituzioni?.map((x) => x.a)).toEqual(['solidtex indoor']);
+    expect(alternativeLastre(cu, umido)).toBeNull();
+  });
+
+  it("senza l'altezza nei requisiti si parte dalle BA15, con altezza utile 4 m", () => {
+    const c = trova(selezionaSoluzioni(req({ fuoco: 60, altezza: 0 })).certificate, 'AF-009');
+    expect(c.sostituzioni?.map((x) => x.a)).toEqual(['pregyflam BA15']);
+    expect(c.hmaxUtile).toBe(4);
+  });
+
+  it('"oltre 4 m" dei setti diventa "fino a 4 m" con le BA15', () => {
+    const c = trova(selezionaSoluzioni(req({ opera: 'cavedio', fuoco: 45, altezza: 3 })).certificate, 'AF-060');
+    expect(c.sostituzioni?.map((x) => x.a)).toEqual(['pregyflam BA15']);
+    expect(c.classificazione).toMatchObject({ minuti: 45, hmax: 4 });
+    expect(c.classificazione?.hmaxOltre).toBeUndefined();
+  });
+
+  it('solo le prove EN 1364-1: le protezioni di solai in pregyflam BA13 restano da ordinare', () => {
+    const { certificate } = selezionaSoluzioni(req({ opera: 'solaio', fuoco: 120 }));
+    for (const id of ['AF-085', 'AF-087']) {
+      expect(trova(certificate, id), id).toMatchObject({ aMagazzino: false, daOrdinare: ['pregyflam BA13'] });
+      expect(trova(certificate, id).sostituzioni, id).toBeUndefined();
+    }
   });
 });

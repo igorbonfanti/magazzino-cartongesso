@@ -65,7 +65,18 @@ intero in `magazzino-scorte/firestore.rules`, unica copia versionata: il blocco
   soluzioni tutte a magazzino. Per le configurazioni certificate usa le
   sostituzioni che la guida elenca per quella configurazione, con lastre dello
   stesso spessore; per le schede Memento nessuna sostituzione oltre alle note
-  della scheda. Nel passo 3 l'interruttore *A magazzino / Su ordinazione /
+  della scheda.
+- **Pregyflam BA15 al posto delle BA13** (deciso il 24/09/2026): è la proposta
+  di partenza per le certificate provate con la UNI EN 1364-1 (pareti, setti,
+  contropareti); le solidtex della guida restano un'opzione nella scheda della
+  soluzione. Base: l'aumento dello spessore delle lastre è nel campo di
+  applicazione diretta (art. 13) che ogni rapporto di classificazione riporta.
+  Limiti: fino a 4 m (oltre, le altezze della guida vengono dagli EXAP), non
+  per controsoffitti e solai, non in ambiente umido (le pregyflam non sono
+  lastre H): lì valgono le solidtex o le lastre da ordinare. Le classi si
+  mostrano fino a 4 m, la dicitura del preventivo lo dice con il rapporto da
+  verificare. `sostituzioniMagazzino(c, 'spessore' | 'guida')`, fonte
+  `spessore`. Nel passo 3 l'interruttore *A magazzino / Su ordinazione /
   Tutte* (si parte da A magazzino, la scelta resta nella bozza). Con la Fase 3
   la disponibilità passerà al listino.
 - **Sfrido di partenza 10% su lastre e isolante** (confermato il 23/09/2026). Il

@@ -15,13 +15,14 @@
  * quella al fuoco e quella statica.
  */
 import {
-  CATALOGO, lastreConfigurazione, misuraMontante, sistema as trovaSistema, sostituisciStratigrafia, sostituzioniMagazzino,
+  CATALOGO, classiConSostituzioni, configurazione, HMAX_PER_SPESSORE, lastreConfigurazione, misuraMontante, sistema as trovaSistema,
+  sostituisciStratigrafia, sostituzioniMagazzino,
 } from './data/siniat/catalogo';
 import { lastraDaTesto } from './data/siniat/articoli';
 import { aMagazzino } from './data/magazzino';
 import type {
-  Ambiente, Classificazione, ConfigurazioneFuoco, Disponibilita, FuocoVariante, InterasseSiniat, Opera, Requisiti, SistemaSiniat,
-  Sostituzione, Stratigrafia, VarianteSistema,
+  Ambiente, Classificazione, ConfigurazioneFuoco, Disponibilita, FuocoVariante, InterasseSiniat, Opera, Requisiti, SceltaLastre,
+  SistemaSiniat, Sostituzione, Stratigrafia, VarianteSistema,
 } from './types';
 
 export interface OperaInfo {
@@ -65,8 +66,10 @@ export interface Candidato {
   id: string;
   titolo: string;
   gruppo: string;
-  /** la classe che soddisfa la richiesta (certificate) */
+  /** la classe che soddisfa la richiesta (certificate): una di `classi` */
   classificazione?: Classificazione;
+  /** certificate: le classi come valgono con le lastre in opera (con una lastra più spessa, fino a 4 m) */
+  classi?: Classificazione[];
   /** la classe della variante scelta (schede Memento) */
   fuocoVariante?: FuocoVariante;
   /** orditura per statica e incidenze; null se non determinabile dai dati */
@@ -84,7 +87,10 @@ export interface Candidato {
   distinta: boolean;
   /** schede Memento: le configurazioni certificate con le stesse lastre */
   certificate?: string[];
-  /** lastre sostituite come ammette il produttore: per l'ambiente (Memento) o per il magazzino (guida) */
+  /**
+   * lastre sostituite: per l'ambiente (nota della scheda Memento) o per il
+   * magazzino (la stessa lastra più spessa, o la sostituzione della guida)
+   */
   sostituzioni?: Sostituzione[];
   /** tutte le lastre a magazzino (dopo le sostituzioni); null se le lastre non si ricavano dai dati */
   aMagazzino: boolean | null;
@@ -215,20 +221,65 @@ function mancanti(lastre: string[]): string[] {
   return [...new Set(lastre)].filter((l) => !aMagazzino(l));
 }
 
-function candidatoCertificato(c: ConfigurazioneFuoco, req: Requisiti, op: OperaInfo): Candidato | null {
-  // con le sostituzioni della guida, se portano tutto su lastre a magazzino
-  const sostituzioni = sostituzioniMagazzino(c) ?? [];
+/** Le stesse sostituzioni (da → a), in qualunque ordine. */
+function stesseSostituzioni(a: readonly Sostituzione[], b: readonly Sostituzione[]): boolean {
+  const k = (x: readonly Sostituzione[]) => x.map((s) => `${s.da}→${s.a}`).sort().join('|');
+  return k(a) === k(b);
+}
+
+/**
+ * La configurazione certificata come candidato, con le lastre a magazzino se
+ * si può: prima la scelta (di partenza la stessa lastra più spessa), poi
+ * l'altra strada, infine le lastre della prova, da ordinare. Vale la prima che
+ * soddisfa i requisiti: con le pregyflam BA15 al posto delle BA13 si arriva a
+ * 4 m e non ci sono lastre H a vista, quindi oltre i 4 m o in ambiente umido
+ * restano le solidtex della guida.
+ */
+function candidatoCertificato(c: ConfigurazioneFuoco, req: Requisiti, op: OperaInfo, scelta: SceltaLastre = 'spessore'): Candidato | null {
+  const prove: Sostituzione[][] = [];
+  for (const s of [scelta, scelta === 'spessore' ? 'guida' : 'spessore'] as const) {
+    const x = sostituzioniMagazzino(c, s);
+    if (x && !prove.some((p) => stesseSostituzioni(p, x))) prove.push(x);
+  }
+  if (!prove.some((p) => p.length === 0)) prove.push([]);
+  const oltre = op.altezza && req.altezza > HMAX_PER_SPESSORE;
+  for (const s of prove) {
+    if (oltre && s.some((x) => x.fonte === 'spessore')) continue;
+    const x = valutaCertificato(c, req, op, s);
+    if (x) return x;
+  }
+  return null;
+}
+
+/**
+ * Le due proposte di lastre a magazzino per una configurazione certificata,
+ * per la scelta nella scheda: la stessa lastra più spessa (di partenza) e la
+ * sostituzione della guida. null se non c'è da scegliere: una sola possibile
+ * per i requisiti, oppure uguali.
+ */
+export function alternativeLastre(c: Candidato, req: Requisiti): Record<SceltaLastre, Candidato> | null {
+  const conf = c.tipo === 'certificata' ? configurazione(c.id) : undefined;
+  if (!conf) return null;
+  const op = operaInfo(req.opera);
+  const spessore = candidatoCertificato(conf, req, op, 'spessore');
+  const guida = candidatoCertificato(conf, req, op, 'guida');
+  if (!spessore || !guida || stesseSostituzioni(spessore.sostituzioni ?? [], guida.sostituzioni ?? [])) return null;
+  return { spessore, guida };
+}
+
+function valutaCertificato(c: ConfigurazioneFuoco, req: Requisiti, op: OperaInfo, sostituzioni: Sostituzione[]): Candidato | null {
   if (!adattaAmbiente(c, req.ambiente, sostituzioni)) return null;
+  const classi = classiConSostituzioni(c, sostituzioni);
   let classe: Classificazione | undefined;
   if (req.fuoco) {
-    const ok = c.classificazioni
+    const ok = classi
       .filter((k) => k.minuti >= req.fuoco && k.tipo !== 'E')
       .filter((k) => !op.altezza || !req.altezza || k.hmax == null || k.hmaxOltre || k.hmax >= req.altezza)
       .sort((a, b) => a.minuti - b.minuti || (b.hmax ?? 99) - (a.hmax ?? 99));
     if (!ok.length) return null;
     classe = ok[0];
   } else {
-    classe = [...c.classificazioni].sort((a, b) => b.minuti - a.minuti)[0];
+    classe = [...classi].sort((a, b) => b.minuti - a.minuti)[0];
   }
   if (req.rw && (c.rw == null || c.rw < req.rw)) return null;
 
@@ -258,14 +309,18 @@ function candidatoCertificato(c: ConfigurazioneFuoco, req: Requisiti, op: OperaI
   }
   if (c.promat) avvisi.push('Sistema Promat (gruppo Etex): certificato e posa secondo la documentazione Promat.');
   for (const x of sostituzioni) {
-    avvisi.push(`Con le lastre a magazzino: ${x.a} al posto delle ${x.da}, sostituzione ammessa dalla guida antincendio per questa configurazione.`);
+    avvisi.push(
+      x.fonte === 'spessore'
+        ? `Con le lastre a magazzino: ${x.a} al posto delle ${x.da}, più spesse di quelle provate: variante nel campo di applicazione diretta del rapporto di classificazione (UNI EN 1364-1, art. 13), fino a ${HMAX_PER_SPESSORE} m. Da verificare sul rapporto.`
+        : `Con le lastre a magazzino: ${x.a} al posto delle ${x.da}, sostituzione ammessa dalla guida antincendio per questa configurazione.`,
+    );
   }
   if (sostituzioni.length && c.rw != null) avvisi.push('Rw misurato con le lastre della prova.');
   const lastre = lastreConfigurazione(c).map((l) => sostituzioni.find((x) => x.da === l)?.a ?? l);
   // "> 4,00 m": oltre quel valore vale il Fascicolo Tecnico, quindi non limita l'altezza
   const fuocoH = classe?.hmaxOltre ? null : (classe?.hmax ?? null);
   return {
-    tipo: 'certificata', id: c.id, titolo: c.codice, gruppo: c.gruppo, classificazione: classe, variante, staticaVerificata,
+    tipo: 'certificata', id: c.id, titolo: c.codice, gruppo: c.gruppo, classificazione: classe, classi, variante, staticaVerificata,
     hmaxUtile: minimo(fuocoH, variante?.hmaxStatica), rw: c.rw ?? null, lastre: contaLastre(st), prezzo: null,
     distinta: (!!variante && !!m?.incidenze && !!c.varianteMemento) ||
       (!!st && !c.promat && (st.tipo === 'parete' || st.tipo === 'setto') && c.sezione !== 'esterne' && !/curva/i.test(c.codice)),
@@ -424,8 +479,8 @@ export function conOrditura(c: Candidato, o: Orditura): Candidato {
 
 /**
  * Le soluzioni da proporre secondo la disponibilità: "magazzino" quelle con
- * tutte le lastre a scaffale (sostituzioni ammesse comprese), "ordine" le
- * altre, lastre non note comprese.
+ * tutte le lastre a scaffale (sostituzioni comprese), "ordine" le altre,
+ * lastre non note comprese.
  */
 export function perDisponibilita(candidati: Candidato[], d: Disponibilita): Candidato[] {
   if (d === 'tutte') return candidati;

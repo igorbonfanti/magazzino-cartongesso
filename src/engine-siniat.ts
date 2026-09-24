@@ -18,13 +18,14 @@
  * posatore). Il Memento non li conta.
  */
 import {
-  CATALOGO, configurazione, sistema as trovaSistema, sostituisciStratigrafia, spessoreIsolante, spessoreLastra, variante as trovaVariante,
+  CATALOGO, classiConSostituzioni, configurazione, HMAX_PER_SPESSORE, sistema as trovaSistema, sostituisciStratigrafia, spessoreIsolante,
+  spessoreLastra, variante as trovaVariante,
 } from './data/siniat/catalogo';
 import { articoloSiniat, lastraDaTesto } from './data/siniat/articoli';
 import { aMagazzino, testoOrdine } from './data/magazzino';
 import { arrotondaSu, guideGeometriche, metri, misura, montantiGeometrici, netta, pezziConSfrido } from './engine';
 import type { Avviso, RigaDistinta } from './engine';
-import type { Campitura, Classificazione, InterasseSiniat, SistemaSiniat, SoluzioneScelta, Strato, Stratigrafia } from './types';
+import type { Campitura, Classificazione, InterasseSiniat, SistemaSiniat, SoluzioneScelta, Sostituzione, Strato, Stratigrafia } from './types';
 
 /** sfrido già compreso nelle incidenze Siniat */
 export const SFRIDO_SINIAT = 5;
@@ -215,10 +216,12 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
   if (!c) return 'Configurazione non trovata nel catalogo.';
   const m = c.sistemaMemento ? trovaSistema(c.sistemaMemento) : undefined;
   const vv = trovaVariante(sol.varianteId ?? c.varianteMemento ?? '');
-  // lastre sostituite come ammette la guida: la parete che si monta è quella con le sostitute
-  const sostGuida = (sol.sostituzioni ?? []).filter((x) => x.fonte === 'guida');
-  const st = c.stratigrafia && sostGuida.length ? sostituisciStratigrafia(c.stratigrafia, sostGuida) : c.stratigrafia;
-  if (st && sostGuida.length && !c.promat && (st.tipo === 'parete' || st.tipo === 'setto')) {
+  // lastre sostituite per il magazzino (guida, o la stessa più spessa): la parete che si monta è quella con le sostitute
+  const sostLastre = (sol.sostituzioni ?? []).filter((x) => x.fonte !== 'memento');
+  const st = c.stratigrafia && sostLastre.length ? sostituisciStratigrafia(c.stratigrafia, sostLastre) : c.stratigrafia;
+  // con una lastra più spessa di quella provata le classi valgono fino a 4 m
+  const classificazioni = classiConSostituzioni(c, sol.sostituzioni ?? []);
+  if (st && sostLastre.length && !c.promat && (st.tipo === 'parete' || st.tipo === 'setto')) {
     const scheda = schedaPer(st);
     const accoppiati = (vv?.variante.montanti ?? st.montanti) === 'accoppiato';
     const interasse = sol.interasse ?? interasseDa(st.interasse);
@@ -229,7 +232,7 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
         titolo: c.codice, codice: c.codice, tipo: st.tipo, file: st.file, accoppiati, interasse, montante: v?.montante ?? st.montante ?? null,
         voci: vociDaTabella(scheda, colonna, v?.montante ?? st.montante), fonte: 'memento',
         variante: { nome: v?.nome ?? null, montante: v?.montante ?? st.montante ?? null, montanti: v?.montanti ?? st.montanti ?? null, interasse },
-        classificazioni: c.classificazioni, isolante: st.isolante ?? null,
+        classificazioni, isolante: st.isolante ?? null,
       };
     }
   } else if (m?.incidenze && vv && vv.sistema.id === m.id && !c.promat) {
@@ -241,7 +244,7 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
         titolo: c.codice, codice: c.codice, tipo: st?.tipo ?? tipoDaFamiglia(m.famiglia), file: st?.file ?? m.stratigrafia?.file ?? 1,
         accoppiati: v.montanti === 'accoppiato', interasse, montante: v.montante ?? st?.montante ?? null, voci: vociDaTabella(m, colonna, v.montante ?? st?.montante), fonte: 'memento',
         variante: { nome: v.nome, montante: v.montante ?? null, montanti: v.montanti ?? null, interasse },
-        classificazioni: c.classificazioni, ...(st ? { isolante: st.isolante ?? null } : {}),
+        classificazioni, ...(st ? { isolante: st.isolante ?? null } : {}),
       };
     }
   }
@@ -257,7 +260,7 @@ export function risolviSoluzione(sol: SoluzioneScelta): Base | string {
     titolo: c.codice, codice: c.codice, tipo: st.tipo, file: st.file, accoppiati, interasse, montante,
     voci: incidenzeDaRegola(st, interasse, accoppiati), fonte: 'regola',
     variante: { nome: v?.nome ?? null, montante, montanti: v?.montanti ?? st.montanti ?? null, interasse },
-    classificazioni: c.classificazioni, isolante: st.isolante ?? null,
+    classificazioni, isolante: st.isolante ?? null,
   };
 }
 
@@ -280,11 +283,14 @@ export function calcolaDistintaSiniat(sol: SoluzioneScelta, campiture: Campitura
   const nettaCm2 = misure.reduce((a, m) => a + netta(m), 0);
   const mqNetti = nettaCm2 / 10000;
   const muro = b.tipo === 'parete' || b.tipo === 'setto' || b.tipo === 'controparete';
+  const piuSpesse = (sol.sostituzioni ?? []).filter((x) => x.fonte === 'spessore');
 
   misure.forEach((m, i) => {
     if (m.l === undefined || m.h === undefined) return;
     const dove = misure.length > 1 ? `Campitura ${i + 1} — ` : '';
-    if (muro && opz.hmaxUtile && m.h > Math.round(opz.hmaxUtile * 100)) {
+    if (muro && piuSpesse.length && m.h > HMAX_PER_SPESSORE * 100) {
+      avvisi.push({ livello: 'attenzione', codice: 'ALTEZZA_OLTRE_HMAX', testo: `${dove}altezza ${metri(m.h)} m: con le ${piuSpesse.map((x) => x.a).join(', ')} al posto delle ${piuSpesse.map((x) => x.da).join(', ')} la configurazione vale fino a ${HMAX_PER_SPESSORE} m. Oltre, nella scheda della soluzione scegliere la sostituzione della guida, o un'altra soluzione.` });
+    } else if (muro && opz.hmaxUtile && m.h > Math.round(opz.hmaxUtile * 100)) {
       avvisi.push({ livello: 'attenzione', codice: 'ALTEZZA_OLTRE_HMAX', testo: `${dove}altezza ${metri(m.h)} m oltre l'altezza utile della soluzione (${String(opz.hmaxUtile).replace('.', ',')} m): scegliere un'orditura più robusta o un'altra soluzione.` });
     }
     if (muro && m.l > 1500) {
@@ -304,7 +310,9 @@ export function calcolaDistintaSiniat(sol: SoluzioneScelta, campiture: Campitura
       codice: 'LASTRA_SOSTITUITA',
       testo: x.fonte === 'guida'
         ? `Lastre ${x.a} al posto delle ${x.da}: ${x.motivo}, per usare le lastre a magazzino.`
-        : `Lastre ${x.a} al posto delle ${x.da}. Nota della scheda Memento: «${x.motivo.replace(/\.$/, '')}».`,
+        : x.fonte === 'spessore'
+          ? `Lastre ${x.a} al posto delle ${x.da}: ${x.motivo}. Da verificare sul rapporto di classificazione.`
+          : `Lastre ${x.a} al posto delle ${x.da}. Nota della scheda Memento: «${x.motivo.replace(/\.$/, '')}».`,
     });
   }
   if (b.isolante !== undefined) {
@@ -369,7 +377,20 @@ export function calcolaDistintaSiniat(sol: SoluzioneScelta, campiture: Campitura
     titolo: b.titolo, codice: b.codice, fonteIncidenze: b.fonte, variante: b.variante,
     mqLordi: lordaCm2 / 10000, mqAperture: (lordaCm2 - nettaCm2) / 10000, mqNetti,
     righe, avvisi, hint: [],
-    ...(b.classificazioni.length ? { dicitura: 'Sistema da verificare su certificato produttore: posa secondo il rapporto di classificazione.' } : {}),
+    ...(b.classificazioni.length ? { dicitura: dicitura(b.classificazioni, piuSpesse) } : {}),
     classificazioni: b.classificazioni,
   };
+}
+
+/**
+ * La dicitura del preventivo: si rinvia al certificato, non si certifica. Con
+ * una lastra più spessa di quella provata lo si dice, con i rapporti di
+ * classificazione su cui verificarlo (non gli EXAP né i fascicoli tecnici).
+ */
+function dicitura(classi: Classificazione[], piuSpesse: Sostituzione[]): string {
+  const base = 'Sistema da verificare su certificato produttore: posa secondo il rapporto di classificazione.';
+  if (!piuSpesse.length) return base;
+  const rapporti = [...new Set(classi.map((k) => k.riferimenti[0]?.testo).filter((t): t is string => !!t && !/EXAP|^FT |fascicolo/i.test(t)))];
+  const lastre = piuSpesse.map((x) => `${x.a} al posto delle ${x.da}`).join(', ');
+  return `${base} Variante con ${lastre} della configurazione provata: aumento dello spessore delle lastre (UNI EN 1364-1, art. 13), da verificare sul rapporto di classificazione${rapporti.length ? ` ${rapporti.join(', ')}` : ''}; altezza fino a ${HMAX_PER_SPESSORE} m.`;
 }

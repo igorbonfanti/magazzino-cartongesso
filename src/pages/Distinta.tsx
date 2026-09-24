@@ -13,9 +13,9 @@ import {
   sfridoPerMotore,
 } from '../lib/bozza';
 import type { Bozza, RequisitiBozza, SoluzioneBozza } from '../lib/bozza';
-import { conOrditura, OPERE, operaInfo, orditurePossibili, selezionaSoluzioni } from '../selettore';
+import { alternativeLastre, conOrditura, OPERE, operaInfo, orditurePossibili, selezionaSoluzioni } from '../selettore';
 import type { Candidato } from '../selettore';
-import type { SoluzioneScelta } from '../types';
+import type { SceltaLastre, SoluzioneScelta } from '../types';
 import type { RigaDistinta } from '../engine';
 import { useAccesso } from '../lib/auth';
 import { useDati } from '../lib/dati';
@@ -90,7 +90,14 @@ export default function Distinta() {
     sol && sol.tipo !== 'classico' && sol.varianteId
       ? orditure.find((o) => o.v.id === sol.varianteId && o.interasse === sol.interasse)
       : undefined;
-  const effettivo = candidato && manuale ? conOrditura(candidato, manuale) : candidato;
+  // lastre a magazzino delle certificate: di partenza la stessa più spessa, a scelta quella della guida
+  const alternative = useMemo(
+    () => (candidato && req ? alternativeLastre(candidato, req) : null),
+    [candidato?.tipo, candidato?.id, chiaveReq],
+  );
+  const sceltaLastre: SceltaLastre = sol && sol.tipo !== 'classico' && sol.lastre === 'guida' ? 'guida' : 'spessore';
+  const base = alternative ? alternative[sceltaLastre] : candidato;
+  const effettivo = base && manuale ? conOrditura(base, manuale) : base;
 
   const campiture = campiturePerMotore(bozza);
   const scelta: SoluzioneScelta | null = effettivo
@@ -212,7 +219,21 @@ export default function Distinta() {
               verticale={!!op?.altezza}
               orditure={orditure}
               orditura={effettivo.variante ? { varianteId: effettivo.variante.varianteId, interasse: effettivo.variante.interasse } : null}
-              cambiaOrditura={(o) => scegli({ tipo: effettivo.tipo, id: effettivo.id, varianteId: o.varianteId, interasse: o.interasse })}
+              cambiaOrditura={(o) =>
+                scegli({
+                  tipo: effettivo.tipo, id: effettivo.id, varianteId: o.varianteId, interasse: o.interasse,
+                  ...(sceltaLastre === 'guida' ? { lastre: sceltaLastre } : {}),
+                })
+              }
+              lastre={
+                alternative
+                  ? {
+                      alternative,
+                      scelta: sceltaLastre,
+                      cambia: (lastre) => sol && sol.tipo !== 'classico' && scegli({ ...sol, lastre }),
+                    }
+                  : null
+              }
             />
           </Passo>
 

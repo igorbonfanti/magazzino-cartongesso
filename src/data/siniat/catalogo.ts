@@ -7,9 +7,11 @@
  * nelle estrazioni e si rigenera, come il seed di magazzino-scorte.
  */
 import dati from './catalogo.json';
-import { aMagazzino } from '../magazzino';
+import { aMagazzino, LASTRE_A_MAGAZZINO } from '../magazzino';
 import { lastraDaTesto } from './articoli';
-import type { CatalogoSiniat, ConfigurazioneFuoco, SistemaSiniat, Sostituzione, Strato, Stratigrafia, VarianteSistema } from '../../types';
+import type {
+  CatalogoSiniat, Classificazione, ConfigurazioneFuoco, SceltaLastre, SistemaSiniat, Sostituzione, Strato, Stratigrafia, VarianteSistema,
+} from '../../types';
 
 export const CATALOGO = dati as unknown as CatalogoSiniat;
 
@@ -92,22 +94,79 @@ function lastraSostitutiva(nome: string, originale: string): string {
 }
 
 /**
- * Le sostituzioni che la guida ammette per questa configurazione e che la
- * portano tutta su lastre a magazzino: [] se lo è già, null se non basta.
- * Per ogni lastra la prima sostituta a magazzino nell'ordine della guida, con
- * lo stesso spessore di quella provata.
+ * Fin dove vale una lastra più spessa di quella provata: il campo di
+ * applicazione diretta arriva all'altezza provata più 1 m, al massimo 4 m. Le
+ * altezze maggiori della guida vengono dai rapporti EXAP, che per le lastre più
+ * spesse vanno verificati.
  */
-export function sostituzioniMagazzino(c: ConfigurazioneFuoco): Sostituzione[] | null {
+export const HMAX_PER_SPESSORE = 4;
+
+const famigliaLastra = (l: string) => l.replace(/\s*BA\d+$/, '');
+
+/**
+ * La stessa lastra, più spessa, a magazzino: oggi la pregyflam BA15 al posto
+ * della BA13. L'aumento dello spessore delle lastre è nel campo di
+ * applicazione diretta delle prove sulle pareti (UNI EN 1364-1, art. 13),
+ * riportato in ogni rapporto di classificazione: vale per pareti, setti e
+ * contropareti provati con quella norma, non per controsoffitti e solai, dove
+ * più peso vuol dire un altro carico su pendini e orditura.
+ */
+function piuSpessaAMagazzino(c: ConfigurazioneFuoco, da: string): string | null {
+  if (c.normaProva !== 'EN 1364-1' || famigliaLastra(da) === da) return null;
+  return (
+    LASTRE_A_MAGAZZINO.filter((l) => famigliaLastra(l) === famigliaLastra(da) && spessoreLastra(l) > spessoreLastra(da))
+      .sort((a, b) => spessoreLastra(a) - spessoreLastra(b))[0] ?? null
+  );
+}
+
+/**
+ * Le sostituzioni che portano la configurazione tutta su lastre a magazzino:
+ * [] se lo è già, null se non basta. Per ogni lastra, nell'ordine della scelta:
+ * - "spessore" (di partenza): la stessa lastra più spessa, vedi piuSpessaAMagazzino;
+ * - "guida": la prima sostituta a magazzino fra quelle elencate dalla guida
+ *   per la configurazione, con lo stesso spessore di quella provata.
+ * Se per una lastra c'è solo l'altra strada, vale quella.
+ */
+export function sostituzioniMagazzino(c: ConfigurazioneFuoco, scelta: SceltaLastre = 'spessore'): Sostituzione[] | null {
   const sostituzioni: Sostituzione[] = [];
   for (const da of lastreConfigurazione(c)) {
     if (aMagazzino(da)) continue;
-    const a = (c.sostituibilita[da] ?? [])
+    const sost = (c.sostituibilita[da] ?? [])
       .map((nome) => lastraSostitutiva(nome, da))
       .find((l) => aMagazzino(l) && spessoreLastra(l) === spessoreLastra(da));
-    if (!a) return null;
-    sostituzioni.push({ da, a, fonte: 'guida', motivo: `sostituibilità indicata dalla guida antincendio per ${c.id}` });
+    const perGuida: Sostituzione | null = sost
+      ? { da, a: sost, fonte: 'guida', motivo: `sostituibilità indicata dalla guida antincendio per ${c.id}` }
+      : null;
+    const spessa = piuSpessaAMagazzino(c, da);
+    const perSpessore: Sostituzione | null = spessa
+      ? {
+          da, a: spessa, fonte: 'spessore',
+          motivo: `aumento dello spessore delle lastre, nel campo di applicazione diretta del rapporto di classificazione (UNI EN 1364-1, art. 13), fino a ${HMAX_PER_SPESSORE} m di altezza`,
+        }
+      : null;
+    const x = scelta === 'spessore' ? perSpessore ?? perGuida : perGuida ?? perSpessore;
+    if (!x) return null;
+    sostituzioni.push(x);
   }
   return sostituzioni;
+}
+
+/**
+ * Le classi della configurazione come valgono con le lastre in opera: con una
+ * lastra più spessa di quella provata l'altezza si ferma a 4 m (vedi
+ * HMAX_PER_SPESSORE), anche dove la guida dice "oltre 4 m".
+ */
+export function classiConSostituzioni(c: ConfigurazioneFuoco, sostituzioni: readonly Sostituzione[] = []): Classificazione[] {
+  if (!sostituzioni.some((x) => x.fonte === 'spessore')) return c.classificazioni;
+  return c.classificazioni.map(({ hmaxOltre, hmaxNota, ...k }) =>
+    k.hmax != null && k.hmax <= HMAX_PER_SPESSORE && !hmaxOltre
+      ? { ...k, ...(hmaxNota ? { hmaxNota } : {}) }
+      : {
+          ...k,
+          hmax: HMAX_PER_SPESSORE,
+          hmaxNota: `Con lastre più spesse di quelle provate fino a ${HMAX_PER_SPESSORE} m (campo di applicazione diretta): oltre vale il rapporto EXAP, da verificare.`,
+        },
+  );
 }
 
 /**
