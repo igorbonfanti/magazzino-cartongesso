@@ -6,9 +6,9 @@
 <linearGradient id="l" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
 </linearGradient>
-<mask id="m"><rect width="64" height="64" fill="#fff"/><g fill="#000"><circle cx="15.5" cy="24" r="2"/><circle cx="15.5" cy="32" r="2"/><circle cx="15.5" cy="40" r="2"/><circle cx="31.5" cy="24" r="2"/><circle cx="31.5" cy="32" r="2"/><circle cx="31.5" cy="40" r="2"/></g></mask>
+<mask id="m"><rect width="64" height="64" fill="#fff"/><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"><path d="M7 26L32 37 57 26M7 36L32 47 57 36"/></g></mask>
 </defs>
 <rect width="64" height="64" rx="14" fill="url(#g)"/>
 <rect width="64" height="64" rx="14" fill="url(#l)"/>
-<g transform="translate(32 32) scale(1.08) translate(-32 -32)"><g fill="#ffffff" mask="url(#m)"><rect x="10" y="11" width="44" height="5" rx="1.5"/><rect x="10" y="48" width="44" height="5" rx="1.5"/><rect x="40.5" y="16" width="5" height="32"/><rect x="10" y="18" width="27" height="28" rx="1.5"/></g></g>
+<g transform="translate(32 32) scale(1.08) translate(-32 -32)"><g fill="#ffffff" mask="url(#m)"><path d="M32 11L57 22v4L32 37 7 26v-4z"/><path d="M32 21L57 32v4L32 47 7 36v-4z"/><path d="M32 31L57 42v4L32 57 7 46v-4z"/></g></g>
 </svg>
