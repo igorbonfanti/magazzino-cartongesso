@@ -31,7 +31,9 @@ function Guscio() {
   return (
     <div className="app">
       <header className="ag-header">
-        <div className="ag-logo">ME</div>
+        <a className="ag-logo" href="https://ilmagazzinoedile.web.app/" title="Tutte le app" style={{ textDecoration: 'none' }}>
+          ME
+        </a>
         <div className="ag-titolo">
           <h1>Il Magazzino Edile</h1>
           <span className="ag-modulo">Cartongesso</span>
